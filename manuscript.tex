@@ -88,7 +88,7 @@ The treatment conditions vary along three dimensions regarding this fictional al
 \subsection{Variables}
 Our analysis utilizes several key variables from the SSI-2012 dataset.
 
-\textbf{Dependent Variables:} The baseline measure of taste was captured by asking respondents to evaluate the painting on a 1--7 ordinal scale. We reversed the original coding so that higher values indicate greater affinity (1 = ``I dislike it very much'', 4 = ``I neither like it nor dislike it'', 7 = ``I like it very much''). The primary dependent variable is the shift in this aesthetic evaluation across the two trials. We analyze this outcome in several ways: as a continuous change score, through an ordinal structure using Cumulative Link Mixed Models (as detailed in the appendix), and as a nominal behavioral outcome categorized as \textit{staying} (no change in evaluation), \textit{conforming} (moving toward the alter group's evaluation), or \textit{reacting} (moving away from the alter group's evaluation).
+\textbf{Dependent Variables:} The baseline measure of taste was captured by asking respondents to evaluate the painting on a 1--7 ordinal scale. We reversed the original coding so that higher values indicate greater affinity (1 = ``I dislike it very much'', 4 = ``I neither like it nor dislike it'', 7 = ``I like it very much''). The primary dependent variable is the shift in this aesthetic evaluation across the two trials. We analyze this outcome in two primary ways: as a continuous change score, and as a nominal behavioral outcome categorized as \textit{staying} (no change in evaluation), \textit{conforming} (moving toward the alter group's evaluation), or \textit{reacting} (moving away from the alter group's evaluation).
 
 \textbf{Independent Variables:} The primary independent variables consist of the experimental condition factors indicating the alter group's status and evaluation. These include combinations of Alter Taste (Like/Dislike) and Alter Status (+Status: Middle-class/College-educated vs. -Status: Working-class/No College), alongside baseline control conditions and conditions providing only taste information without class status. 
 
@@ -170,16 +170,6 @@ Finally, our analysis of the three Simmelian forms that over time taste judgment
 
 \newpage
 \appendix
-\section{Robustness Check: Cumulative Link Models (CLM)}
-While we primarily report the results of linear mixed models in the main text to provide intuitive average effect sizes (analyzing taste shift as a continuous score), treating a 7-point Likert scale as continuous can result in biased standard errors. To ensure our findings are not statistical artifacts of this assumption, we employ a Cumulative Link Model (CLM) as a rigorous robustness check. 
-
-By respecting ordinal scale boundaries, the CLM ensures that respondents who already rated the painting a ``7'' or a ``1'' in Trial 1 are modeled correctly (i.e., they cannot shift higher or lower, respectively), preventing boundary-induced underestimation of treatment effects. 
-
-We re-estimated the trial interactions using an IPW-weighted CLM. The CLM results (Table \ref{tab:clm}) mathematically confirm the findings of the linear models: the direction and significance of the condition-specific shifts remain consistent. This assures us that the observed behaviors---particularly the distancing effects among low-status respondents---are robust structural realities, not merely ceiling or floor artifacts caused by the bounded 1--7 survey scale.
-
-\input{tables/clm_table.tex}
-
-\newpage
 \section{Sensitivity Analysis: Isolating Class Feedback}
 To ensure that the results in the main text are driven by the \textit{class status} of the fictional alter groups, we ran a sensitivity analysis dropping the ``No Status'' conditions. 
 

@@ -1,9 +1,7 @@
 # R/advanced_models.R
 # Explores advanced analytical strategies: 
-# 1. Ordinal Mixed-Effects Models (CLMM)
-# 2. Multinomial Logit for Conformity vs Reactance
+# 1. Multinomial Logit for Conformity vs Reactance
 
-library(ordinal)
 library(nnet)
 library(dplyr)
 library(ggplot2)
@@ -14,28 +12,8 @@ data_list <- process_data()
 df_long <- data_list$long
 df_wide <- data_list$wide
 
-# Ensure taste is an ordered factor
-df_long$taste_ord <- factor(df_long$taste, ordered = TRUE, levels = 1:7)
-
 cat("\n=============================================\n")
-cat("1. Cumulative Link Mixed Model (Ordinal CLMM)\n")
-cat("=============================================\n")
-
-# Fit the CLMM model equivalent to Model 3
-cat("Fitting ordinal mixed model (this may take a moment)...\n")
-clmm_mod <- clmm(taste_ord ~ factor(trial) * cond2_factor + (1 | id), data = df_long)
-print(summary(clmm_mod))
-
-# Predict average marginal effects
-cat("\nComputing average marginal effects for trial using CLMM...\n")
-# In ordinal models, 'mean' effect or specific class probabilities can be computed. 
-# We look at the shift in latent score (or expected value) by treating levels as numeric for summary
-# A simpler way is to just look at the fixed effect coefficients for the interaction
-interaction_coefs <- coef(clmm_mod)[grep("trial.*cond", names(coef(clmm_mod)))]
-print(interaction_coefs)
-
-cat("\n=============================================\n")
-cat("2. Multinomial Logit Model for Conformity vs Reactance\n")
+cat("1. Multinomial Logit Model for Conformity vs Reactance\n")
 cat("=============================================\n")
 
 # Define Conform, React, and Stay behaviors

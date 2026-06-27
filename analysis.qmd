@@ -113,19 +113,7 @@ print(p_forest)
 ggsave("figures/Figure5_TrialEffects_Forest.png", p_forest, width = 10, height = 8)
 ```
 
-## 5. Cumulative Link Mixed Models (CLMM - Weighted)
-
-```{r clmm, warning=FALSE, message=FALSE, eval=FALSE}
-df_long$taste_ord <- factor(df_long$taste, ordered = TRUE, levels = 1:7)
-clmm_mod <- clmm(taste_ord ~ factor(trial) * cond2_factor + (1 | id), 
-                 data = df_long, weights = ipw_weight)
-
-# Display interaction coefficients
-clmm_coefs <- coef(clmm_mod)[grep("trial.*cond", names(coef(clmm_mod)))]
-round(clmm_coefs, 3)
-```
-
-## 6. Disaggregating Behavior: Conformity vs. Reactance (Weighted)
+## 5. Disaggregating Behavior: Conformity vs. Reactance (Weighted)
 
 ```{r multinom, warning=FALSE, message=FALSE, fig.width=8, fig.height=6}
 df_multi <- df_wide_cc %>%
@@ -164,7 +152,7 @@ print(p_multi)
 ggsave("figures/Figure7_MultinomialBehavior.png", p_multi, width = 10, height = 6)
 ```
 
-## 7. Sensitivity Analysis: Isolating Class Feedback (Weighted)
+## 6. Sensitivity Analysis: Isolating Class Feedback (Weighted)
 
 ```{r sensitivity, warning=FALSE, message=FALSE, fig.width=8, fig.height=6}
 # Filter out "Taste Only" conditions
