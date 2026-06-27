@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex manuscript"] 1782574723.14944 "manuscript.aux" "manuscript.bbl" "manuscript" 1782574724.89235 0
+["bibtex manuscript"] 1782578868.29021 "manuscript.aux" "manuscript.bbl" "manuscript" 1782578869.83349 0
   "./references.bib" 1782574199.19955 4369 694b8b578af42156080eeea33d57631a ""
   "/home/omarlizardo/.TinyTeX/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "manuscript.aux" 1782574724.84338 5470 cd4f8ce67124b5cb914da7fd9b9e8fc6 "pdflatex"
+  "manuscript.aux" 1782578869.79324 5326 244f53afe8a5f2966c4d6df332635584 "pdflatex"
   (generated)
   "manuscript.bbl"
   "manuscript.blg"
   (rewritten before read)
-["pdflatex"] 1782574723.16644 "/home/omarlizardo/CULTURE PROJECTS/OMAR PROJECTS/skiles-lizardo-taste-influence-paper/manuscript.tex" "manuscript.pdf" "manuscript" 1782574724.89257 0
+["pdflatex"] 1782578868.30105 "/home/omarlizardo/CULTURE PROJECTS/OMAR PROJECTS/skiles-lizardo-taste-influence-paper/manuscript.tex" "manuscript.pdf" "manuscript" 1782578869.83378 0
   "/home/omarlizardo/.TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/home/omarlizardo/.TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/home/omarlizardo/.TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -77,17 +77,17 @@
   "/home/omarlizardo/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1782404925.09172 14040 3af97cdf7dbd8e1aa2314913fb0bb199 ""
   "/home/omarlizardo/.TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1782267010 2251131 8c77b250340dcf4adb0da4dc4e36d88a ""
   "/home/omarlizardo/.TinyTeX/texmf.cnf" 1782253960.34674 637 edd806fb06a89761a6034e1968af9017 ""
-  "/home/omarlizardo/CULTURE PROJECTS/OMAR PROJECTS/skiles-lizardo-taste-influence-paper/manuscript.tex" 1782574720.7595 19302 738a87ab230214af1896f1e59ff04063 ""
-  "figures/Figure11_Sens_MultinomialBehavior.png" 1782431455.82642 140913 3caeb930cb864e93a309995a5b095e38 ""
-  "figures/Figure5_TrialEffects_Forest.png" 1782574672.43988 229699 242c30b6def90ebd225cad771b08efab ""
-  "figures/Figure7_MultinomialBehavior.png" 1782430053.74151 113269 43a6446bc3611cd19ae291dadbe91d19 ""
+  "/home/omarlizardo/CULTURE PROJECTS/OMAR PROJECTS/skiles-lizardo-taste-influence-paper/manuscript.tex" 1782578866.45824 19662 84889fb3e092396eefc140315947a81c ""
+  "figures/Figure11_Sens_MultinomialBehavior.png" 1782578819.4309 148490 1591a1c57f548177f945ec92d2cbd853 ""
+  "figures/Figure5_TrialEffects_Forest.png" 1782578816.84295 232833 dfd4ed5968c54aa5e7c526036eaa725c ""
+  "figures/Figure7_MultinomialBehavior.png" 1782578818.24692 150466 397b1dc23411b592658810111f4fe8be ""
   "figures/Figure8_CovariateBalance.png" 1782431321.19279 83755 ee3e80b31913c0676e13d54863d9afb8 ""
   "figures/Figure9_WeightedMultinomialBehavior.png" 1782431323.42777 139999 1b94e0374e5feb1b9ed4b24961277a0b ""
   "figures/experimental_stimulus.jpeg" 1782574315.57608 93033 619c4e3e1d3e8c03b46dd25e4e1f95d8 ""
-  "manuscript.aux" 1782574724.84338 5470 cd4f8ce67124b5cb914da7fd9b9e8fc6 "pdflatex"
-  "manuscript.bbl" 1782574723.16343 2882 719688fcc8566cdc93f6f2b5531efac0 "bibtex manuscript"
-  "manuscript.out" 1782574724.84338 3143 3be47b6b164619a8fc7ae572ed14912e "pdflatex"
-  "manuscript.tex" 1782574720.7595 19302 738a87ab230214af1896f1e59ff04063 ""
+  "manuscript.aux" 1782578869.79324 5326 244f53afe8a5f2966c4d6df332635584 "pdflatex"
+  "manuscript.bbl" 1782578868.29824 2882 719688fcc8566cdc93f6f2b5531efac0 "bibtex manuscript"
+  "manuscript.out" 1782578869.79424 2892 0b8fa1aed70fa16541e13cc857f0a8b4 "pdflatex"
+  "manuscript.tex" 1782578866.45824 19662 84889fb3e092396eefc140315947a81c ""
   (generated)
   "manuscript.aux"
   "manuscript.log"

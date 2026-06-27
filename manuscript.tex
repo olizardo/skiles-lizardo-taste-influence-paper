@@ -101,8 +101,10 @@ To overcome the limitations of standard linear regression and fully test our hyp
 \begin{enumerate}
     \item \textbf{Cumulative Link Mixed Models (CLMM):} Because taste is a 7-point Likert-type scale, treating it as a continuous outcome can result in biased standard errors and out-of-bounds predictions. We implemented a CLMM to respect the bounded ordinal nature of the data. By respecting scale boundaries, the CLMM ensures that respondents who already rated the painting a ``7'' in Trial 1 are modeled correctly (they cannot shift higher), preventing boundary-induced underestimation of treatment effects.
     \item \textbf{Multinomial Logistic Regression:} To disaggregate shifts into Conformity and Reactance based on the direction of the alter's feedback.
-    \item \textbf{Propensity Score Weighting (IPW):} To balance demographic covariates (age, gender, race, parent's education) across observational status groups, ensuring the moderating effects of class are not confounded.
+    \item \textbf{Propensity Score Weighting (IPW):} We employ Inverse Probability Weighting on all models to balance demographic covariates (age, gender, race, parent's education) across observational status groups, ensuring that the estimated moderating effects of class are not confounded by other demographic differences.
 \end{enumerate}
+
+All results reported below utilize these IPW weights to ensure unbiased estimates of the status interactions.
 
 \section{Results}
 
@@ -120,13 +122,13 @@ In the ``Taste Only'' conditions, we hypothesized that positive evaluations from
 \end{figure}
 
 \subsection{Evaluating Status-Based Influence (Hypotheses 1--3)}
-When introducing the class status of the fictional alter group, we observe complex dynamics that challenge the standard hypotheses. 
+When introducing the class status of the fictional alter group, we observe complex dynamics that challenge linear theories of social influence. 
 
-\textbf{Hypothesis 1 (Same-status association)} predicted that respondents would change their judgments negatively when exposed to the negative judgment of their own status peers. This is \textit{not supported}. For example, High-status respondents (Middle Class, College) show no significant negative shift when exposed to High-status dislikes. More strikingly, Low-status respondents (Working Class, No College) actually show a significant \textit{positive} shift (distancing) when exposed to Low-status dislikes.
+\textbf{Hypothesis 1 (Same-status alignment)} predicted that respondents would align their judgments with the positive and negative judgments of their own status peers. This finds \textit{mixed support}. High-status respondents (Middle Class, College) show a significant positive shift when exposed to High-status likes, but no significant negative shift when exposed to High-status dislikes. In contrast, Low-status respondents (Working Class, No College) do not align with Low-status likes, and strikingly, they show a significant \textit{positive} shift (distancing) when exposed to Low-status dislikes. Thus, low-status individuals actively react against the negative tastes of their own peers.
 
-\textbf{Hypothesis 2 (Symbolic power)} predicted that Low-status respondents would conform negatively to High-status dislikes. This is also \textit{not supported}. Low-status respondents exhibit null shifts in response to High-status negative feedback, rather than conformity.
+\textbf{Hypothesis 2 (Symbolic power/upward alignment)} predicted that Low-status respondents would align with High-status judgments. We find \textit{partial support}. Low-status respondents do exhibit a significant positive shift when told High-status others like the painting. However, they exhibit null shifts in response to High-status negative feedback, rather than conformity.
 
-\textbf{Hypothesis 3 (Cross-status reactance)} predicted distancing (positive shifts) when exposed to out-group dislikes. We find partial support for this, though not symmetrically. High-status respondents do not significantly distance from Low-status dislikes. However, Low-status respondents heavily distance from their own group (as noted above), suggesting that reactance is driven more by avoiding low-status signals than strict cross-status dynamics.
+\textbf{Hypothesis 3 (Cross-status reactance)} predicted distancing when exposed to out-group judgments. This is \textit{not supported}. High-status respondents do not significantly distance (shift negatively) from Low-status likes, nor do they distance (shift positively) from Low-status dislikes. The strongest distancing behavior in the data actually occurs within-group (Low-status respondents reacting against Low-status dislikes), suggesting that reactance is driven more by avoiding low-status stigma than by strict cross-status boundaries.
 
 \subsection{Disaggregating Behavior: Conformity vs. Reactance}
 Because a linear shift obscures whether a respondent is moving \textit{toward} (Conformity) or \textit{away from} (Reactance) the group, we map the behavioral shifts and fit a Multinomial Logistic Regression model.
