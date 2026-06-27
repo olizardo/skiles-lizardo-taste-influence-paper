@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 10:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 10:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -359,7 +359,14 @@ Package caption Info: End \AtBeginDocument code.
 
 [1
 
-{/home/omarlizardo/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+{/home/omarlizardo/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package natbib Warning: Citation `wohl2015community-2d2' on page 2 undefined on input line 37.
+
+
+Package natbib Warning: Citation `vanzella2022tastes' on page 2 undefined on input line 37.
+
+[2]
 Overfull \hbox (5.95526pt too wide) in paragraph at lines 57--58
 []\OT1/cmr/bx/n/12 Negative Eval-u-a-tions: \OT1/cmr/m/n/12 Neg-a-tive eval-u-a-tions (dis-lik-ing) from gen-er-al-ized oth-ers should
  []
@@ -368,58 +375,65 @@ Overfull \hbox (5.95526pt too wide) in paragraph at lines 57--58
 <figures/experimental_stimulus.jpeg, id=139, 513.92pt x 327.2225pt>
 File: figures/experimental_stimulus.jpeg Graphic file (type jpg)
 <use figures/experimental_stimulus.jpeg>
-Package pdftex.def Info: figures/experimental_stimulus.jpeg  used on input line 71.
+Package pdftex.def Info: figures/experimental_stimulus.jpeg  used on input line 79.
 (pdftex.def)             Requested size: 258.36668pt x 164.50958pt.
- [4 <./figures/experimental_stimulus.jpeg>]
-<figures/Figure8_CovariateBalance.png, id=146, 578.16pt x 433.62pt>
+ [4 <./figures/experimental_stimulus.jpeg>] [5]
+<figures/Figure8_CovariateBalance.png, id=150, 578.16pt x 433.62pt>
 File: figures/Figure8_CovariateBalance.png Graphic file (type png)
 <use figures/Figure8_CovariateBalance.png>
-Package pdftex.def Info: figures/Figure8_CovariateBalance.png  used on input line 97.
+Package pdftex.def Info: figures/Figure8_CovariateBalance.png  used on input line 105.
 (pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
- [5]
-<figures/Figure5_TrialEffects_Forest.png, id=153, 722.7pt x 578.16pt>
+<figures/Figure5_TrialEffects_Forest.png, id=152, 722.7pt x 578.16pt>
 File: figures/Figure5_TrialEffects_Forest.png Graphic file (type png)
 <use figures/Figure5_TrialEffects_Forest.png>
-Package pdftex.def Info: figures/Figure5_TrialEffects_Forest.png  used on input line 110.
+Package pdftex.def Info: figures/Figure5_TrialEffects_Forest.png  used on input line 118.
 (pdftex.def)             Requested size: 469.75502pt x 375.80836pt.
  [6 <./figures/Figure8_CovariateBalance.png>] [7 <./figures/Figure5_TrialEffects_Forest.png>]
 <figures/Figure7_MultinomialBehavior.png, id=165, 722.7pt x 433.62pt>
 File: figures/Figure7_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure7_MultinomialBehavior.png>
-Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input line 131.
+Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input line 139.
 (pdftex.def)             Requested size: 422.77664pt x 253.66338pt.
- [8 <./figures/Figure7_MultinomialBehavior.png>]
-<figures/Figure11_Sens_MultinomialBehavior.png, id=172, 722.7pt x 433.62pt>
-File: figures/Figure11_Sens_MultinomialBehavior.png Graphic file (type png)
-<use figures/Figure11_Sens_MultinomialBehavior.png>
-Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on input line 145.
-(pdftex.def)             Requested size: 422.77664pt x 253.66338pt.
- [9 <./figures/Figure11_Sens_MultinomialBehavior.png>]
-Overfull \hbox (2.4248pt too wide) in paragraph at lines 161--162
+
+
+Package natbib Warning: Citation `stryker1978status-d86' on page 8 undefined on input line 144.
+
+[8 <./figures/Figure7_MultinomialBehavior.png>]
+Overfull \hbox (2.4248pt too wide) in paragraph at lines 155--156
 []\OT1/cmr/m/n/12 Finally, these the-o-ret-i-cal in-sights are only vis-i-ble be-cause we re-placed a bi-nary ``stay/shift''
  []
 
-(./manuscript.bbl [10]) [11] [12] (./manuscript.aux)
+(./manuscript.bbl [9]) [10] [11]
+<figures/Figure11_Sens_MultinomialBehavior.png, id=199, 722.7pt x 433.62pt>
+File: figures/Figure11_Sens_MultinomialBehavior.png Graphic file (type png)
+<use figures/Figure11_Sens_MultinomialBehavior.png>
+Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on input line 176.
+(pdftex.def)             Requested size: 422.77664pt x 253.66338pt.
+
+
+Package natbib Warning: There were undefined citations.
+
+[12 <./figures/Figure11_Sens_MultinomialBehavior.png>] (./manuscript.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 21235E04B378D1175F552B50E79707B4;3107.
+(rerunfilecheck)             Checksum: 3B4C05B909B8062138A02289B49752FD;3257.
  ) 
 Here is how much of TeX's memory you used:
  11678 strings out of 469158
- 186654 string characters out of 5459787
- 616882 words of memory out of 5000000
+ 186646 string characters out of 5459787
+ 617883 words of memory out of 5000000
  40532 multiletter control sequences out of 15000+600000
  631128 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,6n,79p,1223b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,6n,79p,1245b,518s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/omarlizardo/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on manuscript.pdf (12 pages, 826764 bytes).
+Output written on manuscript.pdf (12 pages, 827421 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
+ 252 PDF objects out of 1000 (max. 8388607)
+ 217 compressed objects within 3 object streams
  49 named destinations out of 1000 (max. 500000)
  154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

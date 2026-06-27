@@ -143,18 +143,6 @@ To capture these distinct behaviors, we map the continuous shifts onto three dis
 
 This behavioral disaggregation clarifies why the linear hypotheses (H1--H3) yielded mixed results: \textit{status inconsistency} \citep{stryker1978status-d86}, or an individual's location in a ``contradictory'' area of the social space \citep{bourdieu1984}, fundamentally alters the propensity to conform or react regardless of the status of the specific alter involved. As Figure \ref{fig:multinom} reveals, Middle Class individuals without a college degree are highly prone to \textit{conformity}, whereas Working Class individuals with a college degree display the highest baseline probability of \textit{reactance}. 
 
-\subsection{Sensitivity Analysis: Isolating Class Feedback}
-To ensure that the results are driven by the \textit{class status} of the fictional alter groups, we run a sensitivity analysis dropping the ``No Status'' conditions. 
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/Figure11_Sens_MultinomialBehavior.png}
-    \caption{Behavioral Response (Excluding `No Status' Conditions)}
-    \label{fig:sens_multinom}
-\end{figure}
-
-The probability distributions of conformity versus reactance remain highly consistent with the main findings, confirming that the presence of class-based status information uniquely structures the evaluation shifts of respondents.
-
 \section{Discussion and Conclusion}
 Our analysis demonstrates that aesthetic judgments are deeply malleable, but not uniformly so. By returning to the theoretical frameworks outlined in our introduction, these findings advance the sociology of culture in several critical ways. 
 
@@ -178,5 +166,18 @@ While we primarily report the results of linear mixed models in the main text to
 By respecting ordinal scale boundaries, the CLMM ensures that respondents who already rated the painting a ``7'' or a ``1'' in Trial 1 are modeled correctly (i.e., they cannot shift higher or lower, respectively), preventing boundary-induced underestimation of treatment effects. 
 
 We re-estimated the trial interactions using the CLMM. The CLMM results mathematically confirm the findings of the linear models: the direction and significance of the condition-specific shifts remain consistent. This assures us that the observed behaviors---particularly the distancing effects among low-status respondents---are robust structural realities, not merely ceiling or floor artifacts caused by the bounded 1--7 survey scale.
+
+\newpage
+\section{Sensitivity Analysis: Isolating Class Feedback}
+To ensure that the results in the main text are driven by the \textit{class status} of the fictional alter groups, we ran a sensitivity analysis dropping the ``No Status'' conditions. 
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Figure11_Sens_MultinomialBehavior.png}
+    \caption{Behavioral Response (Excluding `No Status' Conditions)}
+    \label{fig:sens_multinom}
+\end{figure}
+
+As shown in Figure \ref{fig:sens_multinom}, the probability distributions of conformity versus reactance remain highly consistent with the main findings. This confirms that the presence of class-based status information uniquely structures the evaluation shifts of respondents, rather than simply the presence of any group evaluation.
 
 \end{document}
