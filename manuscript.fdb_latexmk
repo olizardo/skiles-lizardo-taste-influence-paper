@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex manuscript"] 1782578868.29021 "manuscript.aux" "manuscript.bbl" "manuscript" 1782578869.83349 0
+["bibtex manuscript"] 1782579056.90911 "manuscript.aux" "manuscript.bbl" "manuscript" 1782579058.47751 0
   "./references.bib" 1782574199.19955 4369 694b8b578af42156080eeea33d57631a ""
   "/home/omarlizardo/.TinyTeX/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "manuscript.aux" 1782578869.79324 5326 244f53afe8a5f2966c4d6df332635584 "pdflatex"
+  "manuscript.aux" 1782579058.43368 5326 244f53afe8a5f2966c4d6df332635584 "pdflatex"
   (generated)
   "manuscript.bbl"
   "manuscript.blg"
   (rewritten before read)
-["pdflatex"] 1782578868.30105 "/home/omarlizardo/CULTURE PROJECTS/OMAR PROJECTS/skiles-lizardo-taste-influence-paper/manuscript.tex" "manuscript.pdf" "manuscript" 1782578869.83378 0
+["pdflatex"] 1782579056.93665 "/home/omarlizardo/CULTURE PROJECTS/OMAR PROJECTS/skiles-lizardo-taste-influence-paper/manuscript.tex" "manuscript.pdf" "manuscript" 1782579058.47767 0
   "/home/omarlizardo/.TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/home/omarlizardo/.TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/home/omarlizardo/.TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -84,9 +84,9 @@
   "figures/Figure8_CovariateBalance.png" 1782431321.19279 83755 ee3e80b31913c0676e13d54863d9afb8 ""
   "figures/Figure9_WeightedMultinomialBehavior.png" 1782431323.42777 139999 1b94e0374e5feb1b9ed4b24961277a0b ""
   "figures/experimental_stimulus.jpeg" 1782574315.57608 93033 619c4e3e1d3e8c03b46dd25e4e1f95d8 ""
-  "manuscript.aux" 1782578869.79324 5326 244f53afe8a5f2966c4d6df332635584 "pdflatex"
-  "manuscript.bbl" 1782578868.29824 2882 719688fcc8566cdc93f6f2b5531efac0 "bibtex manuscript"
-  "manuscript.out" 1782578869.79424 2892 0b8fa1aed70fa16541e13cc857f0a8b4 "pdflatex"
+  "manuscript.aux" 1782579058.43368 5326 244f53afe8a5f2966c4d6df332635584 "pdflatex"
+  "manuscript.bbl" 1782579056.92668 2882 719688fcc8566cdc93f6f2b5531efac0 "bibtex manuscript"
+  "manuscript.out" 1782579058.43368 2892 0b8fa1aed70fa16541e13cc857f0a8b4 "pdflatex"
   "manuscript.tex" 1782578866.45824 19662 84889fb3e092396eefc140315947a81c ""
   (generated)
   "manuscript.aux"
