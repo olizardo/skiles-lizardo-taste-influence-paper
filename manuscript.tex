@@ -99,7 +99,7 @@ Our data consists of repeated measures (before and after providing access to oth
 
 To overcome the limitations of standard linear regression and fully test our hypotheses regarding alignment vs. distancing, we additionally employ two advanced modeling techniques:
 \begin{enumerate}
-    \item \textbf{Multinomial Logistic Regression:} To disaggregate shifts into Conformity and Reactance based on the direction of the alter's feedback.
+    \item \textbf{Multinomial Logistic Regression:} While linear mixed models estimate the \textit{average} magnitude and direction of shifts, they obscure the underlying distribution of behaviors (e.g., an average shift of zero could mean complete rigidity, or it could mean polarized halves of conformity and reactance canceling each other out). We use a Multinomial Logistic Regression to explicitly model the discrete probabilities of three theoretically distinct behaviors: maintaining one's evaluation (Staying), moving toward the group (Conforming), or moving away from the group (Reacting).
     \item \textbf{Propensity Score Weighting (IPW):} We employ Inverse Probability Weighting on all models to balance demographic covariates (age, gender, race, parent's education) across observational status groups, ensuring that the estimated moderating effects of class are not confounded by other demographic differences.
 \end{enumerate}
 
@@ -140,7 +140,9 @@ When introducing the class status of the fictional alter group, we observe compl
 \textbf{Hypothesis 3 (Cross-status reactance)} predicted distancing when exposed to out-group judgments. This is \textit{not supported}. High-status respondents do not significantly distance (shift negatively) from the ``Like / Low Status'' condition, nor do they distance (shift positively) from the ``Dislike / Low Status'' condition. The strongest distancing behavior in the data actually occurs within-group (Low-status respondents reacting against the ``Dislike / Low Status'' condition), suggesting that reactance is driven more by avoiding low-status stigma than by strict cross-status boundaries.
 
 \subsection{Disaggregating Behavior: Conformity vs. Reactance}
-Because a linear shift obscures whether a respondent is moving \textit{toward} (Conformity) or \textit{away from} (Reactance) the group, we map the behavioral shifts and fit a Multinomial Logistic Regression model.
+While the continuous change score models provide the average magnitude and direction of taste shifts, they obscure the underlying categorical behaviors. For instance, an average linear shift of zero could indicate that all respondents maintained their original evaluation, or it could indicate that half the respondents strongly conformed while the other half strongly reacted, canceling each other out in the aggregate. Furthermore, analyzing average shifts does not allow us to isolate the baseline propensity to simply maintain one's taste (aesthetic rigidity) versus changing it.
+
+To capture these distinct behaviors, we map the continuous shifts onto three discrete categories---Stay, Conform, and React---and fit a Multinomial Logistic Regression model.
 
 \begin{figure}[ht!]
     \centering

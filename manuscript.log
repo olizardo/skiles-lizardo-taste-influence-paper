@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 10:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 10:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -370,14 +370,13 @@ File: figures/experimental_stimulus.jpeg Graphic file (type jpg)
 <use figures/experimental_stimulus.jpeg>
 Package pdftex.def Info: figures/experimental_stimulus.jpeg  used on input line 76.
 (pdftex.def)             Requested size: 258.36668pt x 164.50958pt.
- [4 <./figures/experimental_stimulus.jpeg>]
-<figures/Figure8_CovariateBalance.png, id=149, 578.16pt x 433.62pt>
+ [4 <./figures/experimental_stimulus.jpeg>] [5]
+<figures/Figure8_CovariateBalance.png, id=156, 578.16pt x 433.62pt>
 File: figures/Figure8_CovariateBalance.png Graphic file (type png)
 <use figures/Figure8_CovariateBalance.png>
 Package pdftex.def Info: figures/Figure8_CovariateBalance.png  used on input line 115.
 (pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
- [5]
-<figures/Figure5_TrialEffects_Forest.png, id=159, 722.7pt x 578.16pt>
+<figures/Figure5_TrialEffects_Forest.png, id=158, 722.7pt x 578.16pt>
 File: figures/Figure5_TrialEffects_Forest.png Graphic file (type png)
 <use figures/Figure5_TrialEffects_Forest.png>
 Package pdftex.def Info: figures/Figure5_TrialEffects_Forest.png  used on input line 128.
@@ -386,14 +385,15 @@ Package pdftex.def Info: figures/Figure5_TrialEffects_Forest.png  used on input 
 <figures/Figure7_MultinomialBehavior.png, id=170, 722.7pt x 433.62pt>
 File: figures/Figure7_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure7_MultinomialBehavior.png>
-Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input line 147.
+Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input line 149.
 (pdftex.def)             Requested size: 422.77664pt x 253.66338pt.
-<figures/Figure11_Sens_MultinomialBehavior.png, id=172, 722.7pt x 433.62pt>
+ [8 <./figures/Figure7_MultinomialBehavior.png>]
+<figures/Figure11_Sens_MultinomialBehavior.png, id=177, 722.7pt x 433.62pt>
 File: figures/Figure11_Sens_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure11_Sens_MultinomialBehavior.png>
-Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on input line 161.
+Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on input line 163.
 (pdftex.def)             Requested size: 422.77664pt x 253.66338pt.
- [8 <./figures/Figure7_MultinomialBehavior.png>] (./manuscript.bbl [9 <./figures/Figure11_Sens_MultinomialBehavior.png>]) [10] [11] (./manuscript.aux)
+ [9 <./figures/Figure11_Sens_MultinomialBehavior.png>] (./manuscript.bbl [10]) [11] [12] (./manuscript.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
@@ -402,18 +402,18 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 21235E04B378D1175F552B50E79707B4;3107.
  ) 
 Here is how much of TeX's memory you used:
- 11687 strings out of 469158
- 186757 string characters out of 5459787
+ 11688 strings out of 469158
+ 186764 string characters out of 5459787
  616882 words of memory out of 5000000
  40534 multiletter control sequences out of 15000+600000
  631128 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,6n,79p,1223b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,6n,79p,1223b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/omarlizardo/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on manuscript.pdf (11 pages, 837631 bytes).
+Output written on manuscript.pdf (12 pages, 838836 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 208 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
+ 246 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
  154 words of extra memory for PDF output out of 10000 (max. 10000000)
 
