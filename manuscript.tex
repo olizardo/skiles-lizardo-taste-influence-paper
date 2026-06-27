@@ -99,7 +99,7 @@ Our data consists of repeated measures (before and after providing access to oth
 
 To overcome the limitations of standard linear regression and fully test our hypotheses regarding alignment vs. distancing, we additionally employ three advanced modeling techniques:
 \begin{enumerate}
-    \item \textbf{Cumulative Link Mixed Models (CLMM):} To respect the bounded, ordinal 1-7 scale of the dependent variable.
+    \item \textbf{Cumulative Link Mixed Models (CLMM):} Because taste is a 7-point Likert-type scale, treating it as a continuous outcome can result in biased standard errors and out-of-bounds predictions. We implemented a CLMM to respect the bounded ordinal nature of the data. By respecting scale boundaries, the CLMM ensures that respondents who already rated the painting a ``7'' in Trial 1 are modeled correctly (they cannot shift higher), preventing boundary-induced underestimation of treatment effects.
     \item \textbf{Multinomial Logistic Regression:} To disaggregate shifts into Conformity and Reactance based on the direction of the alter's feedback.
     \item \textbf{Propensity Score Weighting (IPW):} To balance demographic covariates (age, gender, race, parent's education) across observational status groups, ensuring the moderating effects of class are not confounded.
 \end{enumerate}
@@ -127,11 +127,6 @@ When introducing the class status of the fictional alter group, we observe compl
 \textbf{Hypothesis 2 (Symbolic power)} predicted that Low-status respondents would conform negatively to High-status dislikes. This is also \textit{not supported}. Low-status respondents exhibit null shifts in response to High-status negative feedback, rather than conformity.
 
 \textbf{Hypothesis 3 (Cross-status reactance)} predicted distancing (positive shifts) when exposed to out-group dislikes. We find partial support for this, though not symmetrically. High-status respondents do not significantly distance from Low-status dislikes. However, Low-status respondents heavily distance from their own group (as noted above), suggesting that reactance is driven more by avoiding low-status signals than strict cross-status dynamics.
-
-\subsection{Cumulative Link Mixed Models (CLMM)}
-Because taste is a 7-point Likert-type scale, treating it as a continuous outcome can result in biased standard errors and out-of-bounds predictions. We implemented a Cumulative Link Mixed Model (CLMM) to respect the bounded ordinal nature of the data. 
-
-The CLMM results validate the original linear approach but provide unbiased effect estimates. By respecting scale boundaries, the CLMM ensures that respondents who already rated the painting a ``7'' in Trial 1 are modeled correctly (they cannot shift higher), preventing boundary-induced underestimation of treatment effects.
 
 \subsection{Disaggregating Behavior: Conformity vs. Reactance}
 Because a linear shift obscures whether a respondent is moving \textit{toward} (Conformity) or \textit{away from} (Reactance) the group, we map the behavioral shifts and fit a Multinomial Logistic Regression model.
