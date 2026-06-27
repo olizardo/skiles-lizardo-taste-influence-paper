@@ -1,0 +1,178 @@
+---
+title: "Taste Influence Analysis: Output Generation"
+author: "Omar Lizardo & Sara Skiles"
+date: "June 2026"
+format:
+  html:
+    toc: true
+    theme: flatly
+    code-fold: true
+    embed-resources: true
+---
+
+# Analysis Pipeline
+
+This reproducible document executes the models and generates the tables and figures used in the main manuscript.
+
+## 1. Data Setup
+
+```{r setup, message=FALSE, warning=FALSE}
+library(lme4)
+library(dplyr)
+library(ggplot2)
+library(modelsummary)
+library(marginaleffects)
+library(ordinal)
+library(nnet)
+library(WeightIt)
+library(cobalt)
+
+# Execute data processing
+source("R/dataproc.R")
+data_list <- process_data()
+df_long <- data_list$long
+df_wide <- data_list$wide
+```
+
+## 2. Linear Baseline and Trial Effects
+
+```{r table2, warning=FALSE, message=FALSE}
+mod0 <- lmer(taste ~ 1 + (1 | id), data = df_long, REML = FALSE)
+mod1 <- lmer(taste ~ cond_factor + (1 | id), data = df_long, REML = FALSE)
+mod2 <- lmer(taste ~ factor(trial) + cond_factor + (1 | id), data = df_long, REML = FALSE)
+mod3 <- lmer(taste ~ factor(trial) * cond_factor + (1 | id), data = df_long, REML = FALSE)
+anova(mod0, mod1, mod2, mod3)
+```
+
+## 3. Trial Effects by Status Consistency
+
+```{r fig5, fig.width=10, fig.height=8, warning=FALSE, message=FALSE}
+mod_objsubj <- lmer(taste ~ factor(trial) * cond2_factor * objsubjclass_factor + (1 | id), data = df_long, REML = FALSE)
+te_objsubj <- avg_comparisons(mod_objsubj, variables = "trial", by = c("cond2_factor", "objsubjclass_factor"))
+
+ggplot(te_objsubj, aes(x = cond2_factor, y = estimate)) +
+  geom_bar(stat = "identity", fill = "gold", color = "black", width = 0.5) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.2, color = "red", linewidth = 1) +
+  geom_hline(yintercept = 0, linetype = "solid", color = "black") +
+  facet_wrap(~objsubjclass_factor, ncol = 2) +
+  labs(title = "Within-Subject Treatment Effect by Status Consistency",
+       x = "", y = "Effect Size") +
+  theme_minimal(base_size = 14) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## 4. Cumulative Link Mixed Models (CLMM)
+
+```{r clmm, warning=FALSE, message=FALSE, eval=FALSE}
+df_long$taste_ord <- factor(df_long$taste, ordered = TRUE, levels = 1:7)
+clmm_mod <- clmm(taste_ord ~ factor(trial) * cond2_factor + (1 | id), data = df_long)
+
+# Display interaction coefficients
+clmm_coefs <- coef(clmm_mod)[grep("trial.*cond", names(coef(clmm_mod)))]
+round(clmm_coefs, 3)
+```
+
+## 5. Disaggregating Behavior: Conformity vs. Reactance
+
+```{r multinom, warning=FALSE, message=FALSE, fig.width=8, fig.height=6}
+df_multi <- df_wide %>%
+  mutate(
+    diff = taste2_rev - taste1_rev,
+    behavior = case_when(
+      cond2_factor == "Baseline" & diff == 0 ~ "Stay",
+      cond2_factor == "Baseline" & diff > 0 ~ "Shift Up",
+      cond2_factor == "Baseline" & diff < 0 ~ "Shift Down",
+      cond2_factor %in% c("Class & Taste/Like/-Status", "Class & Taste/Like/+Status", "Taste Only/Like") & diff == 0 ~ "Stay",
+      cond2_factor %in% c("Class & Taste/Like/-Status", "Class & Taste/Like/+Status", "Taste Only/Like") & diff > 0 ~ "Conform",
+      cond2_factor %in% c("Class & Taste/Like/-Status", "Class & Taste/Like/+Status", "Taste Only/Like") & diff < 0 ~ "React",
+      cond2_factor %in% c("Class & Taste/Dislike/-Status", "Class & Taste/Dislike/+Status", "Taste Only/Dislike") & diff == 0 ~ "Stay",
+      cond2_factor %in% c("Class & Taste/Dislike/-Status", "Class & Taste/Dislike/+Status", "Taste Only/Dislike") & diff < 0 ~ "Conform",
+      cond2_factor %in% c("Class & Taste/Dislike/-Status", "Class & Taste/Dislike/+Status", "Taste Only/Dislike") & diff > 0 ~ "React",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(behavior %in% c("Stay", "Conform", "React")) %>%
+  mutate(behavior = factor(behavior, levels = c("Stay", "Conform", "React")))
+
+multi_mod <- multinom(behavior ~ objsubjclass_factor, data = df_multi, trace = FALSE)
+multi_preds <- predictions(multi_mod, type = "probs", by = c("objsubjclass_factor", "group"))
+
+ggplot(multi_preds, aes(x = objsubjclass_factor, y = estimate, fill = group)) +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  scale_fill_manual(values = c("Stay" = "gold", "Conform" = "steelblue", "React" = "firebrick")) +
+  labs(title = "Probability of Behavioral Response by Status Group",
+       x = "Status Consistency", y = "Predicted Probability", fill = "Behavior") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom", axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## 6. Robustness: Covariate Balancing via IPW
+
+```{r propensity, warning=FALSE, message=FALSE, fig.width=8, fig.height=6}
+df_wide_cc <- df_wide %>%
+  filter(!is.na(objsubjclass_factor), 
+         !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented))
+
+W <- weightit(objsubjclass_factor ~ age + female + factor(raceeth) + parented, 
+              data = df_wide_cc, method = "ps", estimand = "ATE")
+
+love.plot(W, binary = "std", thresholds = c(m = .1), 
+          title = "Covariate Balance Before and After Weighting") +
+  theme_minimal()
+
+df_wide_cc$ipw_weight <- W$weights
+
+df_multi_wt <- df_wide_cc %>%
+  mutate(
+    diff = taste2_rev - taste1_rev,
+    behavior = case_when(
+      cond2_factor == "Baseline" & diff == 0 ~ "Stay",
+      cond2_factor == "Baseline" & diff > 0 ~ "Shift Up",
+      cond2_factor == "Baseline" & diff < 0 ~ "Shift Down",
+      cond2_factor %in% c("Class & Taste/Like/-Status", "Class & Taste/Like/+Status", "Taste Only/Like") & diff == 0 ~ "Stay",
+      cond2_factor %in% c("Class & Taste/Like/-Status", "Class & Taste/Like/+Status", "Taste Only/Like") & diff > 0 ~ "Conform",
+      cond2_factor %in% c("Class & Taste/Like/-Status", "Class & Taste/Like/+Status", "Taste Only/Like") & diff < 0 ~ "React",
+      cond2_factor %in% c("Class & Taste/Dislike/-Status", "Class & Taste/Dislike/+Status", "Taste Only/Dislike") & diff == 0 ~ "Stay",
+      cond2_factor %in% c("Class & Taste/Dislike/-Status", "Class & Taste/Dislike/+Status", "Taste Only/Dislike") & diff < 0 ~ "Conform",
+      cond2_factor %in% c("Class & Taste/Dislike/-Status", "Class & Taste/Dislike/+Status", "Taste Only/Dislike") & diff > 0 ~ "React",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(behavior %in% c("Stay", "Conform", "React")) %>%
+  mutate(behavior = factor(behavior, levels = c("Stay", "Conform", "React")))
+
+multi_mod_wt <- multinom(behavior ~ objsubjclass_factor, 
+                         data = df_multi_wt, weights = ipw_weight, trace = FALSE)
+
+multi_preds_wt <- predictions(multi_mod_wt, type = "probs", by = c("objsubjclass_factor", "group"))
+
+ggplot(multi_preds_wt, aes(x = objsubjclass_factor, y = estimate, fill = group)) +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  scale_fill_manual(values = c("Stay" = "gold", "Conform" = "steelblue", "React" = "firebrick")) +
+  labs(title = "IPW Weighted Probability of Behavioral Response",
+       x = "Status Consistency", y = "Predicted Probability", fill = "Behavior") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom", axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## 7. Sensitivity Analysis: Isolating Class Feedback
+
+```{r sensitivity, warning=FALSE, message=FALSE, fig.width=8, fig.height=6}
+# Filter out "Taste Only" conditions
+df_multi_sens <- df_multi_wt %>%
+  filter(!cond2_factor %in% c("Taste Only/Like", "Taste Only/Dislike")) %>%
+  mutate(cond2_factor = droplevels(cond2_factor))
+
+multi_mod_sens <- multinom(behavior ~ objsubjclass_factor, 
+                           data = df_multi_sens, trace = FALSE)
+
+multi_preds_sens <- predictions(multi_mod_sens, type = "probs", by = c("objsubjclass_factor", "group"))
+
+ggplot(multi_preds_sens, aes(x = objsubjclass_factor, y = estimate, fill = group)) +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  scale_fill_manual(values = c("Stay" = "gold", "Conform" = "steelblue", "React" = "firebrick")) +
+  labs(title = "Behavioral Response (Excluding 'Taste Only' Conditions)",
+       x = "Status Consistency", y = "Predicted Probability", fill = "Behavior") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom", axis.text.x = element_text(angle = 45, hjust = 1))
+```
