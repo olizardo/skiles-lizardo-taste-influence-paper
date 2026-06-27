@@ -154,9 +154,9 @@ multi_preds <- predictions(multi_mod, type = "probs", by = c("objsubjclass_facto
 p_multi <- ggplot(multi_preds, aes(x = estimate, y = objsubjclass_factor, color = group)) +
   geom_point(position = position_dodge(width = 0.5), size = 3) +
   geom_errorbar(aes(xmin = conf.low, xmax = conf.high), position = position_dodge(width = 0.5), width = 0.2, linewidth = 1, orientation = "y") +
-  scale_color_manual(values = c("Stay" = "gold", "Conform" = "steelblue", "React" = "firebrick")) +
+  scale_color_manual(values = c("Stay" = "forestgreen", "Conform" = "steelblue", "React" = "firebrick")) +
   labs(title = "Probability of Behavioral Response by Status Group (IPW Weighted)",
-       x = "Predicted Probability", y = "Status Consistency", color = "Behavior") +
+       x = "Predicted Probability", y = "", color = "Behavior") +
   theme_minimal(base_size = 14) +
   theme(legend.position = "bottom")
 
@@ -180,9 +180,9 @@ multi_preds_sens <- predictions(multi_mod_sens, type = "probs", by = c("objsubjc
 p_sens <- ggplot(multi_preds_sens, aes(x = estimate, y = objsubjclass_factor, color = group)) +
   geom_point(position = position_dodge(width = 0.5), size = 3) +
   geom_errorbar(aes(xmin = conf.low, xmax = conf.high), position = position_dodge(width = 0.5), width = 0.2, linewidth = 1, orientation = "y") +
-  scale_color_manual(values = c("Stay" = "gold", "Conform" = "steelblue", "React" = "firebrick")) +
+  scale_color_manual(values = c("Stay" = "forestgreen", "Conform" = "steelblue", "React" = "firebrick")) +
   labs(title = "Behavioral Response (Excluding 'Taste Only' Conditions)",
-       x = "Predicted Probability", y = "Status Consistency", color = "Behavior") +
+       x = "Predicted Probability", y = "", color = "Behavior") +
   theme_minimal(base_size = 14) +
   theme(legend.position = "bottom")
 

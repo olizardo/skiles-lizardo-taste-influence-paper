@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 10:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 10:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -396,24 +396,28 @@ Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input 
 (pdftex.def)             Requested size: 422.77664pt x 253.66338pt.
 
 
-Package natbib Warning: Citation `stryker1978status-d86' on page 8 undefined on input line 144.
+Package natbib Warning: Citation `correll2003expectation' on page 8 undefined on input line 144.
 
 [8 <./figures/Figure7_MultinomialBehavior.png>]
-Overfull \hbox (2.4248pt too wide) in paragraph at lines 155--156
+
+Package natbib Warning: Citation `stryker1978status-d86' on page 9 undefined on input line 146.
+
+[9]
+Overfull \hbox (2.4248pt too wide) in paragraph at lines 157--158
 []\OT1/cmr/m/n/12 Finally, these the-o-ret-i-cal in-sights are only vis-i-ble be-cause we re-placed a bi-nary ``stay/shift''
  []
 
-(./manuscript.bbl [9]) [10] [11]
-<figures/Figure11_Sens_MultinomialBehavior.png, id=199, 722.7pt x 433.62pt>
+(./manuscript.bbl [10]) [11] [12]
+<figures/Figure11_Sens_MultinomialBehavior.png, id=203, 722.7pt x 433.62pt>
 File: figures/Figure11_Sens_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure11_Sens_MultinomialBehavior.png>
-Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on input line 176.
+Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on input line 178.
 (pdftex.def)             Requested size: 422.77664pt x 253.66338pt.
 
 
 Package natbib Warning: There were undefined citations.
 
-[12 <./figures/Figure11_Sens_MultinomialBehavior.png>] (./manuscript.aux)
+[13 <./figures/Figure11_Sens_MultinomialBehavior.png>] (./manuscript.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
@@ -422,18 +426,18 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 3B4C05B909B8062138A02289B49752FD;3257.
  ) 
 Here is how much of TeX's memory you used:
- 11678 strings out of 469158
- 186646 string characters out of 5459787
+ 11679 strings out of 469158
+ 186653 string characters out of 5459787
  617883 words of memory out of 5000000
  40532 multiletter control sequences out of 15000+600000
  631128 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,6n,79p,1245b,518s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,6n,79p,1245b,572s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/omarlizardo/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on manuscript.pdf (12 pages, 827421 bytes).
+Output written on manuscript.pdf (13 pages, 807159 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
+ 257 PDF objects out of 1000 (max. 8388607)
+ 221 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
  154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

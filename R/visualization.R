@@ -74,7 +74,7 @@ fig4 <- ggplot(te_class, aes(x = cond2_factor, y = estimate)) +
   geom_hline(yintercept = 0, linetype = "solid", color = "black") +
   facet_wrap(~Group, ncol = 2) +
   labs(title = "Within-Subject Treatment Effect by Class",
-       x = "", y = "Effect Size") +
+       x = "", y = "") +
   theme_paper
 
 ggsave("figures/Figure4_TrialEffects_Class.png", fig4, width = 12, height = 6)
@@ -107,7 +107,7 @@ stay_preds <- predictions(mod_stay, variables = "objsubjclass_factor")
 avg_stay <- mean(df_stay$stay, na.rm = TRUE)
 
 fig6 <- ggplot(stay_preds, aes(x = objsubjclass_factor, y = estimate)) +
-  geom_bar(stat = "identity", fill = "gold", color = "black", width = 0.4) +
+  geom_bar(stat = "identity", fill = "steelblue", color = "black", width = 0.4) +
   geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.1, color = "red", linewidth = 1) +
   geom_hline(yintercept = avg_stay, linetype = "dashed", color = "gray50") +
   scale_y_continuous(limits = c(0.6, 0.9), oob = scales::rescale_none) +
