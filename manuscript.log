@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 10:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 10:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -394,7 +394,12 @@ File: figures/Figure11_Sens_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure11_Sens_MultinomialBehavior.png>
 Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on input line 145.
 (pdftex.def)             Requested size: 422.77664pt x 253.66338pt.
- [9 <./figures/Figure11_Sens_MultinomialBehavior.png>] (./manuscript.bbl) [10] [11] (./manuscript.aux)
+ [9 <./figures/Figure11_Sens_MultinomialBehavior.png>]
+Overfull \hbox (2.4248pt too wide) in paragraph at lines 161--162
+[]\OT1/cmr/m/n/12 Finally, these the-o-ret-i-cal in-sights are only vis-i-ble be-cause we re-placed a bi-nary ``stay/shift''
+ []
+
+(./manuscript.bbl [10]) [11] [12] (./manuscript.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
@@ -403,18 +408,18 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 21235E04B378D1175F552B50E79707B4;3107.
  ) 
 Here is how much of TeX's memory you used:
- 11677 strings out of 469158
- 186647 string characters out of 5459787
+ 11678 strings out of 469158
+ 186654 string characters out of 5459787
  616882 words of memory out of 5000000
  40532 multiletter control sequences out of 15000+600000
  631128 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,6n,79p,1223b,475s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,6n,79p,1223b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/omarlizardo/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on manuscript.pdf (11 pages, 823839 bytes).
+Output written on manuscript.pdf (12 pages, 826764 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 198 compressed objects within 2 object streams
- 48 named destinations out of 1000 (max. 500000)
+ 249 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
+ 49 named destinations out of 1000 (max. 500000)
  154 words of extra memory for PDF output out of 10000 (max. 10000000)
 
