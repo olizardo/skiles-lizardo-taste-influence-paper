@@ -34,7 +34,7 @@ In this research note, we address the question, foundational to sociological stu
 \section{Introduction}
 
 \subsection{Theoretical Background}
-Taste expressions and consumption have long been shown to be a function of individuals’ desire to differentiate themselves from others \citep{simmel1957, dimaggio1987}. \citet{bourdieu1984} suggests that taste differences evoke a visceral reaction, and it is through the rejection of others’ aesthetic tastes that individuals engage in the symbolic boundary work that separates them. Thus, expression of distastes is a method for communicating social distance from certain social groups \citep{bryson1996, lamont2002}. In contexts where individuals discover a similarity in taste with members of a meaningful outgroup, they frequently engage in "taste abandonment" to maintain social boundaries \citep{berger2008}. Despite the robust literature on the relationship between cultural familiarity and network connections \citep{erickson1996, lizardo2006}, relatively little is known about the dynamic mechanisms underlying symbolic boundary work in real time.
+Taste expressions and consumption have long been shown to be a function of individuals’ desire to differentiate themselves from others \citep{simmel1957, dimaggio1987}. \citet{bourdieu1984} suggests that taste differences evoke a visceral reaction, and it is through the rejection of others’ aesthetic tastes that individuals engage in the symbolic boundary work that separates them. Thus, expression of distastes is a method for communicating social distance from certain social groups \citep{bryson1996, lamont2002}. In contexts where individuals discover a similarity in taste with members of a meaningful outgroup, they frequently engage in ``taste abandonment'' to maintain social boundaries \citep{berger2008}. Despite the robust literature on the relationship between cultural familiarity and network connections \citep{erickson1996, lizardo2006}, relatively little is known about the dynamic mechanisms underlying symbolic boundary work in real time.
 
 How does access to the evaluations of others influence our own aesthetic evaluations of cultural objects? Traditional models in the sociology of culture and consumption use a balance-like logic, suggesting that access to positive evaluations on the part of others will lead to an increase in subjective evaluations of worth when those others are positively regarded but not when they are negatively regarded. In the same way, access to other people’s negative evaluations will lead to a decrease in subjective evaluations of worth when those others are positively regarded. 
 
@@ -61,7 +61,7 @@ Overall we expect that mere exposure to the same cultural object over repeated t
 \section{Data and Methods}
 
 \subsection{Experimental Design and Data}
-We utilize data from the SSI-2012 survey. The core of the study is a within-subject experimental design where respondents rate an artwork on a 7-point scale ("taste1"), are exposed to a treatment condition, and then rate the artwork again ("taste2"). 
+We utilize data from the SSI-2012 survey. The core of the study is a within-subject experimental design where respondents rate an artwork on a 7-point scale (``taste1''), are exposed to a treatment condition, and then rate the artwork again (``taste2''). 
 
 The treatment conditions vary along three dimensions regarding a fictional alter group:
 \begin{enumerate}
@@ -104,7 +104,7 @@ The effect of social influence is highly moderated by the respondent's own class
 \subsection{Cumulative Link Mixed Models (CLMM)}
 Because taste is a 7-point Likert-type scale, treating it as a continuous outcome can result in biased standard errors and out-of-bounds predictions. We implemented a Cumulative Link Mixed Model (CLMM) to respect the bounded ordinal nature of the data. 
 
-The CLMM results validate the original linear approach but provide unbiased effect estimates. By respecting scale boundaries, the CLMM ensures that respondents who already rated the painting a '7' in Trial 1 are modeled correctly (they cannot shift higher), preventing boundary-induced underestimation of treatment effects.
+The CLMM results validate the original linear approach but provide unbiased effect estimates. By respecting scale boundaries, the CLMM ensures that respondents who already rated the painting a ``7'' in Trial 1 are modeled correctly (they cannot shift higher), preventing boundary-induced underestimation of treatment effects.
 
 \subsection{Disaggregating Behavior: Conformity vs. Reactance}
 Because a linear shift obscures whether a respondent is moving \textit{toward} (Conformity) or \textit{away from} (Reactance) the group, we map the behavioral shifts and fit a Multinomial Logistic Regression model.
@@ -135,12 +135,12 @@ Even after weighting, the structural differences in behavior across status group
 \end{figure}
 
 \subsection{Sensitivity Analysis: Isolating Class Feedback}
-To ensure that the results are driven by the \textit{class status} of the fictional alter groups, we run a sensitivity analysis dropping the "Taste Only" conditions. 
+To ensure that the results are driven by the \textit{class status} of the fictional alter groups, we run a sensitivity analysis dropping the ``Taste Only'' conditions. 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Figure11_Sens_MultinomialBehavior.png}
-    \caption{Behavioral Response (Excluding 'Taste Only' Conditions)}
+    \caption{Behavioral Response (Excluding `Taste Only' Conditions)}
 \end{figure}
 
 The probability distributions of conformity versus reactance remain highly consistent with the main findings, confirming that the presence of class-based status information uniquely structures the evaluation shifts of respondents.
@@ -149,7 +149,7 @@ The probability distributions of conformity versus reactance remain highly consi
 Our analysis demonstrates that aesthetic judgments are deeply malleable, but not uniformly so. The findings advance the sociology of culture in several ways:
 
 \begin{enumerate}
-    \item \textbf{Directionality Matters:} By replacing a binary "stay/shift" conceptualization with a multinomial "stay/conform/react" framework, we reveal that cultural influence involves both emulation and boundary-drawing.
+    \item \textbf{Directionality Matters:} By replacing a binary ``stay/shift'' conceptualization with a multinomial ``stay/conform/react'' framework, we reveal that cultural influence involves both emulation and boundary-drawing.
     \item \textbf{Status Inconsistency as a Driver of Change:} Respondents with inconsistent status markers (e.g., Working class with a college degree, or Middle class without) are the most aesthetically fluid. However, they resolve this fluidity differently, leaning heavily into reactance or conformity depending on their exact social location.
     \item \textbf{Methodological Rigor:} By employing Cumulative Link Mixed Models and Propensity Score Weighting, we establish that these dynamics are neither statistical artifacts of ordinal scales nor observational confounding. 
 \end{enumerate}
