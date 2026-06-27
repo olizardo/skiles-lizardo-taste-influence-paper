@@ -1,8 +1,17 @@
 \documentclass[12pt, letterpaper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage{hyperref}
-\usepackage{amsmath}
+% Define your custom dark blue color
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,    % Internal links (sections, figures)
+    filecolor=darkblue,    % Local file links
+    urlcolor=darkblue,     % Web URLs
+    citecolor=darkblue     % Citations
+}\usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{geometry}
