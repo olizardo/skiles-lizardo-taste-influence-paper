@@ -108,6 +108,16 @@ All results reported below utilize these IPW weights to ensure unbiased estimate
 
 \section{Results}
 
+\subsection{Covariate Balance}
+Before evaluating the hypotheses, we assessed the covariate balance across the observational status groups. Because respondents are not randomly assigned to their social class or educational attainment, these groups differ systematically on demographics (age, gender, race, parent's education). We applied Propensity Score Weighting (IPW) to balance these covariates. As shown in Figure \ref{fig:balance}, weighting effectively eliminated demographic imbalances across the status categories. All subsequent analyses utilize these weights to isolate the true moderating effect of social class and education.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Figure8_CovariateBalance.png}
+    \caption{Covariate Balance Before and After Weighting}
+    \label{fig:balance}
+\end{figure}
+
 \subsection{Evaluating the Mere Exposure Effect}
 The baseline condition allows us to observe the counterfactual drift in aesthetic evaluations over repeated trials without external influence. Our analysis of the trial effects (Figure \ref{fig:trialeffects}) provides mixed support for a universal mere exposure effect. While college-educated respondents (both Working and Middle class) exhibit a significant positive drift in evaluations across trials, respondents without a college degree exhibit no significant change. Thus, the mere exposure effect is not uniform but contingent on educational capital.
 
@@ -142,24 +152,7 @@ Because a linear shift obscures whether a respondent is moving \textit{toward} (
 
 This behavioral disaggregation clarifies why the linear hypotheses (H1--H3) yielded mixed results: status inconsistency fundamentally alters the propensity to conform or react regardless of the specific alter. As Figure \ref{fig:multinom} reveals, Middle Class individuals without a college degree are highly prone to \textit{conformity}, whereas Working Class individuals with a college degree display the highest baseline probability of \textit{reactance}. 
 
-\subsection{Robustness: Covariate Balancing via IPW}
-To ensure these class-based findings are not driven by confounding demographics (like age or race disparities between education groups), we apply Propensity Score Weighting. 
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/Figure8_CovariateBalance.png}
-    \caption{Covariate Balance Before and After Weighting}
-    \label{fig:balance}
-\end{figure}
-
-Even after weighting, the structural differences in behavior across status groups remain remarkably consistent (see Figure \ref{fig:weighted_multinom}).
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/Figure9_WeightedMultinomialBehavior.png}
-    \caption{IPW Weighted Probability of Behavioral Response}
-    \label{fig:weighted_multinom}
-\end{figure}
 
 \subsection{Sensitivity Analysis: Isolating Class Feedback}
 To ensure that the results are driven by the \textit{class status} of the fictional alter groups, we run a sensitivity analysis dropping the ``No Status'' conditions. 
