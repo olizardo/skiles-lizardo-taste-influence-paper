@@ -18,7 +18,7 @@
 \usepackage{natbib}
 \geometry{margin=1in}
 
-\title{Social Influence Effect on Aesthetic Judgments}
+\title{Stay, React, or Conform? Examining Social Influence Effects on Aesthetic Judgments}
 \author{Omar Lizardo \& Sara Skiles}
 \date{June 2026}
 
@@ -86,7 +86,15 @@ The experimental protocol proceeded as follows: Respondents first gave their ini
 The treatment conditions vary along three dimensions regarding this fictional alter group. The first dimension is taste evaluation, denoting whether the alter group liked or disliked the artwork. The second dimension is the status of the alter, contrasting high-status individuals (characterized by a college education and middle-class standing) with low-status individuals (working class and lacking a college degree). The final dimension is the control or no-status condition, which includes scenarios where only the alter's taste is known without providing any class information, alongside a pure baseline control group.
 
 \subsection{Variables}
-The primary dependent variable in this study is the shift in aesthetic evaluation across the two trials. We analyze this outcome in several ways: as a continuous change score, through an ordinal structure using Cumulative Link Mixed Models (as detailed in the appendix), and as a nominal behavioral outcome categorized as staying, conforming, or reacting. The independent variables consist of the various experimental condition factors indicating the alter group's status and evaluation. Furthermore, we include respondent status consistency as a moderating variable, captured by crossing working- or middle-class identification with the presence or absence of a college degree.
+Our analysis utilizes several key variables from the SSI-2012 dataset.
+
+\textbf{Dependent Variables:} The baseline measure of taste was captured by asking respondents to evaluate the painting on a 1--7 ordinal scale. We reversed the original coding so that higher values indicate greater affinity (1 = ``I dislike it very much'', 4 = ``I neither like it nor dislike it'', 7 = ``I like it very much''). The primary dependent variable is the shift in this aesthetic evaluation across the two trials. We analyze this outcome in several ways: as a continuous change score, through an ordinal structure using Cumulative Link Mixed Models (as detailed in the appendix), and as a nominal behavioral outcome categorized as \textit{staying} (no change in evaluation), \textit{conforming} (moving toward the alter group's evaluation), or \textit{reacting} (moving away from the alter group's evaluation).
+
+\textbf{Independent Variables:} The primary independent variables consist of the experimental condition factors indicating the alter group's status and evaluation. These include combinations of Alter Taste (Like/Dislike) and Alter Status (+Status: Middle-class/College-educated vs. -Status: Working-class/No College), alongside baseline control conditions and conditions providing only taste information without class status. 
+
+\textbf{Moderating Status Variables:} We include respondent status consistency as a moderating variable, captured by crossing an objective measure of educational attainment with a subjective measure of class identification. Subjective class is a binary indicator created by collapsing a 4-point self-identification scale (lower class and working class = Working Class; middle class and upper class = Middle Class). Objective education is a binary indicator of whether the respondent holds a college degree (Bachelor's, Master's, or Doctoral/Professional degree vs. no college degree). Crossing these yields four status groups: Working/No College, Working/College, Middle/No College, and Middle/College.
+
+\textbf{Covariates for IPW Balancing:} Because respondents are not randomly assigned to their social class or educational attainment, these groups differ systematically on basic demographics. To isolate the true moderating effect of social class and education, we utilize Inverse Probability Weighting (IPW) to balance four covariates across the status groups: \textit{age} (a 14-category ordinal variable treated as continuous, ranging from ``18--19'' to ``80+''), \textit{gender} (binary: 1 = women, 0 = men), \textit{race/ethnicity} (a 6-category variable: Asian, Black, Hispanic, White, >1 race, and other), and \textit{parents' education} (binary: 1 = parent has college degree, 0 = no parent college degree, capturing intergenerational educational capital).
 
 \subsection{Analytic Strategy}
 Our data consists of repeated measures (before and after providing access to others' evaluations) of the respondent’s aesthetic evaluation of a cultural object. Because repeated measures are correlated within subjects (but independent across subjects), we rely on random-effects models as a natural framework to simultaneously model within and between subjects variance. We use hierarchically nested versions of the mixed-effects model via maximum likelihood and use likelihood ratio tests to select the best fit.
@@ -181,5 +189,13 @@ To ensure that the results in the main text are driven by the \textit{class stat
 \end{figure}
 
 As shown in Figure \ref{fig:sens_multinom}, the probability distributions of conformity versus reactance remain highly consistent with the main findings. This confirms that the presence of class-based status information uniquely structures the evaluation shifts of respondents, rather than simply the presence of any group evaluation.
+
+\newpage
+\section{Robustness Check: Alternative Definition of Social Class}
+In the main analysis, the subjective class measure was constructed as a binary indicator by collapsing a 4-point scale: respondents who selected ``lower class'' or ``working class'' were coded as Working Class, and those who selected ``middle class'' or ``upper class'' were coded as Middle Class. To ensure that the results are not driven by the inclusion of the extremes (lower and upper class), we conducted a robustness check restricting the sample strictly to respondents who explicitly selected ``working class'' or ``middle class.''
+
+We re-estimated both the linear mixed models evaluating trial effects (the continuous change score analysis) and the multinomial logistic regression (evaluating the discrete probabilities of staying, conforming, or reacting) on this restricted sample. The models were again balanced using Inverse Probability Weighting (IPW) on age, gender, race/ethnicity, and parents' education.
+
+The results from this alternative specification are virtually identical to those in the main text. For the continuous change scores, the direction and significance of all condition-specific shifts remain unchanged. For the behavioral analysis, the probability distributions are remarkably consistent: status-consistent groups maintain the highest propensity to \textit{stay} (Middle Class/College: 78.2\%; Working Class/No College: 74.7\%), status-inconsistent groups maintain the highest propensity to \textit{conform} (Middle Class/No College: 17.9\%; Working Class/College: 16.9\%), and those without a college degree remain the most likely to \textit{react} (Middle Class/No College: 13.3\%; Working Class/No College: 12.1\%). This confirms that the observed social class dynamics are robust and not artifacts of how the extreme ends of the class distribution were collapsed.
 
 \end{document}
