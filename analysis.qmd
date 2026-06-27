@@ -50,15 +50,33 @@ anova(mod0, mod1, mod2, mod3)
 mod_objsubj <- lmer(taste ~ factor(trial) * cond2_factor * objsubjclass_factor + (1 | id), data = df_long, REML = FALSE)
 te_objsubj <- avg_comparisons(mod_objsubj, variables = "trial", by = c("cond2_factor", "objsubjclass_factor"))
 
-ggplot(te_objsubj, aes(x = cond2_factor, y = estimate)) +
-  geom_bar(stat = "identity", fill = "gold", color = "black", width = 0.5) +
-  geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.2, color = "red", linewidth = 1) +
-  geom_hline(yintercept = 0, linetype = "solid", color = "black") +
+te_objsubj <- te_objsubj %>%
+  mutate(
+    cond_clean = factor(cond2_factor, levels = c(
+      "Class & Taste/Dislike/-Status",
+      "Class & Taste/Dislike/+Status",
+      "Taste Only/Dislike",
+      "Baseline",
+      "Taste Only/Like",
+      "Class & Taste/Like/-Status",
+      "Class & Taste/Like/+Status"
+    )),
+    sig = ifelse(conf.low > 0 | conf.high < 0, "Significant", "Not Significant")
+  )
+
+p_forest <- ggplot(te_objsubj, aes(x = estimate, y = cond_clean, color = sig)) +
+  geom_point(size = 3) +
+  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = 0.2, linewidth = 1, orientation = "y") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "darkgray") +
   facet_wrap(~objsubjclass_factor, ncol = 2) +
-  labs(title = "Within-Subject Treatment Effect by Status Consistency",
-       x = "", y = "Effect Size") +
+  scale_color_manual(values = c("Significant" = "firebrick", "Not Significant" = "steelblue")) +
+  labs(title = "Estimated Trial Effect by Condition and Status",
+       x = "Shift in Evaluation (Taste 2 - Taste 1)", y = "") +
   theme_minimal(base_size = 14) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(legend.position = "bottom", legend.title = element_blank())
+
+print(p_forest)
+ggsave("figures/Figure5_TrialEffects_Forest.png", p_forest, width = 10, height = 8)
 ```
 
 ## 4. Cumulative Link Mixed Models (CLMM)

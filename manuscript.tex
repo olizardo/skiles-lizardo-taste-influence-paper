@@ -106,17 +106,27 @@ To overcome the limitations of standard linear regression and fully test our hyp
 
 \section{Results}
 
-\subsection{Linear Baseline and Trial Effects}
-First, we replicate the original nested linear mixed models. The model including the interaction between the experimental condition and the trial period provides the best fit, confirming that social influence varies significantly depending on the status of the fictional group. 
+\subsection{Evaluating the Mere Exposure Effect}
+The baseline condition allows us to observe the counterfactual drift in aesthetic evaluations over repeated trials without external influence. Our analysis of the trial effects (Figure \ref{fig:trialeffects}) provides mixed support for a universal mere exposure effect. While college-educated respondents (both Working and Middle class) exhibit a significant positive drift in evaluations across trials, respondents without a college degree exhibit no significant change. Thus, the mere exposure effect is not uniform but contingent on educational capital.
 
-\subsection{Trial Effects by Status Consistency}
-The effect of social influence is highly moderated by the respondent's own class and educational background. As shown in Figure 1, the shifts vary across condition and status groups.
+\subsection{Evaluating Generalized Influence}
+In the ``Taste Only'' conditions, we hypothesized that positive evaluations from generalized others would facilitate the baseline drift, while negative evaluations would block it. The results partially support this: exposure to positive evaluations produces significant positive shifts, particularly for Middle Class individuals without a college degree. Conversely, exposure to generalized negative evaluations largely suppresses the positive baseline drift across all groups, resulting in null trial effects, exactly as predicted.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/Figure5_TrialEffects_ObjSubj.png}
-    \caption{Within-Subject Treatment Effect by Status Consistency}
+    \includegraphics[width=1.0\textwidth]{figures/Figure5_TrialEffects_Forest.png}
+    \caption{Estimated Trial Effect by Condition and Status. Error bars represent 95\% confidence intervals.}
+    \label{fig:trialeffects}
 \end{figure}
+
+\subsection{Evaluating Status-Based Influence (Hypotheses 1--3)}
+When introducing the class status of the fictional alter group, we observe complex dynamics that challenge the standard hypotheses. 
+
+\textbf{Hypothesis 1 (Same-status association)} predicted that respondents would change their judgments negatively when exposed to the negative judgment of their own status peers. This is \textit{not supported}. For example, High-status respondents (Middle Class, College) show no significant negative shift when exposed to High-status dislikes. More strikingly, Low-status respondents (Working Class, No College) actually show a significant \textit{positive} shift (distancing) when exposed to Low-status dislikes.
+
+\textbf{Hypothesis 2 (Symbolic power)} predicted that Low-status respondents would conform negatively to High-status dislikes. This is also \textit{not supported}. Low-status respondents exhibit null shifts in response to High-status negative feedback, rather than conformity.
+
+\textbf{Hypothesis 3 (Cross-status reactance)} predicted distancing (positive shifts) when exposed to out-group dislikes. We find partial support for this, though not symmetrically. High-status respondents do not significantly distance from Low-status dislikes. However, Low-status respondents heavily distance from their own group (as noted above), suggesting that reactance is driven more by avoiding low-status signals than strict cross-status dynamics.
 
 \subsection{Cumulative Link Mixed Models (CLMM)}
 Because taste is a 7-point Likert-type scale, treating it as a continuous outcome can result in biased standard errors and out-of-bounds predictions. We implemented a Cumulative Link Mixed Model (CLMM) to respect the bounded ordinal nature of the data. 
@@ -126,38 +136,42 @@ The CLMM results validate the original linear approach but provide unbiased effe
 \subsection{Disaggregating Behavior: Conformity vs. Reactance}
 Because a linear shift obscures whether a respondent is moving \textit{toward} (Conformity) or \textit{away from} (Reactance) the group, we map the behavioral shifts and fit a Multinomial Logistic Regression model.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Figure7_MultinomialBehavior.png}
     \caption{Probability of Behavioral Response by Status Group}
+    \label{fig:multinom}
 \end{figure}
 
-This reveals that Middle Class individuals without a college degree are highly prone to \textit{conformity}, whereas Working Class individuals with a college degree display the highest baseline probability of \textit{reactance}. 
+This behavioral disaggregation clarifies why the linear hypotheses (H1--H3) yielded mixed results: status inconsistency fundamentally alters the propensity to conform or react regardless of the specific alter. As Figure \ref{fig:multinom} reveals, Middle Class individuals without a college degree are highly prone to \textit{conformity}, whereas Working Class individuals with a college degree display the highest baseline probability of \textit{reactance}. 
 
 \subsection{Robustness: Covariate Balancing via IPW}
 To ensure these class-based findings are not driven by confounding demographics (like age or race disparities between education groups), we apply Propensity Score Weighting. 
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/Figure8_CovariateBalance.png}
     \caption{Covariate Balance Before and After Weighting}
+    \label{fig:balance}
 \end{figure}
 
-Even after weighting, the structural differences in behavior across status groups remain remarkably consistent (see Figure 4).
+Even after weighting, the structural differences in behavior across status groups remain remarkably consistent (see Figure \ref{fig:weighted_multinom}).
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Figure9_WeightedMultinomialBehavior.png}
     \caption{IPW Weighted Probability of Behavioral Response}
+    \label{fig:weighted_multinom}
 \end{figure}
 
 \subsection{Sensitivity Analysis: Isolating Class Feedback}
 To ensure that the results are driven by the \textit{class status} of the fictional alter groups, we run a sensitivity analysis dropping the ``Taste Only'' conditions. 
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Figure11_Sens_MultinomialBehavior.png}
     \caption{Behavioral Response (Excluding `Taste Only' Conditions)}
+    \label{fig:sens_multinom}
 \end{figure}
 
 The probability distributions of conformity versus reactance remain highly consistent with the main findings, confirming that the presence of class-based status information uniquely structures the evaluation shifts of respondents.
