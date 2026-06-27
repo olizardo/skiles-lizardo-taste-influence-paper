@@ -151,13 +151,14 @@ multi_mod <- multinom(behavior ~ objsubjclass_factor,
                       data = df_multi, weights = ipw_weight, trace = FALSE)
 multi_preds <- predictions(multi_mod, type = "probs", by = c("objsubjclass_factor", "group"))
 
-p_multi <- ggplot(multi_preds, aes(x = objsubjclass_factor, y = estimate, fill = group)) +
-  geom_bar(stat = "identity", position = "dodge", color = "black") +
-  scale_fill_manual(values = c("Stay" = "gold", "Conform" = "steelblue", "React" = "firebrick")) +
+p_multi <- ggplot(multi_preds, aes(x = estimate, y = objsubjclass_factor, color = group)) +
+  geom_point(position = position_dodge(width = 0.5), size = 3) +
+  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), position = position_dodge(width = 0.5), width = 0.2, linewidth = 1, orientation = "y") +
+  scale_color_manual(values = c("Stay" = "gold", "Conform" = "steelblue", "React" = "firebrick")) +
   labs(title = "Probability of Behavioral Response by Status Group (IPW Weighted)",
-       x = "Status Consistency", y = "Predicted Probability", fill = "Behavior") +
+       x = "Predicted Probability", y = "Status Consistency", color = "Behavior") +
   theme_minimal(base_size = 14) +
-  theme(legend.position = "bottom", axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(legend.position = "bottom")
 
 print(p_multi)
 ggsave("figures/Figure7_MultinomialBehavior.png", p_multi, width = 10, height = 6)
@@ -176,13 +177,14 @@ multi_mod_sens <- multinom(behavior ~ objsubjclass_factor,
 
 multi_preds_sens <- predictions(multi_mod_sens, type = "probs", by = c("objsubjclass_factor", "group"))
 
-p_sens <- ggplot(multi_preds_sens, aes(x = objsubjclass_factor, y = estimate, fill = group)) +
-  geom_bar(stat = "identity", position = "dodge", color = "black") +
-  scale_fill_manual(values = c("Stay" = "gold", "Conform" = "steelblue", "React" = "firebrick")) +
+p_sens <- ggplot(multi_preds_sens, aes(x = estimate, y = objsubjclass_factor, color = group)) +
+  geom_point(position = position_dodge(width = 0.5), size = 3) +
+  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), position = position_dodge(width = 0.5), width = 0.2, linewidth = 1, orientation = "y") +
+  scale_color_manual(values = c("Stay" = "gold", "Conform" = "steelblue", "React" = "firebrick")) +
   labs(title = "Behavioral Response (Excluding 'Taste Only' Conditions)",
-       x = "Status Consistency", y = "Predicted Probability", fill = "Behavior") +
+       x = "Predicted Probability", y = "Status Consistency", color = "Behavior") +
   theme_minimal(base_size = 14) +
-  theme(legend.position = "bottom", axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(legend.position = "bottom")
 
 print(p_sens)
 ggsave("figures/Figure11_Sens_MultinomialBehavior.png", p_sens, width = 10, height = 6)
