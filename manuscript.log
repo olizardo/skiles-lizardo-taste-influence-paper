@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 08:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.23)  27 JUN 2026 08:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -360,56 +360,62 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {/home/omarlizardo/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (5.95526pt too wide) in paragraph at lines 53--54
+Overfull \hbox (5.95526pt too wide) in paragraph at lines 57--58
 []\OT1/cmr/bx/n/12 Negative Eval-u-a-tions: \OT1/cmr/m/n/12 Neg-a-tive eval-u-a-tions (dis-lik-ing) from gen-er-al-ized oth-ers should
  []
 
 [3]
-<figures/Figure5_TrialEffects_ObjSubj.png, id=112, 867.24pt x 722.7pt>
+<figures/experimental_stimulus.jpeg, id=135, 513.92pt x 327.2225pt>
+File: figures/experimental_stimulus.jpeg Graphic file (type jpg)
+<use figures/experimental_stimulus.jpeg>
+Package pdftex.def Info: figures/experimental_stimulus.jpeg  used on input line 74.
+(pdftex.def)             Requested size: 258.36668pt x 164.50958pt.
+ [4 <./figures/experimental_stimulus.jpeg>]
+<figures/Figure5_TrialEffects_ObjSubj.png, id=144, 867.24pt x 722.7pt>
 File: figures/Figure5_TrialEffects_ObjSubj.png Graphic file (type png)
 <use figures/Figure5_TrialEffects_ObjSubj.png>
-Package pdftex.def Info: figures/Figure5_TrialEffects_ObjSubj.png  used on input line 102.
+Package pdftex.def Info: figures/Figure5_TrialEffects_ObjSubj.png  used on input line 113.
 (pdftex.def)             Requested size: 422.77664pt x 352.31758pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4]
-<figures/Figure7_MultinomialBehavior.png, id=120, 578.16pt x 433.62pt>
+[5]
+<figures/Figure7_MultinomialBehavior.png, id=153, 578.16pt x 433.62pt>
 File: figures/Figure7_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure7_MultinomialBehavior.png>
-Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input line 116.
+Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input line 127.
 (pdftex.def)             Requested size: 422.77664pt x 317.08252pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/Figure8_CovariateBalance.png, id=121, 578.16pt x 433.62pt>
+<figures/Figure8_CovariateBalance.png, id=154, 578.16pt x 433.62pt>
 File: figures/Figure8_CovariateBalance.png Graphic file (type png)
 <use figures/Figure8_CovariateBalance.png>
-Package pdftex.def Info: figures/Figure8_CovariateBalance.png  used on input line 127.
+Package pdftex.def Info: figures/Figure8_CovariateBalance.png  used on input line 138.
 (pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/Figure9_WeightedMultinomialBehavior.png, id=122, 578.16pt x 433.62pt>
+<figures/Figure9_WeightedMultinomialBehavior.png, id=155, 578.16pt x 433.62pt>
 File: figures/Figure9_WeightedMultinomialBehavior.png Graphic file (type png)
 <use figures/Figure9_WeightedMultinomialBehavior.png>
-Package pdftex.def Info: figures/Figure9_WeightedMultinomialBehavior.png  used on input line 135.
+Package pdftex.def Info: figures/Figure9_WeightedMultinomialBehavior.png  used on input line 146.
 (pdftex.def)             Requested size: 422.77664pt x 317.08252pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/Figure11_Sens_MultinomialBehavior.png, id=123, 578.16pt x 433.62pt>
+<figures/Figure11_Sens_MultinomialBehavior.png, id=156, 578.16pt x 433.62pt>
 File: figures/Figure11_Sens_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure11_Sens_MultinomialBehavior.png>
-Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on input line 144.
+Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on input line 155.
 (pdftex.def)             Requested size: 422.77664pt x 317.08252pt.
-[5 <./figures/Figure5_TrialEffects_ObjSubj.png>]
+[6 <./figures/Figure5_TrialEffects_ObjSubj.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <./figures/Figure7_MultinomialBehavior.png>] (./manuscript.bbl [7 <./figures/Figure8_CovariateBalance.png>]) [8 <./figures/Figure9_WeightedMultinomialBehavior.png>] [9 <./figures/Figure11_Sens_MultinomialBehavior.png>] (./manuscript.aux)
+[7 <./figures/Figure7_MultinomialBehavior.png>] (./manuscript.bbl [8 <./figures/Figure8_CovariateBalance.png>] [9 <./figures/Figure9_WeightedMultinomialBehavior.png>]) [10 <./figures/Figure11_Sens_MultinomialBehavior.png>] (./manuscript.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
@@ -418,18 +424,18 @@ Package rerunfilecheck Info: File `manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 9F4E96C0C039F12D6419DFDA013FAA8D;2825.
  ) 
 Here is how much of TeX's memory you used:
- 11654 strings out of 469158
- 185993 string characters out of 5459787
- 616207 words of memory out of 5000000
- 40509 multiletter control sequences out of 15000+600000
+ 11688 strings out of 469158
+ 187042 string characters out of 5459787
+ 616489 words of memory out of 5000000
+ 40535 multiletter control sequences out of 15000+600000
  631128 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 74i,6n,79p,1018b,571s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,6n,79p,1223b,578s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/omarlizardo/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/omarlizardo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on manuscript.pdf (9 pages, 825599 bytes).
+Output written on manuscript.pdf (10 pages, 923742 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 168 compressed objects within 2 object streams
- 48 named destinations out of 1000 (max. 500000)
- 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 233 PDF objects out of 1000 (max. 8388607)
+ 200 compressed objects within 2 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
