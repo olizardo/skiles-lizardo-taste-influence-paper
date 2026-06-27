@@ -84,7 +84,7 @@ The treatment conditions vary along three dimensions regarding this fictional al
 \begin{enumerate}
     \item \textbf{Taste Evaluation:} Whether the alter group \textit{liked} or \textit{disliked} the artwork.
     \item \textbf{Status of the Alter:} High-status (College educated/Middle class) versus Low-status (Working class/No college).
-    \item \textbf{Control/Taste Only:} Conditions where only the alter's taste is known, but no class information is provided, as well as a pure baseline control.
+    \item \textbf{Control/No Status:} Conditions where only the alter's taste is known, but no class information is provided, as well as a pure baseline control.
 \end{enumerate}
 
 \subsection{Variables}
@@ -112,7 +112,7 @@ All results reported below utilize these IPW weights to ensure unbiased estimate
 The baseline condition allows us to observe the counterfactual drift in aesthetic evaluations over repeated trials without external influence. Our analysis of the trial effects (Figure \ref{fig:trialeffects}) provides mixed support for a universal mere exposure effect. While college-educated respondents (both Working and Middle class) exhibit a significant positive drift in evaluations across trials, respondents without a college degree exhibit no significant change. Thus, the mere exposure effect is not uniform but contingent on educational capital.
 
 \subsection{Evaluating Generalized Influence}
-In the ``Taste Only'' conditions, we hypothesized that positive evaluations from generalized others would facilitate the baseline drift, while negative evaluations would block it. The results partially support this: exposure to positive evaluations produces significant positive shifts, particularly for Middle Class individuals without a college degree. Conversely, exposure to generalized negative evaluations largely suppresses the positive baseline drift across all groups, resulting in null trial effects, exactly as predicted.
+In the ``No Status'' conditions, we hypothesized that positive evaluations from generalized others would facilitate the baseline drift, while negative evaluations would block it. The results partially support this: exposure to positive evaluations produces significant positive shifts, particularly for Middle Class individuals without a college degree. Conversely, exposure to generalized negative evaluations largely suppresses the positive baseline drift across all groups, resulting in null trial effects, exactly as predicted.
 
 \begin{figure}[ht!]
     \centering
@@ -124,11 +124,11 @@ In the ``Taste Only'' conditions, we hypothesized that positive evaluations from
 \subsection{Evaluating Status-Based Influence (Hypotheses 1--3)}
 When introducing the class status of the fictional alter group, we observe complex dynamics that challenge linear theories of social influence. 
 
-\textbf{Hypothesis 1 (Same-status alignment)} predicted that respondents would align their judgments with the positive and negative judgments of their own status peers. This finds \textit{mixed support}. High-status respondents (Middle Class, College) show a significant positive shift when exposed to High-status likes, but no significant negative shift when exposed to High-status dislikes. In contrast, Low-status respondents (Working Class, No College) do not align with Low-status likes, and strikingly, they show a significant \textit{positive} shift (distancing) when exposed to Low-status dislikes. Thus, low-status individuals actively react against the negative tastes of their own peers.
+\textbf{Hypothesis 1 (Same-status alignment)} predicted that respondents would align their judgments with the positive and negative judgments of their own status peers. This finds \textit{mixed support}. High-status respondents (Middle Class, College) show a significant positive shift when exposed to the ``Like / High Status'' condition, but no significant negative shift when exposed to the ``Dislike / High Status'' condition. In contrast, Low-status respondents (Working Class, No College) do not align in the ``Like / Low Status'' condition, and strikingly, they show a significant \textit{positive} shift (distancing) when exposed to the ``Dislike / Low Status'' condition. Thus, low-status individuals actively react against the negative tastes of their own peers.
 
-\textbf{Hypothesis 2 (Symbolic power/upward alignment)} predicted that Low-status respondents would align with High-status judgments. We find \textit{partial support}. Low-status respondents do exhibit a significant positive shift when told High-status others like the painting. However, they exhibit null shifts in response to High-status negative feedback, rather than conformity.
+\textbf{Hypothesis 2 (Symbolic power/upward alignment)} predicted that Low-status respondents would align with High-status judgments. We find \textit{partial support}. Low-status respondents do exhibit a significant positive shift in the ``Like / High Status'' condition. However, they exhibit null shifts in the ``Dislike / High Status'' condition, rather than conformity.
 
-\textbf{Hypothesis 3 (Cross-status reactance)} predicted distancing when exposed to out-group judgments. This is \textit{not supported}. High-status respondents do not significantly distance (shift negatively) from Low-status likes, nor do they distance (shift positively) from Low-status dislikes. The strongest distancing behavior in the data actually occurs within-group (Low-status respondents reacting against Low-status dislikes), suggesting that reactance is driven more by avoiding low-status stigma than by strict cross-status boundaries.
+\textbf{Hypothesis 3 (Cross-status reactance)} predicted distancing when exposed to out-group judgments. This is \textit{not supported}. High-status respondents do not significantly distance (shift negatively) from the ``Like / Low Status'' condition, nor do they distance (shift positively) from the ``Dislike / Low Status'' condition. The strongest distancing behavior in the data actually occurs within-group (Low-status respondents reacting against the ``Dislike / Low Status'' condition), suggesting that reactance is driven more by avoiding low-status stigma than by strict cross-status boundaries.
 
 \subsection{Disaggregating Behavior: Conformity vs. Reactance}
 Because a linear shift obscures whether a respondent is moving \textit{toward} (Conformity) or \textit{away from} (Reactance) the group, we map the behavioral shifts and fit a Multinomial Logistic Regression model.
@@ -162,12 +162,12 @@ Even after weighting, the structural differences in behavior across status group
 \end{figure}
 
 \subsection{Sensitivity Analysis: Isolating Class Feedback}
-To ensure that the results are driven by the \textit{class status} of the fictional alter groups, we run a sensitivity analysis dropping the ``Taste Only'' conditions. 
+To ensure that the results are driven by the \textit{class status} of the fictional alter groups, we run a sensitivity analysis dropping the ``No Status'' conditions. 
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Figure11_Sens_MultinomialBehavior.png}
-    \caption{Behavioral Response (Excluding `Taste Only' Conditions)}
+    \caption{Behavioral Response (Excluding `No Status' Conditions)}
     \label{fig:sens_multinom}
 \end{figure}
 
