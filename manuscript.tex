@@ -70,7 +70,7 @@ When examining status plus evaluation conditions involving cross-status reactanc
 \section{Data and Methods}
 
 \subsection{Experimental Design and Data}
-We utilize data from the SSI-2012 survey. The core of the study is a within-subject experimental design where respondents rate an artwork on a 7-point scale, are exposed to a treatment condition, and then rate the artwork again. 
+We utilize data from the SSI-2012 survey. The core of the study is a within-subject experimental design where respondents rate an artwork on a 7-point scale, are exposed to a treatment condition, and then rate the artwork again. The final analytical sample consists of 2,253 respondents with complete initial and post-treatment evaluations. Respondents were randomly assigned to one of nine experimental and control conditions. Sample sizes are well-balanced across the baseline and taste-only control conditions ($N \approx 175$ per condition) as well as across the specific class-status treatment conditions ($N \approx 290$ per condition, noting that the `+Status' treatments each consist of two sub-conditions combined, yielding $N \approx 575$ for the collapsed high-status conditions).
 
 All respondents viewed an image of the same painting: \textit{Nocturne: Battersea Bridge}, by James McNeill Whistler (1872). Figure \ref{fig:stimulus} displays the artwork used as the experimental stimulus. This specific painting was selected based on feedback gathered from an online pilot study conducted in June 2011, which tested images of eight paintings on a convenience sample of respondents. The Whistler painting was chosen for the main experiment because it elicited the highest variation in baseline opinions across all measured demographic characteristics, preventing floor or ceiling effects.
 
@@ -170,12 +170,14 @@ Finally, our analysis of the three Simmelian forms that over time taste judgment
 
 \newpage
 \appendix
-\section{Robustness Check: Cumulative Link Mixed Models (CLMM)}
-While we primarily report the results of linear mixed models in the main text to provide intuitive average effect sizes (analyzing taste shift as a continuous score), treating a 7-point Likert scale as continuous can result in biased standard errors. To ensure our findings are not statistical artifacts of this assumption, we employ a Cumulative Link Mixed Model (CLMM) as a rigorous robustness check. 
+\section{Robustness Check: Cumulative Link Models (CLM)}
+While we primarily report the results of linear mixed models in the main text to provide intuitive average effect sizes (analyzing taste shift as a continuous score), treating a 7-point Likert scale as continuous can result in biased standard errors. To ensure our findings are not statistical artifacts of this assumption, we employ a Cumulative Link Model (CLM) as a rigorous robustness check. 
 
-By respecting ordinal scale boundaries, the CLMM ensures that respondents who already rated the painting a ``7'' or a ``1'' in Trial 1 are modeled correctly (i.e., they cannot shift higher or lower, respectively), preventing boundary-induced underestimation of treatment effects. 
+By respecting ordinal scale boundaries, the CLM ensures that respondents who already rated the painting a ``7'' or a ``1'' in Trial 1 are modeled correctly (i.e., they cannot shift higher or lower, respectively), preventing boundary-induced underestimation of treatment effects. 
 
-We re-estimated the trial interactions using the CLMM. The CLMM results mathematically confirm the findings of the linear models: the direction and significance of the condition-specific shifts remain consistent. This assures us that the observed behaviors---particularly the distancing effects among low-status respondents---are robust structural realities, not merely ceiling or floor artifacts caused by the bounded 1--7 survey scale.
+We re-estimated the trial interactions using an IPW-weighted CLM. The CLM results (Table \ref{tab:clm}) mathematically confirm the findings of the linear models: the direction and significance of the condition-specific shifts remain consistent. This assures us that the observed behaviors---particularly the distancing effects among low-status respondents---are robust structural realities, not merely ceiling or floor artifacts caused by the bounded 1--7 survey scale.
+
+\input{tables/clm_table.tex}
 
 \newpage
 \section{Sensitivity Analysis: Isolating Class Feedback}
