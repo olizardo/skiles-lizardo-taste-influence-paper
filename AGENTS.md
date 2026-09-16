@@ -1,27 +1,88 @@
 # Taste Influence Paper Project
 
 ## Overview
-This project modernizes and revives the analysis for the "Social Influence Effect on Aesthetic Judgments" paper (Draft 2 and Draft 3). The original Stata pipeline has been ported to a fully reproducible R workflow.
+This project modernizes, revises, and revives the analysis for the paper *"Stay, React, or Conform? Examining Social Influence Effects on Aesthetic Judgments"* (Omar Lizardo & Sara Skiles), currently undergoing Major Revision at *Poetics* (POETICS-D-26-00490). The original Stata pipeline and early drafts have been upgraded to a fully reproducible R workflow and connected to Overleaf.
+
+- **Journal:** *Poetics* (Editor-in-Chief: Hannah Wohl)
+- **Overleaf Project URL:** https://www.overleaf.com/project/6a3fe1ed665ddc04ec45136a
+- **Overleaf Git Endpoint:** `https://git.overleaf.com/6a3fe1ed665ddc04ec45136a`
+- **Revision Tracking:** `REVISION_PLAN_POETICS.md` and `response_to_reviewers.md`
+
+---
 
 ## Data
-- **Raw Data Path**: `/home/omarlizardo/ACADEMIC AND COURSE MATERIALS/SSI-2012/data/clean/ssi2012_cleaned.dta`
-- **Format**: Stata `.dta` file containing survey data with embedded value labels. Use `haven::read_dta()` to load it.
-- **Data Processing**: The script `R/dataproc.R` contains the `process_data()` function which handles all data wrangling. It filters missing taste evaluations, reverses the 1-7 taste scales, and generates the necessary demographic and condition factors (e.g., `cond_factor`, `cond2_factor`, `objsubjclass_factor`). It returns a list containing both `wide` and `long` format datasets.
+- **Primary Raw Data Path**: `/home/omarlizardo/projects/CULTURE/cultural-consensus-musical-genres/SSI-2012/data/clean/ssi2012_cleaned.dta` (fallback: `/home/omarlizardo/ACADEMIC AND COURSE MATERIALS/SSI-2012/data/clean/ssi2012_cleaned.dta`).
+- **Format**: Stata `.dta` file containing survey data with embedded value labels. Loaded via `haven::read_dta()`.
+- **Data Processing (`R/dataproc.R`)**:
+  - Filters missing evaluations on `taste1` and `taste2` ($N = 2,275$ completed responses; $N = 2,253$ complete pre/post evaluations).
+  - Reverses the 1--7 taste scales so $7 = \text{like very much}$ and $1 = \text{dislike very much}$.
+  - Constructs the 9-condition experimental factor (`cond_factor`) and collapsed 7-condition factor (`cond2_factor`).
+  - Constructs the 4-level status consistency variable (`objsubjclass_factor`: Working Class/No College, Working Class/College, Middle Class/No College, Middle Class/College).
+  - Reshapes data into wide (`df_wide`) and long (`df_long`) formats for repeated-measures analysis.
 
-## Key Variables
-- `taste1` / `taste2`: Pre and post evaluations of an artwork. (Reversed in processing: 7 = like very much, 1 = dislike very much).
-- `trial`: Indicates if the rating is before (1) or after (2) exposure to the experimental condition.
-- `cond_factor` / `cond2_factor`: The experimental treatment condition indicating fictional peer evaluations (Like/Dislike) and their status (+Status, -Status, No Status).
-- `objsubjclass_factor`: A 4-level categorical variable capturing status consistency (Working Class vs. Middle Class crossed with College vs. No College).
-- `behavior`: Derived in advanced models as 'Stay', 'Conform', or 'React' based on the direction of taste shift relative to the condition.
+---
 
-## Analytical Pipeline
-- **`R/dataproc.R`**: Core data cleaning and reshaping.
-- **`R/replication_models.R`**: Replicates the original Stata linear mixed models (`lmer`) and Wald tests.
-- **`R/visualization.R`**: Generates `ggplot2` versions of the original paper's figures.
-- **`R/advanced_models.R`**: Contains modern modeling strategies including Cumulative Link Mixed Models (CLMM via `ordinal`) and Multinomial Logistic Regression (`nnet::multinom`) for behavior.
-- **`R/propensity_models.R`**: Implements Inverse Probability Weighting (IPW) using `WeightIt` and `cobalt` to balance covariates (age, gender, race, parent's education) across the observational status groups.
-- **`R/sensitivity_analysis.R`**: Drops the "Taste Only" conditions to isolate class-based feedback effects.
+## Key Methodological Innovations & Core Findings
 
-## Manuscript
-- **`manuscript_revived.qmd`**: A comprehensive Quarto document combining all analyses, model comparisons, robustness checks, and visualizations. Render this file to generate the complete report.
+### 1. Difference-in-Differences (DiD) Analytic Strategy (`R/did_models.R`)
+Replacing the original draft's simple within-condition pre/post change tests ($\bar{Y}_2 - \bar{Y}_1 \ne 0$), the analysis now uses a formal Difference-in-Differences design benchmarking all treatments against the unexposed **Control Condition**:
+$$\text{Taste}_{ijt} = \beta_0 + \beta_1 \text{Trial}_{it} + \sum_{k=2}^{K} \beta_k \text{Cond}_{ik} + \sum_{k=1}^{K} \delta_k (\text{Trial}_{it} \times \text{Cond}_{ik}) + \mathbf{X}_i \boldsymbol{\gamma} + u_i + \epsilon_{ijt}$$
+- **The Exposure Drift Counterfactual:** In the Control Condition (where respondents saw zero information), liking drifted upward significantly ($\beta_1 = +0.107, p = 0.041$). Crucially, this drift is concentrated among college graduates ($\beta_1 = +0.257, p = 0.016$), but completely absent among non-college respondents ($\beta_1 = 0.000, p = 1.00$).
+- **The False-Positive Discovery:** In the original draft, apparent "positive conformity" in college-educated groups was an artifact of this unmeasured baseline drift. For example, Working Class/College respondents shifted $+0.288$ under "Like/High Status", but their control group drifted $+0.311$ with no information ($\text{DiD} = -0.024, p = 0.845$).
+- **Valence Asymmetry Confirmed as an Asymmetric Veto:** In the pooled sample, negative evaluations significantly halt and reverse exposure drift: High-Status Dislike ($\text{DiD} = -0.121, p = 0.043^*$) and Generalized Dislike ($\text{DiD} = -0.125, p = 0.095^\dagger$). Positive evaluations fail to reach significance in the pooled sample ($p \ge 0.198$).
+- **Cross-Status Reactance & Taste Abandonment (Hypothesis 3):** High-status consistent respondents (Middle Class/College) exposed to Low-Status Likes show a statistically significant negative DiD divergence ($\text{DiD} = -0.296, p = 0.039^*$), confirming Bourdieusian taste abandonment.
+
+### 2. Inverse Probability Weighting (IPW) Causal Logic (`R/propensity_models.R`)
+- Experimental conditions (information from others) were randomized.
+- Respondent status consistency (`objsubjclass_factor`) is **observational**.
+- IPW weights (via `WeightIt` and `cobalt`) balance age, gender, race/ethnicity, and parental education across status quadrants, achieving standardized mean differences $< 0.10$ across all covariates (Figure 1: `Figure8_CovariateBalance.png`).
+
+### 3. Discrete Behavioral Modeling via Marginal Effects (`R/generate_did_barplots.R`)
+- Categorizes choices into **Stay** ($\Delta = 0$), **Conform** (shifting in direction of cue), and **React** (shifting away).
+- Evaluated via Average Marginal Effects from multinomial logit relative to *Working Class, No College*:
+  - **Inertia (Stay):** Structural status consistency drives stability. Middle Class/College is $+4.6\%$ more likely to stay ($p < 0.001$), while Middle Class/No College is $-5.4\%$ less likely to stay ($p < 0.001$).
+  - **Conformity:** Status-inconsistent individuals are significantly more susceptible to external influence: Working Class/College is $+5.4\%$ more likely to conform ($p < 0.001$), and Middle Class/No College is $+4.1\%$ more likely to conform ($p < 0.001$).
+  - **Reactance:** College-educated individuals are significantly less likely to react ($-3.2\%$ and $-2.5\%$, $p < 0.01$). Oppositional reactance is concentrated among non-college workers.
+
+---
+
+## Active Manuscript Assets & Figure Inventory
+
+All forest plots have been replaced with **horizontal bar plots with error bars** colored by statistical significance (Red: $p < 0.05$, Orange: $p < 0.10$, Grey: $p \ge 0.10$):
+
+| Manuscript Asset | File Path | Description |
+| :--- | :--- | :--- |
+| **Stimulus Image** | `figures/experimental_stimulus.jpeg` | Whistler's *Nocturne: Battersea Bridge* (1872) |
+| **Figure 1** | `figures/Figure8_CovariateBalance.png` | IPW Love Plot of covariate balance across status quadrants |
+| **Figure 2** | `figures/Figure_DiD_Significant_Effects.png` | Focused 3-panel horizontal bar plot of the 9 statistically reliable DiD effects ($p < 0.10$) |
+| **Figure 3** | `figures/Figure7_MultinomialBehavior.png` | 3-panel horizontal bar plot of Average Marginal Effects for Stay, Conform, and React |
+| **Table 1** | `manuscript_R1.tex` (Table 1) | Sample demographics vs. 2012 Census benchmarks across experimental arms |
+| **Table 2** | `manuscript_R1.tex` (Table 2) | Primary unweighted DiD linear mixed model (pooled sample) |
+| **Table 3** | `manuscript_R1.tex` (Table 3) | Hypothesis evaluation matrix (estimates, expectations, and verdicts) |
+| **Appendix Figure A.1** | `figures/Figure_DiD_Status_All.png` | Full 24-cell status DiD bar plot with error bars |
+| **Appendix Figure A.2** | `figures/Figure11_Sens_MultinomialBehavior.png` | Sensitivity behavioral bar plot (excluding Taste-Only conditions) |
+| **Appendix Table A.1** | `tables/did_model_results.rds` | Full regression coefficients for DiD models |
+| **Appendix Table A.2** | `manuscript_R1.tex` (Table A.2) | Comparison of Unweighted and IPW-Weighted pooled DiD models |
+
+---
+
+## Revision Status Tracker
+
+### Completed Items:
+- [x] **DiD Estimation Strategy (R1 #1):** Fully implemented in `R/did_models.R`, woven into narrative and Table 2.
+- [x] **Terminology Disambiguation (R1 #2):** Reserved "baseline" strictly for Trial 1; renamed unexposed group "Control Condition"; drift termed "exposure drift".
+- [x] **Survey Sampling & Descriptives (R1 #3):** Documented 2012 SSI panel recruitment, quota matching, deliberate college oversample, participant flow ($3,782 \to 2,275$), CI inferential scope, and Table 1.
+- [x] **Treatment Vignettes in Appendix (R1 #5):** Verbatim transcription of Qualtrics survey flow, stimuli, and vignettes in Appendix B.
+- [x] **IPW Causal Logic & Covariate Balance (R1 #7, #8):** Added pedagogical explanation of pseudo-populations and conditional exchangeability; documented Love plot.
+- [x] **Hypothesis Summary Table (R2 #7):** Added Table 3 systematically summarizing each hypothesis, DiD estimate, and statistical verdict.
+- [x] **Purge "Peers" $\to$ "Others":** Standardized terminology across entire manuscript.
+- [x] **Bar Plots with Error Bars:** Replaced forest plots with horizontal bar plots with error bars.
+- [x] **Clean Up Figures Folder:** Deleted obsolete legacy within-subject plots (`Figure2_*` through `Figure6_*`, `Figure10_*`).
+- [x] **Compliance with Global Guidelines (`~/.config/agents/AGENTS.md`):** Zero local LaTeX compilation, zero banned words, no lists in main text, CUA tripartite Discussion.
+- [x] **Overleaf Git Remote:** Configured and synchronized (`git push overleaf main`).
+
+### Remaining Tasks for Final Submission:
+- [ ] **Ex-Post Minimum Detectable Effect (MDE) Analysis (R1 #4):** Create dedicated script (`R/mde_power_analysis.R`) computing formal power/MDE curves across cell sizes and export formal LaTeX table/text for Appendix A.
+- [ ] **Stepwise Main Effects for Education & Class (R1 #6):** Estimate and present separate models for Education alone and Subjective Class alone before the 4-level combined variable.
+- [ ] **Export Full Model Regression Tables to LaTeX (R1 #12):** Generate full model tables (coefficients, SEs, test stats, random effect variances, AIC/BIC) using `modelsummary` into `tables/` and embed in Appendix.
+- [ ] **Deepen Theoretical Citations (R1 #13):** Integrate recent literature on cultural cognition, dual-process habitus, aesthetic signaling, and symbolic boundaries (Lizardo et al.) into `references.bib` and Section 1.
