@@ -57,8 +57,8 @@ All forest plots have been replaced with **horizontal bar plots with error bars*
 | **Figure 3** | `figures/Figure_DiD_Edu_Class_Separate.png` | 2-panel horizontal bar plot of DiD effects for Education alone and Class alone |
 | **Figure 4** | `figures/Figure7_MultinomialBehavior.png` | 3-panel horizontal bar plot of Average Marginal Effects for Stay, Conform, and React |
 | **Table 1** | `manuscript.tex` (Table 1) | Sample demographics vs. 2012 Census benchmarks across experimental conditions |
-| **Table 2** | `manuscript.tex` (Table 2) | Primary unweighted DiD linear mixed model (pooled sample) |
-| **Table 3** | `manuscript.tex` (Table 3) | Difference-in-Differences estimates moderated separately by Education and Class |
+| **Table 2** | `manuscript.tex` (Table 2) | Primary DiD models moderated separately by Education and Subjective Class |
+| **Table 3** | `manuscript.tex` (Table 3) | 24-cell DiD estimates across Status Consistency Quadrants (IPW-Weighted) |
 | **Table 4** | `manuscript.tex` (Table 4) | Hypothesis evaluation matrix (estimates, expectations, and verdicts) |
 | **Appendix Figure A.1** | `figures/Figure_MDE_Power_Curves.png` | Dual-panel MDE power curves (theoretical & empirical benchmarks) |
 | **Appendix Figure A.2** | `figures/Figure_DiD_Pooled.png` | Unweighted DiD estimates for the pooled sample with 95% confidence intervals |

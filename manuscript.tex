@@ -149,7 +149,7 @@ A common methodological concern in within-subject experimental designs is whethe
 
 First, Trial 1 and Trial 2 were separated by an extensive cognitive and temporal buffer comprising 15 to 20 minutes of substantive survey batteries. Between aesthetic evaluations, respondents completed detailed modules on educational history, parental degree attainment, employment status, 22-category Standard Occupational Classification (SOC) coding, annual household income, and a comprehensive 20-genre musical taste battery evaluating preference ratings, listening frequency, and listener demographic stereotypes. This substantial intervening distance prevented respondents from mechanically recalling or feeling compelled to repeat their Trial 1 ratings.
 
-Second, the experimental feedback screens were framed naturalistically as observational descriptive summaries from prior survey waves rather than prescriptive social norms: respondents were told, \textit{``Our survey so far indicates that the group of people most likely to say that they [LIKE / DISLIKE] the painting you saw have completed\dots''} Immediately following this prompt, respondents completed attribution and subjective similarity probes concerning the evaluating group, maintaining the perception that the survey was investigating social perception rather than testing their personal susceptibility to persuasion. At no point were participants prompted to re-evaluate their prior rating or instructed that conformity was expected.
+Second, the experimental feedback screens were framed naturalistically as observational descriptive summaries from prior survey waves rather than prescriptive social norms: respondents were told, \textit{``Our survey so far indicates that the group of people most likely to say that they [LIKE / DISLIKE] the painting you saw have completed\dots''} Immediately following this prompt, respondents completed attribution and subjective similarity probes concerning the evaluating group, maintaining the perception that the survey was investigating social perception rather than testing their personal susceptibility to persuasion. When respondents subsequently reached the end of the survey and were re-shown the painting, they were simply asked for their ``final impression'' using the identical rating scale, without being reminded of their initial Trial 1 score and without any instructional prompt linking their second rating to the opinions of others or suggesting that conformity was expected.
 
 Third, in the following analyses, all treatment shifts are compared against the unexposed Control Condition. Because control respondents completed the identical intervening survey battery without receiving any cue from others, comparing treatment conditions against this baseline cleanly separates genuine informational influence from any residual re-test reactivity or temporal fatigue.
 
@@ -159,6 +159,8 @@ Finally, the empirical distribution of discrete behavioral choices provides powe
 Aesthetic evaluation was measured on a reversed 1--7 scale. In continuous models, the outcome is the repeated evaluation across trials. In behavioral models, change between trials is categorized into three mutually exclusive choices: \textit{Stay} ($\Delta = 0$), \textit{Conform} (moving in the direction of others' evaluations), and \textit{React} (moving in the opposite direction).
 
 The treatment conditions crossed others' evaluation (Like vs.\ Dislike) with others' social status. High-status others were differentiated into Cultural Specialists (possessing multiple advanced degrees including a PhD and working in higher education) and Economic Specialists (holding a bachelor's degree in business and working in financial investment). Low-status others were described as possessing a high school education and working in food service. In addition, two Taste-Only conditions provided others' like or dislike evaluations without any status indicators, and a pure Control Condition provided no information about others between trials ($N=182$).
+
+Following previous analytical conventions \citep{skiles2013}, we collapse the Economic Specialist and Cultural Specialist conditions into a single High-Status condition (\textit{+Status}) for the primary analysis. This consolidation is justified on both statistical and substantive grounds. First, crossing respondents' own status consistency quadrants by all nine experimental conditions would expand the design to 36 cells, reducing cell sizes in smaller subgroups to $N \approx 20$--$35$ (and $N = 23$ in control), severely inflating the Minimum Detectable Effect threshold ($d > 0.45$). Second, formal linear hypothesis tests confirm that responses to Economic Specialists and Cultural Specialists are statistically indistinguishable for both positive cues ($F = 0.29, p = 0.591$ in the pooled sample; $F = 0.92, p = 0.337$ among college graduates) and negative cues ($F = 0.06, p = 0.803$ in the pooled sample; $F = 0.04, p = 0.846$ among college graduates). Collapsing them into a combined high-status category effectively doubles statistical precision for high-status cues ($N \approx 575$ per arm) without obscuring any empirical heterogeneity.
 
 To capture respondents' structural social location, we examine objective educational attainment (College Degree vs.\ No College) and subjective class self-identification (Middle Class vs.\ Working Class). Methodologically, we analyze these dimensions stepwise: we first evaluate the separate moderating effects of educational attainment alone and subjective class identification alone (Section \ref{sec:stepwise_models}, Figure \ref{fig:did_edu_class}, and Table \ref{tbl:did_edu_class}) before examining their intersection in a four-quadrant typology of status consistency: Working Class without College, Working Class with College, Middle Class without College, and Middle Class with College. Furthermore, to verify that our substantive conclusions are not sensitive to the boundary demarcations of subjective class, we evaluate an alternative categorization restricting the sample strictly to self-identified working- and middle-class respondents (excluding lower- and upper-class extremes) as an additional sensitivity analysis in Appendix \ref{sec:appendix_class_robustness}.
 
@@ -218,86 +220,13 @@ Evaluating the unexposed Control Condition allows us to observe the counterfactu
 \end{equation}
 where respondents without a college degree serve as the reference category.
 
-As shown in Model 1 of Table \ref{tbl:did_models}, the counterfactual exposure drift across trials for respondents without a college degree is statistically indistinguishable from zero ($\beta_1 = +0.032, SE = 0.058, t = 0.55, p = 0.582$; unweighted: $\beta_1 = 0.000, SE = 0.052, p = 1.000$). In contrast, the interaction between Trial and College degree is positive and statistically significant ($\beta_2 = +0.247, SE = 0.082, t = 3.00, p = 0.0027^{**}$; unweighted: $\beta_2 = +0.257, SE = 0.080, p = 0.0016^{**}$). Combining these parameters reveals that college-educated respondents exhibit substantial upward exposure drift ($\text{Total Drift} = +0.279, SE = 0.063, t = 4.43, p < 0.001$; unweighted: $+0.257, p < 0.001$). Thus, after balancing baseline demographic covariates, repeated exposure produces an intrinsic aesthetic appreciation specifically among respondents possessing institutionalized cultural capital, whereas non-college respondents maintain static evaluations.
+The model reveals that the counterfactual exposure drift across trials for respondents without a college degree is statistically indistinguishable from zero ($\beta_1 = +0.032, SE = 0.058, t = 0.55, p = 0.582$; unweighted: $\beta_1 = 0.000, SE = 0.052, p = 1.000$). In contrast, the interaction between Trial and College degree is positive and statistically significant ($\beta_2 = +0.247, SE = 0.082, t = 3.00, p = 0.0027^{**}$; unweighted: $\beta_2 = +0.257, SE = 0.080, p = 0.0016^{**}$). Combining these parameters demonstrates that college-educated respondents exhibit substantial upward exposure drift ($\text{Total Drift} = +0.279, SE = 0.063, t = 4.43, p < 0.001$; unweighted: $+0.257, p < 0.001$). Thus, after balancing baseline demographic covariates, repeated exposure produces an intrinsic aesthetic appreciation specifically among respondents possessing institutionalized cultural capital, whereas non-college respondents maintain static evaluations.
 
-\subsection{Valence Asymmetry in Difference-in-Differences Effects}
-Model 2 of Table \ref{tbl:did_models} presents the primary Difference-in-Differences (DiD) estimates for the pooled sample ($N = 2,253$). In the pooled sample, average exposure drift across trials in the absence of treatment is positive ($\beta_1 = +0.107, SE = 0.052, t = 2.05, p = 0.041$). Because experimental treatments were randomly assigned, the primary specification is unweighted; an auxiliary IPW-weighted model balancing background demographics yields consistent substantive patterns (Appendix Table A.2).
+As a preliminary benchmark, estimating a simple pooled DiD model across all respondents without differentiating by social location yields mostly muted or null effects (reported in Appendix Table A.2 and Appendix Figure A.2). As our theoretical framework predicts, however, this pooled invariance is an artifact of aggregation: because aesthetic influence operates relationally based on the status congruence between ego and alter, pooling across socially dissimilar respondents washes out opposing directional adjustments. The substantive dynamics of social influence emerge when we examine models interacting experimental conditions with educational capital, subjective social class, and structural status consistency.
 
-\begin{table}[ht!]
-\centering
-\small
-\caption{Linear Mixed-Effects Models of Counterfactual Exposure Drift and Difference-in-Differences Treatment Effects}
-\label{tbl:did_models}
-\setlength{\tabcolsep}{8pt}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcc@{}}
-\toprule
-\textbf{Independent Variable} & \textbf{Model 1: Control Drift (IPW)} & \textbf{Model 2: Pooled DiD} \\
-\midrule
-Intercept & 4.861$^{***}$ (0.155) & 4.689$^{***}$ (0.114) \\
-          & [$t = 31.42$] & [$t = 40.99$] \\
-\addlinespace[2pt]
-Trial 2 Exposure Drift ($\beta_1$) & +0.032 (0.058) & +0.107$^{*}$ (0.052) \\
-                                   & [$t = 0.55$] & [$t = 2.05$] \\
-\addlinespace[2pt]
-College Degree Main Effect & -0.433$^{\dagger}$ (0.238) & \multicolumn{1}{c}{---} \\
-                           & [$t = -1.82$] & \\
-\addlinespace[2pt]
-Trial 2 $\times$ College Degree ($\beta_2$) & +0.247$^{**}$ (0.082) & \multicolumn{1}{c}{---} \\
-                                            & [$t = 3.00$] & \\
-\addlinespace[3pt]
-\multicolumn{3}{l}{\textit{Treatment Main Effects at Baseline ($\beta_k$):}} \\
-\addlinespace[1pt]
-\quad Low-Status Like & \multicolumn{1}{c}{---} & +0.095 (0.145) \\
-                      & & [$t = 0.66$] \\
-\quad High-Status Like & \multicolumn{1}{c}{---} & -0.039 (0.131) \\
-                       & & [$t = -0.30$] \\
-\quad Low-Status Dislike & \multicolumn{1}{c}{---} & +0.068 (0.145) \\
-                        & & [$t = 0.47$] \\
-\quad High-Status Dislike & \multicolumn{1}{c}{---} & +0.061 (0.131) \\
-                         & & [$t = 0.47$] \\
-\quad Generalized Like & \multicolumn{1}{c}{---} & -0.172 (0.163) \\
-                       & & [$t = -1.05$] \\
-\quad Generalized Dislike & \multicolumn{1}{c}{---} & +0.229 (0.163) \\
-                          & & [$t = 1.41$] \\
-\addlinespace[3pt]
-\multicolumn{3}{l}{\textit{Difference-in-Differences Treatment Effects ($\delta_k = \text{Trial} \times \text{Condition}$):}} \\
-\addlinespace[1pt]
-\quad Low-Status Like & \multicolumn{1}{c}{---} & -0.128$^{\dagger}$ (0.067) \\
-                      & & [$t = -1.93$] \\
-\quad High-Status Like & \multicolumn{1}{c}{---} & +0.041 (0.060) \\
-                       & & [$t = 0.68$] \\
-\quad Low-Status Dislike & \multicolumn{1}{c}{---} & +0.016 (0.066) \\
-                        & & [$t = 0.23$] \\
-\quad High-Status Dislike & \multicolumn{1}{c}{---} & -0.121$^{*}$ (0.060) \\
-                         & & [$t = -2.02$] \\
-\quad Generalized Like & \multicolumn{1}{c}{---} & +0.096 (0.075) \\
-                       & & [$t = 1.29$] \\
-\quad Generalized Dislike & \multicolumn{1}{c}{---} & -0.125$^{\dagger}$ (0.075) \\
-                          & & [$t = -1.67$] \\
-\midrule
-Total College Exposure Drift & +0.279$^{***}$ (0.063) & \multicolumn{1}{c}{---} \\
-                             & [$t = 4.43$] & \\
-\addlinespace[2pt]
-Random Intercept Variance ($\sigma^2_u$) & 2.268 & 2.074 \\
-Residual Variance ($\sigma^2_\epsilon$) & 0.592 & 0.243 \\
-Observations / Individuals & 354 / 177 & 4,506 / 2,253 \\
-Log Likelihood & -487.8 & -6,465.0 \\
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-\vspace{4pt}
-\footnotesize
-\textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses; $t$-values in brackets. Models estimated via linear mixed-effects with random intercepts for respondents. Model 1 restricts the sample to the unexposed Control Condition ($N = 177$) and incorporates Inverse Probability Weighting (IPW) to balance baseline age, gender, race/ethnicity, and parental education between college and non-college respondents (non-college respondents serve as reference; unweighted estimates yield $\beta_1 = 0.000, p = 1.000$ and $\beta_2 = +0.257, p = 0.0016$). Model 2 estimates the primary unweighted Difference-in-Differences specification across the pooled sample ($N = 2,253$), benchmarking treatment shifts against the unexposed Control Condition.
-\end{minipage}
-\end{table}
-
-The DiD results provide empirical evidence of a generalized influence effect in the pooled sample, but only for \textit{negative} judgments, suggesting that these are stronger signals than positive ones. Specifically, negative feedback suppresses the overall positive drift effect: negative evaluations from others significantly halt and reverse the positive exposure drift observed in the control condition. Exposure to High-Status Dislike leads to a statistically significant negative divergence of $\text{DiD} = -0.121$ ($SE = 0.060, t = -2.02, p = 0.043^{*}$) relative to the control condition. Generalized Dislike similarly exerts a marginally significant suppressive DiD effect of $\text{DiD} = -0.125$ ($SE = 0.075, t = -1.67, p = 0.095^{\dagger}$). Furthermore, exposure to Low-Status Likes produces a marginally significant negative DiD shift of $\text{DiD} = -0.128$ ($SE = 0.067, t = -1.93, p = 0.055^{\dagger}$).
-
-In contrast, exposure to positive evaluations from others fails to produce statistically significant facilitative shifts relative to the control exposure drift. The DiD estimate for High-Status Like is small and statistically indistinguishable from zero ($\text{DiD} = +0.041, SE = 0.060, t = 0.68, p = 0.497$). Generalized Like similarly fails to achieve statistical significance in the pooled sample ($\text{DiD} = +0.096, SE = 0.075, t = 1.29, p = 0.198$). Exposure to Low-Status Dislike is likewise null ($\text{DiD} = +0.016, SE = 0.066, t = 0.23, p = 0.815$). Because positive evaluations from others do not reach statistical significance ($p \ge 0.10$), we cannot conclude that positive cues produce a reliable facilitative effect in the aggregate. Rather, the statistically reliable pooled influence of external information operates as an asymmetric veto: negative evaluations from others actively suppress the appreciation that emerges under repeated exposure alone.
-
-\subsection{Stepwise Analysis: Social Influence Moderated by Education and Subjective Class Separately}
+\subsection{Primary Main Models: Social Influence Moderated by Education and Subjective Class}
 \label{sec:stepwise_models}
-Before examining the four-quadrant status consistency typology, we disaggregate the analysis to inspect how educational attainment alone (College Degree vs.\ No College) and subjective social class alone (Working Class vs.\ Middle Class) moderate the experimental treatments. Figure \ref{fig:did_edu_class} presents the complete set of Difference-in-Differences estimates across all cue conditions for both dimensions, and Table \ref{tbl:did_edu_class} reports the detailed model coefficients and standard errors.
+To test how social influence operates across distinct dimensions of stratification, we first inspect how educational attainment alone (College Degree vs.\ No College) and subjective social class alone (Working Class vs.\ Middle Class) moderate the experimental treatments. Table \ref{tbl:did_edu_class} presents the complete set of Difference-in-Differences estimates across all cue conditions for both dimensions, and Figure \ref{fig:did_edu_class} visualizes these treatment effects with 95\% confidence intervals benchmarked against the unexposed Control Condition.
 
 \begin{figure}[ht!]
     \centering
@@ -342,8 +271,40 @@ By comparison, examining subjective social class in isolation (Panel B of Figure
 
 Crucially, this stepwise comparison demonstrates why analyzing education and subjective class separately is insufficient. Because objective credential attainment and subjective class identification cross-cut one another—nearly 28\% of working-class self-identifiers hold college degrees, while over 28\% of middle-class identifiers do not—univariate stratification conflates status-consistent actors with status-inconsistent actors. As we show below, the apparent lack of responsiveness among ``working-class'' respondents is an artifact of aggregating non-college workers (who exhibit normative inertia) with college-educated workers (who exhibit sharp reactivity against high-status cues). Examining their four-quadrant intersection is therefore essential for isolating the distinct mechanisms of status consistency and cross-status influence.
 
-\subsection{Status-Differentiated Influence: Testing Hypotheses 1--3}
-Evaluating our status-differentiated hypotheses through the DiD framework (reported across all 24 cells in Appendix Figure \ref{fig:did_status_full} and summarized in Table \ref{tbl:hypotheses_summary}) reveals which theoretical expectations are empirically supported versus unsupported across status groups.
+\subsection{Status Consistency and Relational Influence: Testing Hypotheses 1--3}
+Table \ref{tbl:did_status_quadrants} presents the complete 24-cell matrix of Difference-in-Differences treatment effect estimates across all experimental conditions and all four status consistency quadrants, estimated using Inverse Probability Weighting (IPW) and benchmarked against the unexposed Control Condition. Figure \ref{fig:did_status_full} in the Appendix displays the corresponding point estimates and 95\% confidence intervals.
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences Treatment Effects Across Status Consistency Quadrants (IPW-Weighted)}
+\label{tbl:did_status_quadrants}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{\textbf{Working Class Identification}} & \multicolumn{2}{c}{\textbf{Middle Class Identification}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Treatment Condition} & No College & College Degree & No College & College Degree \\
+\midrule
+High-Status Dislike & +0.006 (0.115) & -0.394$^{***}$ (0.119) & -0.209 (0.132) & -0.195 (0.128) \\
+Low-Status Dislike & +0.185 (0.132) & -0.171 (0.131) & +0.089 (0.149) & -0.227$^{\dagger}$ (0.136) \\
+Generalized Dislike & -0.120 (0.140) & -0.396$^{*}$ (0.154) & +0.134 (0.168) & -0.264$^{\dagger}$ (0.151) \\
+High-Status Like & +0.130 (0.115) & -0.024 (0.121) & +0.038 (0.133) & -0.118 (0.126) \\
+Low-Status Like & -0.110 (0.132) & +0.028 (0.133) & -0.111 (0.146) & -0.296$^{*}$ (0.144) \\
+Generalized Like & +0.138 (0.158) & -0.125 (0.145) & +0.338$^{\dagger}$ (0.173) & -0.055 (0.152) \\
+\midrule
+Control Exposure Drift & -0.013 (0.099) & +0.311$^{**}$ (0.104) & +0.098 (0.120) & +0.241$^{*}$ (0.111) \\
+Analytic Sample ($N$) & 764 & 335 & 576 & 577 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+\textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses. Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each status consistency quadrant, estimated using Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education.
+\end{minipage}
+\end{table}
+
+Evaluating our status-differentiated hypotheses through the DiD framework across these quadrants reveals which theoretical expectations are empirically supported versus unsupported.
 
 First, same-status alignment (\textit{Hypothesis 1}) is not supported. Hypothesis 1 predicted that individuals would align their judgments with the positive and negative evaluations of others sharing their status. When evaluated relative to the control condition counterfactual, neither high-status consistent respondents ($\text{DiD} = -0.118, SE = 0.126, p = 0.348$) nor low-status consistent respondents ($\text{DiD} = -0.110, SE = 0.132, p = 0.404$) show a statistically significant DiD shift when exposed to same-status likes. Similarly, low-status respondents exposed to same-status dislikes do not exhibit a statistically significant shift ($\text{DiD} = +0.185, SE = 0.132, p = 0.163$). Because none of these estimates achieve statistical significance ($p \ge 0.10$), the data do not support Hypothesis 1.
 
