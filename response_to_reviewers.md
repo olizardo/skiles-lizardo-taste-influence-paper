@@ -204,7 +204,7 @@ Below, we provide a point-by-point response to all comments and suggestions from
     2. **Quota Settings & Participant Screening:** A total of **3,782 panel members** accessed the survey. Of these, 85 were excluded for non-consent, 12 were blocked for being under 18 years old, and 1,394 were screened out because demographic quota targets (balanced to 2010/2012 U.S. Census benchmarks for age, gender, race/ethnicity, and geographic region) had already been met. An additional 16 participants dropped out during early screens, resulting in a final completed sample of **$N = 2,275$ respondents** (529 control condition, 1,746 experimental conditions).
     3. **Deliberate Oversampling of College Graduates:** To ensure adequate statistical power within high-cultural-capital occupational cells (Cultural Specialists and Economic Specialists), the study implemented a deliberate oversample of college graduates (40.5% bachelor's degree or higher in the sample vs. ~28% nationally).
     4. **Scope of Confidence Intervals & Statistical Inference:** Because the survey utilized **quota-matched non-probability online panel sampling** rather than probability sampling with known selection probabilities, the reported standard errors, confidence intervals, and $p$-values reflect **model-based and experimental design uncertainty** within the sample, rather than design-based population parameter inference. However, the demographic diversity across gender, age, race, and geographic region provides far greater heterogeneity and ecological validity than standard convenience samples.
-    5. **Descriptive Statistics Table:** We have added **Table 1** to Section 3.1, displaying the demographic characteristics of the sample alongside national U.S. benchmarks and across experimental treatment/control arms:
+    5. **Descriptive Statistics Table:** We have added **Table 1** to Section 3.1, displaying the demographic characteristics of the sample alongside national U.S. benchmarks and across experimental treatment/control conditions:
 
 | Demographic Characteristic        | Sample$N$ | Sample % | U.S. Population % (2012) | Treatment ($N=1,746$) | No Alter Control ($N=182$) | Taste Only Control ($N=347$) |                  |      |                |              |              |
 | :-------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------: | :--------------: | :---: | :-------------: | :-----------: | :-----------: |
@@ -370,7 +370,7 @@ Below, we provide a point-by-point response to all comments and suggestions from
 * **Location in Manuscript:** Section 3.1 (Covariate Balance Across Observational Status Categories), Figure \ref{fig:balance}
 * **Response / Actions Taken:**
   - We have revised Section 3.1 to clarify the exact comparison evaluated in the covariate balance analysis:
-    - We explicitly clarify that covariate balance was evaluated across the **four observational status categories** (Middle Class/College, Middle Class/No College, Working Class/College, Working Class/No College), rather than the randomized experimental arms (which are balanced by virtue of random assignment, as shown in Table \ref{tbl:descriptives}).
+    - We explicitly clarify that covariate balance was evaluated across the **four observational status categories** (Middle Class/College, Middle Class/No College, Working Class/College, Working Class/No College), rather than the randomized experimental conditions (which are balanced by virtue of random assignment, as shown in Table \ref{tbl:descriptives}).
     - We explain that Figure \ref{fig:balance} displays the standardized mean differences (SMDs) computed using \texttt{cobalt} \citep{greifer2022cobalt} comparing each status group against the pooled population before and after weighting.
     - Prior to weighting, raw SMDs for age and parental education ranged between 0.35 and 0.50 standard deviations. After weighting, all absolute SMDs are compressed well below the conservative 0.10 threshold across all covariates.
 
@@ -434,7 +434,7 @@ Below, we provide a point-by-point response to all comments and suggestions from
 * **Location in Manuscript:** Table \ref{tbl:descriptives}, Table \ref{tbl:did_models}, Table \ref{tbl:did_edu_class}, Table \ref{tbl:hypotheses_summary}, Table \ref{tbl:mde_analysis}, Table \ref{tbl:appendix_did_compare}, Appendix Figure \ref{fig:did_status_full}
 * **Response / Actions Taken:**
   - We have fully satisfied this request by incorporating complete regression tables and diagnostic metrics across the manuscript and Appendix:
-    - **Table 1:** Complete descriptive statistics and Census benchmarks across treatment arms.
+    - **Table 1:** Complete descriptive statistics and Census benchmarks across treatment conditions.
     - **Table 2:** Full unweighted DiD repeated-measures linear mixed model for the pooled sample.
     - **Table 3:** Stepwise DiD models moderated separately by Education alone and Subjective Class alone.
     - **Table 4:** Formal hypothesis testing matrix with exact estimates, standard errors, and verdicts.
@@ -498,7 +498,7 @@ Below, we provide a point-by-point response to all comments and suggestions from
   - We thank Reviewer 2 for raising this important methodological consideration. We have added a dedicated subsection—Section 2.4—detailing four procedural and design safeguards that minimized demand awareness:
     1. **Intervening Survey Buffer:** Pre- and post-evaluations were separated by an extensive 15-to-20 minute survey battery (employment, demographics, and a comprehensive 20-genre musical taste battery), preventing mechanical recall.
     2. **Naturalistic Information Framing:** Social feedback was presented naturalistically as observational survey summaries, followed by subjective similarity and attribution probes, keeping the perceived purpose centered on social perception rather than persuasion.
-    3. **Unexposed Control Benchmark:** Comparing all treatment arms against the pure Control Condition isolates treatment influence from any potential repeated-testing reactivity.
+    3. **Unexposed Control Benchmark:** Comparing all treatment conditions against the pure Control Condition isolates treatment influence from any potential repeated-testing reactivity.
     4. **Empirical Evidence Against Demand Compliance:** If respondents were complying with experimenter demand, conformity would dominate across conditions. Instead, over 74% exhibited complete evaluative stability (``staying''), and significant oppositional reactance emerged among discordant status groups.
 
 ---
