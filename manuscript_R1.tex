@@ -147,7 +147,10 @@ To strictly isolate information-induced shifts from repeated-measurement exposur
 Accordingly, we specify a linear mixed-effects model with random intercepts for respondents of the form:
 
 \begin{equation}
-\text{Taste}_{ijt} = \beta_0 + \beta_{1} \text{Trial}_{it} + \sum_{k=2}^{K} \beta_{k} \text{Cond}_{ik} + \sum_{k=1}^{K} \delta_{k} (\text{Trial}_{it} \times \text{Cond}_{ik}) + \mathbf{X}_i \boldsymbol{\gamma} + u_i + \epsilon_{ijt}
+\begin{split}
+\text{Taste}_{ijt} = {} & \beta_0 + \beta_{1} \text{Trial}_{it} + \sum_{k=2}^{K} \beta_{k} \text{Cond}_{ik} \\
+                        & + \sum_{k=1}^{K} \delta_{k} (\text{Trial}_{it} \times \text{Cond}_{ik}) + \mathbf{X}_i \boldsymbol{\gamma} + u_i + \epsilon_{ijt}
+\end{split}
 \label{eq:did_model}
 \end{equation}
 
@@ -158,7 +161,10 @@ The intercept ($\beta_0$) represents the expected baseline aesthetic evaluation 
 The condition main effects ($\beta_k$) reflect pre-treatment differences between condition $k$ and the Control Condition at Trial 1: $\beta_k = E[\text{Taste} \mid \text{Trial} = 1, \text{Cond} = k] - E[\text{Taste} \mid \text{Trial} = 1, \text{Control}]$. Because respondents were randomly assigned to experimental conditions before viewing the painting, these coefficients assess baseline balance and are expected to be close to zero. The interaction coefficients ($\delta_k$) represent the \textit{causal Difference-in-Differences treatment effects}. Each $\delta_k$ measures whether the change in evaluations from Trial 1 to Trial 2 in treatment condition $k$ differed significantly from the change observed in the unexposed Control Condition:
 
 \begin{equation}
-\delta_k = \left( E[\text{Taste} \mid \text{Trial} = 2, k] - E[\text{Taste} \mid \text{Trial} = 1, k] \right) - \left( E[\text{Taste} \mid \text{Trial} = 2, \text{Control}] - E[\text{Taste} \mid \text{Trial} = 1, \text{Control}] \right)
+\begin{split}
+\delta_k = {} & \left( E[\text{Taste} \mid \text{Trial} = 2, k] - E[\text{Taste} \mid \text{Trial} = 1, k] \right) \\
+              & - \left( E[\text{Taste} \mid \text{Trial} = 2, \text{Control}] - E[\text{Taste} \mid \text{Trial} = 1, \text{Control}] \right)
+\end{split}
 \end{equation}
 
 Substantively, $\delta_k$ directly answers the counterfactual question: \textit{Did exposure to peer evaluation $k$ cause respondents' aesthetic judgments to change significantly more or less than they would have changed under mere repeated exposure alone?} A positive estimate ($\delta_k > 0$) indicates that peer feedback facilitated aesthetic appreciation beyond natural exposure drift, whereas a negative estimate ($\delta_k < 0$) indicates that peer feedback suppressed or reversed the positive exposure drift that would have naturally occurred.\footnote{
