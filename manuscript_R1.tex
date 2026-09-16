@@ -190,73 +190,31 @@ Evaluating the unexposed Control Condition allows us to observe the counterfactu
 Importantly, disaggregating by educational capital reveals that this exposure drift is not uniform. For respondents without a college degree, the counterfactual drift is zero ($\beta_{\text{Trial}} = 0.000, p = 1.00$). In contrast, college-educated respondents exhibit a substantial positive exposure drift ($\beta_{\text{Trial}} = +0.257, p = 0.016$). Thus, the mere exposure effect is conditioned by educational capital: individuals with higher cultural capital experience an intrinsic appreciation upon re-evaluation, whereas non-college individuals do not.
 
 \subsection{Valence Asymmetry in Difference-in-Differences Effects}
-Table \ref{tbl:did_models} and Figure \ref{fig:did_pooled} present the Difference-in-Differences (DiD) estimates comparing each treatment condition against the unexposed Control Condition for the pooled sample. Because experimental treatments were randomly assigned, the primary model is unweighted; an auxiliary IPW-weighted model balancing background demographics yields consistent substantive patterns (Appendix Table A.2).
+Table \ref{tbl:did_models} presents the Difference-in-Differences (DiD) estimates comparing each treatment condition against the unexposed Control Condition for the pooled sample. Because experimental treatments were randomly assigned, the primary model is unweighted; an auxiliary IPW-weighted model balancing background demographics yields consistent substantive patterns (Appendix Table A.2).
 
-\begin{table}[ht!]
-\centering
-\small
-\caption{Difference-in-Differences (DiD) Linear Mixed Model Predicting Aesthetic Evaluation (Pooled Sample)}
-\label{tbl:did_models}
-\setlength{\tabcolsep}{6pt}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccc@{}}
-\toprule
-\textbf{Independent Variable} & \textbf{Estimate (SE)} & \textbf{$t$ value} & \textbf{$p$-value} \\
-\midrule
-Intercept ($\beta_0$) & 4.689 (0.114) & 40.99 & $<0.001^{***}$ \\
-Trial 2 Exposure Drift ($\beta_{1}$) & 0.107 (0.052) & 2.05 & $0.041^{*}$ \\
-\addlinespace[3pt]
-\multicolumn{4}{l}{\textit{Difference-in-Differences Treatment Effects ($\text{Trial} \times \text{Condition}$):}} \\
-\quad Class \& Taste / Dislike / $+$Status & $-0.121$ (0.060) & $-2.02$ & $0.043^{*}$ \\
-\quad Class \& Taste / Like / $-$Status & $-0.128$ (0.067) & $-1.93$ & $0.055^{\dagger}$ \\
-\quad Taste Only / Dislike & $-0.125$ (0.075) & $-1.67$ & $0.095^{\dagger}$ \\
-\quad Class \& Taste / Like / $+$Status & $+0.041$ (0.060) & 0.68 & 0.497 \\
-\quad Taste Only / Like & $+0.096$ (0.075) & 1.29 & 0.198 \\
-\quad Class \& Taste / Dislike / $-$Status & $+0.016$ (0.066) & 0.23 & 0.815 \\
-\addlinespace[3pt]
-Condition Main Effects Included & \multicolumn{3}{c}{Yes} \\
-Random Intercept Variance ($\sigma^2_u$) & \multicolumn{3}{c}{2.074} \\
-Residual Variance ($\sigma^2_e$) & \multicolumn{3}{c}{0.243} \\
-$N$ (Observations / Individuals) & \multicolumn{3}{c}{4,506 / 2,253} \\
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-\vspace{4pt}
-\footnotesize
-\textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Model estimates represent Difference-in-Differences interactions relative to the unexposed Control Condition. Because experimental conditions were randomized, the primary model is unweighted; IPW-weighted pooled estimates yield identical substantive results (see Appendix Table A.2).
-\end{minipage}
-\end{table}
+Figure \ref{fig:did_significant} displays the statistically reliable Difference-in-Differences treatment effects ($p < 0.10$ and $p < 0.05$) across the pooled sample and status subgroups, with the full 24-cell grid reported in Appendix Figure \ref{fig:did_status_full}.
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.85\textwidth]{figures/Figure_DiD_Forest_Pooled.png}
-    \caption{Difference-in-Differences Treatment Effects (Pooled Sample). Points represent point estimates and error bars denote 95\% confidence intervals relative to the unexposed Control Condition (dashed vertical line at zero). Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
-    \label{fig:did_pooled}
+    \includegraphics[width=0.90\textwidth]{figures/Figure_DiD_Significant_Effects.png}
+    \caption{Statistically Reliable Difference-in-Differences Treatment Effects ($p < 0.10$ and $p < 0.05$). Points represent point estimates and error bars denote 95\% confidence intervals relative to the unexposed Control Condition (dashed vertical line at zero). Colors indicate statistical significance: red ($p < 0.05$) and orange ($p < 0.10$). The full 24-cell grid including non-significant estimates is displayed in Appendix Figure \ref{fig:did_status_full}.}
+    \label{fig:did_significant}
 \end{figure}
 
-The DiD results show clear empirical evidence of \textbf{valence asymmetry} in the pooled sample. Specifically, only negative evaluations from others and low-status endorsements achieve statistical significance in altering the counterfactual trajectory of aesthetic judgments:
-\begin{itemize}
-    \item \textit{Suppressive Veto of Negative Feedback from Others:} Negative evaluations from others significantly halt and reverse the positive exposure drift observed in the control condition. Exposure to High-Status Dislike leads to a statistically significant negative divergence of $\text{DiD} = -0.121$ ($SE = 0.060, t = -2.02, p = 0.043^{*}$) relative to the control condition. Generalized Dislike similarly exerts a marginally significant suppressive DiD effect of $\text{DiD} = -0.125$ ($SE = 0.075, t = -1.67, p = 0.095^{\dagger}$). Furthermore, exposure to Low-Status Likes produces a marginally significant negative DiD shift of $\text{DiD} = -0.128$ ($SE = 0.067, t = -1.93, p = 0.055^{\dagger}$).
-    \item \textit{Non-Significance of Positive Feedback from Others in the Pooled Sample:} In contrast, exposure to positive evaluations from others fails to produce statistically significant facilitative shifts relative to the control exposure drift. The DiD estimate for High-Status Like is small and statistically indistinguishable from zero ($\text{DiD} = +0.041, SE = 0.060, t = 0.68, p = 0.497$). Generalized Like similarly fails to achieve statistical significance in the pooled sample ($\text{DiD} = +0.096, SE = 0.075, t = 1.29, p = 0.198$). Exposure to Low-Status Dislike is likewise null ($\text{DiD} = +0.016, SE = 0.066, t = 0.23, p = 0.815$).
-\end{itemize}
-Because positive evaluations from others do not reach statistical significance ($p \ge 0.10$), we cannot conclude that positive cues produce a reliable facilitative effect in the aggregate. Rather, the statistically reliable pooled influence of external information operates as an asymmetric veto: negative evaluations from others actively suppress the appreciation that emerges under repeated exposure alone.
+The DiD results show clear empirical evidence of \textbf{valence asymmetry} in the pooled sample. Specifically, only negative evaluations from others and low-status endorsements achieve statistical significance in altering the counterfactual trajectory of aesthetic judgments. First, negative feedback acts as a suppressive veto: negative evaluations from others significantly halt and reverse the positive exposure drift observed in the control condition. Exposure to High-Status Dislike leads to a statistically significant negative divergence of $\text{DiD} = -0.121$ ($SE = 0.060, t = -2.02, p = 0.043^{*}$) relative to the control condition. Generalized Dislike similarly exerts a marginally significant suppressive DiD effect of $\text{DiD} = -0.125$ ($SE = 0.075, t = -1.67, p = 0.095^{\dagger}$). Furthermore, exposure to Low-Status Likes produces a marginally significant negative DiD shift of $\text{DiD} = -0.128$ ($SE = 0.067, t = -1.93, p = 0.055^{\dagger}$).
+
+In contrast, exposure to positive evaluations from others fails to produce statistically significant facilitative shifts relative to the control exposure drift. The DiD estimate for High-Status Like is small and statistically indistinguishable from zero ($\text{DiD} = +0.041, SE = 0.060, t = 0.68, p = 0.497$). Generalized Like similarly fails to achieve statistical significance in the pooled sample ($\text{DiD} = +0.096, SE = 0.075, t = 1.29, p = 0.198$). Exposure to Low-Status Dislike is likewise null ($\text{DiD} = +0.016, SE = 0.066, t = 0.23, p = 0.815$). Because positive evaluations from others do not reach statistical significance ($p \ge 0.10$), we cannot conclude that positive cues produce a reliable facilitative effect in the aggregate. Rather, the statistically reliable pooled influence of external information operates as an asymmetric veto: negative evaluations from others actively suppress the appreciation that emerges under repeated exposure alone.
 
 \subsection{Status-Differentiated Influence: Testing Hypotheses 1--3}
-Figure \ref{fig:did_status} displays the Difference-in-Differences treatment effects disaggregated across the four status consistency groups, estimated with Inverse Probability Weighting (IPW) to ensure balance across observational status quadrants.
+Evaluating our status-differentiated hypotheses through the DiD framework (Panels B and C of Figure \ref{fig:did_significant}) reveals which theoretical expectations are empirically supported versus unsupported across status groups.
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/Figure_DiD_Forest_Status.png}
-    \caption{Difference-in-Differences Treatment Effects Disaggregated by Status Consistency Group (IPW-Weighted). Estimates capture condition shifts relative to the unexposed Control Condition within each status quadrant. Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
-    \label{fig:did_status}
-\end{figure}
+First, same-status alignment (\textit{Hypothesis 1}) is not supported. Hypothesis 1 predicted that individuals would align their judgments with the positive and negative evaluations of others sharing their status. When evaluated relative to the control condition counterfactual, neither high-status consistent respondents ($\text{DiD} = -0.118, SE = 0.126, p = 0.348$) nor low-status consistent respondents ($\text{DiD} = -0.110, SE = 0.132, p = 0.404$) show a statistically significant DiD shift when exposed to same-status likes. Similarly, low-status respondents exposed to same-status dislikes do not exhibit a statistically significant shift ($\text{DiD} = +0.185, SE = 0.132, p = 0.163$). Because none of these estimates achieve statistical significance ($p \ge 0.10$), the data do not support Hypothesis 1.
 
-Evaluating our status-differentiated hypotheses through the DiD framework reveals which theoretical expectations are empirically supported versus unsupported:
-\begin{itemize}
-    \item \textbf{Same-Status Alignment (Hypothesis 1) Is Not Supported:} Hypothesis 1 predicted that individuals would align their judgments with the positive and negative evaluations of others sharing their status. When evaluated relative to the control condition counterfactual, neither high-status consistent respondents ($\text{DiD} = -0.118, SE = 0.126, p = 0.348$) nor low-status consistent respondents ($\text{DiD} = -0.110, SE = 0.132, p = 0.404$) show a statistically significant DiD shift when exposed to same-status likes. Similarly, low-status respondents exposed to same-status dislikes do not exhibit a statistically significant shift ($\text{DiD} = +0.185, SE = 0.132, p = 0.163$). Because none of these estimates achieve statistical significance ($p \ge 0.10$), the data do not support Hypothesis 1.
-    \item \textbf{Symbolic Power and Upward Alignment (Hypothesis 2) Is Not Supported for Low-Status Consistent Individuals:} Hypothesis 2 predicted that low-status respondents would align with high-status evaluations. Among low-status consistent respondents (Working Class/No College), neither exposure to High-Status Likes ($\text{DiD} = +0.130, SE = 0.115, p = 0.256$) nor High-Status Dislikes ($\text{DiD} = +0.006, SE = 0.115, p = 0.959$) produces a statistically significant change. Thus, Hypothesis 2 is not supported for low-status consistent individuals. However, for status-inconsistent workers who hold a college degree (Working Class/College), exposure to High-Status Dislikes produces a statistically significant negative DiD shift of $\text{DiD} = -0.394$ ($SE = 0.119, t = -3.30, p = 0.001^{**}$), alongside a significant negative shift under Generalized Dislikes ($\text{DiD} = -0.396, SE = 0.154, p = 0.010^{*}$). This indicates that sensitivity to high-status negative evaluation is concentrated among individuals who possess institutional cultural capital but identify with the working class.
-    \item \textbf{Cross-Status Reactance and Taste Abandonment (Hypothesis 3) Is Strongly Supported:} Netting out the counterfactual exposure drift provides direct empirical support for Hypothesis 3. For high-status consistent respondents (Middle Class/College), exposure to Low-Status Likes (working-class others liking the painting) produces a statistically significant negative DiD divergence of $\text{DiD} = -0.296$ ($SE = 0.144, t = -2.06, p = 0.039^{*}$) relative to the control condition. Because college-educated middle-class respondents naturally drift upward by $+0.200$ under mere exposure, discovering that working-class others liked the artwork actively reverses their appreciation. High-status consistent respondents also exhibit marginal negative shifts under Generalized Dislikes ($\text{DiD} = -0.264, SE = 0.151, p = 0.081^{\dagger}$) and Low-Status Dislikes ($\text{DiD} = -0.227, SE = 0.136, p = 0.097^{\dagger}$). This confirms that high-status individuals distance their judgments from low-status endorsements, providing experimental evidence of Bourdieusian symbolic distinction.
-    \item \textbf{Status-Inconsistent Positive Influence:} Finally, among Middle Class individuals without a college degree, exposure to Generalized Likes produces a marginally significant positive DiD shift of $\text{DiD} = +0.338$ ($SE = 0.173, t = 1.96, p = 0.050^{\dagger}$). All other conditions for this group remain statistically indistinguishable from zero ($p \ge 0.11$).
-\end{itemize}
+Second, symbolic power and upward alignment (\textit{Hypothesis 2}) is not supported for low-status consistent individuals. Hypothesis 2 predicted that low-status respondents would align with high-status evaluations. Among low-status consistent respondents (Working Class/No College), neither exposure to High-Status Likes ($\text{DiD} = +0.130, SE = 0.115, p = 0.256$) nor High-Status Dislikes ($\text{DiD} = +0.006, SE = 0.115, p = 0.959$) produces a statistically significant change. Thus, Hypothesis 2 is not supported for low-status consistent individuals. However, for status-inconsistent workers who hold a college degree (Working Class/College), exposure to High-Status Dislikes produces a statistically significant negative DiD shift of $\text{DiD} = -0.394$ ($SE = 0.119, t = -3.30, p = 0.001^{**}$), alongside a significant negative shift under Generalized Dislikes ($\text{DiD} = -0.396, SE = 0.154, p = 0.010^{*}$). This indicates that sensitivity to high-status negative evaluation is concentrated among individuals who possess institutional cultural capital but identify with the working class.
+
+Third, cross-status reactance and taste abandonment (\textit{Hypothesis 3}) is strongly supported. Netting out the counterfactual exposure drift provides direct empirical support for Hypothesis 3. For high-status consistent respondents (Middle Class/College), exposure to Low-Status Likes (working-class others liking the painting) produces a statistically significant negative DiD divergence of $\text{DiD} = -0.296$ ($SE = 0.144, t = -2.06, p = 0.039^{*}$) relative to the control condition. Because college-educated middle-class respondents naturally drift upward by $+0.200$ under mere exposure, discovering that working-class others liked the artwork actively reverses their appreciation. High-status consistent respondents also exhibit marginal negative shifts under Generalized Dislikes ($\text{DiD} = -0.264, SE = 0.151, p = 0.081^{\dagger}$) and Low-Status Dislikes ($\text{DiD} = -0.227, SE = 0.136, p = 0.097^{\dagger}$). This confirms that high-status individuals distance their judgments from low-status endorsements, providing experimental evidence of Bourdieusian symbolic distinction.
+
+Finally, regarding status-inconsistent positive influence, among Middle Class individuals without a college degree, exposure to Generalized Likes produces a marginally significant positive DiD shift of $\text{DiD} = +0.338$ ($SE = 0.173, t = 1.96, p = 0.050^{\dagger}$). All other conditions for this group remain statistically indistinguishable from zero ($p \ge 0.11$).
 
 \subsection{Discrete Behavioral Choices: Inertia, Conformity, and Reactance}
 While continuous change models identify average shifts, they mask non-linear behavioral choices. Figure \ref{fig:multinom} presents predicted probabilities from multinomial logistic regression modeling the discrete choices: Stay, Conform, and React.
@@ -413,6 +371,17 @@ $N$ (Observations / Individuals) & \multicolumn{2}{c}{4,506 / 2,253} & \multicol
 \textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Reference condition: unexposed Control Condition.
 \end{minipage}
 \end{table}
+
+\section{Complete Status-Differentiated DiD Estimates Across All Cells}
+\label{sec:appendix_full_grid}
+Figure \ref{fig:did_status_full} displays the complete 24-cell grid of Difference-in-Differences treatment effect estimates across all six treatment conditions and all four status consistency quadrants, estimated using Inverse Probability Weighting (IPW). Points indicate point estimates and error bars denote 95\% confidence intervals relative to the unexposed Control Condition within each status group.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Figure_DiD_Forest_Status.png}
+    \caption{Complete Grid of Difference-in-Differences Treatment Effects by Status Consistency Group (IPW-Weighted). Estimates benchmark condition shifts against the unexposed Control Condition. Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
+    \label{fig:did_status_full}
+\end{figure}
 
 \section{Robustness Check: Alternative Definition of Social Class}
 Restricting the subjective class definition strictly to respondents self-identifying as ``working class'' or ``middle class'' (excluding lower and upper class extremes) produces identical conclusions: status-consistent groups maintain the highest stay rates (Middle/College: 78.2\%; Working/No College: 74.7\%) and status-inconsistent groups maintain the highest conformity rates (Middle/No College: 17.9\%; Working/College: 16.9\%).

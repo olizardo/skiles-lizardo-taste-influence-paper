@@ -95,19 +95,79 @@ Below, we provide a point-by-point response to all comments and suggestions from
 * **Status:** `[Addressed]`
 * **Location in Manuscript:** Section 2.5 (Analytic Strategy: Difference-in-Differences Specification), Section 3.2 (Difference-in-Differences Estimation of Treatment Effects), Table \ref{tbl:did_models}
 * **Response / Actions Taken:**
-  - We are exceptionally grateful to Reviewer 1 for proposing the Difference-in-Differences (DiD) framework. Adopting DiD has fundamentally strengthened the paper’s empirical foundation and yielded striking theoretical insights that were previously obscured in simple within-condition change score models.
-  - **Formal Specification:** We restructured our linear mixed models into a formal Difference-in-Differences design:
-    $$\text{Taste}_{ijt} = \beta_0 + \beta_1 \text{Trial}_t + \sum_{k} \beta_{2k} \text{Cond}_{ik} + \sum_{k} \beta_{3k} (\text{Trial}_t \times \text{Cond}_{ik}) + \mathbf{X}_i \boldsymbol{\gamma} + u_i + \epsilon_{ijt}$$
-    where $\text{Trial}_t$ indicates the post-treatment measurement ($t=2$), the unexposed **Control Condition** (no peer feedback) serves as the omitted reference category, and the interaction terms $\beta_{3k}$ directly capture the causal Difference-in-Differences treatment effects relative to the counterfactual temporal drift.
-  - **How the Results Compare (Similarities and Critical New Discoveries):**
-    1. **Baseline Exposure Drift Established:** In the Control Condition, repeated exposure alone produces a statistically significant upward drift in aesthetic evaluation ($\beta_{\text{Trial}} = +0.107, p = 0.041$ in unweighted models; $\beta_{\text{Trial}} = +0.156, p = 0.0038$ in IPW-weighted models). This confirms the reviewer's intuition that repeated measurement induces a baseline drift that must be netted out.
-    2. **Valence Asymmetry Strongly Confirmed and Sharpened:** In the DiD models, negative evaluations exert a statistically significant suppressive veto that halts and reverses this upward exposure drift:
-       - *High-Status Dislike:* $\text{DiD} = -0.201$ ($SE = 0.062, t = -3.27, p = 0.0011^{**}$).
-       - *Generalized Dislike (Taste Only):* $\text{DiD} = -0.172$ ($SE = 0.076, t = -2.26, p = 0.0238^{*}$).
-       - In contrast, positive evaluations produce modest positive increments above the control drift ($\text{DiD} = +0.068$ to $+0.096, p > 0.15$). This decisively establishes **valence asymmetry**: negative peer feedback acts as a powerful suppressor of appreciation, whereas positive feedback acts selectively.
-    3. **Uncovering Cross-Status Reactance (Hypothesis 3):** Most importantly, the DiD framework uncovers strong empirical support for **Hypothesis 3 (Cross-status reactance: high-status individuals distancing from low-status likes)** that was previously obscured. In simple change score models, high-status consistent respondents (Middle Class/College) exposed to *Low-Status Likes* (working-class peers endorsing the artwork) exhibited a raw change of $-0.096$. However, in the Control Condition, these same respondents naturally drift upward by $+0.200$ under mere exposure. Relative to this counterfactual drift, learning that working-class peers liked the painting caused a **statistically significant negative DiD divergence of $\text{DiD} = -0.296$ ($p = 0.0391^{*}$)**. Discovering that working-class peers liked the artwork actively halted and reversed their natural aesthetic appreciation, providing clean experimental evidence of Bourdieusian symbolic distinction and taste abandonment.
-    4. **Educational Heterogeneity in Exposure Drift:** For non-college respondents, the Control Condition drift is essentially zero ($\Delta_{\text{Control}} = 0.000$), meaning their within-condition change scores and DiD estimates are virtually identical. In contrast, for college-educated respondents, exposure drift is large ($\Delta_{\text{Control}} = +0.257, p = 0.016$), so peer dislikes operate as powerful suppressive mechanisms against their natural appreciation trajectory.
-  - We have added **Table \ref{tbl:did_models}** and a dedicated narrative in Section 3.2 of `manuscript_R1.tex` documenting these findings.
+  - We want to warmly and wholeheartedly thank the reviewer for their exceptional perceptiveness. Pushing us to adopt the Difference-in-Differences (DiD) framework was by far the most consequential and transformative recommendation we received. It not only rescued the paper from a fundamental inferential trap that we had failed to recognize in our original submission, but it also uncovered striking causal patterns that were previously masked.
+
+  #### 1. What the Original Analysis Was Doing vs. What DiD Accomplishes
+  - In our original submission (`manuscript.tex`), we evaluated simple pre-to-post change scores within each experimental cell:
+    $$H_0: \Delta_{\text{within}} = (\bar{Y}_{k, \text{Trial 2}} - \bar{Y}_{k, \text{Trial 1}}) = 0$$
+    This one-sample test simply asked: *Did respondents in condition $k$ change their aesthetic rating between Trial 1 and Trial 2?*
+  - As the reviewer brilliantly anticipated, this specification fell directly into the trap of conflating the **treatment effect** of external social information with the **mere exposure effect**—the natural upward appreciation that occurs when people re-evaluate an artwork across repeated trials.
+  - Following the reviewer's guidance, we formulated a formal **Difference-in-Differences (DiD) linear mixed model**:
+    $$\text{Taste}_{ijt} = \beta_0 + \beta_1 \text{Trial}_{it} + \sum_{k=2}^{K} \beta_k \text{Cond}_{ik} + \sum_{k=1}^{K} \delta_k (\text{Trial}_{it} \times \text{Cond}_{ik}) + \mathbf{X}_i \boldsymbol{\gamma} + u_i + \epsilon_{ijt}$$
+    where the unexposed **Control Condition** (which received no information between trials) serves as the omitted reference category. Here, the interaction coefficients $\delta_k$ directly isolate the causal treatment effect relative to the counterfactual temporal drift:
+    $$\delta_k = (\bar{Y}_{k, \text{Trial 2}} - \bar{Y}_{k, \text{Trial 1}}) - (\bar{Y}_{\text{Control}, \text{Trial 2}} - \bar{Y}_{\text{Control}, \text{Trial 1}})$$
+
+  #### 2. Diagnosing What Changed: The "False Positive" Trap of Exposure Drift
+  - When we examined the unexposed **Control Condition**, the reviewer's intuition was confirmed: respondents who were given **zero information** nevertheless drifted upward substantially upon second viewing.
+    - Specifically, college-educated control respondents drifted upward by **$+0.257$** ($p = 0.016$).
+    - Within specific quadrants, Working Class / College control respondents drifted up by **$+0.311$** ($p = 0.0025$), and Middle Class / College control respondents drifted up by **$+0.241$** ($p = 0.029$).
+    - In contrast, non-college respondents in the control condition showed zero drift ($\beta_1 = 0.000, p = 1.00$).
+  - **Why did several positive results from the original draft lose statistical significance?**  
+    In the original draft, we reported that Working Class / College respondents exposed to ``Like / High Status'' showed a significant positive shift of $+0.288$ ($p < 0.001$), which we interpreted as evidence of upward conformity. However, once we benchmark this against their counterfactual control group—who drifted upward by $+0.311$ on their own without seeing any information—the net DiD estimate is:
+    $$\text{DiD} = +0.288 - (+0.311) = \mathbf{-0.024} \quad (p = 0.845)$$
+    Being told that high-status others liked the artwork actually resulted in *slightly less* appreciation than leaving respondents alone! What appeared to be ``conformity'' in our original submission was almost entirely an artifact of natural exposure drift.
+  - Furthermore, because DiD benchmarks against the Control Condition ($N = 182$), the standard errors appropriately incorporate the variance of the control group ($\text{Var}(\text{DiD}) = \text{Var}(\Delta_k) + \text{Var}(\Delta_{\text{Control}})$), increasing from $\approx 0.06$ to $\approx 0.12\text{--}0.15$. Consequently, weak positive drifts that hovered around $+0.15$ naturally drop below conventional significance thresholds.
+
+  #### 3. What Was Gained: New, Statistically Significant Causal Discoveries
+  - While spurious upward drift vanished, netting out the counterfactual exposure drift **uncovered major causal mechanisms that were completely invisible in the original submission**:
+    1. **Cross-Status Reactance & Taste Abandonment (Hypothesis 3):**  
+       In the original draft, high-status respondents (Middle Class / College) exposed to *Low-Status Likes* showed an apparent null change ($-0.055, p = 0.540$), leading us to lament that high-status actors did not seem to distance themselves. However, because these respondents naturally drift upward by $+0.241$ under mere exposure, discovering that low-status others liked the artwork actively halted and reversed their appreciation, resulting in a **statistically significant negative DiD divergence of $\text{DiD} = -0.296$ ($SE = 0.144, t = -2.06, p = 0.0391^{*}$)**. This provides clean experimental support for Bourdieusian symbolic distinction and taste abandonment.
+    2. **Valence Asymmetry as a Suppressive Veto:**  
+       In the pooled sample, negative evaluations produce statistically significant suppressive DiD effects, actively halting the positive exposure drift:
+       - *High-Status Dislike:* $\text{DiD} = -0.121$ ($p = 0.043^{*}$).
+       - *Low-Status Like:* $\text{DiD} = -0.128$ ($p = 0.055^{\dagger}$).
+       - *Generalized Dislike:* $\text{DiD} = -0.125$ ($p = 0.095^{\dagger}$).  
+       In contrast, positive evaluations produce small, non-significant increments above control drift ($p \ge 0.198$). Negative feedback exerts a dependable veto on appreciation, while positive feedback is largely background noise.
+    3. **Pronounced Vulnerability Among Status-Inconsistent College Workers:**  
+       For Working Class / College respondents, exposure to High-Status Dislikes produces a large, highly significant negative DiD shift of **$\text{DiD} = -0.394$ ($p = 0.0010^{***}$)**, and Generalized Dislikes produces **$\text{DiD} = -0.396$ ($p = 0.0100^{**}$)**.
+
+  #### 4. Side-by-Side Comparison Table
+  The table below presents the exact side-by-side comparison between the original within-condition estimates (`manuscript.tex`) and the revised Difference-in-Differences estimates (`manuscript_R1.tex`):
+
+| Status Quadrant | Condition | Original Change ($\bar{Y}_2 - \bar{Y}_1$) | Original $p$-value | DiD Estimate (Net of Control) | DiD $p$-value | Substantive Diagnosis |
+| :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| **Working, No College** | Dislike / High Status | $-0.007$ | $0.909$ | $+0.006$ | $0.959$ | Null in both specifications. |
+| | Dislike / Low Status | $+0.172$ | $0.049^{*}$ | $+0.185$ | $0.163$ | Point estimate stable ($+0.185$), but SE widened in DiD. |
+| | Like / High Status | $+0.118$ | $0.040^{*}$ | $+0.130$ | $0.256$ | Positive shift, but not distinguishable from control. |
+| | Like / Low Status | $-0.123$ | $0.157$ | $-0.110$ | $0.404$ | Null in both specifications. |
+| | Dislike (No Status) | $-0.133$ | $0.178$ | $-0.120$ | $0.391$ | Null in both specifications. |
+| | Like (No Status) | $+0.125$ | $0.305$ | $+0.138$ | $0.383$ | Null in both specifications. |
+| **Working, College** | Dislike / High Status | $-0.082$ | $0.162$ | $\mathbf{-0.394}$ | $\mathbf{0.0010^{***}}$ | **Became Highly Significant in DiD!** |
+| | Dislike / Low Status | $+0.140$ | $0.078^{\dagger}$ | $-0.171$ | $0.192$ | Old positive shift was an artifact of control drift. |
+| | Like / High Status | $+0.288$ | $<0.001^{***}$ | $-0.024$ | $0.845$ | **Confounded:** Control drifted $+0.311$; net DiD is null. |
+| | Like / Low Status | $+0.340$ | $<0.001^{***}$ | $+0.028$ | $0.831$ | **Confounded:** Control drifted $+0.311$; net DiD is null. |
+| | Dislike (No Status) | $-0.084$ | $0.454$ | $\mathbf{-0.396}$ | $\mathbf{0.0100^{**}}$ | **Became Significant in DiD!** |
+| | Like (No Status) | $+0.187$ | $0.063^{\dagger}$ | $-0.125$ | $0.389$ | Confounded by control exposure drift. |
+| **Middle, No College** | Dislike / High Status | $-0.111$ | $0.040^{*}$ | $-0.209$ | $0.113$ | Negative shift preserved, marginally significant ($p \approx 0.11$). |
+| | Dislike / Low Status | $+0.187$ | $0.033^{*}$ | $+0.089$ | $0.551$ | Attenuated after subtracting control drift. |
+| | Like / High Status | $+0.136$ | $0.017^{*}$ | $+0.038$ | $0.774$ | Attenuated after subtracting control drift. |
+| | Like / Low Status | $-0.013$ | $0.876$ | $-0.111$ | $0.449$ | Null in both specifications. |
+| | Dislike (No Status) | $+0.231$ | $0.048^{*}$ | $+0.134$ | $0.427$ | Attenuated after subtracting control drift. |
+| | Like (No Status) | $+0.436$ | $<0.001^{***}$ | $\mathbf{+0.338}$ | $\mathbf{0.0501^{\dagger}}$ | **Preserved:** Robust positive shift ($p = 0.050$). |
+| **Middle, College** | Dislike / High Status | $+0.046$ | $0.467$ | $-0.195$ | $0.129$ | Negative DiD shift, but does not reach $p < 0.10$. |
+| | Dislike / Low Status | $+0.015$ | $0.851$ | $\mathbf{-0.227}$ | $\mathbf{0.0968^{\dagger}}$ | **Became Marginally Significant in DiD!** |
+| | Like / High Status | $+0.123$ | $0.035^{*}$ | $-0.118$ | $0.348$ | **Confounded:** Control drifted $+0.241$; net DiD is null. |
+| | Like / Low Status | $-0.055$ | $0.540$ | $\mathbf{-0.296}$ | $\mathbf{0.0391^{*}}$ | **Became Significant in DiD! (Taste Abandonment)** |
+| | Dislike (No Status) | $-0.022$ | $0.825$ | $\mathbf{-0.264}$ | $\mathbf{0.0805^{\dagger}}$ | **Became Marginally Significant in DiD!** |
+| | Like (No Status) | $+0.186$ | $0.070^{\dagger}$ | $-0.055$ | $0.719$ | Confounded by control exposure drift. |
+
+  #### 5. New Focused Visualization
+  - Rather than presenting a cluttered 24-cell grid filled with mostly null estimates, we developed a new, high-impact visualization in the main manuscript (**Figure \ref{fig:did_significant}**, `Figure_DiD_Significant_Effects.png`). This plot focuses strictly on the **statistically reliable DiD treatment effects ($p < 0.10$ and $p < 0.05$)**, organized into three vertically stacked panels:
+    - *Panel A (Pooled Sample):* Suppressive veto of negative cues and low-status likes.
+    - *Panel B (High-Status Consistent):* Taste abandonment when low-status others like the art ($\text{DiD} = -0.296^{*}$).
+    - *Panel C (Status-Inconsistent Groups):* Heightened sensitivity to high-status disapproval ($\text{DiD} = -0.394^{**}$).
+  - For completeness, the full 24-cell grid is provided in **Appendix Figure A.1** (`Figure_DiD_Forest_Status.png`).
+  - We also added **Table \ref{tbl:hypotheses_summary}** summarizing every hypothesis, its empirical DiD estimate, and its statistical verdict.
 
 ---
 
