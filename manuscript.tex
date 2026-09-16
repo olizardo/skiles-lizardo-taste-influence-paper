@@ -156,12 +156,12 @@ To strictly isolate information-induced shifts from repeated-measurement exposur
 Accordingly, we specify a linear mixed-effects model with random intercepts for respondents of the form:
 \begin{equation}
 \begin{split}
-\text{Taste}_{ijt} = {} & \beta_0 + \beta_{1} \text{Trial}_{it} + \sum_{k=2}^{K} \beta_{k} \text{Cond}_{ik} \\
-                        & + \sum_{k=1}^{K} \delta_{k} (\text{Trial}_{it} \times \text{Cond}_{ik}) + \mathbf{X}_i \boldsymbol{\gamma} + u_i + \epsilon_{ijt}
+\text{Taste}_{it} = {} & \beta_0 + \beta_{1} \text{Trial}_{it} + \sum_{k=2}^{K} \beta_{k} \text{Cond}_{ik} \\
+                        & + \sum_{k=2}^{K} \delta_{k} (\text{Trial}_{it} \times \text{Cond}_{ik}) + \mathbf{X}_i \boldsymbol{\gamma} + u_i + \epsilon_{it}
 \end{split}
 \label{eq:did_model}
 \end{equation}
-where $i$ indexes individual respondents, $j$ indexes observations, $t \in \{1, 2\}$ indexes trials, and the unexposed Control Condition serves as the omitted reference category for the experimental condition effect $\text{Cond}_{ik}$.
+where $i$ indexes individual respondents ($i = 1, \dots, N$), $t \in \{1, 2\}$ indexes measurement trials (Trial 1 pre-treatment baseline vs.\ Trial 2 post-treatment evaluation), $k \in \{1, \dots, K\}$ indexes the experimental conditions with the unexposed Control Condition ($k = 1$) serving as the omitted reference category, $u_i \sim \mathcal{N}(0, \sigma^2_u)$ is the individual-specific random intercept, and $\epsilon_{it} \sim \mathcal{N}(0, \sigma^2_\epsilon)$ is the trial-level residual error.
 
 The intercept ($\beta_0$) represents the expected baseline aesthetic evaluation at Trial 1 (pre-treatment) for respondents assigned to the unexposed Control Condition: $\beta_0 = E[\text{Taste} \mid \text{Trial} = 1, \text{Control}]$. The Trial main effect ($\beta_{1}$) captures the counterfactual \textit{exposure drift} from Trial 1 to Trial 2 in the absence of external information from others: $\beta_{1} = E[\text{Taste} \mid \text{Trial} = 2, \text{Control}] - E[\text{Taste} \mid \text{Trial} = 1, \text{Control}]$. When repeated viewing induces an intrinsic appreciation of the artwork (the mere exposure effect), $\beta_{1}$ should be positive and statistically significant.
 
