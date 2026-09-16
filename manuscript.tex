@@ -174,8 +174,7 @@ To strictly isolate information-induced shifts from repeated-measurement exposur
 Accordingly, we specify a linear mixed-effects model with random intercepts for respondents of the form:
 \begin{equation}
 \begin{split}
-\text{Taste}_{it} = {} & \beta_0 + \beta_{1} \text{Trial}_{it} + \sum_{k=2}^{K} \beta_{k} \text{Cond}_{ik} \\
-                        & + \sum_{k=2}^{K} \delta_{k} (\text{Trial}_{it} \times \text{Cond}_{ik}) + u_i + \epsilon_{it}
+\text{Taste}_{it} = {} & \beta_0 + \beta_{1} \text{Trial}_{it} + \sum_{k=2}^{K} \beta_{k} \text{Cond}_{ik} + \sum_{k=2}^{K} \delta_{k} (\text{Trial}_{it} \times \text{Cond}_{ik}) + u_i + \epsilon_{it}
 \end{split}
 \label{eq:did_model}
 \end{equation}
@@ -271,7 +270,7 @@ Log Likelihood & \multicolumn{2}{c}{-487.8} & \multicolumn{2}{c}{-6,465.0} \\
 \end{minipage}
 \end{table}
 
-The DiD results show clear empirical evidence of \textbf{valence asymmetry} in the pooled sample. Specifically, only negative evaluations from others and low-status endorsements achieve statistical significance in altering the counterfactual trajectory of aesthetic judgments. First, negative feedback acts as a suppressive veto: negative evaluations from others significantly halt and reverse the positive exposure drift observed in the control condition. Exposure to High-Status Dislike leads to a statistically significant negative divergence of $\text{DiD} = -0.121$ ($SE = 0.060, t = -2.02, p = 0.043^{*}$) relative to the control condition. Generalized Dislike similarly exerts a marginally significant suppressive DiD effect of $\text{DiD} = -0.125$ ($SE = 0.075, t = -1.67, p = 0.095^{\dagger}$). Furthermore, exposure to Low-Status Likes produces a marginally significant negative DiD shift of $\text{DiD} = -0.128$ ($SE = 0.067, t = -1.93, p = 0.055^{\dagger}$).
+The DiD results provide empirical evidence of a generalized influence effect in the pooled sample, but only for \textit{negative} judgments, suggesting that these are stronger signals than positive ones. Specifically, negative feedback suppresses the overall positive drift effect: negative evaluations from others significantly halt and reverse the positive exposure drift observed in the control condition. Exposure to High-Status Dislike leads to a statistically significant negative divergence of $\text{DiD} = -0.121$ ($SE = 0.060, t = -2.02, p = 0.043^{*}$) relative to the control condition. Generalized Dislike similarly exerts a marginally significant suppressive DiD effect of $\text{DiD} = -0.125$ ($SE = 0.075, t = -1.67, p = 0.095^{\dagger}$). Furthermore, exposure to Low-Status Likes produces a marginally significant negative DiD shift of $\text{DiD} = -0.128$ ($SE = 0.067, t = -1.93, p = 0.055^{\dagger}$).
 
 In contrast, exposure to positive evaluations from others fails to produce statistically significant facilitative shifts relative to the control exposure drift. The DiD estimate for High-Status Like is small and statistically indistinguishable from zero ($\text{DiD} = +0.041, SE = 0.060, t = 0.68, p = 0.497$). Generalized Like similarly fails to achieve statistical significance in the pooled sample ($\text{DiD} = +0.096, SE = 0.075, t = 1.29, p = 0.198$). Exposure to Low-Status Dislike is likewise null ($\text{DiD} = +0.016, SE = 0.066, t = 0.23, p = 0.815$). Because positive evaluations from others do not reach statistical significance ($p \ge 0.10$), we cannot conclude that positive cues produce a reliable facilitative effect in the aggregate. Rather, the statistically reliable pooled influence of external information operates as an asymmetric veto: negative evaluations from others actively suppress the appreciation that emerges under repeated exposure alone.
 
