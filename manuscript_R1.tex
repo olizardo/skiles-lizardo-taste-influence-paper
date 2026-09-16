@@ -228,17 +228,22 @@ where the intercept and status main effects estimate the control exposure drift 
 
 \section{Results}
 
-\subsection{Counterfactual Exposure Drift in the Control Condition}
-Evaluating the unexposed Control Condition allows us to observe the counterfactual drift in aesthetic judgments over repeated trials in the complete absence of cues from others. Because educational attainment is an observational attribute rather than an experimentally assigned condition, comparisons between college-educated and non-college respondents in the Control Condition may be subject to demographic confounding. To address this, we estimate a repeated-measures linear mixed model within the Control Condition ($N = 177$ respondents, $354$ observations) incorporating Inverse Probability Weighting (IPW) to balance baseline age, gender, race/ethnicity, and parental education, using a slight variation of Equation~\ref{eq:did_model}:
-
+\subsection{Baseline Exposure Drift and Generalized Social Influence}
+We begin by establishing a status-free empirical baseline: testing simultaneously for the mere exposure drift observed under repeated evaluation in the unexposed Control Condition, and examining whether learning that unknown others liked or disliked the artwork shifts aesthetic evaluations in the aggregate. To do so, we estimate a repeated-measures linear mixed model on the subset of respondents assigned to the Control Condition ($N = 177$), the Generalized Like condition ($N = 172$), and the Generalized Dislike condition ($N = 172$), totaling $N = 521$ respondents ($1,042$ observations across trials) with Inverse Probability Weighting (IPW):
 \begin{equation}
-\text{Taste}_{it} = \alpha_0 + \beta_1 \text{Trial}_{it} + \alpha_1 \text{College}_i + \beta_2 (\text{Trial}_{it} \times \text{College}_i) + u_i + \epsilon_{it}
-\label{eq:drift_model}
+\begin{split}
+\text{Taste}_{it} = {} & \beta_0 + \beta_1 \text{Trial}_{it} + \beta_2 \text{Like}_i + \beta_3 \text{Dislike}_i \\
+& + \delta_{\text{Like}} (\text{Trial}_{it} \times \text{Like}_i) + \delta_{\text{Dislike}} (\text{Trial}_{it} \times \text{Dislike}_i) + u_i + \epsilon_{it}
+\end{split}
+\label{eq:generalized_did_model}
 \end{equation}
+where the unexposed Control Condition serves as the omitted reference group.
 
-With respondents without a college degree serving as the reference category.
+This status-free baseline model establishes two critical findings. First, in the complete absence of external social cues (the Control Condition), repeated exposure generates a statistically significant upward appreciation of the artwork ($\beta_1 = +0.156, SE = 0.052, t = 3.00, p = 0.0029^{**}$), confirming the classical mere exposure effect. 
 
-The model reveals that the counterfactual exposure drift across trials for respondents without a college degree is statistically indistinguishable from zero ($\beta_1 = +0.032, SE = 0.058, t = 0.55, p = 0.582$). In contrast, the interaction between Trial and College degree is positive and statistically significant ($\beta_2 = +0.247, SE = 0.082, t = 3.00, p = 0.0027^{**}$). Combining these parameters demonstrates that college-educated respondents exhibit substantial upward exposure drift ($\text{Total Drift} = +0.279, SE = 0.063, t = 4.43, p < 0.001$). Thus, after balancing baseline demographic covariates, repeated exposure elicits an intrinsic aesthetic appreciation specifically among respondents with institutionalized cultural capital, whereas non-college respondents maintain static evaluations.
+Second, the model reveals a pronounced \textit{valence asymmetry} in generalized social influence. When respondents are informed that unknown others liked the painting, their raw evaluations shift positively from 4.51 to 4.74 ($+0.224^{***}, p < 0.001$); relative to the natural counterfactual drift of the control group, this additional increment is positive but not statistically distinguishable on its own ($\delta_{\text{Like}} = +0.068, SE = 0.075, t = 0.90, p = 0.367$). In sharp contrast, learning that others disliked the painting completely halts and overrides this positive appreciation, flattening second-trial evaluations to a static $-0.016$ ($p = 0.758$). Relative to the control baseline drift, this constitutes a statistically significant negative Difference-in-Differences suppression ($\delta_{\text{Dislike}} = -0.172, SE = 0.074, t = -2.35, p = 0.0197^{*}$). Directly contrasting positive and negative cues reveals a significant directional swing of nearly a quarter point on the 7-point scale ($\Delta = +0.240, SE = 0.075, \chi^2 = 10.32, p = 0.0013^{**}$), demonstrating that negative consensus exerts an asymmetric veto power over aesthetic evaluations in the aggregate.
+
+While this status-free model demonstrates clear valence asymmetry overall, evaluating social influence solely at the aggregate level conceals substantial underlying heterogeneity across social locations (as shown in the full pooled models in Appendix Table A.2 and Appendix Figure A.2). We therefore turn to our primary moderated models to examine how social influence is conditioned by educational capital, subjective social class, and structural status consistency.
 
 \subsection{Primary Main Models: Social Influence Moderated by Education and Subjective Class}
 \label{sec:stepwise_models}
@@ -367,9 +372,9 @@ In this study, we investigated how access to others' aesthetic evaluations causa
 \toprule
 \textbf{Hypothesis / Mechanism} & \textbf{Theoretical Expectation} & \textbf{Empirical DiD Estimate / Statistic} & \textbf{Empirical Verdict} \\
 \midrule
-\textit{Mere Exposure Drift (Control)} & Upward drift in evaluation across repeated trials without external social cues & $\beta_1 = +0.107$ ($p = 0.041^{*}$) & Supported ($p < 0.05$) \\
+\textit{Mere Exposure Drift (Control)} & Upward drift in evaluation across repeated trials without external social cues & $\beta_1 = +0.156$ ($p = 0.0029^{**}$) & Supported ($p < 0.01$) \\
 \addlinespace[4pt]
-\textit{Valence Asymmetry} & Negative cues from others halt exposure drift; positive cues facilitate drift & High-Status Dislike: $\text{DiD} = -0.121$ ($p = 0.043^{*}$);\newline Generalized Dislike: $\text{DiD} = -0.125$ ($p = 0.095^{\dagger}$);\newline Positive cues: null ($p \ge 0.198$) & Supported ($p < 0.05$) \\
+\textit{Valence Asymmetry} & Negative cues from others halt exposure drift; positive cues facilitate drift & High-Status Dislike: $\text{DiD} = -0.201$ ($p = 0.001^{**}$);\newline Generalized Dislike: $\text{DiD} = -0.172$ ($p = 0.024^{*}$);\newline Positive cues: null ($p \ge 0.367$) & Supported ($p < 0.05$) \\
 \addlinespace[4pt]
 \textit{Hypothesis 1: Same-Status Alignment} & Individuals align judgments with aggregate evaluations of others sharing their status & High-status like: $\text{DiD} = -0.118$ ($p = 0.348$);\newline Low-status like: $\text{DiD} = -0.110$ ($p = 0.404$) & Not Supported ($p \ge 0.10$) \\
 \addlinespace[4pt]
