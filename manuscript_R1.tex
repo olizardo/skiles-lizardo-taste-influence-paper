@@ -133,7 +133,7 @@ Aesthetic evaluation was measured on a reversed 1--7 scale. In continuous models
 
 The treatment arms crossed others' evaluation (Like vs.\ Dislike) with others' social status. High-status others were differentiated into Cultural Specialists (possessing multiple advanced degrees including a PhD and working in higher education) and Economic Specialists (holding a bachelor's degree in business and working in financial investment). Low-status others were described as possessing a high school education and working in food service. In addition, two Taste-Only conditions provided others' like or dislike evaluations without any status indicators, and a pure Control Condition provided no information about others between trials ($N=182$).
 
-We crossed objective education (College Degree vs.\ No College) with subjective class identification (Middle Class vs.\ Working Class) into four quadrants: Working/No College, Working/College, Middle/No College, and Middle/College.
+To capture respondents' structural social location, we examine objective educational attainment (College Degree vs.\ No College) and subjective class self-identification (Middle Class vs.\ Working Class). Methodologically, we analyze these dimensions stepwise: we first evaluate the separate moderating effects of educational attainment alone and subjective class identification alone (Section \ref{sec:stepwise_models}, Figure \ref{fig:did_edu_class}, and Table \ref{tbl:did_edu_class}) before examining their intersection in a four-quadrant typology of status consistency: Working Class without College, Working Class with College, Middle Class without College, and Middle Class with College. Furthermore, to verify that our substantive conclusions are not sensitive to the boundary demarcations of subjective class, we evaluate an alternative categorization restricting the sample strictly to self-identified working- and middle-class respondents (excluding lower- and upper-class extremes) as an additional sensitivity analysis in Appendix \ref{sec:appendix_class_robustness}.
 
 A key methodological challenge in experimental designs that examine status-contingent influence arises from the hybrid nature of the design. While the experimental cues (others' evaluation valence and others' status) were randomly assigned, respondents' own social locations—captured by the crossing of educational attainment and subjective class identification—represent pre-existing, observational attributes \citep{cruces2013biases}. Consequently, individuals do not have an equal probability of belonging to each status group: for example, Middle Class individuals with a college degree are systematically older, more likely to have college-educated parents, and differ in racial/ethnic composition compared to non-college Working Class individuals. If unaddressed, comparisons across status groups (and their interactions with the randomized treatments) risk confounding the effect of social class with these correlated background characteristics.
 
@@ -205,6 +205,53 @@ The DiD results show clear empirical evidence of \textbf{valence asymmetry} in t
 
 In contrast, exposure to positive evaluations from others fails to produce statistically significant facilitative shifts relative to the control exposure drift. The DiD estimate for High-Status Like is small and statistically indistinguishable from zero ($\text{DiD} = +0.041, SE = 0.060, t = 0.68, p = 0.497$). Generalized Like similarly fails to achieve statistical significance in the pooled sample ($\text{DiD} = +0.096, SE = 0.075, t = 1.29, p = 0.198$). Exposure to Low-Status Dislike is likewise null ($\text{DiD} = +0.016, SE = 0.066, t = 0.23, p = 0.815$). Because positive evaluations from others do not reach statistical significance ($p \ge 0.10$), we cannot conclude that positive cues produce a reliable facilitative effect in the aggregate. Rather, the statistically reliable pooled influence of external information operates as an asymmetric veto: negative evaluations from others actively suppress the appreciation that emerges under repeated exposure alone.
 
+\subsection{Stepwise Analysis: Social Influence Moderated by Education and Subjective Class Separately}
+\label{sec:stepwise_models}
+Before examining the four-quadrant status consistency typology, we disaggregate the analysis to inspect how educational attainment alone (College Degree vs.\ No College) and subjective social class alone (Working Class vs.\ Middle Class) moderate the experimental treatments. Figure \ref{fig:did_edu_class} presents the complete set of Difference-in-Differences estimates across all cue conditions for both dimensions, and Table \ref{tbl:did_edu_class} reports the detailed model coefficients and standard errors.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.92\textwidth]{figures/Figure_DiD_Edu_Class_Separate.png}
+    \caption{Difference-in-Differences Treatment Effects Moderated Separately by Educational Attainment (Panel A) and Subjective Social Class (Panel B). Horizontal bars depict point estimates with 95\% confidence intervals benchmarked against the unexposed Control Condition. Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
+    \label{fig:did_edu_class}
+\end{figure}
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences Estimates Moderated Separately by Education and Subjective Class}
+\label{tbl:did_edu_class}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{\textbf{Panel A: Education Alone}} & \multicolumn{2}{c}{\textbf{Panel B: Subjective Class Alone}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Treatment Condition} & No College & College Degree & Working Class & Middle Class \\
+\midrule
+High-Status Dislike & -0.011 (0.078) & -0.275$^{**}$ (0.094) & -0.065 (0.083) & -0.182$^{*}$ (0.086) \\
+Low-Status Dislike & +0.198$^{*}$ (0.088) & -0.226$^{*}$ (0.101) & +0.107 (0.093) & -0.076 (0.095) \\
+Generalized Dislike & +0.000 (0.097) & -0.302$^{*}$ (0.118) & -0.168 (0.104) & -0.084 (0.107) \\
+High-Status Like & +0.129$^{\dagger}$ (0.078) & -0.079 (0.093) & +0.085 (0.084) & -0.008 (0.086) \\
+Low-Status Like & -0.040 (0.087) & -0.248$^{*}$ (0.104) & -0.057 (0.093) & -0.202$^{*}$ (0.095) \\
+Generalized Like & +0.228$^{*}$ (0.100) & -0.082 (0.112) & +0.106 (0.106) & +0.079 (0.106) \\
+\midrule
+Control Condition Drift & -0.000 (0.069) & +0.257$^{**}$ (0.081) & +0.065 (0.072) & +0.155$^{*}$ (0.076) \\
+Sample Size ($N$) & 1,340 & 913 & 1,099 & 1,154 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+\textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation. Panel A estimates moderation by educational attainment alone (No College Degree vs.\ Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs.\ Middle Class).
+\end{minipage}
+\end{table}
+
+Inspecting the separate models reveals that educational capital is the primary structural fault line governing both counterfactual baseline drift and responsiveness to external evaluations (Panel A of Figure \ref{fig:did_edu_class}). Non-college respondents show flat evaluative stability in the absence of cues ($\beta_{\text{Trial}} = 0.000, p = 1.00$). When presented with information from others, they exhibit positive shifts under Generalized Likes ($\text{DiD} = +0.228, SE = 0.100, p = 0.022^{*}$) and Low-Status Dislikes ($\text{DiD} = +0.198, SE = 0.088, p = 0.025^{*}$), while remaining largely unresponsive to high-status cues. Conversely, college-educated respondents exhibit pronounced baseline exposure drift ($\beta_{\text{Trial}} = +0.257, SE = 0.081, p = 0.016^{*}$) that is strongly curtailed by external negative cues: High-Status Dislike ($\text{DiD} = -0.275, SE = 0.094, p = 0.003^{**}$), Generalized Dislike ($\text{DiD} = -0.302, SE = 0.118, p = 0.010^{*}$), and Low-Status Dislike ($\text{DiD} = -0.226, SE = 0.101, p = 0.026^{*}$). In addition, college graduates exhibit Bourdieusian taste abandonment when exposed to Low-Status Likes ($\text{DiD} = -0.248, SE = 0.104, p = 0.017^{*}$).
+
+By comparison, examining subjective social class in isolation (Panel B of Figure \ref{fig:did_edu_class}) produces a more diffuse picture. Self-identified working-class respondents show no statistically reliable DiD adjustments across any condition, masking substantial underlying heterogeneity. Middle-class self-identifiers display significant negative shifts under High-Status Dislike ($\text{DiD} = -0.182, SE = 0.086, p = 0.035^{*}$) and Low-Status Like ($\text{DiD} = -0.202, SE = 0.095, p = 0.034^{*}$), but these effects are attenuated relative to the education-stratified models.
+
+Crucially, this stepwise comparison demonstrates why analyzing education and subjective class separately is insufficient. Because objective credential attainment and subjective class identification cross-cut one another—nearly 28\% of working-class self-identifiers hold college degrees, while over 28\% of middle-class identifiers do not—univariate stratification conflates status-consistent actors with status-inconsistent actors. As we show below, the apparent lack of responsiveness among ``working-class'' respondents is an artifact of aggregating non-college workers (who exhibit normative inertia) with college-educated workers (who exhibit sharp reactivity against high-status cues). Examining their four-quadrant intersection is therefore essential for isolating the distinct mechanisms of status consistency and cross-status influence.
+
 \subsection{Status-Differentiated Influence: Testing Hypotheses 1--3}
 Evaluating our status-differentiated hypotheses through the DiD framework (Panels B and C of Figure \ref{fig:did_significant}) reveals which theoretical expectations are empirically supported versus unsupported across status groups.
 
@@ -233,6 +280,8 @@ The marginal effects provide compelling empirical confirmation of \textit{Hypoth
 Second, in terms of conformity (Panel B), status inconsistency emerges as the primary driver of susceptibility to external social influence. Both status-inconsistent groups display large, highly significant increases in the probability of conforming to others' judgments. Working Class individuals with a college degree are $+5.4\%$ more likely to conform relative to the reference group ($\text{AME} = +0.054, SE = 0.011, z = 4.86, p < 0.001$), and Middle Class individuals without college are $+4.1\%$ more likely to conform ($\text{AME} = +0.041, SE = 0.011, z = 3.82, p < 0.001$). In stark contrast, high-status consistent individuals are significantly less likely to conform ($\text{AME} = -0.021, SE = 0.010, z = -2.11, p = 0.035$). This shows that when actors occupy contradictory locations in social space—possessing formal educational credentials while identifying as working class, or claiming middle-class status without institutional degrees—they experience evaluative cross-pressures and cognitive ambiguity that heighten their inclination to align with external social signals.
 
 Finally, in terms of oppositional reactance (Panel C), behavioral divergence is heavily structured by educational capital. Both college-educated groups are significantly less likely to move away from others' judgments compared to non-college workers: Working Class respondents with a college degree are $-3.2\%$ less likely to react ($\text{AME} = -0.032, SE = 0.009, z = -3.54, p < 0.001$), and Middle Class college graduates are $-2.5\%$ less likely to react ($\text{AME} = -0.025, SE = 0.009, z = -2.70, p = 0.007$). Meanwhile, Middle Class individuals without college do not differ significantly from working-class peers ($\text{AME} = +0.013, p = 0.191$). This shows that oppositional reactance against external cues is concentrated among individuals without a college education, whereas institutionalized cultural capital acts as an inhibitor of oppositional defiance.
+
+To confirm that these behavioral dynamics are specifically driven by status-laden social cues rather than generic feedback about others' opinions, we re-estimated the multinomial model excluding the two Taste-Only conditions ($N = 1,870$). As displayed in Appendix Figure \ref{fig:sens_multinom}, the results are virtually identical: structural status consistency continues to anchor evaluative inertia (Middle Class with College: $+4.8\%, p < 0.001$), status inconsistency heightens conformity (Working Class with College: $+6.0\%, p < 0.001$; Middle Class without College: $+4.3\%, p < 0.001$), and oppositional reactance remains concentrated among non-college workers ($-3.0\%$ and $-2.1\%$ for college-educated groups, $p < 0.05$). Netting out generic popularity cues therefore confirms that status consistency uniquely structures discrete behavioral responses to social influence.
 
 \section{Discussion}
 
@@ -455,7 +504,21 @@ Figure \ref{fig:did_status_full} displays the complete 24-cell grid of Differenc
     \label{fig:did_status_full}
 \end{figure}
 
+\section{Sensitivity Analysis: Behavioral Choices Excluding Taste-Only Conditions}
+\label{sec:appendix_sens_multinom}
+To verify that the discrete behavioral patterns documented in the main text (Figure \ref{fig:multinom}) are specifically generated by status-differentiated social influence rather than undifferentiated taste consensus cues, we conducted a sensitivity analysis excluding respondents assigned to the two Taste-Only conditions ($N = 344$). The resulting analytic sample ($N = 1,870$) restricts behavioral classification strictly to respondents exposed to feedback combining evaluation valence and alter occupational/educational status, alongside unexposed control stayers.
+
+Figure \ref{fig:sens_multinom} displays the Average Marginal Effects from this sensitivity specification, benchmarked against Working Class respondents without a college degree. As shown in the figure, all substantive patterns persist with exceptional stability: status-consistent college-educated respondents exhibit elevated evaluative stability ($\text{AME} = +0.048, p < 0.001$), status-inconsistent respondents exhibit heightened conformity ($\text{AME} = +0.060, p < 0.001$ for Working Class with College; $\text{AME} = +0.043, p < 0.001$ for Middle Class without College), and college education sharply reduces oppositional reactance ($\text{AME} = -0.030, p = 0.003$ and $\text{AME} = -0.021, p = 0.042$). Notably, under this status-restricted specification, the lower evaluative stability of status-inconsistent workers reaches full statistical significance ($\text{AME} = -0.030, p = 0.038$), reinforcing our core finding that status crystallization anchors aesthetic judgments against external social influence.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Figure11_Sens_MultinomialBehavior.png}
+    \caption{Sensitivity Analysis: Average Marginal Effects on Behavioral Choices (Stay, Conform, React) Across Status Consistency Groups Excluding Taste-Only Conditions ($N = 1,870$). Horizontal bars indicate differences in choice probability relative to Working Class respondents without a college degree, with 95\% confidence intervals. Colors indicate statistical significance: red ($p < 0.05$) and grey ($p \ge 0.10$).}
+    \label{fig:sens_multinom}
+\end{figure}
+
 \section{Robustness Check: Alternative Definition of Social Class}
+\label{sec:appendix_class_robustness}
 Restricting the subjective class definition strictly to respondents self-identifying as ``working class'' or ``middle class'' (excluding lower and upper class extremes) produces identical conclusions: status-consistent groups maintain the highest stay rates (Middle/College: 78.2\%; Working/No College: 74.7\%) and status-inconsistent groups maintain the highest conformity rates (Middle/No College: 17.9\%; Working/College: 16.9\%).
 
 \end{document}

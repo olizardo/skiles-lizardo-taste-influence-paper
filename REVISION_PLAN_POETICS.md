@@ -81,12 +81,15 @@ The revision points are grouped below into three prioritized tiers:
 #### 4. Disaggregate Models: Separate Subjective Class and Education
 * **Reviewer Concern (R1 #6):**  
   > *"Before moving to the analysis of combined status, please report the results for subjective social class and education separately. These results could be presented as additional subfigures or included in the appendix. The robustness check using an alternative categorization is useful... It would also be relevant to mention this robustness check when the combined-status variable is first described."*
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 4.1–4.2, Figures 3 & 4, Appendix
-* **Actionable Steps:**
-  1. Estimate models with treatment interactions for **Education** alone (College vs. No College) and **Subjective Class** alone (Working vs. Middle Class).
-  2. Present these stepwise results in the text / appendix subfigures before introducing the 4-level combined status typology.
-  3. Add a forward-pointer mentioning the 3-category / alternative categorization robustness check when defining the combined variable.
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 2.4, Section 3.4, Figure \ref{fig:did_edu_class}, Table \ref{tbl:did_edu_class}, Appendix \ref{sec:appendix_sens_multinom}, Appendix \ref{sec:appendix_class_robustness}
+* **Actions Completed:**
+  1. Estimated stepwise models for Education alone and Subjective Class alone (`R/stepwise_status_models.R`).
+  2. Created two-panel publication horizontal bar plot `figures/Figure_DiD_Edu_Class_Separate.png` (and `.pdf`).
+  3. Exported formal regression table `tables/table_did_edu_class_separate.tex` (and `.rds`).
+  4. Added Section 3.4 to `manuscript_R1.tex`, discussing findings and showing why four-quadrant status consistency is necessary.
+  5. Added forward-pointer in Section 2.4 to alternative class categorization check in Appendix \ref{sec:appendix_class_robustness}.
+  6. Embedded sensitivity multinomial behavioral model excluding Taste-Only conditions (Figure 11 / `Figure11_Sens_MultinomialBehavior.png`) into Appendix \ref{sec:appendix_sens_multinom} with main text forward-pointer in Section 3.6.
 
 #### 5. Clarify Causal Interpretation and Logic of Inverse Probability Weighting (IPW)
 * **Reviewer Concern (R1 #7, R1 #8):**  

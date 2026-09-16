@@ -309,10 +309,29 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 6):**
 > *6. Before moving to the analysis of combined status, please report the results for subjective social class and education separately. These results could be presented as additional subfigures or included in the appendix. The robustness check using an alternative categorization is useful, as this possibility came to mind immediately when reading the analysis. It would also be relevant to mention this robustness check when the combined-status variable is first described.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 4.1, Figure 3 (Education effects), Figure 4 (Subjective Class effects), Section 3.2
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 2.4 (Variables and Measurement), Section 3.4 (Stepwise Analysis: Social Influence Moderated by Education and Subjective Class Separately), Figure \ref{fig:did_edu_class}, Table \ref{tbl:did_edu_class}, Appendix \ref{sec:appendix_class_robustness}
 * **Response / Actions Taken:**
-  - *[Draft response noting that separate model estimations and plots for Education (College vs. No College) and Subjective Social Class (Working Class vs. Middle Class) are presented in Section 4.1 prior to introducing the 4-level combined status typology, and adding forward-pointers to the 3-category robustness checks]*
+  - We completely agree with the reviewer that examining subjective social class and educational attainment separately provides an essential baseline before introducing their four-quadrant intersection, and clarifies why the combined status consistency typology is theoretically and empirically warranted.
+  - We have implemented all three recommended additions:
+    1. **Forward-Pointer to Robustness Check in Section 2.4:** When introducing the four status quadrants in Section 2.4, we explicitly state that we first test the stepwise moderating effects of education alone and subjective class alone before examining their intersection, and we add an explicit forward-pointer noting that an alternative categorization restricting subjective class strictly to self-identified working- and middle-class respondents (excluding lower- and upper-class extremes) produces identical conclusions (Appendix \ref{sec:appendix_class_robustness}).
+    2. **Dedicated Stepwise Subsection (Section 3.4):** We have added a dedicated section in the Results—*Section 3.4: Stepwise Analysis: Social Influence Moderated by Education and Subjective Class Separately*—presenting the full Difference-in-Differences results for Education alone (No College Degree vs. College Degree) and Subjective Class alone (Working Class vs. Middle Class).
+    3. **Two-Panel Publication Figure (Figure \ref{fig:did_edu_class}):** We have generated a comprehensive two-panel horizontal bar plot with 95% error bars colored by statistical significance, displaying the complete set of DiD treatment effects for Education alone (Panel A) and Subjective Class alone (Panel B).
+    4. **Formal Regression Table (Table \ref{tbl:did_edu_class}):** We report the full side-by-side DiD estimates, standard errors, and baseline control exposure drift across all six treatment conditions in Table \ref{tbl:did_edu_class}.
+  - **Empirical Takeaways from the Stepwise Analysis:**
+    - *Education as the Primary Fault Line:* Educational attainment strongly moderates baseline exposure drift and responsiveness to external cues. Non-college respondents show zero exposure drift in the Control Condition ($\beta_1 = 0.000, p = 1.00$), but exhibit positive shifts under Generalized Likes ($\text{DiD} = +0.228, p = 0.022^{*}$) and Low-Status Dislikes ($\text{DiD} = +0.198, p = 0.025^{*}$). College graduates, by contrast, exhibit substantial upward drift in the Control Condition ($\beta_1 = +0.257, p = 0.016^{*}$) that is strongly suppressed and reversed by negative cues (High-Status Dislike: $\text{DiD} = -0.275, p = 0.003^{**}$; Generalized Dislike: $\text{DiD} = -0.302, p = 0.010^{*}$; Low-Status Dislike: $\text{DiD} = -0.226, p = 0.026^{*}$) and Low-Status Likes ($\text{DiD} = -0.248, p = 0.017^{*}$).
+    - *Subjective Class as Attenuated Sorting:* Subjective class alone yields a more diffuse pattern. Middle-class identifiers display significant negative shifts under High-Status Dislike ($\text{DiD} = -0.182, p = 0.035^{*}$) and Low-Status Like ($\text{DiD} = -0.202, p = 0.034^{*}$), whereas working-class identifiers show no statistically reliable DiD adjustments across any condition.
+    - *Why the Combined Typology is Necessary:* Because objective degrees and subjective identity cross-cut one another (nearly 28% of working-class identifiers hold college degrees, while over 28% of middle-class identifiers lack college degrees), univariate models conflate status-consistent and status-inconsistent respondents. The apparent lack of responsiveness among working-class identifiers in the univariate model is an artifact of mixing status-consistent non-college workers (who exhibit normative inertia) with status-inconsistent college-educated workers (who exhibit sharp reactivity against high-status cues, $\text{DiD} = -0.394$). Combining them into the four-quadrant typology is therefore essential.
+
+| Treatment Condition | No College ($N=1,340$) | College Degree ($N=913$) | Working Class ($N=1,099$) | Middle Class ($N=1,154$) |
+| :--- | :---: | :---: | :---: | :---: |
+| **High-Status Dislike** | $-0.011$ (0.078) | **$-0.275^{**}$** (0.094) | $-0.065$ (0.083) | **$-0.182^{*}$** (0.086) |
+| **Low-Status Dislike** | **$+0.198^{*}$** (0.088) | **$-0.226^{*}$** (0.101) | $+0.107$ (0.093) | $-0.076$ (0.095) |
+| **Generalized Dislike** | $+0.000$ (0.097) | **$-0.302^{*}$** (0.118) | $-0.168$ (0.104) | $-0.084$ (0.107) |
+| **High-Status Like** | $+0.129^{\dagger}$ (0.078) | $-0.079$ (0.093) | $+0.085$ (0.084) | $-0.008$ (0.086) |
+| **Low-Status Like** | $-0.040$ (0.087) | **$-0.248^{*}$** (0.104) | $-0.057$ (0.093) | **$-0.202^{*}$** (0.095) |
+| **Generalized Like** | **$+0.228^{*}$** (0.100) | $-0.082$ (0.112) | $+0.106$ (0.106) | $+0.079$ (0.106) |
+| *Control Exposure Drift* | $-0.000$ (0.069) | **$+0.257^{**}$** (0.081) | $+0.065$ (0.072) | **$+0.155^{*}$** (0.076) |
 
 ---
 
