@@ -112,10 +112,11 @@ cond_order_top_down <- c(
   "Generalized Dislike"
 )
 
-cond_order <- rev(cond_order_top_down)
+# In ggplot, the last factor level appears at the top of the y-axis
+cond_order_y <- rev(cond_order_top_down)
 
-df_edu_res$Condition <- factor(df_edu_res$Condition, levels = cond_order)
-df_class_res$Condition <- factor(df_class_res$Condition, levels = cond_order)
+df_edu_res$Condition <- factor(df_edu_res$Condition, levels = cond_order_y)
+df_class_res$Condition <- factor(df_class_res$Condition, levels = cond_order_y)
 
 # ==============================================================================
 # 3. Generate Publication-Quality Two-Panel Bar Plot
@@ -132,7 +133,9 @@ theme_barplot <- theme_minimal(base_size = 12) +
     strip.text = element_text(face = "bold", size = 11, hjust = 0.5),
     strip.background = element_rect(fill = "grey95", color = "grey80"),
     legend.position = "bottom",
-    legend.title = element_blank()
+    legend.title = element_blank(),
+    legend.box = "horizontal",
+    legend.margin = margin(t = 5, b = 5)
   )
 
 sig_palette <- c(
@@ -141,7 +144,7 @@ sig_palette <- c(
   "Not Significant" = "grey70"
 )
 
-# Panel A: Education
+# Panel A: Education (includes all 3 significance levels)
 p_edu <- ggplot(df_edu_res, aes(x = estimate, y = Condition, fill = p_cat, color = p_cat)) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.6) +
   geom_col(width = 0.65, alpha = 0.85, color = NA) +
@@ -160,9 +163,13 @@ p_edu <- ggplot(df_edu_res, aes(x = estimate, y = Condition, fill = p_cat, color
     x = "DiD Treatment Effect (Change Score vs. Control)",
     y = ""
   ) +
-  theme_barplot
+  theme_barplot +
+  guides(
+    fill = guide_legend(override.aes = list(color = sig_palette, fill = sig_palette)),
+    color = "none"
+  )
 
-# Panel B: Subjective Class
+# Panel B: Subjective Class (hide redundant legend)
 p_class <- ggplot(df_class_res, aes(x = estimate, y = Condition, fill = p_cat, color = p_cat)) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.6) +
   geom_col(width = 0.65, alpha = 0.85, color = NA) +
@@ -181,12 +188,16 @@ p_class <- ggplot(df_class_res, aes(x = estimate, y = Condition, fill = p_cat, c
     x = "DiD Treatment Effect (Change Score vs. Control)",
     y = ""
   ) +
-  theme_barplot
+  theme_barplot +
+  theme(legend.position = "none")
 
-# Combine with patchwork collecting guides so all 3 significance levels appear
-p_combined <- (p_edu / plot_spacer() / p_class) +
-  plot_layout(heights = c(1, 0.05, 1), guides = "collect") &
-  theme(legend.position = "bottom")
+# Extract clean single 3-level legend from Panel A
+legend_shared <- cowplot::get_legend(p_edu)
+p_edu_noleg <- p_edu + theme(legend.position = "none")
+
+# Stack panels with a single clean shared legend at the bottom
+p_combined <- (p_edu_noleg / plot_spacer() / p_class / plot_spacer() / legend_shared) +
+  plot_layout(heights = c(1, 0.04, 1, 0.02, 0.1))
 
 ggsave("figures/Figure_DiD_Edu_Class_Separate.png", p_combined, width = 10.5, height = 9.2, dpi = 300)
 ggsave("figures/Figure_DiD_Edu_Class_Separate.pdf", p_combined, width = 10.5, height = 9.2)
