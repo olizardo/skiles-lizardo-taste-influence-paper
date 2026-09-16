@@ -211,14 +211,14 @@ Figure \ref{fig:balance} displays the standardized mean differences (SMD) for al
 \end{figure}
 
 \subsection{Counterfactual Exposure Drift in the Control Condition}
-Evaluating the unexposed Control Condition allows us to observe the counterfactual drift in aesthetic judgments over repeated trials in the complete absence of cues from others. As shown in Model 1 of Table \ref{tbl:did_models}, we estimate a repeated-measures linear mixed model within the Control Condition ($N = 177$ respondents, $354$ observations) testing whether exposure drift is moderated by educational attainment:
+Evaluating the unexposed Control Condition allows us to observe the counterfactual drift in aesthetic judgments over repeated trials in the complete absence of cues from others. Because educational attainment is an observational attribute rather than an experimentally assigned condition, comparisons between college-educated and non-college respondents in the Control Condition may be subject to demographic confounding. To address this, we estimate a repeated-measures linear mixed model within the Control Condition ($N = 177$ respondents, $354$ observations) incorporating Inverse Probability Weighting (IPW) to balance baseline age, gender, race/ethnicity, and parental education:
 \begin{equation}
 \text{Taste}_{it} = \alpha_0 + \beta_1 \text{Trial}_{it} + \alpha_1 \text{College}_i + \beta_2 (\text{Trial}_{it} \times \text{College}_i) + u_i + \epsilon_{it}
 \label{eq:drift_model}
 \end{equation}
 where respondents without a college degree serve as the reference category.
 
-For respondents without a college degree, the counterfactual exposure drift across trials is exactly zero ($\beta_1 = 0.000, SE = 0.052, t = 0.00, p = 1.000$). In contrast, the interaction between Trial and College degree is positive and statistically significant ($\beta_2 = +0.257, SE = 0.080, t = 3.21, p = 0.0016^{**}$). Adding the interaction parameter reveals that college-educated respondents exhibit substantial upward exposure drift ($\text{Total Drift} = +0.257, SE = 0.061, t = 4.22, p < 0.001$). Thus, the mere exposure effect is conditioned by educational capital: individuals with higher institutionalized cultural capital experience an intrinsic aesthetic appreciation upon re-evaluation, whereas non-college individuals maintain static evaluations.
+As shown in Model 1 of Table \ref{tbl:did_models}, the counterfactual exposure drift across trials for respondents without a college degree is statistically indistinguishable from zero ($\beta_1 = +0.032, SE = 0.058, t = 0.55, p = 0.582$; unweighted: $\beta_1 = 0.000, SE = 0.052, p = 1.000$). In contrast, the interaction between Trial and College degree is positive and statistically significant ($\beta_2 = +0.247, SE = 0.082, t = 3.00, p = 0.0027^{**}$; unweighted: $\beta_2 = +0.257, SE = 0.080, p = 0.0016^{**}$). Combining these parameters reveals that college-educated respondents exhibit substantial upward exposure drift ($\text{Total Drift} = +0.279, SE = 0.063, t = 4.43, p < 0.001$; unweighted: $+0.257, p < 0.001$). Thus, after balancing baseline demographic covariates, repeated exposure produces an intrinsic aesthetic appreciation specifically among respondents possessing institutionalized cultural capital, whereas non-college respondents maintain static evaluations.
 
 \subsection{Valence Asymmetry in Difference-in-Differences Effects}
 Model 2 of Table \ref{tbl:did_models} presents the primary Difference-in-Differences (DiD) estimates for the pooled sample ($N = 2,253$). In the pooled sample, average exposure drift across trials in the absence of treatment is positive ($\beta_1 = +0.107, SE = 0.052, t = 2.05, p = 0.041$). Because experimental treatments were randomly assigned, the primary specification is unweighted; an auxiliary IPW-weighted model balancing background demographics yields consistent substantive patterns (Appendix Table A.2).
@@ -231,14 +231,14 @@ Model 2 of Table \ref{tbl:did_models} presents the primary Difference-in-Differe
 \setlength{\tabcolsep}{4.5pt}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
 \toprule
-& \multicolumn{2}{c}{\textbf{Model 1: Control Drift Model}} & \multicolumn{2}{c}{\textbf{Model 2: Pooled DiD Model}} \\
+& \multicolumn{2}{c}{\textbf{Model 1: Control Drift Model (IPW)}} & \multicolumn{2}{c}{\textbf{Model 2: Pooled DiD Model}} \\
 \cmidrule(lr){2-3} \cmidrule(lr){4-5}
 \textbf{Independent Variable} & Estimate (SE) & $t$ value & Estimate (SE) & $t$ value \\
 \midrule
-Intercept & 4.874 (0.155) & 31.47$^{***}$ & 4.689 (0.114) & 40.99$^{***}$ \\
-Trial 2 Exposure Drift ($\beta_1$) & +0.000 (0.052) & 0.00 & +0.107 (0.052) & 2.05$^{*}$ \\
-College Degree Main Effect & -0.441 (0.240) & -1.84$^{\dagger}$ & \multicolumn{2}{c}{---} \\
-Trial 2 $\times$ College Degree ($\beta_2$) & +0.257 (0.080) & 3.21$^{**}$ & \multicolumn{2}{c}{---} \\
+Intercept & 4.861 (0.155) & 31.42$^{***}$ & 4.689 (0.114) & 40.99$^{***}$ \\
+Trial 2 Exposure Drift ($\beta_1$) & +0.032 (0.058) & 0.55 & +0.107 (0.052) & 2.05$^{*}$ \\
+College Degree Main Effect & -0.433 (0.238) & -1.82$^{\dagger}$ & \multicolumn{2}{c}{---} \\
+Trial 2 $\times$ College Degree ($\beta_2$) & +0.247 (0.082) & 3.00$^{**}$ & \multicolumn{2}{c}{---} \\
 \addlinespace[3pt]
 \multicolumn{5}{l}{\textit{Treatment Main Effects at Baseline ($\beta_k$):}} \\
 \quad Low-Status Like & \multicolumn{2}{c}{---} & +0.095 (0.145) & 0.66 \\
@@ -256,17 +256,17 @@ Trial 2 $\times$ College Degree ($\beta_2$) & +0.257 (0.080) & 3.21$^{**}$ & \mu
 \quad Generalized Like & \multicolumn{2}{c}{---} & +0.096 (0.075) & 1.29 \\
 \quad Generalized Dislike & \multicolumn{2}{c}{---} & -0.125 (0.075) & -1.67$^{\dagger}$ \\
 \midrule
-Total College Exposure Drift & +0.257 (0.061) & 4.22$^{***}$ & \multicolumn{2}{c}{---} \\
-Random Intercept Variance ($\sigma^2_u$) & \multicolumn{2}{c}{2.333} & \multicolumn{2}{c}{2.074} \\
-Residual Variance ($\sigma^2_\epsilon$) & \multicolumn{2}{c}{0.138} & \multicolumn{2}{c}{0.243} \\
+Total College Exposure Drift & +0.279 (0.063) & 4.43$^{***}$ & \multicolumn{2}{c}{---} \\
+Random Intercept Variance ($\sigma^2_u$) & \multicolumn{2}{c}{2.268} & \multicolumn{2}{c}{2.074} \\
+Residual Variance ($\sigma^2_\epsilon$) & \multicolumn{2}{c}{0.592} & \multicolumn{2}{c}{0.243} \\
 Observations / Individuals & \multicolumn{2}{c}{354 / 177} & \multicolumn{2}{c}{4,506 / 2,253} \\
-Log Likelihood & \multicolumn{2}{c}{-469.3} & \multicolumn{2}{c}{-6,465.0} \\
+Log Likelihood & \multicolumn{2}{c}{-487.8} & \multicolumn{2}{c}{-6,465.0} \\
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}
 \vspace{4pt}
 \footnotesize
-\textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Models estimated via linear mixed-effects with random intercepts for respondents. Model 1 restricts the sample to the unexposed Control Condition ($N = 177$) to evaluate counterfactual exposure drift and its moderation by educational attainment (non-college respondents serve as reference). Model 2 estimates the primary Difference-in-Differences specification across the pooled sample ($N = 2,253$), benchmarking treatment shifts against the unexposed Control Condition.
+\textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Models estimated via linear mixed-effects with random intercepts for respondents. Model 1 restricts the sample to the unexposed Control Condition ($N = 177$) and incorporates Inverse Probability Weighting (IPW) to balance baseline age, gender, race/ethnicity, and parental education between college and non-college respondents (non-college respondents serve as reference; unweighted estimates yield $\beta_1 = 0.000, p = 1.000$ and $\beta_2 = +0.257, p = 0.0016$). Model 2 estimates the primary unweighted Difference-in-Differences specification across the pooled sample ($N = 2,253$), benchmarking treatment shifts against the unexposed Control Condition.
 \end{minipage}
 \end{table}
 
