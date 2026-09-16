@@ -52,24 +52,20 @@ All forest plots have been replaced with **horizontal bar plots with error bars*
 
 | Manuscript Asset | File Path | Description |
 | :--- | :--- | :--- |
-| **Stimulus Image** | `figures/experimental_stimulus.jpeg` | Whistler's *Nocturne: Battersea Bridge* (1872) |
-| **Figure 1** | `figures/Figure8_CovariateBalance.png` | IPW Love Plot of covariate balance across status quadrants |
-| **Figure 2** | `figures/Figure_DiD_Significant_Effects.png` | Focused 3-panel horizontal bar plot of the 9 statistically reliable DiD effects ($p < 0.10$) |
-| **Figure 3** | `figures/Figure7_MultinomialBehavior.png` | 3-panel horizontal bar plot of Average Marginal Effects for Stay, Conform, and React |
-| **Table 1** | `manuscript_R1.tex` (Table 1) | Sample demographics vs. 2012 Census benchmarks across experimental conditions |
+| **Figure 1** | `figures/experimental_stimulus.jpeg` | Whistler's *Nocturne: Battersea Bridge* (1872) |
+| **Figure 2** | `figures/Figure8_CovariateBalance.png` | IPW Love Plot of covariate balance across status quadrants |
 | **Figure 3** | `figures/Figure_DiD_Edu_Class_Separate.png` | 2-panel horizontal bar plot of DiD effects for Education alone and Class alone |
-| **Figure 4** | `figures/Figure_DiD_Significant_Effects.png` | Focused 3-panel horizontal bar plot of the 9 statistically reliable DiD effects ($p < 0.10$) |
-| **Figure 5** | `figures/Figure7_MultinomialBehavior.png` | 3-panel horizontal bar plot of Average Marginal Effects for Stay, Conform, and React |
-| **Table 1** | `manuscript_R1.tex` (Table 1) | Sample demographics vs. 2012 Census benchmarks across experimental conditions |
-| **Table 2** | `manuscript_R1.tex` (Table 2) | Primary unweighted DiD linear mixed model (pooled sample) |
-| **Table 3** | `manuscript_R1.tex` (Table 3) | Difference-in-Differences estimates moderated separately by Education and Class |
-| **Table 4** | `manuscript_R1.tex` (Table 4) | Hypothesis evaluation matrix (estimates, expectations, and verdicts) |
+| **Figure 4** | `figures/Figure7_MultinomialBehavior.png` | 3-panel horizontal bar plot of Average Marginal Effects for Stay, Conform, and React |
+| **Table 1** | `manuscript.tex` (Table 1) | Sample demographics vs. 2012 Census benchmarks across experimental conditions |
+| **Table 2** | `manuscript.tex` (Table 2) | Primary unweighted DiD linear mixed model (pooled sample) |
+| **Table 3** | `manuscript.tex` (Table 3) | Difference-in-Differences estimates moderated separately by Education and Class |
+| **Table 4** | `manuscript.tex` (Table 4) | Hypothesis evaluation matrix (estimates, expectations, and verdicts) |
 | **Appendix Figure A.1** | `figures/Figure_MDE_Power_Curves.png` | Dual-panel MDE power curves (theoretical & empirical benchmarks) |
-| **Appendix Figure A.2** | `figures/Figure_DiD_Status_All.png` | Full 24-cell status DiD bar plot with error bars |
-| **Appendix Figure A.3** | `figures/Figure11_Sens_MultinomialBehavior.png` | Sensitivity behavioral bar plot (excluding Taste-Only conditions) |
+| **Appendix Figure A.2** | `figures/Figure_DiD_Pooled.png` | Unweighted DiD estimates for the pooled sample with 95% confidence intervals |
+| **Appendix Figure A.3** | `figures/Figure_DiD_Status_All.png` | Full 24-cell status DiD bar plot with error bars |
+| **Appendix Figure A.4** | `figures/Figure11_Sens_MultinomialBehavior.png` | Sensitivity behavioral bar plot (excluding Taste-Only conditions) |
 | **Appendix Table A.1** | `tables/table_mde_summary.tex` | Ex-post Minimum Detectable Effect (MDE) analysis table |
-| **Appendix Table A.2** | `tables/table_did_edu_class_separate.tex` | Separate DiD models for Education and Subjective Class |
-| **Appendix Table A.3** | `manuscript_R1.tex` (Table A.2) | Comparison of Unweighted and IPW-Weighted pooled DiD models |
+| **Appendix Table A.2** | `manuscript.tex` (Table A.2) | Comparison of Unweighted and IPW-Weighted pooled DiD models |
 
 ---
 
