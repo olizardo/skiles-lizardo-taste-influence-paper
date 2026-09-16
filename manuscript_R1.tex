@@ -1,0 +1,370 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+% Define custom dark blue color
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,    % Internal links (sections, figures)
+    filecolor=darkblue,    % Local file links
+    urlcolor=darkblue,     % Web URLs
+    citecolor=darkblue     % Citations
+}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{tabularx}
+\geometry{margin=1in}
+
+\title{Stay, React, or Conform? Examining Social Influence Effects on Aesthetic Judgments}
+\author{Omar Lizardo \& Sara Skiles}
+\date{Revised Manuscript --- \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In this study, we address the question, foundational to sociological studies of taste, of the extent to which others' aesthetic judgments causally influence individual evaluation of cultural works, and how this influence depends on the social distance between self and other. While past research has documented strong observational associations between cultural tastes and social networks, the underlying causal mechanisms—whether individuals actively conform, react, or remain anchored in their initial judgments—have rarely been submitted to experimental test. Using a national survey experiment ($N = 2,275$), we manipulate exposure to peer aesthetic evaluations (likes vs. dislikes) and the status characteristics of the evaluating group across repeated trials. Using a difference-in-differences framework and inverse probability weighting, we find substantial evidence of \textit{valence asymmetry}: while negative peer evaluations broadly suppress positive exposure drift across groups, positive evaluations facilitate upward shifts conditionally based on status congruence. Furthermore, analyzing discrete behavioral choices reveals that evaluative stability (``staying'') is not driven by high status alone, but by \textit{structural status consistency}: both high-consistent and low-consistent individuals display high evaluative inertia, whereas status-inconsistent individuals exhibit evaluative fluidity.
+\end{abstract}
+
+\newpage
+\section{Introduction}
+
+\subsection{Theoretical Background}
+Taste expressions and consumption have long been shown to be a function of individuals’ desire to differentiate themselves from others \citep{simmel1957, dimaggio1987}. \citet{bourdieu1984} suggests that taste differences evoke a visceral reaction, and it is through the rejection of others’ aesthetic tastes that individuals engage in the symbolic boundary work that separates them. Thus, the expression of distastes serves to communicate social distance from certain social groups \citep{bryson1996, lamont2002}. In contexts where individuals discover a similarity in taste with members of a meaningful outgroup, they frequently engage in ``taste abandonment'' to maintain social boundaries \citep{berger2008}, while contexts in which individuals find a similarity of tastes with members of their ingroup can foster community and solidarity \citep{wohl2015community-2d2, vanzella2022tastes}. 
+
+Despite the rich sociological literature linking cultural tastes and network ties \citep{erickson1996, lizardo2006}, this body of work has almost exclusively relied on static, cross-sectional, and observational survey data. Consequently, observational homophily inevitably conflates prior social sorting, shared environmental exposure, and active social influence. This leaves open a fundamental causal question: \textit{How does direct access to the evaluations of others causally alter our own aesthetic judgments in real time?}
+
+To answer this question, we build a theoretical framework that integrates three distinct mechanisms:
+\begin{enumerate}
+    \item \textbf{Informational Influence and Valence Asymmetry:} In situations of aesthetic ambiguity, others' choices provide heuristic information to resolve uncertainty \citep{strang2001search-10a, salganik2006experimental-88d}. However, we expect a pronounced \textit{valence asymmetry}: negative peer evaluations act as a potent suppressive veto that halts the positive exposure drift observed under repeated evaluation, whereas positive peer evaluations act selectively depending on social status alignment.
+    \item \textbf{Status Congruence and Symbolic Distinction:} Cultural influence is conditioned by the status of the evaluator relative to the self \citep{heider1946attitudes-ff3, bourdieu1984, lizardo2016cultural-aaa}. We examine whether individuals display same-status alignment, upward conformity to high-status cultural specialists, or reactive distancing from low-status evaluations.
+    \item \textbf{Status Consistency and Evaluative Stability:} Beyond linear mean shifts, individuals differ in their inertial propensity to maintain their initial judgment (``staying''). Drawing on status crystallization theory \citep{lenski1954status}, we propose that structural consistency between objective educational capital and subjective class identification produces cognitive certainty and evaluative inertia, whereas status inconsistency induces evaluative fluidity.
+\end{enumerate}
+
+\subsection{Hypotheses}
+
+\textbf{Control Condition (Mere Exposure Effect):}\\
+Overall, repeated exposure to a cultural object across trials is expected to produce an upward drift in evaluation even in the absence of external social information \citep{zajonc1968attitudinal, reber1998effects-efe}. External social cues either facilitate or suppress this exposure drift.
+
+\textbf{Generalized Influence (No-Status Peer Feedback):}
+\begin{itemize}
+    \item \textbf{Positive Generalized Alignment:} Exposure to generalized positive peer evaluations facilitates the positive exposure drift.
+    \item \textbf{Negative Generalized Suppression:} Exposure to generalized negative peer evaluations exerts an asymmetric veto, suppressing the positive exposure drift.
+\end{itemize}
+
+\textbf{Status-Differentiated Influence:}
+\begin{itemize}
+    \item \textbf{Hypothesis 1 (Same-Status Alignment):} Individuals adjust their judgments to align with the aggregate evaluations of their status peers (shifting positively for peer likes and negatively for peer dislikes).
+    \item \textbf{Hypothesis 2 (Symbolic Power and Upward Alignment):} Lower-status respondents align their judgments with high-status peers, exhibiting cultural goodwill toward high-status evaluations.
+    \item \textbf{Hypothesis 3 (Cross-Status Reactance):} Individuals distance themselves from out-group judgments, shifting away from the evaluations of socially dissimilar others.
+\end{itemize}
+
+\textbf{Status Consistency and Behavioral Inertia:}
+\begin{itemize}
+    \item \textbf{Hypothesis 4 (Evaluative Inertia via Status Consistency):} Individuals with consistent status profiles (e.g., Middle Class with College, or Working Class without College) exhibit higher propensities to maintain their initial evaluation (``staying'') compared to status-inconsistent individuals.
+\end{itemize}
+
+\section{Data and Methods}
+
+\subsection{Sample Recruitment and Survey Administration}
+Data for this study were collected between February 28 and March 6, 2012, via an online experimental survey administered by Survey Sampling International (SSI), a leading research firm specializing in online panel recruitment and survey sampling. A total of 3,782 panel members accessed the survey instrument. Of these, 97 were excluded due to lack of informed consent ($N = 85$) or age under 18 ($N = 12$), 1,394 were screened out because demographic quota targets had already been met, and 16 dropped out during early screens, resulting in an analytic sample of $N = 2,275$ completed responses (with $N = 2,253$ providing complete initial and post-treatment evaluations). Participants received monetary compensation (\$3.92) via SSI, funded by an NSF Doctoral Dissertation Improvement Grant (Award SES-1203426) and the University of Notre Dame Institute for Scholarship in Liberal Arts.
+
+The sampling frame employed dynamic quota matching calibrated against U.S. Census benchmarks for gender, age, race/ethnicity, and geographic region to achieve a diverse and quasi-representative national sample of U.S. adults. To ensure adequate statistical power for examining status-differentiated cultural dynamics—particularly within high-cultural-capital occupational cells (Cultural Specialists and Economic Specialists)—the sample incorporated a deliberate oversample of college graduates (40.5\% holding a bachelor's degree or higher in the sample versus approximately 28\% nationally in 2012). Table \ref{tbl:descriptives} presents the full demographic breakdown of the sample compared to U.S. population parameters, separated across experimental treatment arms.
+
+\subsection{Inferential Scope and Interpretation of Confidence Intervals}
+Because the survey utilized a quota-matched, opt-in online consumer panel rather than a strict probability-based sample with known inclusion probabilities (such as the GSS or ANES), the reported standard errors, $p$-values, and confidence intervals should be interpreted as reflecting \textit{model-based and experimental design uncertainty within the sample}, rather than formal design-based population parameter estimates. The randomization mechanism built into the Qualtrics survey engine ensures that internal validity is maximized: respondents were randomly assigned to treatment and control arms, creating balanced experimental groups across all observed baseline characteristics (Table \ref{tbl:descriptives}). At the same time, the demographic diversity across gender, age, race, and geographic region provides substantial ecological validity and heterogeneity compared to conventional undergraduate convenience samples.
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Demographic Characteristics of Survey Sample Compared to U.S. Population Benchmarks}
+\label{tbl:descriptives}
+\begin{tabular}{lcccccc}
+\toprule
+Demographic Variable & Sample $N$ & Sample \% & U.S. Pop \% & Treatment & No Alter & Taste Only \\
+\midrule
+\textbf{Gender} & & & & & & \\
+Female & 1,184 & 52.1\% & 51.5\% & 51.7\% & 52.2\% & 53.9\% \\
+Male & 1,091 & 47.9\% & 48.5\% & 48.3\% & 47.8\% & 46.1\% \\
+\addlinespace
+\textbf{Race / Ethnicity} & & & & & & \\
+White & 1,463 & 64.3\% & 65.1\% & 64.7\% & 63.2\% & 63.1\% \\
+Hispanic / Latino & 365 & 16.1\% & 15.8\% & 16.2\% & 14.8\% & 15.9\% \\
+Black / African American & 279 & 12.3\% & 12.3\% & 12.1\% & 13.7\% & 12.1\% \\
+Asian / Pacific Islander & 103 & 4.5\% & 4.5\% & 4.4\% & 5.5\% & 4.6\% \\
+Other / Multiracial & 65 & 2.8\% & 2.3\% & 2.5\% & 2.7\% & 4.3\% \\
+\addlinespace
+\textbf{Age Group} & & & & & & \\
+18--24 & 272 & 12.0\% & 13.1\% & 11.9\% & 11.0\% & 12.7\% \\
+25--34 & 410 & 18.0\% & 17.5\% & 18.2\% & 16.5\% & 17.9\% \\
+35--44 & 402 & 17.7\% & 17.5\% & 17.9\% & 13.7\% & 18.7\% \\
+45--54 & 441 & 19.4\% & 19.2\% & 19.4\% & 20.9\% & 18.4\% \\
+55--64 & 372 & 16.3\% & 15.6\% & 16.5\% & 15.4\% & 16.1\% \\
+65+ & 377 & 16.6\% & 17.2\% & 16.1\% & 22.5\% & 16.2\% \\
+\addlinespace
+\textbf{Geographic Region} & & & & & & \\
+Northeast & 417 & 18.3\% & 17.9\% & 18.8\% & 16.5\% & 17.0\% \\
+South & 816 & 35.9\% & 37.2\% & 36.6\% & 39.6\% & 30.5\% \\
+Midwest & 505 & 22.2\% & 21.6\% & 21.2\% & 26.4\% & 24.8\% \\
+West & 536 & 23.6\% & 23.3\% & 23.4\% & 17.6\% & 27.7\% \\
+\addlinespace
+\textbf{Education (Oversampled)} & & & & & & \\
+Less than High School & 89 & 3.9\% & 13.3\% & 3.8\% & 3.3\% & 4.6\% \\
+High School Diploma & 474 & 20.8\% & 30.4\% & 20.3\% & 23.6\% & 21.9\% \\
+Some College / AA & 791 & 34.8\% & 28.5\% & 36.0\% & 31.3\% & 30.6\% \\
+Bachelor's Degree & 625 & 27.5\% & 18.1\% & 27.3\% & 27.5\% & 28.5\% \\
+Graduate / Professional & 296 & 13.0\% & 9.6\% & 12.6\% & 14.3\% & 14.5\% \\
+\midrule
+\textbf{Total $N$} & \textbf{2,275} & \textbf{100.0\%} & & \textbf{1,746} & \textbf{182} & \textbf{347} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Experimental Design and Stimulus}
+All respondents viewed an image of the same artwork: \textit{Nocturne: Blue and Gold -- Old Battersea Bridge} by James McNeill Whistler (1872), displayed in Figure \ref{fig:stimulus}. The painting was selected based on an online pilot study ($N=100$) testing eight artworks; the Whistler painting was chosen because it generated the highest initial pre-treatment variance in aesthetic evaluations across all demographic subgroups.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.55\textwidth]{figures/experimental_stimulus.jpeg}
+    \caption{Experimental Stimulus: \textit{Nocturne: Blue and Gold -- Old Battersea Bridge}, by James McNeill Whistler (1872)}
+    \label{fig:stimulus}
+\end{figure}
+
+The experiment used an incomplete factorial design with within-subject pre/post trials:
+\begin{enumerate}
+    \item \textbf{Trial 1 (Pre-Treatment Baseline):} Respondents rated the painting on a 7-point Likert scale (1 = ``Dislike it very much'', 4 = ``Neither like nor dislike'', 7 = ``Like it very much'').
+    \item \textbf{Intervening Survey Block \& Manipulation:} Respondents completed extensive demographic questions and a musical taste battery. Treatment respondents then read a brief vignette describing how a peer group evaluated the artwork.
+    \item \textbf{Trial 2 (Post-Treatment Measurement):} Respondents were shown the painting again and provided their second evaluation.
+\end{enumerate}
+
+To prevent terminological confusion, we strictly distinguish between the \textbf{pre-treatment baseline measurement} (Trial 1, which captures initial, uninfluenced aesthetic preference) and the \textbf{Control Condition} (the experimental group that receives no peer information between trials, allowing us to observe pure temporal re-evaluation in the absence of treatment). We refer to changes over repeated trials in this unexposed group as \textbf{exposure drift}.
+
+To mitigate experimenter demand effects, the pre- and post-evaluations were separated by substantive survey modules, peer feedback was framed naturalistically as aggregate responses from a prior survey, and the no-information Control Condition was included to establish counterfactual re-evaluation dynamics.
+
+\subsection{Variables and Measurement}
+
+\textbf{Dependent Variables:} Aesthetic evaluation was measured on a reversed 1--7 scale. In continuous models, the outcome is the repeated evaluation across trials. In behavioral models, change between trials is categorized into three mutually exclusive choices: \textit{Stay} ($\Delta = 0$), \textit{Conform} (moving in the direction of the peer evaluation), and \textit{React} (moving in the opposite direction).
+
+\textbf{Experimental Conditions:} The treatment arms crossed Peer Evaluation (Like vs. Dislike) with Peer Social Status:
+\begin{itemize}
+    \item \textbf{High Status / Cultural Specialists:} Multiple advanced degrees (PhD) and employment in higher education.
+    \item \textbf{High Status / Economic Specialists:} Bachelor's degree in business and employment in financial investment.
+    \item \textbf{Low Status / Low Cultural Capital:} High school education and employment in food service.
+    \item \textbf{No Status (Taste Only):} Information on peer like/dislike without status indicators.
+    \item \textbf{Control Condition:} No peer information provided between trials ($N=182$).
+\end{itemize}
+
+\textbf{Moderating Status Consistency:} We crossed objective education (College Degree vs. No College) with subjective class identification (Middle Class vs. Working Class) into four quadrants: Working/No College, Working/College, Middle/No College, and Middle/College.
+
+\textbf{Inverse Probability Weighting (IPW) and Causal Logic:} 
+A key methodological challenge in experimental designs that examine status-contingent influence arises from the hybrid nature of the design. While the experimental cues (peer evaluation valence and peer status) were randomly assigned, respondents' own social locations—captured by the crossing of educational attainment and subjective class identification—represent pre-existing, observational attributes \citep{cruces2013biases}. Consequently, individuals do not have an equal probability of belonging to each status group: for example, Middle Class individuals with a college degree are systematically older, more likely to have college-educated parents, and differ in racial/ethnic composition compared to non-college Working Class individuals. If unaddressed, comparisons across status groups (and their interactions with the randomized peer treatments) risk confounding the effect of social class with these correlated background characteristics.
+
+To solve this problem and strengthen causal inference, we implement Inverse Probability Weighting (IPW) using generalized propensity scores \citep{rosenbaum1983central}. The pedagogical logic of IPW proceeds in two steps:
+\begin{enumerate}
+    \item \textit{Estimating Generalized Propensity Scores:} For each respondent, we estimate a multinomial logistic regression modeling the probability of belonging to their observed status consistency group $S_i \in \{1, 2, 3, 4\}$ conditional on exogenous baseline covariates $\mathbf{X}_i$ (age, gender, race/ethnicity, and parental educational capital):
+    \begin{equation}
+    e_s(\mathbf{X}_i) = P(S_i = s \mid \mathbf{X}_i)
+    \end{equation}
+    \item \textit{Constructing Balancing Weights:} Each observation is then weighted by the inverse of its estimated propensity score to target the Average Treatment Effect (ATE) across the pooled sample:
+    \begin{equation}
+    w_i = \frac{1}{e_s(\mathbf{X}_i)} = \frac{1}{P(S_i = s \mid \mathbf{X}_i)}
+    \end{equation}
+\end{enumerate}
+Intuitively, IPW creates a synthetic ``pseudo-population'' by up-weighting underrepresented demographic profiles within each status group (e.g., working-class respondents whose parents completed college) and down-weighting overrepresented profiles. This weighting scheme severs the empirical association between the baseline covariates $\mathbf{X}_i$ and status group membership. Under the assumption of conditional exchangeability (no unmeasured confounders given $\mathbf{X}_i$) and positivity, IPW ensures that status groups are demographically comparable. As a result, subsequent differences in evaluative shifts, behavioral inertia, or reactance across status categories can be interpreted as the direct consequence of structural status location and status consistency, rather than demographic artifacts.
+
+\subsection{Analytic Strategy}
+We specify a linear mixed-effects Difference-in-Differences (DiD) model:
+\begin{equation}
+\text{Taste}_{ijt} = \beta_0 + \beta_1 \text{Trial}_t + \sum_{k} \beta_{2k} \text{Cond}_{ik} + \sum_{k} \beta_{3k} (\text{Trial}_t \times \text{Cond}_{ik}) + \mathbf{X}_i \boldsymbol{\gamma} + u_i + \epsilon_{ijt}
+\end{equation}
+where $\text{Trial}_t$ indicates the post-treatment trial ($t=2$), the no-information group serves as the reference Control Condition, and $\beta_{3k}$ estimates the difference-in-differences treatment effect net of exposure drift. To examine non-linear behavioral choices, we estimate multinomial logistic regressions modeling the probabilities of Staying, Conforming, and Reacting.
+
+\section{Results}
+
+\subsection{Covariate Balance Across Observational Status Categories}
+Before evaluating our focal hypotheses, we assessed the demographic comparability of the four observational status consistency groups. It is important to emphasize that while the experimental conditions (peer liking vs.\ disliking and peer status cues) were randomized and thus inherently balanced by design, respondents' own structural locations (Education $\times$ Subjective Class) are observational. 
+
+Figure \ref{fig:balance} displays the standardized mean differences (SMD) for all baseline covariates across the status categories before and after Inverse Probability Weighting (IPW), generated using \texttt{cobalt} \citep{greifer2022cobalt}. Prior to weighting, status groups exhibited substantial demographic disparities: for instance, college-educated middle-class respondents had substantially older ages and higher rates of parental college attainment (raw SMDs exceeding 0.35 to 0.50). Following IPW estimation, the weighted pseudo-population achieved excellent covariate balance, with all absolute standardized mean differences compressed well below the conventional conservative threshold of 0.10 standard deviations. This confirms that subsequent model estimates isolate the effect of social class and status consistency, net of observed demographic sorting.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Figure8_CovariateBalance.png}
+    \caption{Covariate Balance Across Observational Status Groups Before and After IPW Weighting. The dashed lines indicate the standard $\pm 0.10$ threshold for acceptable balance.}
+    \label{fig:balance}
+\end{figure}
+
+\subsection{Difference-in-Differences (DiD) Estimation of Treatment Effects}
+To directly isolate information-induced shifts from repeated-measurement exposure drift, Table \ref{tbl:did_models} presents the Difference-in-Differences (DiD) estimates from linear mixed models where the unexposed Control Condition serves as the omitted reference category. In this specification, the main effect of Trial 2 ($\beta_{\text{Trial}}$) captures the temporal exposure drift in the absence of treatment, while the interaction terms ($\text{Trial}_2 \times \text{Condition}_k$) directly estimate the causal DiD treatment effects—that is, whether evaluations in treatment condition $k$ changed significantly more or less than the control counterfactual.
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences (DiD) Linear Mixed Models Predicting Aesthetic Evaluation}
+\label{tbl:did_models}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Model 1: Unweighted DiD}} & \multicolumn{2}{c}{\textbf{Model 2: IPW-Weighted DiD}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Independent Variable} & Estimate (SE) & $t$ value & Estimate (SE) & $t$ value \\
+\midrule
+Intercept ($\beta_0$) & 4.689 (0.114) & 40.99$^{***}$ & 4.672 (0.115) & 40.72$^{***}$ \\
+Trial 2 Exposure Drift ($\beta_{\text{Trial}}$) & 0.107 (0.052) & 2.05$^{*}$ & 0.156 (0.054) & 2.90$^{**}$ \\
+\addlinespace
+\multicolumn{5}{l}{\textit{Difference-in-Differences Treatment Effects ($\text{Trial}_2 \times \text{Condition}$):}} \\
+Class \& Taste / Like / $-$Status & $-0.128$ (0.067) & $-1.93^{\dagger}$ & $-0.112$ (0.069) & $-1.61$ \\
+Class \& Taste / Like / $+$Status & $+0.041$ (0.060) & 0.68 & $+0.006$ (0.062) & 0.09 \\
+Class \& Taste / Dislike / $-$Status & $+0.016$ (0.066) & 0.23 & $-0.034$ (0.068) & $-0.49$ \\
+Class \& Taste / Dislike / $+$Status & $-0.121$ (0.060) & $-2.02^{*}$ & $-0.201$ (0.062) & $-3.27^{**}$ \\
+Taste Only / Like & $+0.096$ (0.075) & 1.29 & $+0.068$ (0.078) & 0.87 \\
+Taste Only / Dislike & $-0.125$ (0.075) & $-1.67^{\dagger}$ & $-0.172$ (0.076) & $-2.26^{*}$ \\
+\addlinespace
+Condition Main Effects Included & \multicolumn{2}{c}{Yes} & \multicolumn{2}{c}{Yes} \\
+Random Intercept Variance ($\sigma^2_u$) & \multicolumn{2}{c}{2.074} & \multicolumn{2}{c}{2.026} \\
+Residual Variance ($\sigma^2_e$) & \multicolumn{2}{c}{0.243} & \multicolumn{2}{c}{1.022} \\
+$N$ (Observations / Individuals) & \multicolumn{2}{c}{4,506 / 2,253} & \multicolumn{2}{c}{4,504 / 2,252} \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Reference condition: Control Condition (No Information).}
+\end{tabular}
+\end{table}
+
+The DiD results illuminate how external information alters the counterfactual trajectory of aesthetic judgments:
+\begin{enumerate}
+    \item \textbf{Significant Exposure Drift in the Control Condition:} In the absence of external social cues, repeated evaluation produces a statistically significant upward shift ($\beta = +0.107, p = 0.041$ unweighted; $\beta = +0.156, p = 0.0038$ IPW-weighted).
+    \item \textbf{Valence Asymmetry as Exposure Drift Suppression:} While positive peer evaluations produce modest positive increments above the exposure drift ($\text{DiD} = +0.068$ to $+0.096$, $p > 0.15$), negative peer evaluations act as potent, statistically significant suppressive mechanisms. Specifically, exposure to High-Status Dislike leads to a significant negative divergence of $-0.201$ points ($p = 0.0011^{**}$) relative to the control condition. Generalized Dislike similarly exerts a significant suppressive DiD effect of $-0.172$ points ($p = 0.0238^{*}$).
+    \item \textbf{Uncovering Cross-Status Reactance (Hypothesis 3):} When we inspect status-moderated DiD models, a critical finding emerges that was masked in simple within-condition models. For high-status consistent respondents (Middle Class/College), exposure to Low-Status Likes (working-class peers endorsing the artwork) produces a statistically significant negative DiD shift of $\text{DiD} = -0.296$ ($p = 0.0391^{*}$) relative to the control condition. Because college-educated middle-class individuals naturally drift upward by $+0.200$ under mere exposure, discovering that working-class peers like the painting actively halts and reverses their appreciation. This provides direct experimental support for Bourdieusian symbolic distinction and taste abandonment.
+\end{enumerate}
+
+\subsection{Evaluating the Control Condition: The Mere Exposure Effect}
+In the no-information Control Condition, repeated exposure produced a statistically significant upward drift in aesthetic evaluation ($\beta = +0.148, p = 0.041$). However, disaggregating by status groups reveals that this mere exposure drift is concentrated among college-educated respondents (both Middle and Working class), while non-college respondents display no significant drift.
+
+\subsection{Generalized Influence and Valence Asymmetry}
+In the ``No Status'' conditions (Figure \ref{fig:trialeffects}), positive peer feedback facilitated upward drift, particularly among middle-class respondents without a college degree. In contrast, generalized negative evaluations exerted an asymmetric veto effect, completely suppressing the upward exposure drift across all status groups.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/Figure5_TrialEffects_Forest.png}
+    \caption{Estimated Trial Effect by Condition and Status. Error bars represent 95\% confidence intervals. The dashed vertical line indicates the zero-effect reference line.}
+    \label{fig:trialeffects}
+\end{figure}
+
+\subsection{Status-Differentiated Influence}
+Evaluating peer status conditions yields nuanced support for our hypotheses:
+\begin{itemize}
+    \item \textbf{Same-Status Alignment (H1):} High-status respondents (Middle Class/College) exhibited significant positive alignment when exposed to high-status positive evaluations ($\beta = +0.28, p < 0.01$). In contrast, low-status respondents (Working Class/No College) did not align with peer likes and displayed significant positive shifts when exposed to peer dislikes ($\beta = +0.24, p < 0.05$), actively reacting against the negative tastes of their own peers.
+    \item \textbf{Symbolic Power and Upward Alignment (H2):} Low-status respondents exhibited positive alignment with high-status positive evaluations, demonstrating cultural goodwill. However, they did not conform to high-status negative evaluations.
+    \item \textbf{Cross-Status Reactance (H3):} High-status respondents did not systematically distance themselves from low-status evaluations. Instead, reactive distancing was concentrated within the low-status group avoiding low-status negative stigma.
+\end{itemize}
+
+\subsection{Behavioral Choices: Staying, Conforming, and Reacting}
+Figure \ref{fig:multinom} presents predicted probabilities from the multinomial logistic regression. 
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Figure7_MultinomialBehavior.png}
+    \caption{Predicted Probabilities of Behavioral Responses (Stay, Conform, React) Across Status Groups}
+    \label{fig:multinom}
+\end{figure}
+
+Crucially, evaluative stability (``staying'') is highest among \textbf{status-consistent individuals} in both high and low positions (Middle Class/College: 79.0\%; Working Class/No College: 74.4\%). In contrast, \textbf{status-inconsistent individuals} display substantially lower inertia and higher rates of conformity (Working Class/College: 19.0\%; Middle Class/No College: 17.8\%). Reactance is primarily concentrated among non-college-educated individuals (12.0\%--13.3\%).
+
+\section{Discussion and Conclusion}
+This study provides the first experimental demonstration of how peer aesthetic evaluations causally alter, reinforce, or suppress individual taste judgments in real time. Our findings establish four primary empirical contributions:
+
+First, we demonstrate that cultural exposure drift is not uniform but conditioned by educational capital. Second, we identify a clear \textbf{valence asymmetry}: negative peer feedback acts as an asymmetric veto that halts appreciation across the board, whereas positive feedback operates conditionally based on status congruence. Third, upward cultural goodwill is confined to positive endorsements, while negative peer evaluations fail to induce compliance. Finally, we show that aesthetic stability (``staying'') is driven by \textbf{structural status consistency}—which fosters normative certainty—rather than high status alone.
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\newpage
+\appendix
+
+\section{Statistical Power and Minimum Detectable Effect (MDE) Analysis}
+To evaluate the statistical power of the design, we conducted an ex-post Minimum Detectable Effect (MDE) analysis. Assuming $\alpha = 0.05$ (two-tailed), power $= 0.80$, and an empirical repeated-measures test-retest correlation of $r \approx 0.70$, the design was powered to detect:
+\begin{itemize}
+    \item Full sample trial shifts of Cohen's $d \ge 0.12$ ($N = 2,275$).
+    \item Condition-specific trial contrasts of $d \ge 0.19$ to $0.24$ across primary condition cells ($N \approx 280$--$295$).
+    \item Subgroup status interaction effects of $d \ge 0.32$ to $0.38$ within specific status quadrants ($N \approx 100$--$180$).
+\end{itemize}
+
+\section{Survey Vignettes and Treatment Prompts}
+\label{sec:appendix_vignettes}
+Below we transcribe the verbatim wording and sequencing of the survey instrument administered in the 2012 study, based on the original Qualtrics protocol.
+
+\subsection*{1. Baseline Measurement (Trial 1)}
+Respondents were presented with the high-resolution image of James McNeill Whistler's \textit{Nocturne: Blue and Gold -- Old Battersea Bridge} (1872) and asked:
+\begin{quote}
+\textit{``Please look at this painting for a few seconds.\\
+Give us your first impression of this painting -- how much do you like it?''}
+\end{quote}
+Responses were recorded on a 7-point Likert scale:
+\begin{itemize}
+    \item 1 = I like it very much
+    \item 2 = I like it
+    \item 3 = I like it just a little
+    \item 4 = I neither like it nor dislike it
+    \item 5 = I dislike it just a little
+    \item 6 = I dislike it
+    \item 7 = I dislike it very much
+\end{itemize}
+(Items were reverse-coded in data processing so that 7 indicates highest affinity and 1 indicates lowest affinity).
+
+\subsection*{2. Experimental Treatment Vignettes}
+Following their initial evaluation, respondents assigned to experimental conditions were exposed to peer feedback. Notably, the prompt did \textit{not} explicitly state whether the evaluating group had the same or different social status relative to the participant; instead, it presented absolute descriptive characteristics of the alter group, allowing social proximity or distance to emerge relationally from the participant's own social location.
+
+\paragraph{Treatment Conditions (Class Status + Taste Information):}
+\begin{quote}
+\textit{``Thank you for your response. Our survey so far indicates that the group of people most likely to say that they [LIKE / DISLIKE] the painting you saw have completed\dots''}
+\begin{itemize}
+    \item \textbf{Low Cultural Capital (LCC):} \textit{``\dots high school but did not go to college, and work in a food service job.''}
+    \item \textbf{Economic Specialists (ES / High Cultural Capital):} \textit{``\dots a Bachelor's degree in Business but no additional degrees, and work at a financial investment firm.''}
+    \item \textbf{Cultural Specialists (CS / High Cultural Capital):} \textit{``\dots several advanced degrees including a PhD, and work at a college or university.''}
+\end{itemize}
+\textit{Given only what you know about this group's education, occupation, and opinion about the painting, how similar do you think you are to the people in this group?}\\
+(Options: \textit{Very similar / Somewhat similar / Just a little similar / Not very similar / Not at all similar})
+\end{quote}
+
+Treatment respondents then answered an immediate attribution probe:
+\begin{quote}
+\textit{``In the last question, when you thought about how similar you are to the people in this group, which factor was most influential?''}\\
+(Options: \textit{Their education and/or occupation / Their opinion about the painting / A combination of both})
+\end{quote}
+
+\paragraph{Taste-Only Control Condition (No Status Information):}
+\begin{quote}
+\textit{``Thank you for your response. Other people who have taken this survey recently have said that they [LIKE / DISLIKE] the painting you saw.\\
+Given only what you know about these people's opinion about the painting, how similar do you think you are to them?''}\\
+(Options: \textit{Very similar / Somewhat similar / Just a little similar / Not very similar / Not at all similar})
+\end{quote}
+
+\paragraph{No-Alter Control Condition:}
+Respondents in the pure no-information Control Condition received no feedback screen or peer cues whatsoever, proceeding directly to the intervening survey block.
+
+\subsection*{3. Intervening Survey Battery}
+Between Trial 1 and Trial 2, all respondents completed substantive survey sections comprising:
+\begin{enumerate}
+    \item Full educational history (highest degree attained, college major field).
+    \item Intergenerational educational capital (parental bachelor's degree attainment).
+    \item Employment status and detailed 22-category Standard Occupational Classification (SOC).
+    \item Annual personal pre-tax income (23 income brackets).
+    \item Subjective social class self-identification (\textit{Lower class, Working class, Middle class, Upper class}).
+    \item An extensive musical taste battery assessing liking, listening frequency, favorite genre, and perceived audience stereotypes across 20 musical genres.
+\end{enumerate}
+
+\subsection*{4. Post-Treatment Measurement (Trial 2)}
+Following the intervening modules, respondents were re-shown the identical artwork:
+\begin{quote}
+\textit{``Please look at this painting for a few seconds again.\\
+Give us your final impression of this painting -- how much do you like it?''}
+\end{quote}
+(Recorded on the identical 7-point Likert scale).
+
+\section{Robustness Check: Alternative Definition of Social Class}
+Restricting the subjective class definition strictly to respondents self-identifying as ``working class'' or ``middle class'' (excluding lower and upper class extremes) produces identical conclusions: status-consistent groups maintain the highest stay rates (Middle/College: 78.2\%; Working/No College: 74.7\%) and status-inconsistent groups maintain the highest conformity rates (Middle/No College: 17.9\%; Working/College: 16.9\%).
+
+\end{document}

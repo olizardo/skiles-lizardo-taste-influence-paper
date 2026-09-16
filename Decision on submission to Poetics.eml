@@ -1,0 +1,688 @@
+Delivered-To: omarlizardo@gmail.com
+Received: by 2002:a05:622a:e087:20b0:51c:26c2:3e84 with SMTP id pf7-n2csp10539qtc;
+        Tue, 15 Sep 2026 11:35:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AKwUvBw2sfFlmFcXhjMko2E5iydnpLnYOdYjhMAUbpKRLs9xrAVkbNmajwYxxVjhSbd30o/UywBP0lhl39oUeQ==@gmail.com
+X-Received: by 2002:a05:620a:370e:b0:939:7d8b:93e0 with SMTP id af79cd13be357-93a297cc40amr1213062985a.18.1789497348088;
+        Tue, 15 Sep 2026 11:35:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1789497348; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=nZuVFqm8KBt/ge0+8t+L4aCNvba+9yNNlkEEKrQ2JvjDwbTRUaNdcpZtmHVKOgsOuY
+         jNdGbpW1VTtwjqCjh9qQOCVA6K5bci3ZtoGtC/6BFNZ+lsaJq48LqygK+oB45U5dZ6a3
+         skUEL1IhO2BMmD1ibtZu6H7NqyDRtLMg/qfKeMV1goU/X4vzNqlpQNWKK1xGUo1QFKrx
+         u5MUtfqoll9saOz+TeOZ2fODP2Ukd9tfA5RnGuBxuQwqu6CeQ1tiyBI3O2D8MZEbq6eo
+         O0QtTrq8nqim6jueBn6F/SaxsXt4UUDBT4dRhFZt++RXe6hYq/aqQivSL5gtHJmYqg7b
+         VIMw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=feedback-id:message-id:content-transfer-encoding:mime-version:date
+         :subject:to:reply-to:from:sender:dkim-signature:dkim-signature
+         :resent-from:dkim-signature;
+        bh=u/JVjl2XjIQn+W5WmYOEnHFtl3xvQUQQpF3bz7smGJs=;
+        fh=qJLCWrD51wDR+SDuKdNgWRnB8Umtq9UJ20u17G5u3y4=;
+        b=jUrSgng6tKKEJvjQxjHHtT0YoWb613vYVaXaVXQ1lnbEZfBCNowqZODjUGygsabqH/
+         N0COsquvkrzaInVf23CvdFaN/SCFItX5x1HgUtOYAJhxnM4BxkF/kryX21irIcc01EOK
+         v84bKi9dbCZ2BZkOGvgTv1ilM5hq6myaDp0k1Wr/MQtabFmRhGUdvWShqnVycLnp4NkQ
+         hunAQg5jeLlT+z4QItZysZQz3tWflHdrVRzzorIU0iFuqaq1sq4xrl2GosZ+HfAhtxkV
+         Jv138dIVTOMX11S306VYCnSXOkj3IInTwBIg3ErU2UceEB923j98jfG5NxiIgM0Rg10F
+         jrEA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@sscucla.onmicrosoft.com header.s=selector2-sscucla-onmicrosoft-com header.b=Wig10ePO;
+       dkim=pass header.i=@editorialmanager.com header.s=tvdfymwwvsvl5knqfes5kclzda4ayx6m header.b=Ipc835M7;
+       dkim=pass header.i=@amazonses.com header.s=kra23psoka5qyyh6gdejiiuof3nluwuz header.b=HUa70gwF;
+       arc=pass (i=1 dkim=pass dkdomain=editorialmanager.com dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=editorialmanager.com);
+       spf=pass (google.com: domain of bounces+srs=kaynt=hh@o365.ssc.ucla.edu designates 2a01:111:f403:c101::7 as permitted sender) smtp.mailfrom="bounces+SRS=KAynT=HH@o365.ssc.ucla.edu";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=editorialmanager.com
+Return-Path: <bounces+SRS=KAynT=HH@o365.ssc.ucla.edu>
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazlp170120007.outbound.protection.outlook.com. [2a01:111:f403:c101::7])
+        by mx.google.com with ESMTPS id af79cd13be357-93b81dca86esi22550085a.479.2026.09.15.11.35.47
+        for <omarlizardo@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 11:35:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+srs=kaynt=hh@o365.ssc.ucla.edu designates 2a01:111:f403:c101::7 as permitted sender) client-ip=2a01:111:f403:c101::7;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sscucla.onmicrosoft.com header.s=selector2-sscucla-onmicrosoft-com header.b=Wig10ePO;
+       dkim=pass header.i=@editorialmanager.com header.s=tvdfymwwvsvl5knqfes5kclzda4ayx6m header.b=Ipc835M7;
+       dkim=pass header.i=@amazonses.com header.s=kra23psoka5qyyh6gdejiiuof3nluwuz header.b=HUa70gwF;
+       arc=pass (i=1 dkim=pass dkdomain=editorialmanager.com dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=editorialmanager.com);
+       spf=pass (google.com: domain of bounces+srs=kaynt=hh@o365.ssc.ucla.edu designates 2a01:111:f403:c101::7 as permitted sender) smtp.mailfrom="bounces+SRS=KAynT=HH@o365.ssc.ucla.edu";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=editorialmanager.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vomYMHbcPvAQevdb5mzN7t4KHmtTMPXFKPOIaBh1+XNkE4xPwF9AAFWT2rYGmloSqEwOv6AqckwrajczEa1KcOShVoJHFHj2Rod96FRNDlSWMTjGjU4QOVRS7mPf8izkKjMETZn/jt/duJQ+5mWWfCd1dk0vf67PR5DZFCWny7s5+BHEzQgKv4fHhwixHZrHryuzEg+hN3DBZwaoXAOqU5iDzOuqidiRvRVTOtmTP7AaNP63kBRqaLdyr95qg0SJDK4BECAPoTT2HMc+F9G3xHruEuoL82Cjf9ycgqvHz4dQU/t7M+qcm0+xySNggh4/gC5NV8lGC9Tyoa0MeiPSAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u/JVjl2XjIQn+W5WmYOEnHFtl3xvQUQQpF3bz7smGJs=;
+ b=RAt44frI+YImArVzd82eX/8mgIQGp1/oIqYZ6GXcaLXX9IfOLIguCwXoK1D7h5/WU7sIeikMHnsUCcrgUttJ72YEdymHmlUu2pYlYoiXEXwtw4WLkDhWH0sS/UJp3E1ke2iqvGf9paSGQgW2lm+kGfyJSpwJxT7HKpbBCB6O/7IbSh48yEJDETsec6nv/wQGVc2l1lSniq/2bq9wXhML/PqeSpjE4FP/7yF4vjmIFTZYuYHhp5uNt82toP1LGotXkoZROauUV41QloyF1azhq45E4oHOsASk8YOQ6YBwOLCnvAYCSegysa2y6dnGlLsP8DZBsy6gRX8oMqAjrbQz4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 128.97.42.49) smtp.rcpttodomain=soc.ucla.edu
+ smtp.mailfrom=mail.editorialmanager.com; dmarc=pass (p=reject sp=reject
+ pct=100) action=none header.from=editorialmanager.com; dkim=pass (signature
+ was verified) header.d=editorialmanager.com; dkim=pass (signature was
+ verified) header.d=amazonses.com; arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sscucla.onmicrosoft.com; s=selector2-sscucla-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u/JVjl2XjIQn+W5WmYOEnHFtl3xvQUQQpF3bz7smGJs=;
+ b=Wig10ePOhyhQT6A3F3wX6iQxgEPaNUhcy6NQp5qveEa1D6z0Z2ypNQMbQ1+ISsoEy6QYQb/KizIW9BEEP9j++qCynGXUNNGNJ6StT967/y9ipfT801u6V2IqyRhak4r/d+Ciz5hhk02bjqYWmBDPZUkvNR3zaAEn+kLNgKYrm7o=
+Resent-From: <olizardo@soc.ucla.edu>
+Received: from PH7P220CA0104.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32d::26)
+ by IA0PR14MB6406.namprd14.prod.outlook.com (2603:10b6:208:430::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 15 Sep
+ 2026 18:35:39 +0000
+Received: from SJ1PEPF000023DA.namprd21.prod.outlook.com
+ (2603:10b6:510:32d:cafe::6) by PH7P220CA0104.outlook.office365.com
+ (2603:10b6:510:32d::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.9 via Frontend Transport; Tue, 15
+ Sep 2026 18:35:38 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
+ IP is 128.97.42.49) smtp.mailfrom=mail.editorialmanager.com; dkim=pass
+ (signature was verified) header.d=editorialmanager.com;dkim=pass (signature
+ was verified) header.d=amazonses.com;dmarc=pass action=none
+ header.from=editorialmanager.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ mail.editorialmanager.com discourages use of 128.97.42.49 as permitted
+ sender)
+Received: from barracuda2.sscnet.ucla.edu (128.97.42.49) by
+ SJ1PEPF000023DA.mail.protection.outlook.com (10.167.244.75) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.0
+ via Frontend Transport; Tue, 15 Sep 2026 18:35:38 +0000
+X-ASG-Debug-ID: 1789497336-26203d0b9132dd00001-k2OqWd
+Received: from barracuda1.sscnet.ucla.edu (barracuda1.sscnet.ucla.edu [128.97.42.48]) by barracuda2.sscnet.ucla.edu with ESMTP id oi347lbiIola8Q7q (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO) for <olizardo@soc.ucla.edu>; Tue, 15 Sep 2026 11:35:36 -0700 (PDT)
+X-Barracuda-Envelope-From: 010f01a0a65a5b56-0802d414-22af-444c-a8b7-0137ed3695d2-000000@mail.editorialmanager.com
+X-Barracuda-RBL-Trusted-Forwarder: 128.97.42.48
+Received: from outbound-ip92a.ess.barracuda.com (outbound-ip92a.ess.barracuda.com [209.222.82.245]) by barracuda1.sscnet.ucla.edu with ESMTP id C91og4L8tNBSzR6h (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NO) for <olizardo@soc.ucla.edu>; Tue, 15 Sep 2026 11:35:35 -0700 (PDT)
+X-Barracuda-RBL-Trusted-Forwarder: 209.222.82.245
+X-Barracuda-BBL-Trusted-Forwarder: 209.222.82.245
+Received: from a115-15.smtp-out.us-east-2.amazonses.com (a115-15.smtp-out.us-east-2.amazonses.com [54.240.115.15]) by mx-inbound9-124.us-east-2a.ess.aws.cudaops.com (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO); Tue, 15 Sep 2026 18:35:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=tvdfymwwvsvl5knqfes5kclzda4ayx6m; d=editorialmanager.com;
+	t=1789497334;
+	h=Sender:From:Reply-To:To:Subject:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID;
+	bh=eikVKcEhCT4I9Y+IPoAPguS0bTQGRvwUKrfwBaR3w6Y=;
+	b=Ipc835M75rpx+hG+N55ZTY87tj6chgxGx92UmM5fDAVgRhNiRN9MNKZMuejfCpZU
+	lpQbpqQksShzVWYbBuJT5GlvMxHyRf/R9/ynByFRb/k5EFttXlRsxUdMgBczuMhg+o0
+	HNxz868rZPYn+WDk7jQv6B6+efqz+dHhcZFDgJKljVfBoGkZTlXq/JYQoMxudWz6+kK
+	ZrO7se4iAe5YS/xprtBw1ma+2H+0/9dWKmf+OMpg+/DTUWxBz8Duna+XbJtIKHS9V1m
+	ShRHSV/+ac3MfLji+h+DcEyAw5TEZgZC8cuW8fwAh3+imec75Gu5VdOkfVgwsIT0psF
+	gD0QEZUn1A==
+X-Barracuda-RBL-IP: 54.240.115.15
+X-Barracuda-Effective-Source-IP: a115-15.smtp-out.us-east-2.amazonses.com[54.240.115.15]
+X-Barracuda-Apparent-Source-IP: 54.240.115.15
+X-Barracuda-BBL-IP: 54.240.115.15
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=kra23psoka5qyyh6gdejiiuof3nluwuz; d=amazonses.com; t=1789497334;
+	h=Sender:From:Reply-To:To:Subject:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Feedback-ID;
+	bh=eikVKcEhCT4I9Y+IPoAPguS0bTQGRvwUKrfwBaR3w6Y=;
+	b=HUa70gwF2Q//wK0ViWsOOs38DqnFzwa3naJdRaosFWkX4/9GXjdSNzsViBZpIWEV
+	tIa5BGxkd5LOrzMhIaZk9Istvp0jnDYTVjTsfzopgQS2ZLYwQSRFoslKy/Fohd7ctRJ
+	AQ8Rxn6UWBjzT2rKLyd1eZAuU8y+YBoq054kKKDY=
+Sender: em.poetics.0.9e2451.f9ae1cca@editorialmanager.com
+From: Poetics <em@editorialmanager.com>
+Reply-To: Poetics <noreply_emsupport@elsevier.com>
+To: Omar Lizardo <olizardo@soc.ucla.edu>
+Subject: Decision on submission to Poetics
+Date: Tue, 15 Sep 2026 18:35:34 +0000
+X-ASG-Orig-Subj: Decision on submission to Poetics
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <010f01a0a65a5b56-0802d414-22af-444c-a8b7-0137ed3695d2-000000@us-east-2.amazonses.com>
+Feedback-ID: ::1.us-east-2.cfEymE50DmvakymQX9ZrPi9nu6QsNLbJaZEYfDsv68A=:AmazonSES
+X-SES-Outgoing: 2026.09.15-54.240.115.15
+X-BESS-ID: 1789497334-102428-7723-13019-1
+X-BESS-VER: 2019.1_20260914.1606
+X-BESS-Apparent-Source-IP: 54.240.115.15
+X-BESS-Parts: H4sIAAAAAAACA4uuVkqtKFGyUsooyVXSUcovVrIyNjU1MgQyM4CiaSaJhomJae
+	bJZqYmBobmpsnGlikW5iZGSZbGZkmJyYZKtbEA99eAU0IAAAA=
+X-BESS-Info: H4sIAAAAAAACA6tWSslMUbIyNLSwMDDWUUrJU7JSKs5P1itNzknUS00pVaoFANJ
+	bcqMiAAAA
+X-Virus-Scanned: by bsmtpd at sscnet.ucla.edu
+X-Barracuda-Connect: barracuda1.sscnet.ucla.edu[128.97.42.48]
+X-Barracuda-Start-Time: 1789497336
+X-Barracuda-Encrypted: TLS_AES_256_GCM_SHA384
+X-Barracuda-URL: https://barracuda2.sscnet.ucla.edu:443/cgi-mod/mark.cgi
+X-Barracuda-BRTS-Status: 1
+X-Virus-Scanned: by bsmtpd at sscnet.ucla.edu
+X-Barracuda-Scan-Msg-Size: 35558
+X-Barracuda-Bayes: SPAM GLOBAL 1.0000 1.0000 4.3430
+X-Barracuda-Spam-Score: 4.34
+X-Barracuda-Spam-Status: No, SCORE=4.34 using per-user scores of TAG_LEVEL=1000.0 QUARANTINE_LEVEL=6.0 KILL_LEVEL=1000.0 tests=HTML_MESSAGE, MIME_HTML_ONLY
+X-Barracuda-Spam-Report: Code version 3.2, rules version 3.2.3.164511
+	Rule breakdown below
+	 pts rule name              description
+	---- ---------------------- --------------------------------------------------
+	0.00 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+	0.00 HTML_MESSAGE           BODY: HTML included in message
+Return-Path:
+ 010f01a0a65a5b56-0802d414-22af-444c-a8b7-0137ed3695d2-000000@mail.editorialmanager.com
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023DA:EE_|IA0PR14MB6406:EE_
+X-MS-Office365-Filtering-Correlation-Id: 867ff5ef-0ec7-440e-788b-08df1358238e
+X-LD-Processed: 67caa88b-b0c6-4a9b-bad5-48132838dcc4,ExtFwd
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|3109299003|35950700016|7049299003|69100299015|61400799027|376014|32142699015|48200799018|786006|82310400026|5023799004|56012099006|10067099003|11063799006|16102099003|18002099003|6133799003|4113699003|13003099007|8096899003;
+X-Microsoft-Antispam-Message-Info:
+	yM2BxtnpTF/uUJC64hzcapgSIP3F7pd2dKEYVOq/fZGvpqbIUgzOw0wK5kthuTe6FMm98Cj7AcoCKXgFEQZme5ZkyUvWx/wIpkQuW5/Q/5eJPIh307a+KRfgcE2V3S45Kcgxr+E6ph/rZosWsjYCDlu7rW4iAMIT2coEirVeKJT0RZ8twHxFH2EF0+SRJVvANHbe8Ch0+1NqLr+yv+tEY+kkV69ejHs/88xHrwwS5MvCJ8xEv18nkfVCi1E0fGx/w/CC+R7E8Zi3zACGD14kcJY5K1ATTnbisXrUkXqai98dU03JesYcJdO7JGZ2V+Y7ewV7hdIwF8/subfj5KKZm/JtSZNh39+Zr0sYJooGuFxObCJOxD3dLaWyVdkI1JkupqlLyCAZ46oMxGbrT4eiXLt+xk7/0AqgnZerj1/yNQab2Fl/SAvTapgTLnQaoAvxNyxNbJ6w+moXs2fuO4sY2D3Z4dcJ3O+/Yq1OSiaNtkm2kuFw/dZ8TvlBRiMOSyuTM8CGYwVoEobyKW8sGXNIecKqzvIg7PAg1a39v/VngtFFw/1XvXoyQXV2gOmjl+lu4pSv3BlwoTWZm7SOcFrX09/XuvzdPglCGImXUx0Wnfu+QEVloAendbI71ynYdrSqDHEzlolTLShaA0u65qEmtg==
+X-Forefront-Antispam-Report:
+	CIP:128.97.42.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:barracuda2.sscnet.ucla.edu;PTR:barracuda2.sscnet.ucla.edu;CAT:NONE;SFS:(13230040)(3109299003)(35950700016)(7049299003)(69100299015)(61400799027)(376014)(32142699015)(48200799018)(786006)(82310400026)(5023799004)(56012099006)(10067099003)(11063799006)(16102099003)(18002099003)(6133799003)(4113699003)(13003099007)(8096899003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	JmzVy5SbyzGsFLi+0JloCKHf9MQ4O9ZlF2biy8vvGj50kLWFQdVrwo7WOgg1WIJfU1Xa0xFshEQ527yVP/43xCfwNZ1KfQRLVIWuT6IwSoYPRtqzSJhbakSts7ZpjBF5PB+gLAZUfQ37kMKXR9hfY8s+oT1BGx+vjAshXYONqs4ILVndtf02+SfQN9j494ypj4mC9CwwOav14FxF/3EDCK/ffLchIy0DE5GCZZ6Yz4eC0kP047emWcf3XegoNB7qAF9WM2SxtId7oyH/7lwDVjhm9/fj+2RKC3Onx8z/sSP8lKTJ1gmBo1/yrmNODnzdsBADEt/7rN9w63Or73HRxvQ5D+EuwEF12/9HjL2eew2Er/KEyDwDMC940jSSJrWnZC+TRkF5Q5arZ4uzshe7Qvz6G7Nbqf8KfIMWgq0OkdwI2xc4KH9crXdLjdL54BwG
+X-MS-Exchange-ForwardingLoop:
+	olizardo@soc.ucla.edu;67caa88b-b0c6-4a9b-bad5-48132838dcc4
+X-OriginatorOrg: O365.ssc.ucla.edu
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 18:35:38.3491
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 867ff5ef-0ec7-440e-788b-08df1358238e
+X-MS-Exchange-CrossTenant-Id: 67caa88b-b0c6-4a9b-bad5-48132838dcc4
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=67caa88b-b0c6-4a9b-bad5-48132838dcc4;Ip=[128.97.42.49];Helo=[barracuda2.sscnet.ucla.edu]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023DA.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR14MB6406
+
+<html><body><p>Manuscript Number: POETICS-D-26-00490 =E2=80=AF<br /><br />S=
+tay, React, or Conform? Examining Social Influence Effects on Aesthetic Jud=
+gments<br /><br />Dear Professor Lizardo,</p><p>Thank you for submitting yo=
+ur manuscript to Poetics.</p><p>I have completed my evaluation of your manu=
+script. I was fortunate to secure reviews from two scholars who are well-ve=
+rsed in relevant scholarship and who provided thorough, constructive review=
+s. I relied heavily on their suggestions in reaching this decision. As you =
+will see, both reviewers find much to like about the paper and believe it h=
+as high potential, while also making substantial suggestions for improvemen=
+t. Therefore, I am entering this as a &ldquo;major revision.&rdquo; If poss=
+ible, please resubmit your revised manuscript by Oct 15, 2026. However, the=
+re is some flexibility with that schedule, so please let me know if you nee=
+d additional time.</p><p>While you originally submitted the manuscript as a=
+ &ldquo;research
+note,&rdquo; I offer two possible paths forward. You can revise the manuscr=
+ipt as a research note, honing in on the empirical contribution, or you can=
+ flesh out the manuscript and submit it as a full article, which would invo=
+lve expanding on the theoretical contribution.</p><p>In either case, I will=
+ invite the same reviewers to read the revision, and both paths will involv=
+e attending to their comments. Specifically, Reviewer 2 suggested that the =
+empirical novelty and warrant for the research question could be made clear=
+er. I think you could be more explicit about what specifically in the quest=
+ion, &ldquo;How does access to the evaluations of others influence our own =
+aesthetic evaluations of cultural objects?&rdquo; has not been answered and=
+/or how the literature offers competing answers. As I read it, you are offe=
+ring the first empirical test of what can be inferred from a synthesis of t=
+he literature, but has not yet been empirically proven as such. If this is =
+the case, I
+would make that clearer and update the literature (per Reviewer 1&rsquo;s s=
+uggestion).</p><p>Reviewer 2 also notes that the takeaway and utility for r=
+esearchers could be clearer. I think the issue might be that, because you b=
+rought together theories from multiple literatures to construct multiple hy=
+potheses, your findings then affirm/complicate/challenge these multiple the=
+ories from multiple literatures, leaving the contribution a bit muddled. St=
+reamlining the front end might help with this.</p><p>Finally, a successful =
+revision will involve responding to both reviewers&rsquo; methodology conce=
+rns, and the results will need to remain valid or be sufficiently updated. =
+Reviewer 1 posed various methodological questions and offered suggestions f=
+or analyses, such as using the difference-in-differences approach,&nbsp;and=
+ asked for more context regarding the methodology. Reviewer 2&rsquo;s point=
+ about whether the experimental design might have been obvious to participa=
+nts was
+something I wondered too, and providing more methodological detail might he=
+lp alleviate these concerns.</p><p>When revising your manuscript, please co=
+nsider all issues mentioned in the reviewers&#39; comments carefully and pr=
+ovide a response memo that outlines changes and gives suitable rebuttals fo=
+r any comments not addressed. To submit your revised manuscript, please log=
+ in as an author at https://www.editorialmanager.com/poetics/, and navigate=
+ to the &quot;Submissions Needing Revision&quot; folder.</p><p>Poetics valu=
+es your contribution and I look forward to receiving your revised manuscrip=
+t.&nbsp; Of course, please let me know if you have any questions or concern=
+s as you work on the revisions.</p><p><br />Kind regards,&nbsp;=E2=80=AF<br=
+ />Hannah Wohl =E2=80=AF<br />Editor-in-Chief =E2=80=AF<br /><br />Poetics<=
+br /><br />Editor and Reviewer comments:</p><p>Reviewer 1:&nbsp;</p><p>Than=
+k you for the opportunity to review this work.<br />I understand that this =
+is a research note and that its main
+contribution is therefore empirical. That said, I believe the study has the=
+ potential to be developed into a full research article, particularly given=
+ its relevance to broader discussions and theories of taste and social infl=
+uence. Moreover, the general experimental design is appropriate. Given that=
+ the data were collected in 2012, I wonder why they were not analysed earli=
+er. Nevertheless, I commend the authors for ensuring that this experiment w=
+as not lost or left unpublished.<br />Below are my comments and suggestions=
+ for the authors:<br />1. The analytical strategy may not be the most appro=
+priate. To better isolate the treatment effects, the authors may consider a=
+pplying a difference-in-differences approach, using the no-information cond=
+ition as the control group and exploiting the pre-treatment measurement. Wi=
+thout such a comparison, the observed changes could potentially be attribut=
+ed to repeated measurement rather than the information treatment itself. Th=
+e authors
+refer to two &ldquo;baselines&rdquo;&mdash;the no-information condition and=
+ the measurement conducted before treatment&mdash;which suggests that a dif=
+ference-in-differences design may be feasible.<br />2. I also suggest avoid=
+ing the term &ldquo;baseline&rdquo; when referring to the no-information co=
+ndition, because the study includes a pre-treatment measurement that may al=
+so be understood as a baseline. Using the same term for both is confusing. =
+The authors could instead refer to the no-information condition as the cont=
+rol condition.<br />3. Please provide more details about the survey samplin=
+g procedure. Because this is an experimental study, external validity is le=
+ss central than internal validity. However, if the survey used probability =
+sampling, this would strengthen the conclusions. This information is also i=
+mportant for assessing what the reported confidence intervals represent&mda=
+sh;for example, whether they reflect only experimental uncertainty within t=
+he sample or
+can support population-level inference. Relatedly, the authors should inclu=
+de a table presenting descriptive statistics for the sample.<br />4. The sa=
+mple sizes within conditions are relatively small. If an a priori power ana=
+lysis was not conducted during the study design, I recommend reporting an e=
+x post minimum detectable effect (MDE) analysis in the appendix. This would=
+ help readers assess which effect sizes the study was capable of detecting.=
+ The authors may find the following discussion useful: &ldquo;Why ex post p=
+ower using estimated effect sizes is bad, but an ex post MDE is not&rdquo;.=
+<br />5. Please report the exact wording of the information treatments in t=
+he appendix. For example, readers need to know whether the wording indicate=
+d that the reference group had the same or a different social status from t=
+he participants.<br />6. Before moving to the analysis of combined status, =
+please report the results for subjective social class and education separat=
+ely. These
+results could be presented as additional subfigures or included in the appe=
+ndix. The robustness check using an alternative categorization is useful, a=
+s this possibility came to mind immediately when reading the analysis. It w=
+ould also be relevant to mention this robustness check when the combined-st=
+atus variable is first described.<br />7. Although the information treatmen=
+t was randomly assigned, membership in categories such as &ldquo;low&ndash;=
+high&rdquo; and &ldquo;low&ndash;low&rdquo; is also determined by responden=
+ts&rsquo; pre-existing education or subjective social class. For example, i=
+ndividuals with lower levels of education may be more likely to occupy a lo=
+wer position than the reference group&mdash;another reason why the exact tr=
+eatment wording should be provided. Consequently, respondents do not necess=
+arily have the same probability of entering each combined-status category, =
+and comparisons across these categories may partly capture pre-existing dif=
+ferences
+between respondents rather than only the causal effect of the experimental =
+information. This issue is common in studies that provide respondents with =
+information about their position in the social structure (e.g., Cruces et a=
+l., 2013). The authors acknowledge this problem and address it using invers=
+e probability weighting (IPW), but it would be valuable to devote a few add=
+itional sentences to explaining the logic of this approach and its implicat=
+ions for causal interpretation. Such a discussion would be a valuable contr=
+ibution to the field and would help readers understand the rationale for th=
+e analytical strategy.<br />8. The covariate-balance analysis should be exp=
+lained more clearly. Does it compare the no-information control condition w=
+ith all the other categories combined? Balance could also be assessed separ=
+ately across all experimental groups, with the complete results reported in=
+ the appendix.<br />9. In Figure 2, please explain what the dashed line rep=
+resents and
+capitalize the variable labels consistently.<br />10. In discussing general=
+ized influence, the authors state that &ldquo;exposure to generalized negat=
+ive evaluations largely suppresses the positive baseline drift across all g=
+roups.&rdquo; If I understand correctly, readers are expected to interpret =
+the &ldquo;dislike (no status)&rdquo; effect in Figure 3. However, only one=
+ effect appears to be statistically significant, and it is in the opposite =
+direction. A similar issue arises for &ldquo;like (no status).&rdquo; I the=
+refore wonder whether this interpretation is based on an analysis of the fu=
+ll sample that ignores the subgroup partition but is not currently reported=
+ or explained. The authors should clarify which results support this conclu=
+sion.<br />11. The contribution of the disaggregated analysis is unclear to=
+ me. The categorical analysis also reports average effects, as do all the r=
+egression models in the paper. If the authors intend to move beyond average=
+ effects, they
+would need to apply methods that explicitly examine distributional differen=
+ces or treatment-effect heterogeneity. I recommend removing this analysis, =
+which would also free up space to develop other aspects of the research not=
+e.<br />12. Report tables with full models in the appendix.<br />13. My onl=
+y comment on the theoretical discussion is that the authors should engage m=
+ore directly with the latest debates on taste and social influence, includi=
+ng more recent papers and book chapters by Lizardo and other scholars worki=
+ng in this area.</p><p><br />Reviewer 2:</p><p><span style=3D"color: rgb(50=
+, 50, 50); font-family: ElsevierSans, Arial, sans-serif; font-size: 16px; b=
+ackground-color: rgb(255, 255, 255);">In section 1.1, the paper reviews pas=
+t research that shows that people tend to share tastes with similar others =
+and tend to have distaste for the tastes of dissimilar others. (I would agr=
+ee that this is the state of the literature.) The authors then state the re=
+search question:
+&ldquo;How does access to the evaluations of others influence our own aesth=
+etic evaluations of cultural objects?&rdquo; It&rsquo;s not clear why this =
+research question needs to be asked, given the literature that just got rev=
+iewed and the authors&rsquo; characterization of that literature. However, =
+I think there is room to ask whether these relationships have been rigorous=
+ly demonstrated with data that are designed to assess causal relationships.=
+ I think it might be the case that past work is observational and cross-sec=
+tional. Perhaps that should be the hook that highlights the novelty and con=
+tribution of the findings?</span><br style=3D"--tw-border-spacing-x: 0; --t=
+w-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotat=
+e: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --t=
+w-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: pr=
+oximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ;
+--tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-nume=
+ric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-in=
+set: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring=
+-color: rgb(59 130 246 / .5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring=
+-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000;=
+ --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hu=
+e-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow:=
+ ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast=
+: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-in=
+vert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-se=
+pia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --=
+tw-contain-style: ; box-sizing: border-box; border-width: 0px; border-style=
+: solid; border-color: rgb(220, 220, 220); font-family: ElsevierSans, Arial=
+, sans-serif;
+color: rgb(50, 50, 50); font-size: 16px; background-color: rgb(255, 255, 25=
+5);" /><br style=3D"--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --t=
+w-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw=
+-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; -=
+-tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-fro=
+m-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --=
+tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spac=
+ing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: =
+0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / .5); -=
+-tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow=
+: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: =
+; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw=
+-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ;
+--tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-graysca=
+le: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opa=
+city: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size:=
+ ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-s=
+izing: border-box; border-width: 0px; border-style: solid; border-color: rg=
+b(220, 220, 220); font-family: ElsevierSans, Arial, sans-serif; color: rgb(=
+50, 50, 50); font-size: 16px; background-color: rgb(255, 255, 255);" /><spa=
+n style=3D"color: rgb(50, 50, 50); font-family: ElsevierSans, Arial, sans-s=
+erif; font-size: 16px; background-color: rgb(255, 255, 255);">The third par=
+agraph of section 1.1 reviews work showing that high status groups&rsquo; t=
+astes tend to induce conformity in others&rsquo; tastes and low status grou=
+ps&rsquo; tastes tend to induce distancing. The fourth paragraph brings the=
+ status of the self back in, which gets us back to the starting point, wher=
+e taste
+conformity results from social similarity between groups and taste distanci=
+ng results from social dissimilarity. It is not clear to me that the self w=
+as ever not in the analysis. The last paragraph of section 1.1 adds in a ne=
+w consideration: the distinction between objective and subjective class sta=
+tus. For me, this distinction is itself distinct from the material that has=
+ come before, which only deals with objective social similarity and dissimi=
+larity. I think section 1.1 has to be rewritten to be more focused and stre=
+amlined on the concepts central to the data analysis. Right now it is meand=
+ering.</span><br style=3D"--tw-border-spacing-x: 0; --tw-border-spacing-y: =
+0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0=
+; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-=
+y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradie=
+nt-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position=
+: ;
+--tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-sp=
+acing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width=
+: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / .5);=
+ --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shad=
+ow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness=
+: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --=
+tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw=
+-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: =
+; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity=
+: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; -=
+-tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizin=
+g: border-box; border-width: 0px; border-style: solid; border-color: rgb(22=
+0, 220, 220); font-family: ElsevierSans, Arial, sans-serif; color: rgb(50, =
+50, 50);
+font-size: 16px; background-color: rgb(255, 255, 255);" /><br style=3D"--tw=
+-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-t=
+ranslate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x=
+: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-s=
+croll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradi=
+ent-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slash=
+ed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-frac=
+tion: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-co=
+lor: #fff; --tw-ring-color: rgb(59 130 246 / .5); --tw-ring-offset-shadow: =
+0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow=
+-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-=
+grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia:=
+ ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ;
+--tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rota=
+te: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-satura=
+te: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --=
+tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-wi=
+dth: 0px; border-style: solid; border-color: rgb(220, 220, 220); font-famil=
+y: ElsevierSans, Arial, sans-serif; color: rgb(50, 50, 50); font-size: 16px=
+; background-color: rgb(255, 255, 255);" /><span style=3D"color: rgb(50, 50=
+, 50); font-family: ElsevierSans, Arial, sans-serif; font-size: 16px; backg=
+round-color: rgb(255, 255, 255);">My understanding of the data being analyz=
+ed is that they are responses to a question on liking of the painting, comp=
+ared to a repeated question on liking that followed the provision of inform=
+ation about who else liked/disliked the painting, with the occupation and e=
+ducation of those others being varied. I&rsquo;m wondering whether this des=
+ign made
+respondents aware that a shift in their preference was being measured, and =
+how that might influence their responses. Where any steps taken to minimize=
+ demand awareness or respondent reactivity?</span><br style=3D"--tw-border-=
+spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate=
+-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --t=
+w-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-sn=
+ap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-=
+position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero:=
+ ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; =
+--tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #ff=
+f; --tw-ring-color: rgb(59 130 246 / .5); --tw-ring-offset-shadow: 0 0 #000=
+0; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored=
+: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscal=
+e: ;
+--tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-=
+shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-c=
+ontrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-back=
+drop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-back=
+drop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-pain=
+t: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; borde=
+r-style: solid; border-color: rgb(220, 220, 220); font-family: ElsevierSans=
+, Arial, sans-serif; color: rgb(50, 50, 50); font-size: 16px; background-co=
+lor: rgb(255, 255, 255);" /><br style=3D"--tw-border-spacing-x: 0; --tw-bor=
+der-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0;=
+ --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan=
+-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximi=
+ty; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradi=
+ent-to-position:
+; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-=
+spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-wid=
+th: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / .5=
+); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-sh=
+adow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightne=
+ss: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; =
+--tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --=
+tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale=
+: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opaci=
+ty: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ;=
+ --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-siz=
+ing: border-box; border-width: 0px; border-style: solid; border-color: rgb(=
+220, 220, 220); font-family: ElsevierSans, Arial, sans-serif; color: rgb(50=
+, 50, 50);
+font-size: 16px; background-color: rgb(255, 255, 255);" /><span style=3D"co=
+lor: rgb(50, 50, 50); font-family: ElsevierSans, Arial, sans-serif; font-si=
+ze: 16px; background-color: rgb(255, 255, 255);">In section 4, the authors =
+write, &ldquo;While previous research suggests that information about other=
+s&rsquo; choices acts as a heuristic to resolve uncertainty (Strang and Mac=
+y, 2001; Salganik et al., 2006), we find that valence matters.&rdquo; Isn&r=
+squo;t it true that valence mattered in past research as well, insofar as o=
+thers&rsquo; likes vs dislikes mattered? Instead, isn&rsquo;t the novel fin=
+ding here is that there is an asymmetry to the valence?</span><br style=3D"=
+--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --=
+tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-sca=
+le-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --=
+tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ;
+--tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; =
+--tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-nu=
+meric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring=
+-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / .5); --tw-ring-offse=
+t-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; -=
+-tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contras=
+t: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; -=
+-tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-bright=
+ness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-=
+hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdro=
+p-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layo=
+ut: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; b=
+order-width: 0px; border-style: solid; border-color: rgb(220, 220, 220); fo=
+nt-family:
+ElsevierSans, Arial, sans-serif; color: rgb(50, 50, 50); font-size: 16px; b=
+ackground-color: rgb(255, 255, 255);" /><br style=3D"--tw-border-spacing-x:=
+ 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --t=
+w-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y:=
+ 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictn=
+ess: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: =
+; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-nu=
+meric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-=
+inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ri=
+ng-color: rgb(59 130 246 / .5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ri=
+ng-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #000=
+0; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-=
+hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shado=
+w: ;
+--tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ;=
+ --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-inver=
+t: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia=
+: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-=
+contain-style: ; box-sizing: border-box; border-width: 0px; border-style: s=
+olid; border-color: rgb(220, 220, 220); font-family: ElsevierSans, Arial, s=
+ans-serif; color: rgb(50, 50, 50); font-size: 16px; background-color: rgb(2=
+55, 255, 255);" /><span style=3D"color: rgb(50, 50, 50); font-family: Elsev=
+ierSans, Arial, sans-serif; font-size: 16px; background-color: rgb(255, 255=
+, 255);">Although the discussion very briefly describes status inconsistenc=
+y as a driver of evaluative fluidity, that finding is not sufficiently inte=
+grated with the hypotheses and there is no clear mechanism attributed to it=
+. The authors should formally test whether status inconsistency moderates t=
+he experimental
+conditions. Is the paper also meant to demonstrate that there is a general =
+propensity to change that is distinct from conformity to particular status =
+groups? If so, there needs to be more explanation in the discussion to desc=
+ribe that and to explain the significance of that.</span><br style=3D"--tw-=
+border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-tr=
+anslate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x:=
+ 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-sc=
+roll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradie=
+nt-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashe=
+d-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fract=
+ion: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-col=
+or: #fff; --tw-ring-color: rgb(59 130 246 / .5); --tw-ring-offset-shadow: 0=
+ 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-=
+colored: 0 0
+#0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; -=
+-tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-s=
+hadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-co=
+ntrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backd=
+rop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backd=
+rop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint=
+: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0px; border=
+-style: solid; border-color: rgb(220, 220, 220); font-family: ElsevierSans,=
+ Arial, sans-serif; color: rgb(50, 50, 50); font-size: 16px; background-col=
+or: rgb(255, 255, 255);" /><br style=3D"--tw-border-spacing-x: 0; --tw-bord=
+er-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; =
+--tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-=
+x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximit=
+y;
+--tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-=
+to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; =
+--tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ri=
+ng-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59=
+ 130 246 / .5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #=
+0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; =
+--tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --=
+tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdr=
+op-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backd=
+rop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-b=
+ackdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-co=
+ntain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-sty=
+le: ; box-sizing: border-box; border-width: 0px; border-style: solid; borde=
+r-color:
+rgb(220, 220, 220); font-family: ElsevierSans, Arial, sans-serif; color: rg=
+b(50, 50, 50); font-size: 16px; background-color: rgb(255, 255, 255);" /><s=
+pan style=3D"color: rgb(50, 50, 50); font-family: ElsevierSans, Arial, sans=
+-serif; font-size: 16px; background-color: rgb(255, 255, 255);">This senten=
+ce needs clarification: &ldquo;For instance, we see that status consistent =
+individuals, and particularly high-status consistent individuals have the h=
+ighest propensity to stay with their initial judgment of taste (Middle Clas=
+s/College: 79.0%; Working Class/No College: 74.4%), a classic behavioral in=
+dicator of high status (Correll and Ridgeway, 2003).&rdquo; The lowest stat=
+us individuals have a much higher propensity to stay than the two inconsist=
+ent groups who both have higher status. What does this imply about the link=
+ between high status and staying with a taste judgment? And it amplifies th=
+e need for a mechanism to explain the link between status inconsistency and=
+ evaluative
+fluidity.</span><br style=3D"--tw-border-spacing-x: 0; --tw-border-spacing-=
+y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x=
+: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-p=
+an-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gra=
+dient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-posit=
+ion: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-num=
+eric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offse=
+t-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246=
+ / .5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --=
+tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-bri=
+ghtness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-inver=
+t: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur:=
+ ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-gray=
+scale: ;
+--tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: =
+; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --t=
+w-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing:=
+ border-box; border-width: 0px; border-style: solid; border-color: rgb(220,=
+ 220, 220); font-family: ElsevierSans, Arial, sans-serif; color: rgb(50, 50=
+, 50); font-size: 16px; background-color: rgb(255, 255, 255);" /><br style=
+=3D"--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0=
+; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw=
+-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: =
+; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --=
+tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --=
+tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-nume=
+ric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-o=
+ffset-color:
+#fff; --tw-ring-color: rgb(59 130 246 / .5); --tw-ring-offset-shadow: 0 0 #=
+0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colo=
+red: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grays=
+cale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --=
+tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-ba=
+ckdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; -=
+-tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; -=
+-tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-cont=
+ain-paint: ; --tw-contain-style: ; box-sizing: border-box; border-width: 0p=
+x; border-style: solid; border-color: rgb(220, 220, 220); font-family: Else=
+vierSans, Arial, sans-serif; color: rgb(50, 50, 50); font-size: 16px; backg=
+round-color: rgb(255, 255, 255);" /><span style=3D"color: rgb(50, 50, 50); =
+font-family: ElsevierSans, Arial, sans-serif; font-size: 16px; background-c=
+olor: rgb(255,
+255, 255);">For me, one of the virtues of a research note is that it presen=
+ts clear findings that other researchers can rely on for having established=
+ an empirical set of facts. If find that this research note is lacking that=
+ clarity, so I&rsquo;m not sure how readily it will be useful to other rese=
+archers.</span><br /><br /><br /><br />Read your reviewers&rsquo; comments =
+in our peer review platform.<br />Before you can submit your revision, you =
+must respond to reviews in our peer review platform.<br /><br /><br /><br /=
+><br />More information and support=E2=80=AF<br /><br />FAQ: How do I revis=
+e my submission in Editorial Manager?<br />https://service.elsevier.com/app=
+/answers/detail/a_id/28463/supporthub/publishing/<br /><br />FAQ: How can I=
+ reset a forgotten password? <br>https://service.elsevier.com/app/answers/d=
+etail/a_id/28452/supporthub/publishing/ <br>For further assistance, please =
+visit our customer service site:
+https://service.elsevier.com/app/home/supporthub/publishing/<br>Here you ca=
+n search for solutions on a range of topics, find answers to frequently ask=
+ed questions, and learn more about Editorial Manager via interactive tutori=
+als. You can also talk 24/7 to our customer support team by phone and 24/7 =
+by live chat and email<br /><br />At Elsevier, we want to help all our auth=
+ors to stay safe when publishing. Please be aware of fraudulent messages re=
+questing money in return for the publication of your paper. If you are publ=
+ishing open access with Elsevier, bear in mind that we will never request p=
+ayment before the paper has been accepted. We have prepared some guidelines=
+ (https://www.elsevier.com/connect/authors-update/seven-top-tips-on-stoppin=
+g-apc-scams ) that you may find helpful, including a short video on Identif=
+ying fake acceptance letters (https://www.youtube.com/watch?v=3Do5l8thD9XtE=
+ ). Please remember that you can contact Elsevier s Researcher Support team
+(https://service.elsevier.com/app/home/supporthub/publishing/) at any time =
+if you have questions about your manuscript, and you can log into Editorial=
+ Manager to check the status of your manuscript (https://service.elsevier.c=
+om/app/answers/detail/a_id/29155/c/10530/supporthub/publishing/kw/status/).=
+<br /><br />#AU_POETICS#<br /><br />To ensure this email reaches the intend=
+ed recipient, please do not delete the above code</p><br/><br/><hr/><span s=
+tyle=3D"font-style: italic; font-size: 90%;">In compliance with data protec=
+tion regulations, you may request that we remove your personal registration=
+ details at any time.  <a href=3D"https://track.editorialmanager.com/CL0/ht=
+tps:%2F%2Fwww.editorialmanager.com%2Fpoetics%2Flogin.asp%3Fa=3Dr/1/010f01a0=
+a65a5b56-0802d414-22af-444c-a8b7-0137ed3695d2-000000/Fuw7PJBGQXp5sTCZyp7zjO=
+VoQLG3rTsv_rFoFARlh6A=3D258">(Remove my information/details)</a>. Please co=
+ntact the publication office if you have any questions.</span><img alt=3D""=
+ src=3D"http://track.editorialmanager.com/CI0/010f01a0a65a5b56-0802d414-22a=
+f-444c-a8b7-0137ed3695d2-000000/jKNHNcyaini_SKWRRUZs75ygwTs6UOtkmbnc1MmY1xA=
+=3D258" style=3D"display: none; width: 1px; height: 1px;">
+</body></html>

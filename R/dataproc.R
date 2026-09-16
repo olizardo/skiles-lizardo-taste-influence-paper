@@ -6,7 +6,14 @@ library(dplyr)
 library(tidyr)
 
 # Function to process the SSI-2012 dataset
-process_data <- function(data_path = "/home/omarlizardo/ACADEMIC AND COURSE MATERIALS/SSI-2012/data/clean/ssi2012_cleaned.dta") {
+process_data <- function(data_path = NULL) {
+  if (is.null(data_path)) {
+    candidate_paths <- c(
+      "/home/omarlizardo/projects/CULTURE/cultural-consensus-musical-genres/SSI-2012/data/clean/ssi2012_cleaned.dta",
+      "/home/omarlizardo/ACADEMIC AND COURSE MATERIALS/SSI-2012/data/clean/ssi2012_cleaned.dta"
+    )
+    data_path <- candidate_paths[file.exists(candidate_paths)][1]
+  }
   
   # Load raw Stata data
   df <- read_dta(data_path)
