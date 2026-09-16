@@ -219,6 +219,48 @@ Importantly, disaggregating by educational capital reveals that this exposure dr
 \subsection{Valence Asymmetry in Difference-in-Differences Effects}
 Table \ref{tbl:did_models} presents the Difference-in-Differences (DiD) estimates comparing each treatment condition against the unexposed Control Condition for the pooled sample. Because experimental treatments were randomly assigned, the primary model is unweighted; an auxiliary IPW-weighted model balancing background demographics yields consistent substantive patterns (Appendix Table A.2).
 
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences Linear Mixed-Effects Model of Aesthetic Judgments (Pooled Sample)}
+\label{tbl:did_models}
+\setlength{\tabcolsep}{5.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+\textbf{Independent Variable} & \textbf{Estimate} & \textbf{Std. Error} & \textbf{$t$ value} & \textbf{$p$ value} \\
+\midrule
+Intercept ($\beta_0$) & 4.689 & 0.114 & 40.99 & $<0.001^{***}$ \\
+Trial 2 Exposure Drift ($\beta_1$) & +0.107 & 0.052 & 2.05 & 0.041$^{*}$ \\
+\addlinespace[3pt]
+\multicolumn{5}{l}{\textit{Treatment Main Effects at Baseline ($\beta_k$):}} \\
+\quad Low-Status Like & +0.095 & 0.145 & 0.66 & 0.511 \\
+\quad High-Status Like & -0.039 & 0.131 & -0.30 & 0.763 \\
+\quad Low-Status Dislike & +0.068 & 0.145 & 0.47 & 0.637 \\
+\quad High-Status Dislike & +0.061 & 0.131 & 0.47 & 0.640 \\
+\quad Generalized Like & -0.172 & 0.163 & -1.05 & 0.292 \\
+\quad Generalized Dislike & +0.229 & 0.163 & 1.41 & 0.159 \\
+\addlinespace[3pt]
+\multicolumn{5}{l}{\textit{Difference-in-Differences Interaction Effects ($\delta_k = \text{Trial} \times \text{Condition}$):}} \\
+\quad Low-Status Like & -0.128 & 0.067 & -1.93 & 0.055$^{\dagger}$ \\
+\quad High-Status Like & +0.041 & 0.060 & 0.68 & 0.497 \\
+\quad Low-Status Dislike & +0.016 & 0.066 & 0.23 & 0.815 \\
+\quad High-Status Dislike & -0.121 & 0.060 & -2.02 & 0.043$^{*}$ \\
+\quad Generalized Like & +0.096 & 0.075 & 1.29 & 0.198 \\
+\quad Generalized Dislike & -0.125 & 0.075 & -1.67 & 0.095$^{\dagger}$ \\
+\midrule
+Random Intercept Variance ($\sigma^2_u$) & \multicolumn{4}{c}{2.074} \\
+Residual Variance ($\sigma^2_\epsilon$) & \multicolumn{4}{c}{0.243} \\
+Observations / Individuals & \multicolumn{4}{c}{4,506 / 2,253} \\
+Log Likelihood & \multicolumn{4}{c}{$-6,465.0$} \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+\textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Model estimated via maximum likelihood with random intercepts for respondents. The unexposed Control Condition serves as the omitted reference category for both condition main effects and DiD interaction terms.
+\end{minipage}
+\end{table}
+
 Figure \ref{fig:did_significant} displays the statistically reliable Difference-in-Differences treatment effects ($p < 0.10$ and $p < 0.05$) across the pooled sample and status subgroups, with the full 24-cell grid reported in Appendix Figure \ref{fig:did_status_full}.
 
 \begin{figure}[ht!]
