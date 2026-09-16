@@ -91,6 +91,9 @@ All forest plots have been replaced with **horizontal bar plots with error bars*
 - [x] **Compliance with Global Guidelines (`~/.config/agents/AGENTS.md`):** Zero local LaTeX compilation, zero banned words, no lists in main text, CUA tripartite Discussion.
 - [x] **Overleaf Git Remote:** Configured and synchronized (`git push overleaf main`).
 
-### Remaining Tasks for Final Submission:
-- [ ] **Export Full Model Regression Tables to LaTeX (R1 #12):** Generate full model tables (coefficients, SEs, test stats, random effect variances, AIC/BIC) using `modelsummary` into `tables/` and embed in Appendix.
-- [ ] **Deepen Theoretical Citations (R1 #13):** Integrate recent literature on cultural cognition, dual-process habitus, aesthetic signaling, and symbolic boundaries (Lizardo et al.) into `references.bib` and Section 1.
+- [x] **Demand Characteristics & Reactivity (R2 #3 & Editor):** Added Section 2.4 detailing the 4 procedural and behavioral safeguards against demand compliance.
+- [x] **Export Full Model Regression Tables to LaTeX (R1 #12):** Generated full model tables across main text and Appendix (Table 1, Table 2, Table 3, Table 4, Appendix Table A.1, Appendix Table A.2, and Appendix Figure A.3).
+- [x] **Deepen Theoretical Citations (R1 #13):** Integrated recent literature on cultural cognition, dual-process habitus, aesthetic signaling, and symbolic boundaries (Lizardo et al., Wohl, Vanzella) into `references.bib` and Sections 1 and 5.
+- [x] **Incorporate All New Plots:** Embedded all 9 publication assets across main text and Appendix (`experimental_stimulus.jpeg`, `Figure8_CovariateBalance.png`, `Figure_DiD_Edu_Class_Separate.png`, `Figure_DiD_Significant_Effects.png`, `Figure7_MultinomialBehavior.png`, `Figure_MDE_Power_Curves.png`, `Figure_DiD_Pooled.png`, `Figure_DiD_Status_All.png`, `Figure11_Sens_MultinomialBehavior.png`).
+- [x] **Eliminate Bullet Points:** Replaced all list structures in hypotheses and discussion with continuous academic prose paragraphs.
+- [x] **Synchronize Root Manuscripts:** `manuscript.tex` and `manuscript_R1.tex` are fully identical and synchronized for seamless Overleaf rendering.

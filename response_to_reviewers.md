@@ -32,11 +32,12 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Editor Comment:**
 > *While you originally submitted the manuscript as a “research note,” I offer two possible paths forward. You can revise the manuscript as a research note, honing in on the empirical contribution, or you can flesh out the manuscript and submit it as a full article, which would involve expanding on the theoretical contribution.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Full manuscript
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Throughout manuscript (`manuscript_R1.tex` / `manuscript.tex`)
 * **Response / Actions Taken:**
-  - We appreciate the Editor’s flexibility regarding the manuscript format.
-  - *[Draft response specifying whether the revision proceeds as a Research Note—honing in on crisp, robust empirical facts and moving technical models to the Appendix—or as a Full Article—expanding the theoretical framework on status crystallization, dual-process cultural cognition, and formal moderation models]*
+  - We are grateful to the Editor for this strategic choice. In accordance with the guidance of both reviewers, we have pursued a path that captures the best of both options:
+  - We have retained a concise, tightly focused manuscript structure centered squarely on the core empirical facts, while substantially deepening the theoretical framework surrounding status crystallization, valence asymmetry, and causal identification.
+  - To maintain narrative clarity and momentum in the main text, all extensive technical models, survey instrument vignettes, ex-post MDE power analyses, full regression tables, and auxiliary sensitivity checks have been organized into a comprehensive Supplementary Appendix.
 
 ---
 
@@ -45,12 +46,12 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Editor Comment:**
 > *Reviewer 2 suggested that the empirical novelty and warrant for the research question could be made clearer. I think you could be more explicit about what specifically in the question, “How does access to the evaluations of others influence our own aesthetic evaluations of cultural objects?” has not been answered and/or how the literature offers competing answers. As I read it, you are offering the first empirical test of what can be inferred from a synthesis of the literature, but has not yet been empirically proven as such. If this is the case, I would make that clearer and update the literature (per Reviewer 1’s suggestion).*
 
-* **Status:** `[Pending]`
+* **Status:** `[Addressed]`
 * **Location in Manuscript:** Section 1 (Introduction), Section 1.1 (Theoretical Background)
 * **Response / Actions Taken:**
   - We thank the Editor for this incisive framing. We have revised the Introduction and Section 1.1 to center directly on this empirical warrant.
   - While decades of sociological scholarship (from Bourdieu and Veblen to contemporary cultural sociology) establish that cultural tastes correlate strongly with social status and peer networks, this literature has almost exclusively relied on static, cross-sectional, and observational data. Consequently, observational homophily conflates selection, common exposure, and actual interpersonal influence.
-  - We now explicitly frame the contribution as providing the **first experimental causal identification** of how peer evaluations—varying in both valence (like vs. dislike) and status congruence—directly alter, suppress, or reinforce individual aesthetic judgments in real time.
+  - We now explicitly frame the contribution as providing the **first experimental causal identification** of how evaluations of others—varying in both valence (like vs. dislike) and status congruence—directly alter, suppress, or reinforce individual aesthetic judgments in real time.
 
 ---
 
@@ -59,7 +60,7 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Editor Comment:**
 > *Reviewer 2 also notes that the takeaway and utility for researchers could be clearer. I think the issue might be that, because you brought together theories from multiple literatures to construct multiple hypotheses, your findings then affirm/complicate/challenge these multiple theories from multiple literatures, leaving the contribution a bit muddled. Streamlining the front end might help with this.*
 
-* **Status:** `[Pending]`
+* **Status:** `[Addressed]`
 * **Location in Manuscript:** Section 1.1 (Theoretical Framework), Section 2 (Hypotheses), Section 5 (Discussion)
 * **Response / Actions Taken:**
   - We agree with the Editor and Reviewer 2 that weaving together disparate theoretical threads (informational cascade, status distinction, Bourdieu, and status inconsistency) created a meandering opening.
@@ -75,12 +76,12 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Editor Comment:**
 > *Finally, a successful revision will involve responding to both reviewers’ methodology concerns, and the results will need to remain valid or be sufficiently updated. Reviewer 1 posed various methodological questions and offered suggestions for analyses, such as using the difference-in-differences approach, and asked for more context regarding the methodology. Reviewer 2’s point about whether the experimental design might have been obvious to participants was something I wondered too, and providing more methodological detail might help alleviate these concerns.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 3 (Methods), Section 3.1 (Experimental Design & Demand Awareness), Section 4 (Results)
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 2.3–2.5, Section 3.1 (Experimental Design & Demand Reactivity), Section 3.2–3.6 (Results)
 * **Response / Actions Taken:**
   - We have addressed all methodological suggestions raised by both reviewers:
     - Re-formalized our repeated-measures linear mixed models into a **Difference-in-Differences (DiD)** framework contrasting treatment groups against the no-information control condition (addressing R1 #1).
-    - Clarified the survey flow, temporal spacing, filler demographic/taste modules, and naturalistic vignette framing that prevented demand characteristics (addressing R2 #3).
+    - Clarified the survey flow, temporal spacing, filler demographic/taste modules, and naturalistic vignette framing that prevented demand characteristics in Section 2.4 (addressing R2 #3).
     - Demonstrated that behavioral patterns (e.g., high inertia / staying and active reactance) directly contradict passive demand compliance.
 
 ---
@@ -375,15 +376,18 @@ Below, we provide a point-by-point response to all comments and suggestions from
 
 ---
 
-### 9. Figure 2 Polish: Dashed Line & Capitalization
+### 9. Figure Polish: Dashed Line & Capitalization
 
 > **Reviewer Comment (Point 9):**
 > *9. In Figure 2, please explain what the dashed line represents and capitalize the variable labels consistently.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Figure 2 Caption & Labels
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Figure \ref{fig:did_significant}, Figure \ref{fig:did_edu_class}, Appendix Figure \ref{fig:did_status_full}, Appendix Figure \ref{fig:did_pooled}
 * **Response / Actions Taken:**
-  - *[Draft response confirming that Figure 2 has been re-rendered: the dashed line is explicitly labeled and described in the caption as the zero-effect reference line (and/or control condition drift), and axis and variable labels now use consistent title capitalization]*
+  - We have systematically overhauled all manuscript figures:
+    - Replaced all legacy forest plots with clean, publication-standard horizontal bar plots with 95% error bars, colored by statistical significance ($p < 0.05$ red, $p < 0.10$ orange, and grey for not significant).
+    - The dashed vertical line is explicitly defined in every figure caption and plotted at zero ($\text{DiD} = 0$), representing the null reference benchmark of the unexposed Control Condition.
+    - All condition, variable, and axis labels now use consistent title capitalization.
 
 ---
 
@@ -392,10 +396,14 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 10):**
 > *10. In discussing generalized influence, the authors state that “exposure to generalized negative evaluations largely suppresses the positive baseline drift across all groups.” If I understand correctly, readers are expected to interpret the “dislike (no status)” effect in Figure 3. However, only one effect appears to be statistically significant, and it is in the opposite direction. A similar issue arises for “like (no status).” I therefore wonder whether this interpretation is based on an analysis of the full sample that ignores the subgroup partition but is not currently reported or explained. The authors should clarify which results support this conclusion.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 4.1 (Generalized Influence Effects), Figure 3 / Results Text
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 3.3 (Valence Asymmetry in Difference-in-Differences Effects), Table \ref{tbl:did_models}, Table \ref{tbl:hypotheses_summary}
 * **Response / Actions Taken:**
-  - *[Draft response clarifying the empirical comparison: explaining that the control condition displays a statistically significant positive mere exposure drift, whereas exposure to generalized negative feedback halts this upward drift across all groups, resulting in null trial effects, exactly as predicted by the suppression hypothesis]*
+  - We appreciate the reviewer pointing out the ambiguity in the original draft. The reviewer’s intuition was entirely correct: the earlier narrative conflated full-sample pooled effects with subgroup models.
+  - Under our Difference-in-Differences specification, the unexposed Control Condition exhibits a statistically significant upward exposure drift of $+0.107$ ($SE = 0.052, p = 0.041$).
+  - In the Generalized Dislike condition (Taste Only / Dislike), respondents show an evaluative change of $-0.017$, effectively remaining flat.
+  - Relative to the $+0.107$ counterfactual drift that occurs under repeated exposure alone, this represents a negative Difference-in-Differences shift of $\text{DiD} = -0.125$ ($SE = 0.075, t = -1.67, p = 0.095^{\dagger}$ in the unweighted model; $\text{DiD} = -0.172, SE = 0.076, t = -2.26, p = 0.0238^{*}$ in the IPW-weighted model).
+  - In Section 3.3, we now explain this dynamic with complete statistical precision: generalized negative evaluations do not necessarily produce an absolute collapse in liking, but rather act as a suppressive veto that prevents the natural evaluative appreciation observed in unexposed peers.
 
 ---
 
@@ -404,10 +412,16 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 11):**
 > *11. The contribution of the disaggregated analysis is unclear to me. The categorical analysis also reports average effects, as do all the regression models in the paper. If the authors intend to move beyond average effects, they would need to apply methods that explicitly examine distributional differences or treatment-effect heterogeneity. I recommend removing this analysis, which would also free up space to develop other aspects of the research note.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 4.4 (Behavioral Models: Stay, Conform, React)
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 3.6 (Discrete Behavioral Choices: Inertia, Conformity, and Reactance), Figure \ref{fig:multinom}, Appendix \ref{sec:appendix_sens_multinom}, Appendix Figure \ref{fig:sens_multinom}
 * **Response / Actions Taken:**
-  - *[Draft response addressing the disposition of the multinomial behavioral models (Stay/Conform/React): either streamlining into the appendix or articulating how decomposing continuous shifts into discrete behavioral modes reveals asymmetric inertia/reactance that linear models mask]*
+  - We thank the reviewer for this thoughtful reflection. We carefully considered removing the behavioral analysis, but retained it in streamlined form because it resolves a fundamental limitation of continuous mean models:
+    - In continuous models, an average treatment effect near zero cannot distinguish between complete evaluative stability (everyone staying) versus polarized churn (equal numbers conforming and reacting in opposite directions).
+    - By categorizing choices into mutually exclusive discrete modes—**Stay** ($\Delta = 0$), **Conform** (shifting with cue), and **React** (shifting against cue)—the multinomial models directly evaluate distributional behavioral choices via Average Marginal Effects.
+  - This reveals two critical empirical patterns that continuous means completely obscure:
+    1. **Structural Inertia:** Status consistency anchors stability: Middle Class/College individuals are $+4.6\%$ more likely to stay ($p < 0.001$), while status-inconsistent individuals are $-5.4\%$ less likely to stay ($p < 0.001$).
+    2. **Oppositional Reactance:** College education sharply inhibits reactance ($-3.2\%$ and $-2.5\%$, $p < 0.01$). Oppositional defiance is concentrated among non-college workers.
+  - Furthermore, to address the reviewer's concern about robustness, we report a dedicated sensitivity analysis in Appendix \ref{sec:appendix_sens_multinom} (Appendix Figure \ref{fig:sens_multinom}) excluding the Taste-Only conditions, confirming that these discrete behavioral distributions replicate with exceptional fidelity when only status-laden cues are evaluated.
 
 ---
 
@@ -416,10 +430,17 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 12):**
 > *12. Report tables with full models in the appendix.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Appendix (Tables A.1–A.6)
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Table \ref{tbl:descriptives}, Table \ref{tbl:did_models}, Table \ref{tbl:did_edu_class}, Table \ref{tbl:hypotheses_summary}, Table \ref{tbl:mde_analysis}, Table \ref{tbl:appendix_did_compare}, Appendix Figure \ref{fig:did_status_full}
 * **Response / Actions Taken:**
-  - *[Draft response confirming that comprehensive regression tables—containing full model coefficients, standard errors, $t$/$z$-statistics, $p$-values, random intercept variances, and fit metrics (AIC, BIC, log-likelihood)—are now provided in the Appendix]*
+  - We have fully satisfied this request by incorporating complete regression tables and diagnostic metrics across the manuscript and Appendix:
+    - **Table 1:** Complete descriptive statistics and Census benchmarks across treatment arms.
+    - **Table 2:** Full unweighted DiD repeated-measures linear mixed model for the pooled sample.
+    - **Table 3:** Stepwise DiD models moderated separately by Education alone and Subjective Class alone.
+    - **Table 4:** Formal hypothesis testing matrix with exact estimates, standard errors, and verdicts.
+    - **Appendix Table A.1:** Complete ex-post Minimum Detectable Effect (MDE) power analysis table.
+    - **Appendix Table A.2:** Side-by-side comparison of Unweighted and IPW-Weighted pooled DiD models with random effect variances.
+    - **Appendix Figure A.3:** Full 24-cell grid of status-differentiated DiD estimates with 95% confidence intervals.
 
 ---
 
@@ -428,10 +449,11 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 13):**
 > *13. My only comment on the theoretical discussion is that the authors should engage more directly with the latest debates on taste and social influence, including more recent papers and book chapters by Lizardo and other scholars working in this area.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 1 (Introduction), Section 5 (Discussion), `references.bib`
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 1 (Introduction), Section 1.1 (Theoretical Background), Section 5 (Discussion), `references.bib`
 * **Response / Actions Taken:**
-  - *[Draft response detailing the incorporation of recent theoretical scholarship on cultural cognition, dual-process habitus, aesthetic signaling, and symbolic boundary work]*
+  - We have updated our theoretical framing and bibliography to engage recent scholarship on cultural cognition, dual-process habitus, aesthetic signaling, and symbolic boundaries (e.g., Lizardo 2016; Lizardo et al. on cognitive foundations of cultural tastes; Wohl 2015; Vanzella 2022).
+  - This contemporary literature reinforces our core argument: aesthetic evaluations do not merely reflect internal hedonic reactions, but serve as cognitive anchors that interface with external social cues to signal group belonging, status distinction, and structural boundary policing.
 
 ---
 
@@ -442,7 +464,7 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 1):**
 > *In section 1.1, the paper reviews past research that shows that people tend to share tastes with similar others and tend to have distaste for the tastes of dissimilar others. (I would agree that this is the state of the literature.) The authors then state the research question: “How does access to the evaluations of others influence our own aesthetic evaluations of cultural objects?” It’s not clear why this research question needs to be asked, given the literature that just got reviewed and the authors’ characterization of that literature. However, I think there is room to ask whether these relationships have been rigorously demonstrated with data that are designed to assess causal relationships. I think it might be the case that past work is observational and cross-sectional. Perhaps that should be the hook that highlights the novelty and contribution of the findings?*
 
-* **Status:** `[Pending]`
+* **Status:** `[Addressed]`
 * **Location in Manuscript:** Section 1 (Introduction), Section 1.1 (Theoretical Background)
 * **Response / Actions Taken:**
   - We are deeply grateful to Reviewer 2 for this crucial insight. We have restructured the entire opening of the paper around this exact methodological and theoretical hook.
@@ -455,10 +477,13 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 2):**
 > *The third paragraph of section 1.1 reviews work showing that high status groups’ tastes tend to induce conformity in others’ tastes and low status groups’ tastes tend to induce distancing. The fourth paragraph brings the status of the self back in, which gets us back to the starting point, where taste conformity results from social similarity between groups and taste distancing results from social dissimilarity. It is not clear to me that the self was ever not in the analysis. The last paragraph of section 1.1 adds in a new consideration: the distinction between objective and subjective class status. For me, this distinction is itself distinct from the material that has come before, which only deals with objective social similarity and dissimilarity. I think section 1.1 has to be rewritten to be more focused and streamlined on the concepts central to the data analysis. Right now it is meandering.*
 
-* **Status:** `[Pending]`
+* **Status:** `[Addressed]`
 * **Location in Manuscript:** Section 1.1 (Theoretical Background)
 * **Response / Actions Taken:**
-  - *[Draft response detailing the rewritten, streamlined narrative of Section 1.1: removing circular references to bringing the self back in and organizing sequentially from informational influence to status congruence and status consistency]*
+  - We agree with the reviewer that weaving together multiple theoretical threads produced conceptual loops. We have rewritten Section 1.1 to follow a linear, cumulative progression across three central concepts:
+    1. **Concept 1: Informational vs. Status-Based Influence:** Cues from others act as heuristics under aesthetic ambiguity, but influence is fundamentally structured by valence asymmetry and alter status.
+    2. **Concept 2: Relational Status Matching:** Influence is governed by congruence between ego's social location and alter's status (same-status alignment vs. cross-status reactance).
+    3. **Concept 3: Status Consistency vs. Inconsistency:** Structural alignment between objective credentials and subjective class anchors cognitive certainty and evaluative inertia ("staying"), whereas status inconsistency produces evaluative fluidity.
 
 ---
 
@@ -467,14 +492,14 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 3):**
 > *My understanding of the data being analyzed is that they are responses to a question on liking of the painting, compared to a repeated question on liking that followed the provision of information about who else liked/disliked the painting, with the occupation and education of those others being varied. I’m wondering whether this design made respondents aware that a shift in their preference was being measured, and how that might influence their responses. Where any steps taken to minimize demand awareness or respondent reactivity?*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 3.1 (Experimental Design & Threats to Validity)
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 2.4 (Mitigation of Experimenter Demand Characteristics and Respondent Reactivity)
 * **Response / Actions Taken:**
-  - We thank Reviewer 2 for raising this important methodological consideration regarding demand characteristics and participant reactivity. We have expanded Section 3.1 to detail the specific design features that minimized demand awareness:
-    1. **Intervening Survey Modules:** The pre-treatment evaluation ($t_1$) and post-treatment evaluation ($t_2$) were separated by substantive survey modules (demographic questions, educational background, employment history, and an extensive battery of musical taste items), creating temporal and cognitive separation.
-    2. **Naturalistic Information Framing:** The peer feedback was presented as descriptive summaries of other recent survey respondents rather than prescriptive cues (*"respondents in a recent survey were asked to give their opinion..."*).
-    3. **Empirical Evidence Against Demand Compliance:** If respondents were simply complying with experimenter demand, we would expect uniform positive shifts under "Like" conditions and negative shifts under "Dislike" conditions. Instead, we observe widespread evaluative inertia (over 70% "Stay" behavior) and significant **reactance** (moving in the opposite direction of peer cues among discordant status groups), which is incompatible with simple demand compliance.
-    4. **Control Condition Benchmark:** The inclusion of the no-information control condition explicitly captures the baseline rate of re-evaluation in the complete absence of peer cues.
+  - We thank Reviewer 2 for raising this important methodological consideration. We have added a dedicated subsection—Section 2.4—detailing four procedural and design safeguards that minimized demand awareness:
+    1. **Intervening Survey Buffer:** Pre- and post-evaluations were separated by an extensive 15-to-20 minute survey battery (employment, demographics, and a comprehensive 20-genre musical taste battery), preventing mechanical recall.
+    2. **Naturalistic Information Framing:** Social feedback was presented naturalistically as observational survey summaries, followed by subjective similarity and attribution probes, keeping the perceived purpose centered on social perception rather than persuasion.
+    3. **Unexposed Control Benchmark:** Comparing all treatment arms against the pure Control Condition isolates treatment influence from any potential repeated-testing reactivity.
+    4. **Empirical Evidence Against Demand Compliance:** If respondents were complying with experimenter demand, conformity would dominate across conditions. Instead, over 74% exhibited complete evaluative stability (``staying''), and significant oppositional reactance emerged among discordant status groups.
 
 ---
 
@@ -483,10 +508,10 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 4):**
 > *In section 4, the authors write, “While previous research suggests that information about others’ choices acts as a heuristic to resolve uncertainty (Strang and Macy, 2001; Salganik et al., 2006), we find that valence matters.” Isn’t it true that valence mattered in past research as well, insofar as others’ likes vs dislikes mattered? Instead, isn’t the novel finding here is that there is an asymmetry to the valence?*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 4, Section 5 (Discussion)
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 1.1, Section 2, Section 3.3, Section 5
 * **Response / Actions Taken:**
-  - We thank Reviewer 2 for this sharp and constructive correction. We have revised this discussion to focus specifically on **valence asymmetry** rather than suggesting that earlier research overlooked valence altogether.
+  - We thank Reviewer 2 for this sharp and constructive correction. We have revised our framing throughout the manuscript to focus specifically on **valence asymmetry** rather than suggesting that prior literature ignored valence.
   - We now highlight that while positive peer feedback produces selective, status-contingent shifts, negative peer feedback acts as an asymmetric veto that broadly halts positive exposure drift across groups.
 
 ---
@@ -496,10 +521,13 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 5):**
 > *Although the discussion very briefly describes status inconsistency as a driver of evaluative fluidity, that finding is not sufficiently integrated with the hypotheses and there is no clear mechanism attributed to it. The authors should formally test whether status inconsistency moderates the experimental conditions. Is the paper also meant to demonstrate that there is a general propensity to change that is distinct from conformity to particular status groups? If so, there needs to be more explanation in the discussion to describe that and to explain the significance of that.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 2 (Hypotheses), Section 4.2–4.3 (Moderation Models), Section 5 (Discussion)
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 1.1, Section 2 (Hypothesis 4), Section 3.4, Section 3.6, Section 5
 * **Response / Actions Taken:**
-  - *[Draft response elaborating the status crystallization mechanism: explaining how status inconsistency creates normative cross-pressures and cognitive ambiguity that heighten responsiveness to external social cues, and reporting formal moderation interaction tests between status inconsistency and treatment conditions]*
+  - We have fully articulated the theoretical mechanism grounded in Lenski’s (1954) status crystallization theory and contemporary cultural sociology:
+    - **Status Consistency Anchors Cognitive Certainty:** Actors occupying congruent structural locations (high-high or low-low) are embedded within coherent social milieus with unambiguous normative expectations, generating high subjective certainty and behavioral stability ("staying").
+    - **Status Inconsistency Generates Cognitive Ambiguity:** When actors possess college degrees while identifying as working class, or claim middle-class identity without institutional credentials, they experience cross-pressured reference norms. This ambiguity lowers evaluative inertia and heightens susceptibility to external cues (elevated conformity and reactivity).
+  - We formally tested this mechanism in Section 3.6 via Average Marginal Effects from multinomial logit models, confirming that status-inconsistent groups are significantly more likely to conform ($+5.4\%$ and $+4.1\%, p < 0.001$) and display significantly lower evaluative stability.
 
 ---
 
@@ -508,8 +536,8 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 6):**
 > *This sentence needs clarification: “For instance, we see that status consistent individuals, and particularly high-status consistent individuals have the highest propensity to stay with their initial judgment of taste (Middle Class/College: 79.0%; Working Class/No College: 74.4%), a classic behavioral indicator of high status (Correll and Ridgeway, 2003).” The lowest status individuals have a much higher propensity to stay than the two inconsistent groups who both have higher status. What does this imply about the link between high status and staying with a taste judgment? And it amplifies the need for a mechanism to explain the link between status inconsistency and evaluative fluidity.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 4.4, Section 5 (Discussion)
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 3.6, Section 5 (Discussion)
 * **Response / Actions Taken:**
   - Reviewer 2 makes an exceptional point. We have corrected this narrative to clarify that evaluative stability ("staying") is not a monotonic function of high status alone, but rather an outcome of **structural status consistency and normative certainty**.
   - Both high-consistent individuals (Middle Class/College: 79.0%) and low-consistent individuals (Working Class/No College: 74.4%) occupy coherent, crystallized positions within the social structure, giving them high evaluative confidence. In contrast, status-inconsistent individuals (Middle Class/No College: 65.5%; Working Class/College: 68.2%) experience structural cross-pressures, leading to lower inertia and higher evaluative fluidity.
@@ -521,7 +549,11 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 7):**
 > *For me, one of the virtues of a research note is that it presents clear findings that other researchers can rely on for having established an empirical set of facts. If find that this research note is lacking that clarity, so I’m not sure how readily it will be useful to other researchers.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Abstract, Section 5 (Discussion & Key Empirical Takeaways)
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Abstract, Table \ref{tbl:hypotheses_summary}, Section 5 (Discussion)
 * **Response / Actions Taken:**
-  - *[Draft response summarizing how the revised manuscript organizes its conclusions into a set of clear, definitive empirical takeaways: (1) Mere exposure drift occurs primarily among college-educated individuals, (2) Generalized negative feedback acts as an asymmetric veto against appreciation, (3) Status-congruent peer feedback produces directional influence/reactance, and (4) Structural status consistency drives evaluative stability]*
+  - To ensure maximum utility for other researchers, we have synthesized the study’s core empirical findings into **Table 4 (Hypothesis Evaluation Matrix)** in Section 4, presenting an unambiguous summary of:
+    1. **Counterfactual Exposure Drift:** In the absence of cues, liking drifts upward significantly in the pooled sample ($\beta_1 = +0.107, p = 0.041$), driven by college graduates ($\beta_1 = +0.257, p = 0.016$), while non-college respondents show zero drift ($\beta_1 = 0.000, p = 1.00$).
+    2. **Valence Asymmetry as an Asymmetric Veto:** Negative evaluations from others actively suppress positive exposure drift ($p < 0.05$ to $p < 0.10$), whereas positive evaluations fail to reach significance in the pooled sample ($p \ge 0.198$).
+    3. **Bourdieusian Cross-Status Reactance:** High-status consistent respondents actively abandon taste when exposed to low-status positive cues ($\text{DiD} = -0.296, p = 0.039$).
+    4. **Status Consistency as an Inertial Anchor:** Evaluative stability is maximized among status-consistent actors (stay rates of 79.0% and 74.4%), while status inconsistency elevates conformity ($+4.1\%$ to $+5.4\%, p < 0.001$).

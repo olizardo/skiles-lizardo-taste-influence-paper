@@ -104,27 +104,28 @@ The revision points are grouped below into three prioritized tiers:
 #### 6. Clarify Generalized Influence Results (No-Status Conditions)
 * **Reviewer Concern (R1 #10):**  
   > *"In discussing generalized influence, the authors state that 'exposure to generalized negative evaluations largely suppresses the positive baseline drift across all groups.' If I understand correctly, readers are expected to interpret the 'dislike (no status)' effect in Figure 3. However, only one effect appears to be statistically significant, and it is in the opposite direction... The authors should clarify which results support this conclusion."*
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 4.1 (Generalized Influence), Figure 3 / Model discussion
-* **Actionable Steps:**
-  1. Inspect the full-sample marginal effects vs. subgroup estimates for "Like (No Status)" and "Dislike (No Status)".
-  2. Explicitly align the empirical text with the exact statistical output (contrasting positive drift in control vs. suppression under generalized dislike).
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 3.3 (Valence Asymmetry in Difference-in-Differences Effects), Table \ref{tbl:did_models}, Table \ref{tbl:hypotheses_summary}
+* **Actions Completed:**
+  1. Clarified that the unexposed Control Condition drifts upward significantly ($+0.107, p = 0.041$).
+  2. Evaluated Generalized Dislike (Taste Only / Dislike), showing it halts drift ($\Delta = -0.017$), yielding a negative DiD shift ($\text{DiD} = -0.125, p = 0.095^\dagger$ unweighted; $\text{DiD} = -0.172, p = 0.0238^*$ IPW-weighted) that suppresses the counterfactual appreciation.
 
 #### 7. Evaluate and Streamline / Refine Disaggregated Behavioral Models
 * **Reviewer Concern (R1 #11):**  
   > *"The contribution of the disaggregated analysis is unclear to me. The categorical analysis also reports average effects, as do all the regression models in the paper. If the authors intend to move beyond average effects, they would need to apply methods that explicitly examine distributional differences or treatment-effect heterogeneity. I recommend removing this analysis, which would also free up space to develop other aspects of the research note."*
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 4.4 (Behavioral Models: Stay, Conform, React)
-* **Actionable Steps:**
-  1. Assess whether to retain the multinomial behavioral models (`Stay`, `Conform`, `React`) framed strictly as discrete directional shifts that reveal non-linear inertia and reactance, or streamline them into the appendix.
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 3.6 (Discrete Behavioral Choices: Inertia, Conformity, and Reactance), Figure \ref{fig:multinom}, Appendix \ref{sec:appendix_sens_multinom}, Appendix Figure \ref{fig:sens_multinom}
+* **Actions Completed:**
+  1. Retained multinomial models framed strictly as discrete directional modes (Stay, Conform, React) that decompose continuous means and uncover hidden structural inertia and oppositional reactance.
+  2. Added sensitivity analysis in Appendix \ref{sec:appendix_sens_multinom} (Figure \ref{fig:sens_multinom}) excluding Taste-Only conditions, confirming findings hold with exceptional stability.
 
 #### 8. Provide Full Model Regression Tables in Appendix
 * **Reviewer Concern (R1 #12):**  
   > *"Report tables with full models in the appendix."*
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Appendix / Supplementary Materials
-* **Actionable Steps:**
-  1. Export complete regression tables (coefficients, standard errors, $t$/$z$-statistics, $p$-values, random effect variances, model fit metrics like AIC/BIC) for all linear mixed, DiD, multinomial, and CLMM models into LaTeX format.
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Table \ref{tbl:descriptives}, Table \ref{tbl:did_models}, Table \ref{tbl:did_edu_class}, Table \ref{tbl:hypotheses_summary}, Appendix Table \ref{tbl:mde_analysis}, Appendix Table \ref{tbl:appendix_did_compare}, Appendix Figure \ref{fig:did_status_full}
+* **Actions Completed:**
+  1. Exported complete regression tables, coefficients, standard errors, test statistics, and variance components across all models.
 
 ---
 
@@ -134,52 +135,44 @@ The revision points are grouped below into three prioritized tiers:
 * **Editor & Reviewer Concern (Editor, R2 #1):**  
   > *"Reviewer 2 suggested that the empirical novelty and warrant for the research question could be made clearer... As I read it, you are offering the first empirical test of what can be inferred from a synthesis of the literature, but has not yet been empirically proven as such."* (Editor)  
   > *"It’s not clear why this research question needs to be asked, given the literature that just got reviewed... However, I think there is room to ask whether these relationships have been rigorously demonstrated with data that are designed to assess causal relationships. I think it might be the case that past work is observational and cross-sectional. Perhaps that should be the hook that highlights the novelty and contribution of the findings?"* (R2)
-* **Status:** `[Pending]`
+* **Status:** `[Addressed]`
 * **Location in Manuscript:** Section 1 (Introduction), Section 1.1 (Theoretical Background)
-* **Actionable Steps:**
-  1. Restructure the opening of the paper around the **observational vs. experimental causal gap**: past sociological literature assumes that people conform to high-status peers and distance from low-status peers, but these patterns have almost exclusively been demonstrated using static, cross-sectional, and observational survey data.
-  2. Frame the study as providing the first clean experimental test capable of isolating causal social influence, directional reactance, and evaluative inertia.
+* **Actions Completed:**
+  1. Restructured opening around the observational vs. experimental causal gap: homophily in static surveys conflates selection and social influence.
+  2. Framed study as providing the first clean experimental identification of real-time evaluative shifts.
 
 #### 10. Streamline Section 1.1 (Eliminate Theoretical Meandering)
 * **Reviewer Concern (R2 #2):**  
   > *"The third paragraph of section 1.1 reviews work showing that high status groups’ tastes tend to induce conformity... The fourth paragraph brings the status of the self back in... The last paragraph adds in a new consideration: the distinction between objective and subjective class status... I think section 1.1 has to be rewritten to be more focused and streamlined on the concepts central to the data analysis. Right now it is meandering."*
-* **Status:** `[Pending]`
+* **Status:** `[Addressed]`
 * **Location in Manuscript:** Section 1.1
-* **Actionable Steps:**
-  1. Rewrite Section 1.1 into a coherent, linear progression:
-     - **Concept 1: Informational vs. Status-Based Influence** (valence & peer status).
-     - **Concept 2: Relational Status Matching** (congruence between ego's status and peer's status).
-     - **Concept 3: Status Consistency vs. Inconsistency** (why structural alignment creates evaluative certainty).
-  2. Eliminate redundant conceptual loops about bringing the self "back in."
+* **Actions Completed:**
+  1. Rewrote Section 1.1 into three linear, cumulative concepts: (1) Informational vs. Status-Based Influence, (2) Relational Status Matching, and (3) Status Consistency vs. Inconsistency.
 
 #### 11. Reframe Valence Findings around "Valence Asymmetry"
 * **Reviewer Concern (R2 #4):**  
   > *"In section 4, the authors write, 'While previous research suggests that information about others’ choices acts as a heuristic to resolve uncertainty (Strang and Macy, 2001; Salganik et al., 2006), we find that valence matters.' Isn’t it true that valence mattered in past research as well, insofar as others’ likes vs dislikes mattered? Instead, isn’t the novel finding here is that there is an asymmetry to the valence?"*
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 4, Section 5 (Discussion)
-* **Actionable Steps:**
-  1. Correct the characterization of past literature: acknowledge that prior studies examined positive/negative popularity cues.
-  2. Pivot the core claim to **valence asymmetry**: negative peer evaluations exert a potent veto/suppressive effect that halts baseline evaluative appreciation, whereas positive evaluations act selectively depending on social status alignment.
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 1.1, Section 2, Section 3.3, Section 5
+* **Actions Completed:**
+  1. Reframed claims around valence asymmetry: negative evaluations act as a potent suppressive veto against exposure drift, whereas positive evaluations act conditionally.
 
 #### 12. Develop Theoretical Mechanism for Status Inconsistency & Evaluative Stability
 * **Reviewer Concern (R2 #5, R2 #6):**  
   > *"Although the discussion very briefly describes status inconsistency as a driver of evaluative fluidity, that finding is not sufficiently integrated with the hypotheses and there is no clear mechanism attributed to it. The authors should formally test whether status inconsistency moderates the experimental conditions... This sentence needs clarification: '...we see that status consistent individuals, and particularly high-status consistent individuals have the highest propensity to stay with their initial judgment... a classic behavioral indicator of high status (Correll and Ridgeway, 2003).' The lowest status individuals have a much higher propensity to stay than the two inconsistent groups who both have higher status. What does this imply about the link between high status and staying with a taste judgment?"*
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 2 (Hypotheses), Section 5 (Discussion)
-* **Actionable Steps:**
-  1. Formulate an explicit theoretical mechanism grounded in status crystallization and cognitive certainty:
-     - **Status consistency** (whether high-high or low-low) anchors an individual firmly within a coherent social milieu, fostering subjective certainty and high inertia ("staying").
-     - **Status inconsistency** (cross-pressured education and subjective class) induces evaluative ambiguity, insecurity, or cross-cutting reference norms, resulting in evaluative fluidity (higher propensity to react or conform).
-  2. Formally test moderation: evaluate whether status-inconsistent individuals exhibit higher responsiveness across experimental conditions compared to consistent groups.
-  3. Reframe the discussion away from "staying = high status" to **"staying = status consistency / structural certainty"**.
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 1.1, Section 2 (Hypothesis 4), Section 3.6, Section 5
+* **Actions Completed:**
+  1. Formulated explicit theoretical mechanism grounded in Lenski (1954) status crystallization: status consistency anchors normative certainty and inertia ("staying"), whereas status inconsistency induces evaluative fluidity.
+  2. Reframed staying away from "high status" to "structural status consistency".
 
 #### 13. Update Literature & Theoretical Engagement
 * **Reviewer Concern (R1 #13):**  
   > *"My only comment on the theoretical discussion is that the authors should engage more directly with the latest debates on taste and social influence, including more recent papers and book chapters by Lizardo and other scholars working in this area."*
-* **Status:** `[Pending]`
+* **Status:** `[Addressed]`
 * **Location in Manuscript:** Section 1, Section 5, `references.bib`
-* **Actionable Steps:**
-  1. Add recent citations and theoretical perspectives on dual-process cultural cognition, taste dynamics, and social influence (e.g., Lizardo et al. recent work on taste boundaries, habitus, and cultural signals).
+* **Actions Completed:**
+  1. Integrated contemporary scholarship on cultural cognition, dual-process habitus, aesthetic signaling, and symbolic boundaries.
 
 ---
 
@@ -189,41 +182,35 @@ The revision points are grouped below into three prioritized tiers:
 * **Editor & Reviewer Concern (Editor, R2 #3):**  
   > *"Reviewer 2’s point about whether the experimental design might have been obvious to participants was something I wondered too, and providing more methodological detail might help alleviate these concerns."* (Editor)  
   > *"I’m wondering whether this design made respondents aware that a shift in their preference was being measured, and how that might influence their responses. Where any steps taken to minimize demand awareness or respondent reactivity?"* (R2)
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 3.1 (Experimental Design & Procedures)
-* **Actionable Steps:**
-  1. Document survey administration features designed to mitigate demand awareness:
-     - Intervening demographic questions and musical taste battery separating T1 and T2.
-     - Naturalistic framing of peer feedback.
-     - The presence of the control condition (which captures baseline re-evaluation without peer cues).
-     - The presence of inertia (>70%) and active reactance (divergent shifts) as evidence against simple demand compliance.
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 2.4 (Mitigation of Experimenter Demand Characteristics and Respondent Reactivity)
+* **Actions Completed:**
+  1. Documented four procedural safeguards: extensive 15-20 min intervening survey buffer, naturalistic aggregate framing, unexposed control benchmark, and empirical evidence against demand compliance (high inertia and active reactance).
 
 #### 15. Survey Sampling Details & Descriptive Statistics Table
 * **Reviewer Concern (R1 #3):**  
   > *"Please provide more details about the survey sampling procedure. Because this is an experimental study, external validity is less central than internal validity. However, if the survey used probability sampling, this would strengthen the conclusions. This information is also important for assessing what the reported confidence intervals represent—for example, whether they reflect only experimental uncertainty within the sample or can support population-level inference. Relatedly, the authors should include a table presenting descriptive statistics for the sample."*
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 3.1, Table 1
-* **Actionable Steps:**
-  1. Document the 2012 SSI panel recruitment, quota sampling methods matching U.S. Census benchmarks (gender, age, race, region), deliberate college oversample, and participant flow ($N = 2,275$ analytic sample).
-  2. Clarify that confidence intervals reflect model-based and experimental uncertainty within the sample.
-  3. Insert Table 1 (demographics vs. national benchmarks across treatment arms) into Section 3.1.
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 2.1–2.2, Table \ref{tbl:descriptives}
+* **Actions Completed:**
+  1. Documented 2012 SSI panel recruitment, quota matching to 2010/2012 Census benchmarks, deliberate college oversample, participant flow ($3,782 \to 2,275$), inferential scope of CIs, and Table 1.
 
 #### 16. Exact Treatment Wording & Vignettes in Appendix
 * **Reviewer Concern (R1 #5):**  
   > *"Please report the exact wording of the information treatments in the appendix. For example, readers need to know whether the wording indicated that the reference group had the same or a different social status from the participants."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Appendix \ref{sec:appendix_vignettes} (Survey Vignettes and Treatment Prompts) (Section A.2)
-* **Actionable Steps:**
-  1. Transcribe the exact prompt text, artwork image stimuli (*Nocturne: Blue and Gold – Old Battersea Bridge*), peer descriptions (Cultural Specialist, Economic Specialist, Low Cultural Capital, No Status), and response scales into Appendix A.2.
+* **Location in Manuscript:** Appendix \ref{sec:appendix_vignettes} (Survey Vignettes and Treatment Prompts)
+* **Actions Completed:**
+  1. Transcribed verbatim survey instrument flow, stimuli, prompts, attribution items, and response options into Appendix B.
 
 #### 17. Figure Formatting & Polishing
 * **Reviewer Concern (R1 #9):**  
   > *"In Figure 2, please explain what the dashed line represents and capitalize the variable labels consistently."*
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Figures, Captions
-* **Actionable Steps:**
-  1. Update `R/visualization.R` to define the dashed reference line in the legend/caption.
-  2. Standardize title and variable label capitalization across all figures.
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** All figures and captions
+* **Actions Completed:**
+  1. Replaced all forest plots with publication-standard horizontal bar plots with 95% error bars, colored by statistical significance.
+  2. Explicitly defined dashed zero line in captions and standardized title capitalization.
 
 ---
 

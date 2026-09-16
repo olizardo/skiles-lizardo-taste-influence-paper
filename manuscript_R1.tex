@@ -126,7 +126,16 @@ The experiment used an incomplete factorial design with within-subject pre/post 
 
 To prevent terminological confusion, we strictly distinguish between the \textbf{pre-treatment baseline measurement} (Trial 1, which captures initial, uninfluenced aesthetic preference) and the \textbf{Control Condition} (the experimental group that receives no information about others between trials, allowing us to observe pure temporal re-evaluation in the absence of treatment). We refer to changes over repeated trials in this unexposed group as \textbf{exposure drift}.
 
-To mitigate experimenter demand effects, the pre- and post-evaluations were separated by substantive survey modules, feedback from others was framed naturalistically as aggregate responses from a prior survey, and the no-information Control Condition was included to establish counterfactual re-evaluation dynamics.
+\subsection{Mitigation of Experimenter Demand Characteristics and Respondent Reactivity}
+A common methodological concern in within-subject experimental designs is whether respondents become aware that an evaluative shift is being measured, inducing experimenter demand compliance or artificial consistency. We implemented four procedural and design safeguards to mitigate demand awareness and assess respondent reactivity.
+
+First, Trial 1 and Trial 2 were separated by an extensive cognitive and temporal buffer comprising 15 to 20 minutes of substantive survey batteries. Between aesthetic evaluations, respondents completed detailed modules on educational history, parental degree attainment, employment status, 22-category Standard Occupational Classification (SOC) coding, annual household income, and a comprehensive 20-genre musical taste battery evaluating preference ratings, listening frequency, and listener demographic stereotypes. This substantial intervening distance prevented respondents from mechanically recalling or feeling compelled to repeat their Trial 1 ratings.
+
+Second, the experimental feedback screens were framed naturalistically as observational descriptive summaries from prior survey waves rather than prescriptive social norms: respondents were told, \textit{``Our survey so far indicates that the group of people most likely to say that they [LIKE / DISLIKE] the painting you saw have completed\dots''} Immediately following this prompt, respondents completed attribution and subjective similarity probes concerning the evaluating group, maintaining the perception that the survey was investigating social perception rather than testing their personal susceptibility to persuasion. At no point were participants prompted to re-evaluate their prior rating or instructed that conformity was expected.
+
+Third, our analytical architecture benchmarks all treatment shifts against the unexposed Control Condition. Because control respondents completed the identical intervening survey battery without receiving any cue from others, comparing treatment conditions against this baseline cleanly separates genuine informational influence from any residual re-test reactivity or temporal fatigue.
+
+Finally, the empirical distribution of discrete behavioral choices provides powerful evidence against demand compliance. Over 74\% of respondents across conditions exhibited complete evaluative stability (``staying''), and a substantial proportion displayed active oppositional reactance by shifting in the direction opposite to the cue. Had respondents been compliance-driven, conformity rates would have dominated across conditions rather than emerging selectively within specific status-inconsistent configurations.
 
 \subsection{Variables and Measurement}
 Aesthetic evaluation was measured on a reversed 1--7 scale. In continuous models, the outcome is the repeated evaluation across trials. In behavioral models, change between trials is categorized into three mutually exclusive choices: \textit{Stay} ($\Delta = 0$), \textit{Conform} (moving in the direction of others' evaluations), and \textit{React} (moving in the opposite direction).
@@ -492,6 +501,13 @@ $N$ (Observations / Individuals) & \multicolumn{2}{c}{4,506 / 2,253} & \multicol
 \textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Reference condition: unexposed Control Condition.
 \end{minipage}
 \end{table}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.88\textwidth]{figures/Figure_DiD_Pooled.png}
+    \caption{Difference-in-Differences Treatment Effects in the Pooled Sample (Unweighted Linear Mixed Model). Horizontal bars denote point estimates with 95\% confidence intervals relative to the unexposed Control Condition (dashed line at zero). Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
+    \label{fig:did_pooled}
+\end{figure}
 
 \section{Complete Status-Differentiated DiD Estimates Across All Cells}
 \label{sec:appendix_full_grid}
