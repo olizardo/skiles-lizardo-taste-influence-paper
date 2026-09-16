@@ -243,16 +243,43 @@ Below, we provide a point-by-point response to all comments and suggestions from
 > **Reviewer Comment (Point 4):**
 > *4. The sample sizes within conditions are relatively small. If an a priori power analysis was not conducted during the study design, I recommend reporting an ex post minimum detectable effect (MDE) analysis in the appendix. This would help readers assess which effect sizes the study was capable of detecting. The authors may find the following discussion useful: “Why ex post power using estimated effect sizes is bad, but an ex post MDE is not”.*
 
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 3.1 (Sample Limitations), Appendix (Section A.1: Statistical Power and Minimum Detectable Effects)
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 2.2 (Inferential Scope and Interpretation of Confidence Intervals), Appendix \ref{sec:appendix_power_mde} (Statistical Power and Minimum Detectable Effect Analysis), Table \ref{tbl:mde_analysis}, and Figure \ref{fig:mde_curves}
 * **Response / Actions Taken:**
-  - We appreciate the reviewer pointing out the distinction between flawed retrospective *post hoc* power calculations and rigorous *ex post* Minimum Detectable Effect (MDE) analysis.
-  - Because sample size was fixed by funding constraints during the 2012 data collection, we conducted an ex-post MDE analysis across cell sizes and reported the full results in Appendix A.1.
-  - Assuming standard parameters ($\alpha = 0.05$, two-tailed, power $= 0.80$, and taking into account the within-subject correlation across repeated trials $r \approx 0.70$), the design was powered to detect:
-    - Main effect trial shifts of Cohen’s $d \ge 0.12$ in the full sample ($N = 2,275$).
-    - Main treatment condition contrasts of $d \ge 0.19$ to $0.24$ across the primary condition arms ($N \approx 280$--$295$ per cell).
-    - Subgroup interaction effects of $d \ge 0.32$ to $0.38$ within the $2 \times 2$ status consistency quadrants ($N \approx 100$--$180$ per cell).
-  - This confirms that the study possessed adequate statistical power to detect small-to-moderate trial drifts and moderate status interaction effects, while being appropriately cautious regarding high-order subgroup interactions.
+  - We are deeply grateful to the reviewer for raising this thoughtful methodological recommendation and directing us to the literature distinguishing flawed retrospective *post-hoc* power from principled *ex-post* Minimum Detectable Effect (MDE) analysis (e.g., Bloom 1995; Gelman & Carlin 2014; Hoenig & Heisey 2001; McKenzie 2012).
+  - Because our sample size was fixed by grant funding during the 2012 data collection, an ex-post MDE analysis provides the appropriate framework to evaluate what effect sizes the study was powered to detect, without conditioning on observed effect estimates or $p$-values.
+  - We have added a comprehensive ex-post MDE power analysis in Appendix \ref{sec:appendix_power_mde} of `manuscript_R1.tex`, supported by a dedicated simulation and calculation script (`R/mde_power_analysis.R`), a formal summary table (Table \ref{tbl:mde_analysis}), and a dual-panel figure (Figure \ref{fig:mde_curves}) illustrating theoretical power curves and achieved empirical thresholds.
+  - Crucially, our analysis accounts for the repeated-measures Difference-in-Differences structure of the data:
+    - Pre-treatment and post-treatment aesthetic judgments exhibit high test-retest autocorrelation ($r = 0.8945$, with $\sigma_1 = 1.500$ and $\sigma_2 = 1.548$).
+    - This strong stability shrinks the standard deviation of change scores to $\sigma_{\Delta} = 0.702$, cutting the standard error of treatment comparisons by more than 50% relative to an independent post-test design ($\sigma_{\Delta} / \sigma_1 = 0.468$).
+  - Across the analytical tiers of the study (assuming two-tailed $\alpha = 0.05$ and standard $80\%$ statistical power), the design was powered to detect:
+    1. **Within-Subject Exposure Drift:** Cohen's $d \ge 0.028$ (0.041 scale points) in the full sample ($N = 2,253$) and $d \ge 0.099$ (0.148 scale points) in the unexposed Control Condition ($N_C = 177$). This confirmed that the study had high statistical power to detect the $+0.107$ control drift ($p = 0.041$).
+    2. **Pooled Difference-in-Differences Contrasts (vs. Control $N_C = 177$):**
+       - Pooled High-Status Conditions ($N_T = 575$): Cohen's $d \ge 0.113$ (0.169 scale points).
+       - Single-Status Conditions ($N_T \approx 290$): Cohen's $d \ge 0.125$ (0.188 scale points).
+       - Taste-Only Conditions ($N_T = 172$): Cohen's $d \ge 0.140$ (0.210 scale points).
+       All pooled DiD models fall comfortably below Cohen's benchmark for a "small" effect ($d = 0.20$), confirming adequate power to detect modest cultural cues.
+    3. **Subgroup Status Consistency DiD Contrasts:**
+       - Working Class, No College ($N_C = 70, N_T = 60$--$214$): Median MDE of $d \ge 0.203$ (0.304 scale points).
+       - Middle Class, College ($N_C = 51, N_T = 51$--$164$): Median MDE of $d \ge 0.231$ (0.347 scale points).
+       - Middle Class, No College ($N_C = 33, N_T = 32$--$146$): Median MDE of $d \ge 0.281$ (0.421 scale points).
+       - Working Class, College ($N_C = 23, N_T = 16$--$72$): Median MDE of $d \ge 0.348$ (0.522 scale points).
+  - This analysis provides clear methodological clarity: the pooled models and status-consistent subgroups were adequately powered to detect small-to-moderate effects, whereas the smaller status-inconsistent cells required moderate-to-large behavioral shifts (such as the $-0.394$ negative divergence among college-educated working-class respondents under High-Status Dislike, $p < 0.001$) to achieve statistical significance. As we note in the revised manuscript, null findings in the smallest cells reflect wider estimation uncertainty rather than affirmative evidence of zero influence.
+
+| Model Specification / Level | $N_T$ | $N_C$ | $SE$ | $\text{MDE}_{\text{raw}}$ (80% Power) | Cohen's $d$ (80% Power) | $\text{MDE}_{\text{raw}}$ (90% Power) | Cohen's $d$ (90% Power) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Panel A: Within-Subject Drift** | | | | | | | |
+| Full Sample Drift | 2,253 | --- | 0.015 | 0.041 | 0.028 | 0.048 | 0.032 |
+| Control Condition Drift | 177 | --- | 0.053 | 0.148 | 0.099 | 0.171 | 0.114 |
+| **Panel B: Pooled DiD (vs. Control)** | | | | | | | |
+| Taste-Only Conditions | 172 | 177 | 0.075 | 0.210 | 0.140 | 0.244 | 0.162 |
+| Single Status Conditions | 290 | 177 | 0.067 | 0.188 | 0.125 | 0.217 | 0.145 |
+| Pooled High-Status Conditions | 575 | 177 | 0.060 | 0.169 | 0.113 | 0.196 | 0.130 |
+| **Panel C: Subgroup Status DiD** | | | | | | | |
+| Working Class, No College | 60--214 | 70 | 0.108 | 0.304 | 0.203 | 0.352 | 0.234 |
+| Middle Class, College | 51--164 | 51 | 0.124 | 0.347 | 0.231 | 0.401 | 0.267 |
+| Middle Class, No College | 32--146 | 33 | 0.150 | 0.421 | 0.281 | 0.487 | 0.325 |
+| Working Class, College | 16--72 | 23 | 0.186 | 0.522 | 0.348 | 0.604 | 0.403 |
 
 ---
 

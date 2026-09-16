@@ -70,11 +70,13 @@ The revision points are grouped below into three prioritized tiers:
 #### 3. Perform Ex-Post Minimum Detectable Effect (MDE) Power Analysis
 * **Reviewer Concern (R1 #4):**  
   > *"The sample sizes within conditions are relatively small. If an a priori power analysis was not conducted during the study design, I recommend reporting an ex post minimum detectable effect (MDE) analysis in the appendix. This would help readers assess which effect sizes the study was capable of detecting."*
-* **Status:** `[Pending]`
-* **Location in Manuscript:** Section 3.1 (Sample Limitations), Appendix (Section A.1)
-* **Actionable Steps:**
-  1. Write an R script (`R/sample_sizes.R` / `R/appendix_robustness.R`) calculating MDEs across cell sizes (given $\alpha = 0.05$, power $= 0.80$, cluster ICC / repeated-measures correlation $r \approx 0.70$).
-  2. Report a summary table and narrative in the Appendix explaining that the study was powered for main trial shifts of $d \ge 0.12$, condition contrasts of $d \ge 0.19$--$0.24$, and status interaction effects of $d \ge 0.32$--$0.38$.
+* **Status:** `[Addressed]`
+* **Location in Manuscript:** Section 2.2 (Inferential Scope and Interpretation of Confidence Intervals), Appendix \ref{sec:appendix_power_mde}, Table \ref{tbl:mde_analysis}, Figure \ref{fig:mde_curves}, `tables/table_mde_summary.tex`, `figures/Figure_MDE_Power_Curves.png`
+* **Actions Completed:**
+  1. Developed dedicated calculation and visualization script `R/mde_power_analysis.R` calculating formal MDE benchmarks following Bloom (1995), Hoenig and Heisey (2001), and Gelman and Carlin (2014).
+  2. Incorporated empirical repeated-measures test-retest correlation ($r = 0.8945$, reducing change score SD to $\sigma_{\Delta} = 0.702$ vs. $\sigma_1 = 1.500$).
+  3. Computed MDE across all design tiers: within-subject exposure drift ($d \ge 0.028$ full, $d \ge 0.099$ control), pooled DiD ($d \ge 0.113$--$0.140$), and status quadrant DiD ($d \ge 0.203$--$0.348$).
+  4. Added Table \ref{tbl:mde_analysis} and Figure \ref{fig:mde_curves} to Appendix \ref{sec:appendix_power_mde} in `manuscript_R1.tex`, with detailed narrative explaining detection thresholds and cautioning against interpreting nulls in small cells as zero effects.
 
 #### 4. Disaggregate Models: Separate Subjective Class and Education
 * **Reviewer Concern (R1 #6):**  

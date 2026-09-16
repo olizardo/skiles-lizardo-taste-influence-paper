@@ -1,0 +1,34 @@
+\begin{table}[ht!]
+\centering
+\small
+\caption{Ex-Post Minimum Detectable Effect (MDE) Analysis Across Experimental Specifications}
+\label{tbl:mde_analysis}
+\setlength{\tabcolsep}{5.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccccc@{}}
+\toprule
+& & & & \multicolumn{2}{c}{\textbf{80\% Power}} & \multicolumn{2}{c}{\textbf{90\% Power}} \\
+\cmidrule(lr){5-6} \cmidrule(lr){7-8}
+\textbf{Model Specification / Level} & $N_T$ & $N_C$ & $SE$ & $\text{MDE}_{\text{raw}}$ & Cohen's $d$ & $\text{MDE}_{\text{raw}}$ & Cohen's $d$ \\
+\midrule
+\multicolumn{8}{l}{\textit{Panel A: Within-Subject Exposure Drift (Paired Comparison)}} \\[2pt]
+Full Sample Drift & 2,253 & --- & 0.015 & 0.041 & 0.028 & 0.048 & 0.032 \\
+Control Condition Drift & 177 & --- & 0.053 & 0.148 & 0.099 & 0.171 & 0.114 \\
+\addlinespace[4pt]
+\multicolumn{8}{l}{\textit{Panel B: Pooled Difference-in-Differences Contrasts (vs. Control $N_C=177$)}} \\[2pt]
+Taste-Only Conditions & 172 & 177 & 0.075 & 0.210 & 0.140 & 0.244 & 0.162 \\
+Single Status Conditions & 290 & 177 & 0.067 & 0.188 & 0.125 & 0.217 & 0.145 \\
+Pooled High-Status Conditions & 575 & 177 & 0.060 & 0.169 & 0.113 & 0.196 & 0.130 \\
+\addlinespace[4pt]
+\multicolumn{8}{l}{\textit{Panel C: Subgroup DiD Contrasts Within Status Consistency Quadrants}} \\[2pt]
+Working Class, No College & 60--214 & 70 & 0.108 & 0.304 & 0.203 & 0.352 & 0.234 \\
+Middle Class, College & 51--164 & 51 & 0.124 & 0.347 & 0.231 & 0.401 & 0.267 \\
+Middle Class, No College & 32--146 & 33 & 0.150 & 0.421 & 0.281 & 0.487 & 0.325 \\
+Working Class, College & 16--72 & 23 & 0.186 & 0.522 & 0.348 & 0.604 & 0.403 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+\textit{Note:} Minimum Detectable Effects (MDE) are calculated assuming a two-tailed $\alpha = 0.05$ with standard statistical power thresholds of $80\%$ ($z = 2.802$) and $90\%$ ($z = 3.242$). Calculations incorporate the empirical test-retest correlation across repeated trials ($r = 0.8945$, yielding $\sigma_{\Delta} = 0.702$ relative to baseline $\sigma_1 = 1.500$). $\text{MDE}_{\text{raw}}$ is expressed in units of the 7-point aesthetic rating scale; Cohen's $d = \text{MDE}_{\text{raw}} / \sigma_1$. In Panel C, $N_T$ indicates the range of treatment cell sizes across specific cue conditions, and reported $SE$ and MDE values correspond to median cell sizes.
+\end{minipage}
+\end{table}

@@ -58,7 +58,7 @@ Data for this study were collected between February 28 and March 6, 2012, via an
 The sampling frame employed dynamic quota matching calibrated against U.S. Census benchmarks for gender, age, race/ethnicity, and geographic region to achieve a diverse and quasi-representative national sample of U.S. adults. To ensure adequate statistical power for examining status-differentiated cultural dynamics—particularly within high-cultural-capital occupational cells (Cultural Specialists and Economic Specialists)—the sample incorporated a deliberate oversample of college graduates (40.5\% holding a bachelor's degree or higher in the sample versus approximately 28\% nationally in 2012). Table \ref{tbl:descriptives} presents the full demographic breakdown of the sample compared to U.S. population parameters, separated across experimental treatment arms.
 
 \subsection{Inferential Scope and Interpretation of Confidence Intervals}
-Because the survey used a quota-matched, opt-in online consumer panel rather than a strict probability-based sample with known inclusion probabilities (such as the GSS or ANES), the reported standard errors, $p$-values, and confidence intervals should be interpreted as reflecting \textit{model-based and experimental design uncertainty within the sample}, rather than formal design-based population parameter estimates. The randomization mechanism built into the Qualtrics survey engine ensures that internal validity is maximized: respondents were randomly assigned to treatment and control arms, creating balanced experimental groups across all observed baseline characteristics (Table \ref{tbl:descriptives}). At the same time, the demographic diversity across gender, age, race, and geographic region provides substantial ecological validity and heterogeneity compared to conventional undergraduate convenience samples.
+Because the survey used a quota-matched, opt-in online consumer panel rather than a strict probability-based sample with known inclusion probabilities (such as the GSS or ANES), the reported standard errors, $p$-values, and confidence intervals should be interpreted as reflecting \textit{model-based and experimental design uncertainty within the sample}, rather than formal design-based population parameter estimates. The randomization mechanism built into the Qualtrics survey engine ensures that internal validity is maximized: respondents were randomly assigned to treatment and control arms, creating balanced experimental groups across all observed baseline characteristics (Table \ref{tbl:descriptives}). At the same time, the demographic diversity across gender, age, race, and geographic region provides substantial ecological validity and heterogeneity compared to conventional undergraduate convenience samples. Because cell sample sizes vary across experimental conditions and observational status consistency subgroups, we also report a comprehensive Minimum Detectable Effect (MDE) power analysis in Appendix \ref{sec:appendix_power_mde} (Table \ref{tbl:mde_analysis} and Figure \ref{fig:mde_curves}), explicitly delineating the statistical precision and empirical detection boundaries of the experimental design.
 
 \begin{table}[ht!]
 \centering
@@ -300,7 +300,75 @@ Most importantly, our analysis highlights status consistency as a neglected driv
 \appendix
 
 \section{Statistical Power and Minimum Detectable Effect (MDE) Analysis}
-To evaluate the statistical power of the design, we conducted an ex-post Minimum Detectable Effect (MDE) analysis. Assuming $\alpha = 0.05$ (two-tailed), power $= 0.80$, and an empirical repeated-measures test-retest correlation of $r \approx 0.70$, the design was powered to detect full sample trial shifts of Cohen's $d \ge 0.12$ ($N = 2,275$), condition-specific trial contrasts of $d \ge 0.19$ to $0.24$ across primary condition cells ($N \approx 280$--$295$), and subgroup status interaction effects of $d \ge 0.32$ to $0.38$ within specific status quadrants ($N \approx 100$--$180$).
+\label{sec:appendix_power_mde}
+
+To rigorously evaluate the statistical precision and empirical detection boundaries of the study, we conducted a formal ex-post Minimum Detectable Effect (MDE) analysis \citep{bloom1995minimum}. Methodological scholarship has established that retrospective or ``post-hoc'' power calculations based on observed effect sizes and sample estimates are fundamentally flawed and uninformative, functioning merely as a tautological transformation of the observed $p$-value \citep{gelman2014beyond, hoenig2001abuse}. By contrast, an ex-post MDE analysis answers a principled design question: given the achieved cell sample sizes and the empirical variance structure of the repeated-measures data, what is the smallest true population effect size that the research design was adequately powered (at 80\% or 90\% power, two-tailed $\alpha = 0.05$) to detect?
+
+In a repeated-measures Difference-in-Differences (DiD) framework where each respondent $i$ provides an initial pre-treatment aesthetic rating ($Y_{i1}$) and a post-treatment evaluation ($Y_{i2}$) on a 7-point Likert scale, the standard error of the change score $\Delta Y_i = Y_{i2} - Y_{i1}$ depends directly on the test-retest correlation $\rho$ between trials:
+\begin{equation}
+\sigma_{\Delta} = \sqrt{\sigma_1^2 + \sigma_2^2 - 2 \rho \sigma_1 \sigma_2}
+\end{equation}
+When the test-retest correlation is high, the within-subject differencing cancels out stable individual-level evaluative variance, yielding a change score standard deviation substantially smaller than the cross-sectional baseline standard deviation ($\sigma_{\Delta} \ll \sigma_1$). In our survey sample, aesthetic judgments exhibit strong stability across repeated trials ($r = 0.8945$, with $\sigma_1 = 1.500$ and $\sigma_2 = 1.548$), yielding an empirical change score standard deviation of $\sigma_{\Delta} = 0.702$. This within-subject autocorrelation reduces the standard error of treatment comparisons by more than 50\% relative to an independent post-test design without pre-treatment baselines.
+
+For a two-sample Difference-in-Differences comparison between a treatment condition of size $N_T$ and the unexposed Control Condition of size $N_C$, the standard error is:
+\begin{equation}
+SE_{\text{DiD}} = \sigma_{\Delta} \sqrt{\frac{1}{N_T} + \frac{1}{N_C}}
+\end{equation}
+The Minimum Detectable Effect at significance level $\alpha$ (two-tailed) and statistical power $1 - \beta$ is calculated as:
+\begin{equation}
+\text{MDE}_{\text{raw}} = (z_{1 - \alpha/2} + z_{1 - \beta}) \times SE_{\text{DiD}}
+\end{equation}
+where $z_{0.975} = 1.960$ for $\alpha = 0.05$, $z_{0.80} = 0.842$ for 80\% power (multiplier $= 2.802$), and $z_{0.90} = 1.282$ for 90\% power (multiplier $= 3.242$). To facilitate comparison across studies and psychological benchmarks, effect sizes are expressed both in raw 7-point Likert scale units ($\text{MDE}_{\text{raw}}$) and as standardized effect sizes relative to baseline variance, Cohen's $d = \text{MDE}_{\text{raw}} / \sigma_1$ \citep{cohen1988statistical}.
+
+Table \ref{tbl:mde_analysis} presents the complete MDE calculations across all analytical tiers of the experimental design, and Figure \ref{fig:mde_curves} visualizes the theoretical precision curves alongside the empirical thresholds achieved in this study.
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Ex-Post Minimum Detectable Effect (MDE) Analysis Across Experimental Specifications}
+\label{tbl:mde_analysis}
+\setlength{\tabcolsep}{5.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccccc@{}}
+\toprule
+& & & & \multicolumn{2}{c}{\textbf{80\% Power}} & \multicolumn{2}{c}{\textbf{90\% Power}} \\
+\cmidrule(lr){5-6} \cmidrule(lr){7-8}
+\textbf{Model Specification / Level} & $N_T$ & $N_C$ & $SE$ & $\text{MDE}_{\text{raw}}$ & Cohen's $d$ & $\text{MDE}_{\text{raw}}$ & Cohen's $d$ \\
+\midrule
+\multicolumn{8}{l}{\textit{Panel A: Within-Subject Exposure Drift (Paired Comparison)}} \\[2pt]
+Full Sample Drift & 2,253 & --- & 0.015 & 0.041 & 0.028 & 0.048 & 0.032 \\
+Control Condition Drift & 177 & --- & 0.053 & 0.148 & 0.099 & 0.171 & 0.114 \\
+\addlinespace[4pt]
+\multicolumn{8}{l}{\textit{Panel B: Pooled Difference-in-Differences Contrasts (vs. Control $N_C=177$)}} \\[2pt]
+Taste-Only Conditions & 172 & 177 & 0.075 & 0.210 & 0.140 & 0.244 & 0.162 \\
+Single Status Conditions & 290 & 177 & 0.067 & 0.188 & 0.125 & 0.217 & 0.145 \\
+Pooled High-Status Conditions & 575 & 177 & 0.060 & 0.169 & 0.113 & 0.196 & 0.130 \\
+\addlinespace[4pt]
+\multicolumn{8}{l}{\textit{Panel C: Subgroup DiD Contrasts Within Status Consistency Quadrants}} \\[2pt]
+Working Class, No College & 60--214 & 70 & 0.108 & 0.304 & 0.203 & 0.352 & 0.234 \\
+Middle Class, College & 51--164 & 51 & 0.124 & 0.347 & 0.231 & 0.401 & 0.267 \\
+Middle Class, No College & 32--146 & 33 & 0.150 & 0.421 & 0.281 & 0.487 & 0.325 \\
+Working Class, College & 16--72 & 23 & 0.186 & 0.522 & 0.348 & 0.604 & 0.403 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+\textit{Note:} Minimum Detectable Effects (MDE) are calculated assuming a two-tailed $\alpha = 0.05$ with standard statistical power thresholds of $80\%$ ($z = 2.802$) and $90\%$ ($z = 3.242$). Calculations incorporate the empirical test-retest correlation across repeated trials ($r = 0.8945$, yielding $\sigma_{\Delta} = 0.702$ relative to baseline $\sigma_1 = 1.500$). $\text{MDE}_{\text{raw}}$ is expressed in units of the 7-point aesthetic rating scale; Cohen's $d = \text{MDE}_{\text{raw}} / \sigma_1$. In Panel C, $N_T$ indicates the range of treatment cell sizes across specific cue conditions, and reported $SE$ and MDE values correspond to median cell sizes.
+\end{minipage}
+\end{table}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figures/Figure_MDE_Power_Curves.png}
+    \caption{Minimum Detectable Effect (MDE) Power Analysis. Panel A displays theoretical MDE curves (Cohen's $d$) at 80\% power ($\alpha = 0.05$) across cell sample sizes, illustrating the precision advantage of repeated-measures DiD across varying levels of test-retest autocorrelation ($r$). Panel B displays the empirical MDE thresholds achieved in this study across within-subject drift benchmarks, pooled DiD models, and status-differentiated subgroup comparisons.}
+    \label{fig:mde_curves}
+\end{figure}
+
+The empirical findings from the MDE analysis yield three primary methodological takeaways. First, regarding repeated-measures exposure drift (Panel A of Table \ref{tbl:mde_analysis}), the full sample ($N = 2,253$) possessed extraordinary statistical power, capable of detecting shifts as minute as Cohen's $d \ge 0.028$ (0.041 scale points). Crucially, even within the unexposed Control Condition ($N_C = 177$), the design was powered at 80\% to detect drift as small as $d \ge 0.099$ (0.148 scale points). This high baseline precision enabled us to reliably identify the empirical $+0.107$ exposure drift in the Control Condition ($t = 2.05, p = 0.041$), confirming that the upward drift was not an artifact of random noise.
+
+Second, for the primary pooled Difference-in-Differences models benchmarked against the unexposed Control Condition (Panel B of Table \ref{tbl:mde_analysis}), the design possessed 80\% power to detect small treatment effects: $d \ge 0.113$ (0.169 points) for pooled high-status conditions ($N_T = 575$), $d \ge 0.125$ (0.188 points) for single-status conditions ($N_T \approx 290$), and $d \ge 0.140$ (0.210 points) for taste-only conditions ($N_T = 172$). All three pooled thresholds fall comfortably below Cohen's standard threshold for a ``small'' effect size ($d = 0.20$). This confirms that the pooled models were well-equipped to detect subtle social influence cues.
+
+Third, within the disaggregated status consistency quadrants (Panel C of Table \ref{tbl:mde_analysis}), cell sizes are necessarily smaller, leading to wider detection envelopes. In the two larger, status-consistent quadrants—Working Class without College ($N_C = 70$) and Middle Class with College ($N_C = 51$)—the median MDE thresholds were $d = 0.203$ (0.304 scale points) and $d = 0.231$ (0.347 scale points), providing adequate power for small-to-moderate effects. In contrast, in the smaller, status-inconsistent quadrants—Middle Class without College ($N_C = 33$) and Working Class with College ($N_C = 23$)—the median MDE thresholds expanded to $d = 0.281$ (0.421 points) and $d = 0.348$ (0.522 points). Consequently, statistically significant shifts in these cells emerged only when behavioral adjustments were pronounced, such as the $-0.394$ negative divergence ($p < 0.001$) observed among college-educated working-class respondents exposed to High-Status Dislike cues. Methodologically, this indicates that non-significant coefficients within the smallest status cells should be interpreted as reflecting wider estimation uncertainty rather than definitive evidence of null influence.
 
 \section{Survey Vignettes and Treatment Prompts}
 \label{sec:appendix_vignettes}

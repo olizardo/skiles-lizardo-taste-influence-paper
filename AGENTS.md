@@ -59,10 +59,12 @@ All forest plots have been replaced with **horizontal bar plots with error bars*
 | **Table 1** | `manuscript_R1.tex` (Table 1) | Sample demographics vs. 2012 Census benchmarks across experimental arms |
 | **Table 2** | `manuscript_R1.tex` (Table 2) | Primary unweighted DiD linear mixed model (pooled sample) |
 | **Table 3** | `manuscript_R1.tex` (Table 3) | Hypothesis evaluation matrix (estimates, expectations, and verdicts) |
-| **Appendix Figure A.1** | `figures/Figure_DiD_Status_All.png` | Full 24-cell status DiD bar plot with error bars |
-| **Appendix Figure A.2** | `figures/Figure11_Sens_MultinomialBehavior.png` | Sensitivity behavioral bar plot (excluding Taste-Only conditions) |
-| **Appendix Table A.1** | `tables/did_model_results.rds` | Full regression coefficients for DiD models |
-| **Appendix Table A.2** | `manuscript_R1.tex` (Table A.2) | Comparison of Unweighted and IPW-Weighted pooled DiD models |
+| **Appendix Figure A.1** | `figures/Figure_MDE_Power_Curves.png` | Dual-panel MDE power curves (theoretical & empirical benchmarks) |
+| **Appendix Figure A.2** | `figures/Figure_DiD_Status_All.png` | Full 24-cell status DiD bar plot with error bars |
+| **Appendix Figure A.3** | `figures/Figure11_Sens_MultinomialBehavior.png` | Sensitivity behavioral bar plot (excluding Taste-Only conditions) |
+| **Appendix Table A.1** | `tables/table_mde_summary.tex` | Ex-post Minimum Detectable Effect (MDE) analysis table |
+| **Appendix Table A.2** | `tables/did_model_results.rds` | Full regression coefficients for DiD models |
+| **Appendix Table A.3** | `manuscript_R1.tex` (Table A.2) | Comparison of Unweighted and IPW-Weighted pooled DiD models |
 
 ---
 
@@ -72,6 +74,7 @@ All forest plots have been replaced with **horizontal bar plots with error bars*
 - [x] **DiD Estimation Strategy (R1 #1):** Fully implemented in `R/did_models.R`, woven into narrative and Table 2.
 - [x] **Terminology Disambiguation (R1 #2):** Reserved "baseline" strictly for Trial 1; renamed unexposed group "Control Condition"; drift termed "exposure drift".
 - [x] **Survey Sampling & Descriptives (R1 #3):** Documented 2012 SSI panel recruitment, quota matching, deliberate college oversample, participant flow ($3,782 \to 2,275$), CI inferential scope, and Table 1.
+- [x] **Ex-Post Minimum Detectable Effect (MDE) Analysis (R1 #4):** Fully calculated via `R/mde_power_analysis.R`, documented in Appendix A, Table \ref{tbl:mde_analysis}, and Figure \ref{fig:mde_curves}.
 - [x] **Treatment Vignettes in Appendix (R1 #5):** Verbatim transcription of Qualtrics survey flow, stimuli, and vignettes in Appendix B.
 - [x] **IPW Causal Logic & Covariate Balance (R1 #7, #8):** Added pedagogical explanation of pseudo-populations and conditional exchangeability; documented Love plot.
 - [x] **Hypothesis Summary Table (R2 #7):** Added Table 3 systematically summarizing each hypothesis, DiD estimate, and statistical verdict.
@@ -82,7 +85,6 @@ All forest plots have been replaced with **horizontal bar plots with error bars*
 - [x] **Overleaf Git Remote:** Configured and synchronized (`git push overleaf main`).
 
 ### Remaining Tasks for Final Submission:
-- [ ] **Ex-Post Minimum Detectable Effect (MDE) Analysis (R1 #4):** Create dedicated script (`R/mde_power_analysis.R`) computing formal power/MDE curves across cell sizes and export formal LaTeX table/text for Appendix A.
 - [ ] **Stepwise Main Effects for Education & Class (R1 #6):** Estimate and present separate models for Education alone and Subjective Class alone before the 4-level combined variable.
 - [ ] **Export Full Model Regression Tables to LaTeX (R1 #12):** Generate full model tables (coefficients, SEs, test stats, random effect variances, AIC/BIC) using `modelsummary` into `tables/` and embed in Appendix.
 - [ ] **Deepen Theoretical Citations (R1 #13):** Integrate recent literature on cultural cognition, dual-process habitus, aesthetic signaling, and symbolic boundaries (Lizardo et al.) into `references.bib` and Section 1.
