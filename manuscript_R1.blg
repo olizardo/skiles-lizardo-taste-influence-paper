@@ -1,11 +1,11 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: manuscript.aux
+The top-level auxiliary file: manuscript_R1.aux
 The style file: apalike.bst
 Database file #1: references.bib
 You've used 27 entries,
             1935 wiz_defined-function locations,
-            657 strings with 7756 characters,
+            657 strings with 7762 characters,
 and the built_in function-call counts, 10517 in all, are:
 = -- 1088
 > -- 287

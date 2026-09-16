@@ -101,15 +101,18 @@ df_class_res <- as.data.frame(comps_class) %>%
     p_cat = factor(p_cat, levels = c("p < 0.05", "p < 0.10", "Not Significant"))
   )
 
-# Order conditions logically: Dislikes, Likes, Generalized
-cond_order <- rev(c(
-  "High-Status Dislike",
-  "Low-Status Dislike",
-  "Generalized Dislike",
+# Order conditions logically (top to bottom on y-axis):
+# High-Status Like, Low-Status Like, High-Status Dislike, Low-Status Dislike, Generalized Like, Generalized Dislike
+cond_order_top_down <- c(
   "High-Status Like",
   "Low-Status Like",
-  "Generalized Like"
-))
+  "High-Status Dislike",
+  "Low-Status Dislike",
+  "Generalized Like",
+  "Generalized Dislike"
+)
+
+cond_order <- rev(cond_order_top_down)
 
 df_edu_res$Condition <- factor(df_edu_res$Condition, levels = cond_order)
 df_class_res$Condition <- factor(df_class_res$Condition, levels = cond_order)
@@ -139,12 +142,13 @@ sig_palette <- c(
 )
 
 # Panel A: Education
-p_edu <- ggplot(df_edu_res, aes(x = estimate, y = Condition, fill = p_cat)) +
+p_edu <- ggplot(df_edu_res, aes(x = estimate, y = Condition, fill = p_cat, color = p_cat)) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.6) +
-  geom_col(width = 0.65, alpha = 0.85) +
-  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = 0.25, linewidth = 0.6, color = "black") +
+  geom_col(width = 0.65, alpha = 0.85, color = NA) +
+  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = 0.25, linewidth = 0.75) +
   facet_wrap(~ Group, ncol = 2) +
-  scale_fill_manual(name = "Significance", values = sig_palette, drop = FALSE) +
+  scale_fill_manual(name = "Significance", values = sig_palette, limits = names(sig_palette), drop = FALSE) +
+  scale_color_manual(name = "Significance", values = sig_palette, limits = names(sig_palette), drop = FALSE) +
   scale_x_continuous(
     limits = c(-0.60, 0.50),
     breaks = c(-0.6, -0.4, -0.2, 0.0, 0.2, 0.4),
@@ -159,12 +163,13 @@ p_edu <- ggplot(df_edu_res, aes(x = estimate, y = Condition, fill = p_cat)) +
   theme_barplot
 
 # Panel B: Subjective Class
-p_class <- ggplot(df_class_res, aes(x = estimate, y = Condition, fill = p_cat)) +
+p_class <- ggplot(df_class_res, aes(x = estimate, y = Condition, fill = p_cat, color = p_cat)) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.6) +
-  geom_col(width = 0.65, alpha = 0.85) +
-  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = 0.25, linewidth = 0.6, color = "black") +
+  geom_col(width = 0.65, alpha = 0.85, color = NA) +
+  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = 0.25, linewidth = 0.75) +
   facet_wrap(~ Group, ncol = 2) +
-  scale_fill_manual(name = "Significance", values = sig_palette, drop = FALSE) +
+  scale_fill_manual(name = "Significance", values = sig_palette, limits = names(sig_palette), drop = FALSE) +
+  scale_color_manual(name = "Significance", values = sig_palette, limits = names(sig_palette), drop = FALSE) +
   scale_x_continuous(
     limits = c(-0.60, 0.50),
     breaks = c(-0.6, -0.4, -0.2, 0.0, 0.2, 0.4),
@@ -178,11 +183,10 @@ p_class <- ggplot(df_class_res, aes(x = estimate, y = Condition, fill = p_cat)) 
   ) +
   theme_barplot
 
-p_edu_noleg <- p_edu + theme(legend.position = "none")
-p_class_leg <- p_class + theme(legend.position = "bottom", legend.title = element_blank())
-
-p_combined <- (p_edu_noleg / plot_spacer() / p_class_leg) +
-  plot_layout(heights = c(1, 0.05, 1))
+# Combine with patchwork collecting guides so all 3 significance levels appear
+p_combined <- (p_edu / plot_spacer() / p_class) +
+  plot_layout(heights = c(1, 0.05, 1), guides = "collect") &
+  theme(legend.position = "bottom")
 
 ggsave("figures/Figure_DiD_Edu_Class_Separate.png", p_combined, width = 10.5, height = 9.2, dpi = 300)
 ggsave("figures/Figure_DiD_Edu_Class_Separate.pdf", p_combined, width = 10.5, height = 9.2)
@@ -204,15 +208,8 @@ format_cell <- function(est, se, p) {
   sprintf("%+.3f%s (%.3f)", est, stars, se)
 }
 
-# Construct side-by-side table rows
-conditions_display <- c(
-  "High-Status Dislike",
-  "Low-Status Dislike",
-  "Generalized Dislike",
-  "High-Status Like",
-  "Low-Status Like",
-  "Generalized Like"
-)
+# Construct side-by-side table rows following identical top-down order
+conditions_display <- cond_order_top_down
 
 tbl_lines <- c(
   "\\begin{table}[ht!]",
