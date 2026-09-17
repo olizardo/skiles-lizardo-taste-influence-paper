@@ -7,9 +7,9 @@ This project modernizes, revises, and revives the analysis for the paper *"Stay,
 - **Overleaf Project URL:** https://www.overleaf.com/project/6a3fe1ed665ddc04ec45136a
 - **Overleaf Git Endpoint:** `https://git.overleaf.com/6a3fe1ed665ddc04ec45136a`
 - **Revision Tracking:** `REVISION_PLAN_POETICS.md` and `response_to_reviewers.md`
-- **Manuscript Files:**
-  - `manuscript.tex`: The original submitted version of the paper as originally submitted to *Poetics* (Original Submission).
-  - `manuscript_R1.tex`: The active, fully updated Major Revision manuscript for *Poetics* (R1), synchronized with Overleaf.
+- **Manuscript Files & Critical Preservation Policy:**
+  - `manuscript.tex`: **DO NOT OVERWRITE OR EDIT.** Preserves the frozen, historical original version of the manuscript as initially submitted to *Poetics* (14 pages).
+  - `manuscript_R1.tex`: **The ONLY active working manuscript file.** All current revisions, Overleaf edits, DiD models, IPW specifications, and text updates belong exclusively in `manuscript_R1.tex`.
 
 ---
 

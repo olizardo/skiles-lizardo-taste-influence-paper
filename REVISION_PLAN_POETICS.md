@@ -7,6 +7,12 @@
 
 ---
 
+## File Preservation & Revision Policy
+- **`manuscript.tex`**: **DO NOT OVERWRITE.** Preserves the original submitted manuscript from the initial *Poetics* submission (14 pages).
+- **`manuscript_R1.tex`**: **The ONLY active manuscript file.** All Major Revision updates, new analyses, and Overleaf synchronizations are made exclusively here.
+
+---
+
 ## Executive Summary
 
 The editorial decision from *Poetics* provides a clear and constructive pathway to publication via a **Major Revision**. Both reviewers recognize the value and high potential of the experimental study. The Editor (Hannah Wohl) has offered the option to revise either as a streamlined **Research Note** (sharpening empirical contributions and established facts) or to expand into a **Full Research Article** (fleshing out theoretical contributions and engaging recent debates).
