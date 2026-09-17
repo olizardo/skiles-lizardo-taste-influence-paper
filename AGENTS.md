@@ -51,18 +51,19 @@ $$\text{Taste}_{it} = \beta_0 + \beta_1 \text{Trial}_{it} + \beta_2 \text{Like}_
 
 ### 3. Moderated DiD Models & Status Consistency Matrix (Sections 3.2 & 3.3)
 - **Stepwise Models (Figure 4 & Appendix Table A.2):**
-  - Uses the uniform 4-group multinomial IPW weighting for complete methodological consistency across all specifications.
-  - *Education Alone:* Educational capital is the primary structural fault line. Non-college respondents align positively with generalized likes ($+0.246, p = 0.034$) and shift positively under low-status dislikes ($+0.147, p = 0.136$). College graduates experience sharp evaluative suppression under High-Status Dislike ($-0.302, p = 0.0006$), Generalized Dislike ($-0.329, p = 0.0022$), and Low-Status Dislike ($-0.202, p = 0.033$).
-  - *Subjective Class Alone:* Middle-class identifiers display significant negative shifts under High-Status Dislike ($-0.220, p = 0.017$) and Low-Status Like ($-0.207, p = 0.044$). Working-class identifiers adjust negatively under Generalized Dislikes ($-0.254, p = 0.015$) and High-Status Dislikes ($-0.186, p = 0.025$).
+  - Uses targeted binary IPW weighting balancing exogenous baseline covariates (`age`, `female`, `raceeth`, `parented`) specifically along each dimension (college vs. no college for Education alone; working vs. middle class for Subjective Class alone).
+  - *Education Alone:* Educational capital is the primary structural fault line. Non-college respondents align positively with generalized likes ($+0.185, p = 0.104$) and shift positively under low-status dislikes ($+0.159, p = 0.100$). College graduates experience sharp evaluative suppression under High-Status Dislike ($-0.282, p = 0.0011$), Generalized Dislike ($-0.305, p = 0.0045$), and Low-Status Dislike ($-0.187, p = 0.0454$).
+  - *Subjective Class Alone:* Middle-class identifiers display significant negative shifts under High-Status Dislike ($-0.172, p = 0.053$) and Low-Status Like ($-0.191, p = 0.053$). Working-class identifiers adjust negatively under Generalized Dislikes ($-0.212, p = 0.037$).
 - **The Four-Quadrant Status Consistency Matrix (Figure 5 & Appendix Table A.3):**
-  - Cross-cutting education and subjective class reveals that status-consistent and inconsistent actors behave distinctively.
+  - Cross-cutting education and subjective class reveals that status-consistent and inconsistent actors behave distinctively, estimated via generalized multinomial IPW across the four quadrants.
   - *Hypothesis 3 (Same-Status Alignment):* Rejected across consistent groups ($p \ge 0.35$).
   - *Hypothesis 4 (Cultural Goodwill / Upward Alignment):* Rejected for low-status consistent workers ($p \ge 0.25$), but college-educated workers display sharp negative reactivity to high-status dislikes ($-0.394, p = 0.0010$).
   - *Hypothesis 5 (Status-Based Distancing Disalignment):* Strongly supported! High-status consistent respondents (Middle Class/College) actively abandon taste when exposed to low-status likes ($-0.296, p = 0.0391$).
 
 ### 4. Inverse Probability Weighting (IPW) Causal Architecture (`R/propensity_models.R`)
-- Multinomial propensity score weighting via `WeightIt` and `cobalt` balances strictly exogenous pre-treatment baseline covariates (`age`, `female`, `raceeth`, and `parented`), excluding post-treatment adult personal income and geographic region to avoid conditioning on post-treatment socioeconomic outcomes of education and prevent overcontrol bias.
-- All models (pooled baseline, stepwise education/class, status consistency quadrants, and discrete multinomial behavioral choice models) use this uniform 4-group multinomial weighting for complete methodological consistency.
+- Propensity score weighting via `WeightIt` and `cobalt` balances strictly exogenous pre-treatment baseline covariates (`age`, `female`, `raceeth`, and `parented`), excluding post-treatment adult personal income and geographic region to avoid conditioning on post-treatment socioeconomic outcomes of education and prevent overcontrol bias.
+- Generalized multinomial IPW weighting across the four status consistency quadrants is applied to the 24-cell matrix (Figure 5) and the discrete behavioral models (Figure 6).
+- Targeted binary IPW weighting is applied to the univariate stepwise models (Figure 4) to balance background covariates directly along each respective dimension without distorting internal demographic distributions.
 - Standardized mean differences across all status groups are compressed below $0.10$ (Figure 2).
 
 ### 5. Discrete Behavioral Modeling via Marginal Effects (Section 3.4 & Figure 6)

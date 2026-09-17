@@ -46,22 +46,19 @@ clean_cond_labels <- function(x) {
 }
 
 # ==============================================================================
-# 1. 4-Group Multinomial IPW Weighting (Consistent Across All Analyses)
+# 1. Education-Moderated DiD Model (Targeted Binary IPW)
 # ==============================================================================
-cat("=== Estimating 4-Group Multinomial IPW across Status Consistency Quadrants ===\n")
-W_status <- weightit(
-  objsubjclass_factor ~ age + female + factor(raceeth) + parented,
+cat("=== Estimating Targeted Binary IPW for Education ===\n")
+W_edu <- weightit(
+  college ~ age + female + factor(raceeth) + parented,
   data = df_wide_cc,
   method = "ps",
   estimand = "ATE"
 )
-df_wide_cc$ipw_weight <- W_status$weights
+df_wide_cc$ipw_edu <- W_edu$weights
 
-# ==============================================================================
-# 2. Education-Moderated DiD Model (Using 4-Group Status IPW)
-# ==============================================================================
 cat("=== Estimating Education-Moderated DiD Model ===\n")
-mod_edu <- lm(diff ~ cond2_refctrl * college_factor, data = df_wide_cc, weights = ipw_weight)
+mod_edu <- lm(diff ~ cond2_refctrl * college_factor, data = df_wide_cc, weights = ipw_edu)
 
 # Extract DiD contrasts against Baseline within each education level
 comps_edu <- comparisons(
@@ -85,10 +82,19 @@ df_edu_res <- as.data.frame(comps_edu) %>%
   )
 
 # ==============================================================================
-# 3. Subjective Class-Moderated DiD Model (Using 4-Group Status IPW)
+# 2. Subjective Class-Moderated DiD Model (Targeted Binary IPW)
 # ==============================================================================
+cat("=== Estimating Targeted Binary IPW for Subjective Class ===\n")
+W_class <- weightit(
+  class ~ age + female + factor(raceeth) + parented,
+  data = df_wide_cc,
+  method = "ps",
+  estimand = "ATE"
+)
+df_wide_cc$ipw_class <- W_class$weights
+
 cat("=== Estimating Subjective Class-Moderated DiD Model ===\n")
-mod_class <- lm(diff ~ cond2_refctrl * class_factor, data = df_wide_cc, weights = ipw_weight)
+mod_class <- lm(diff ~ cond2_refctrl * class_factor, data = df_wide_cc, weights = ipw_class)
 
 comps_class <- comparisons(
   mod_class,
@@ -297,7 +303,7 @@ tbl_lines <- c(
   "\\begin{minipage}{\\linewidth}",
   "\\vspace{4pt}",
   "\\footnotesize",
-  "\\textit{Note:} $^{\\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation, estimated via generalized multinomial Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education across status consistency groups. Panel A estimates moderation by educational attainment alone (No College Degree vs. Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs. Middle Class).",
+  "\\textit{Note:} $^{\\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation, estimated via targeted binary Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education. Panel A estimates moderation by educational attainment alone (No College Degree vs. Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs. Middle Class).",
   "\\end{minipage}",
   "\\end{table}"
 )
