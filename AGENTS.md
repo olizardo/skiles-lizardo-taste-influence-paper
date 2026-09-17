@@ -85,9 +85,10 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 | :--- | :--- | :--- | :--- |
 | **Figure 1** | `figures/experimental_stimulus.jpeg` | `\ref{fig:stimulus}` | Whistler's *Nocturne: Blue and Gold -- Old Battersea Bridge* (1872) |
 | **Figure 2** | `figures/Figure8_CovariateBalance.png` | `\ref{fig:balance}` | IPW Love Plot of covariate balance across status quadrants |
-| **Figure 3** | `figures/Figure_DiD_Edu_Class_Separate.png` | `\ref{fig:did_edu_class}` | 2-panel horizontal bar plot of DiD effects for Education alone and Class alone |
-| **Figure 4** | `figures/Figure_DiD_Status_All.png` | `\ref{fig:did_status_full}` | Complete 24-cell status consistency DiD interaction grid (IPW-Weighted) |
-| **Figure 5** | `figures/Figure7_MultinomialBehavior.png` | `\ref{fig:multinom}` | 3-panel horizontal bar plot of Average Marginal Effects for Stay, Conform, and React |
+| **Figure 3** | `figures/Figure_DiD_Baseline_Influence.png` | `\ref{fig:did_baseline}` | 2-panel plot of evaluative trajectories and DiD effects for Section 3.1 baseline influence |
+| **Figure 4** | `figures/Figure_DiD_Edu_Class_Separate.png` | `\ref{fig:did_edu_class}` | 2-panel horizontal bar plot of DiD effects for Education alone and Class alone |
+| **Figure 5** | `figures/Figure_DiD_Status_All.png` | `\ref{fig:did_status_full}` | Complete 24-cell status consistency DiD interaction grid (IPW-Weighted) |
+| **Figure 6** | `figures/Figure7_MultinomialBehavior.png` | `\ref{fig:multinom}` | 3-panel horizontal bar plot of Average Marginal Effects for Stay, Conform, and React |
 | **Table 1** | `manuscript_R1.tex` | `\ref{tbl:descriptives}` | Sample demographics vs. 2012 Census benchmarks across experimental conditions |
 | **Table 2** | `manuscript_R1.tex` | `\ref{tbl:hypotheses_summary}` | Summary of Hypotheses, DiD Estimates, and Empirical Verdicts |
 | **Appendix Fig A.1** | `figures/Figure_MDE_Power_Curves.png` | `\ref{fig:mde_curves}` | Dual-panel MDE power curves (theoretical & empirical benchmarks) |
