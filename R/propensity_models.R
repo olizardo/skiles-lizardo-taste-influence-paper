@@ -1,5 +1,5 @@
 # R/propensity_models.R
-# Implements Propensity Score Weighting to balance covariates across status groups
+# Implements Propensity Score Weighting to balance strictly exogenous covariates across status groups
 
 library(WeightIt)
 library(cobalt)
@@ -18,32 +18,16 @@ cat("===================================================\n")
 cat("1. Estimating Propensity Scores & Balancing Weights\n")
 cat("===================================================\n")
 
-# Construct income quartiles and 4-category Census region
-df_wide <- df_wide %>%
-  mutate(
-    region4 = factor(case_match(
-      region,
-      c(1, 2) ~ "Northeast",
-      c(3, 4) ~ "Midwest",
-      c(5, 6, 7) ~ "South",
-      c(8, 9) ~ "West",
-      .default = NA_character_
-    )),
-    income_q = factor(ntile(income, 4), labels = c("Q1 (<$20k)", "Q2 ($20k-$40k)", "Q3 ($40k-$60k)", "Q4 ($60k+)"))
-  )
-
-# Select covariates for balancing: age, gender, race/ethnicity, parents' education, income quartiles, and region
-# Filter to complete cases on these variables to estimate weights
+# Select strictly exogenous pre-treatment baseline covariates: age, gender, race/ethnicity, and parents' education
 df_wide_cc <- df_wide %>%
   filter(!is.na(objsubjclass_factor), 
-         !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented), 
-         !is.na(income_q), !is.na(region4))
+         !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented))
 
 cat("Complete cases for weighting:", nrow(df_wide_cc), "out of", nrow(df_wide), "\n")
 
 # Multinomial propensity weighting across the 4 status consistency quadrants
 # Estimand is ATE (Average Treatment Effect) to balance all groups to the full population profile
-W <- weightit(objsubjclass_factor ~ age + female + factor(raceeth) + parented + income_q + region4, 
+W <- weightit(objsubjclass_factor ~ age + female + factor(raceeth) + parented, 
               data = df_wide_cc, 
               method = "ps", 
               estimand = "ATE")
@@ -62,8 +46,8 @@ fig_balance <- love.plot(W,
     plot.title = element_text(face = "bold", size = 12, hjust = 0),
     legend.position = "bottom"
   )
-ggsave("figures/Figure8_CovariateBalance.png", fig_balance, width = 8.5, height = 6.5, dpi = 300)
-ggsave("figures/Figure8_CovariateBalance.pdf", fig_balance, width = 8.5, height = 6.5)
+ggsave("figures/Figure8_CovariateBalance.png", fig_balance, width = 8.5, height = 6.0, dpi = 300)
+ggsave("figures/Figure8_CovariateBalance.pdf", fig_balance, width = 8.5, height = 6.0)
 cat("Balance plot saved to figures/Figure8_CovariateBalance.png and .pdf\n")
 
 cat("\n===================================================\n")
@@ -85,16 +69,7 @@ mod3_unwt <- lmer(taste ~ factor(trial) * cond2_factor + (1 | id),
                   data = df_long_wt, REML = FALSE)
 
 models_compare <- list("Unweighted" = mod3_unwt, "IPW Weighted" = mod3_wt)
-if (requireNamespace("modelsummary", quietly = TRUE)) {
-  modelsummary::modelsummary(models_compare, 
-                             output = "tables/propensity_weighted_models.html", 
-                             stars = TRUE, 
-                             title = "Comparison of Unweighted and IPW-Weighted Models")
-  cat("Weighted regression comparison saved to tables/propensity_weighted_models.html\n")
-} else {
-  saveRDS(models_compare, "tables/propensity_weighted_models.rds")
-}
-
+saveRDS(models_compare, "tables/propensity_weighted_models.rds")
 
 cat("\n===================================================\n")
 cat("3. Re-estimating the Multinomial Behavior Model\n")

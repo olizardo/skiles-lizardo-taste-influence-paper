@@ -4,15 +4,6 @@
 # Paper: "Stay, React, or Conform? Examining Social Influence Effects on Aesthetic Judgments"
 # Authors: Omar Lizardo & Sara Skiles (Poetics POETICS-D-26-00490)
 # ==============================================================================
-# This script estimates Difference-in-Differences models moderated separately by:
-# 1. Educational Attainment (College Degree vs. No College Degree)
-# 2. Subjective Social Class (Middle Class vs. Working Class)
-#
-# Addressing Reviewer 1, Point 6:
-# "Before moving to the analysis of combined status, please report the results for
-#  subjective social class and education separately. These results could be presented
-#  as additional subfigures or included in the appendix."
-# ==============================================================================
 
 suppressPackageStartupMessages({
   library(dplyr)
@@ -36,22 +27,9 @@ df_wide$diff <- df_wide$taste2_rev - df_wide$taste1_rev
 df_wide$cond2_refctrl <- relevel(df_wide$cond2_factor, ref = "Baseline")
 df_long$cond2_refctrl <- relevel(df_long$cond2_factor, ref = "Baseline")
 
-# Filter complete cases and construct income quartiles and region
-df_wide <- df_wide %>%
-  mutate(
-    region4 = factor(case_match(
-      region,
-      c(1, 2) ~ "Northeast",
-      c(3, 4) ~ "Midwest",
-      c(5, 6, 7) ~ "South",
-      c(8, 9) ~ "West",
-      .default = NA_character_
-    )),
-    income_q = factor(ntile(income, 4), labels = c("Q1 (<$20k)", "Q2 ($20k-$40k)", "Q3 ($40k-$60k)", "Q4 ($60k+)"))
-  )
-
+# Filter complete cases on strictly exogenous pre-treatment baseline covariates
 df_wide_cc <- df_wide %>%
-  filter(!is.na(college), !is.na(class), !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented), !is.na(income_q), !is.na(region4))
+  filter(!is.na(college), !is.na(class), !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented))
 
 # Map condition names to clean publication labels
 clean_cond_labels <- function(x) {
@@ -68,11 +46,11 @@ clean_cond_labels <- function(x) {
 }
 
 # ==============================================================================
-# 1. Education-Moderated DiD Model (Targeted Binary IPW with Income & Region)
+# 1. Education-Moderated DiD Model (Targeted Binary IPW)
 # ==============================================================================
 cat("=== Estimating Targeted Binary IPW for Education ===\n")
 W_edu <- weightit(
-  college ~ age + female + factor(raceeth) + parented + income_q + region4,
+  college ~ age + female + factor(raceeth) + parented,
   data = df_wide_cc,
   method = "ps",
   estimand = "ATE"
@@ -104,11 +82,11 @@ df_edu_res <- as.data.frame(comps_edu) %>%
   )
 
 # ==============================================================================
-# 2. Subjective Class-Moderated DiD Model (Targeted Binary IPW with Income & Region)
+# 2. Subjective Class-Moderated DiD Model (Targeted Binary IPW)
 # ==============================================================================
 cat("=== Estimating Targeted Binary IPW for Subjective Class ===\n")
 W_class <- weightit(
-  class ~ age + female + factor(raceeth) + parented + income_q + region4,
+  class ~ age + female + factor(raceeth) + parented,
   data = df_wide_cc,
   method = "ps",
   estimand = "ATE"
@@ -243,7 +221,6 @@ cat("Saved plot to figures/Figure_DiD_Edu_Class_Separate.png and .pdf\n")
 # ==============================================================================
 # 4. Generate Formal LaTeX Table
 # ==============================================================================
-# Save RDS summary
 saveRDS(list(
   mod_edu = mod_edu,
   mod_class = mod_class,
@@ -294,7 +271,6 @@ nocol_drift_se <- summary(mod_edu)$coefficients["(Intercept)", "Std. Error"]
 nocol_drift_p <- summary(mod_edu)$coefficients["(Intercept)", "Pr(>|t|)"]
 
 col_drift <- coef(mod_edu)["(Intercept)"] + coef(mod_edu)["college_factorCollege Degree"]
-# Standard error for linear combination
 vcov_edu <- vcov(mod_edu)
 col_drift_se <- sqrt(vcov_edu["(Intercept)", "(Intercept)"] + vcov_edu["college_factorCollege Degree", "college_factorCollege Degree"] + 2 * vcov_edu["(Intercept)", "college_factorCollege Degree"])
 col_drift_p <- 2 * (1 - pnorm(abs(col_drift / col_drift_se)))
@@ -327,7 +303,7 @@ tbl_lines <- c(
   "\\begin{minipage}{\\linewidth}",
   "\\vspace{4pt}",
   "\\footnotesize",
-  "\\textit{Note:} $^{\\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation. Panel A estimates moderation by educational attainment alone (No College Degree vs. Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs. Middle Class).",
+  "\\textit{Note:} $^{\\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation, estimated via targeted binary Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education. Panel A estimates moderation by educational attainment alone (No College Degree vs. Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs. Middle Class).",
   "\\end{minipage}",
   "\\end{table}"
 )

@@ -35,7 +35,6 @@ sig_palette <- c(
 )
 
 # Standard condition order from top to bottom on the vertical axis:
-# High Status Like, Low Status Like, High Status Dislike, Low Status Dislike, Generalized Like, Generalized Dislike
 cond_order_top_down <- c(
   "High-Status Like",
   "Low-Status Like",
@@ -108,7 +107,7 @@ ggsave("figures/Figure_DiD_Pooled.pdf", p_pooled_bar, width = 8.5, height = 5.5)
 cat("Figure_DiD_Pooled saved successfully.\n")
 
 # ==============================================================================
-# 2. Appendix Figure A.3: Complete 24-Cell Status DiD Bar Plot
+# 2. Figure 4: Complete 24-Cell Status Consistency DiD Bar Plot (Main Text)
 # ==============================================================================
 df_status_all <- res_did_status %>%
   mutate(
@@ -147,7 +146,7 @@ p_status_bar <- ggplot(df_status_all, aes(x = estimate, y = cond_clean, fill = s
     labels = c("-0.8", "-0.4", "0.0", "+0.4", "+0.8")
   ) +
   labs(
-    title = "Estimated DiD Treatment Effects by Status Consistency (IPW Weighted)",
+    title = "Estimated Difference-in-Differences Treatment Effects Across Status-Consistency Quadrants (IPW-Weighted)",
     subtitle = "Relative to unexposed Control Condition within each status quadrant (95% CI)",
     x = "DiD Treatment Effect (Change Score vs. Control)",
     y = ""
@@ -160,26 +159,12 @@ ggsave("figures/Figure_DiD_Status_All.pdf", p_status_bar, width = 10.5, height =
 cat("Figure_DiD_Status_All saved successfully.\n")
 
 # ==============================================================================
-# 3. Figure 4: Multinomial Behavioral Choices (AME Bar Plot)
+# 3. Figure 5: Multinomial Behavioral Choices (AME Bar Plot)
 # ==============================================================================
-# Re-estimate multinomial model with IPW weights (including income quartiles and region)
-df_wide <- df_wide %>%
-  mutate(
-    region4 = factor(case_match(
-      region,
-      c(1, 2) ~ "Northeast",
-      c(3, 4) ~ "Midwest",
-      c(5, 6, 7) ~ "South",
-      c(8, 9) ~ "West",
-      .default = NA_character_
-    )),
-    income_q = factor(ntile(income, 4), labels = c("Q1 (<$20k)", "Q2 ($20k-$40k)", "Q3 ($40k-$60k)", "Q4 ($60k+)"))
-  )
-
 df_wide_cc <- df_wide %>%
-  filter(!is.na(objsubjclass_factor), !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented), !is.na(income_q), !is.na(region4))
+  filter(!is.na(objsubjclass_factor), !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented))
 
-W <- weightit(objsubjclass_factor ~ age + female + factor(raceeth) + parented + income_q + region4, 
+W <- weightit(objsubjclass_factor ~ age + female + factor(raceeth) + parented, 
               data = df_wide_cc, method = "ps", estimand = "ATE")
 df_wide_cc$ipw_weight <- W$weights
 
@@ -256,10 +241,10 @@ p_multi_bars <- ggplot(df_mfx_plot, aes(x = estimate, y = Comparison, fill = sig
 
 ggsave("figures/Figure7_MultinomialBehavior.png", p_multi_bars, width = 11, height = 4.8, dpi = 300)
 ggsave("figures/Figure7_MultinomialBehavior.pdf", p_multi_bars, width = 11, height = 4.8)
-cat("Figure 4 (Figure7_MultinomialBehavior) saved successfully.\n")
+cat("Figure 5 (Figure7_MultinomialBehavior) saved successfully.\n")
 
 # ==============================================================================
-# 4. Appendix Figure A.4: Sensitivity Behavioral Choices (Excluding Taste-Only)
+# 4. Appendix Figure A.3: Sensitivity Behavioral Choices (Excluding Taste-Only)
 # ==============================================================================
 df_multi_sens <- df_multi %>%
   filter(!cond2_factor %in% c("Taste Only/Like", "Taste Only/Dislike"))
@@ -319,5 +304,4 @@ p_sens_bars <- ggplot(df_sens_plot, aes(x = estimate, y = Comparison, fill = sig
 
 ggsave("figures/Figure11_Sens_MultinomialBehavior.png", p_sens_bars, width = 11, height = 4.8, dpi = 300)
 ggsave("figures/Figure11_Sens_MultinomialBehavior.pdf", p_sens_bars, width = 11, height = 4.8)
-cat("Appendix Figure A.4 (Figure11_Sens_MultinomialBehavior) saved successfully.\n")
-
+cat("Appendix Figure A.3 (Figure11_Sens_MultinomialBehavior) saved successfully.\n")
