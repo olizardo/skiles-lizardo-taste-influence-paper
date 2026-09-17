@@ -117,14 +117,14 @@ df_class_res <- as.data.frame(comps_class) %>%
   )
 
 # Order conditions logically (top to bottom on y-axis):
-# High-Status Like, Low-Status Like, High-Status Dislike, Low-Status Dislike, Generalized Like, Generalized Dislike
+# All Likes grouped together, all Dislikes grouped together: Generalized, High-Status, Low-Status
 cond_order_top_down <- c(
+  "Generalized Like",
   "High-Status Like",
   "Low-Status Like",
+  "Generalized Dislike",
   "High-Status Dislike",
-  "Low-Status Dislike",
-  "Generalized Like",
-  "Generalized Dislike"
+  "Low-Status Dislike"
 )
 
 # In ggplot, the last factor level appears at the top of the y-axis

@@ -35,13 +35,14 @@ sig_palette <- c(
 )
 
 # Standard condition order from top to bottom on the vertical axis:
+# All Likes grouped together, all Dislikes grouped together: Generalized, High-Status, Low-Status
 cond_order_top_down <- c(
+  "Generalized Like",
   "High-Status Like",
   "Low-Status Like",
+  "Generalized Dislike",
   "High-Status Dislike",
-  "Low-Status Dislike",
-  "Generalized Like",
-  "Generalized Dislike"
+  "Low-Status Dislike"
 )
 
 cond_order_y <- rev(cond_order_top_down)

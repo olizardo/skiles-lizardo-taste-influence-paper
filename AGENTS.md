@@ -78,13 +78,13 @@ $$\text{Taste}_{it} = \beta_0 + \beta_1 \text{Trial}_{it} + \beta_2 \text{Like}_
 
 ## Active Manuscript Assets Inventory (`manuscript_R1.tex`)
 
-All figures use **horizontal bar plots with color-matched error bars** and standardized top-down y-axis ordering:
-1. High-Status Like
-2. Low-Status Like
-3. High-Status Dislike
-4. Low-Status Dislike
-5. Generalized Like
-6. Generalized Dislike
+All figures use **horizontal bar plots with color-matched error bars** and standardized top-down y-axis ordering (grouping all Likes together and all Dislikes together, ordered by Generalized, High-Status, Low-Status):
+1. Generalized Like
+2. High-Status Like
+3. Low-Status Like
+4. Generalized Dislike
+5. High-Status Dislike
+6. Low-Status Dislike
 
 | Manuscript Asset | File Path | Label | Description |
 | :--- | :--- | :--- | :--- |
@@ -131,5 +131,5 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 - [x] **Uniform 4-Group IPW Weighting:** Standardized all analyses (pooled baseline, stepwise education/class, status consistency quadrants, and discrete multinomial models) to use uniform 4-group multinomial IPW weights balancing strictly exogenous baseline covariates (`age`, `female`, `raceeth`, and `parented`).
 - [x] **Text Asterisk Formatting:** Removed all significance asterisks and daggers next to $p$-values from the main narrative text, preserving them strictly in regression and summary tables.
 - [x] **Asset Housekeeping:** Deleted obsolete `figures/Figure_DiD_Significant_Effects.*` assets.
-- [x] **Standardized Condition Ordering:** Imposed identical top-down y-axis ordering across all figures and tables (High-Status Like $\to$ Generalized Dislike).
+- [x] **Standardized Condition Ordering:** Imposed identical top-down y-axis ordering across all figures and tables (Generalized Like $\to$ High-Status Like $\to$ Low-Status Like $\to$ Generalized Dislike $\to$ High-Status Dislike $\to$ Low-Status Dislike).
 - [x] **Preservation of Original Manuscript:** `manuscript.tex` frozen as the historical original submission (14 pages); `manuscript_R1.tex` used for all active revision work.
