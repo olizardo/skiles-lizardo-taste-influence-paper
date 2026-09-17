@@ -1,34 +1,15 @@
 \begin{thebibliography}{}
 
-\bibitem[Aral et~al., 2009]{aral2009distinguishing-3c0}
-Aral, S., Muchnik, L., and Sundararajan, A. (2009).
-\newblock Distinguishing influence-based contagion from homophily-driven
-  diffusion in dynamic networks.
-\newblock {\em Proceedings of the National Academy of Sciences of the United
-  States of America}, 106(51):21544--21549.
-
 \bibitem[Berger and Heath, 2008]{berger2008}
 Berger, J. and Heath, C. (2008).
 \newblock Who drives divergence? identity signaling, outgroup dissimilarity,
   and the abandonment of cultural tastes.
 \newblock {\em Journal of Personality and Social Psychology}, 95(3):593--607.
 
-\bibitem[Bloom, 1995]{bloom1995minimum}
-Bloom, H.~S. (1995).
-\newblock Minimum detectable effects: A simple way to measure the statistical
-  precision of field experiments.
-\newblock {\em Evaluation Review}, 19(5):547--556.
-
 \bibitem[Bourdieu, 1984]{bourdieu1984}
 Bourdieu, P. (1984).
 \newblock {\em Distinction: A social critique of the judgement of taste}.
 \newblock Harvard university press.
-
-\bibitem[Brand and Thomas, 2013]{brand2013causal}
-Brand, J.~E. and Thomas, J.~S. (2013).
-\newblock Causal effect heterogeneity.
-\newblock In {\em Handbook of causal analysis for social research}, pages
-  189--213. Springer.
 
 \bibitem[Bryson, 1996]{bryson1996}
 Bryson, B. (1996).
@@ -36,27 +17,10 @@ Bryson, B. (1996).
   dislikes.
 \newblock {\em American Sociological Review}, 61(5):884--899.
 
-\bibitem[Centola, 2011]{centola2011experimental-93e}
-Centola, D. (2011).
-\newblock An experimental study of homophily in the adoption of health
-  behavior.
-\newblock {\em Science}, 334(6060):1269--1272.
-
-\bibitem[Cohen, 1988]{cohen1988statistical}
-Cohen, J. (1988).
-\newblock {\em Statistical Power Analysis for the Behavioral Sciences}.
-\newblock Lawrence Erlbaum Associates, Hillsdale, NJ, 2nd edition.
-
-\bibitem[Cruces et~al., 2013]{cruces2013biases}
-Cruces, G., Perez-Truglia, R., and Tetaz, M. (2013).
-\newblock Biases in perceptions of sorting: How home-ownership and inequality
-  shape beliefs about position.
-\newblock {\em Journal of Public Economics}, 98:100--112.
-
-\bibitem[Cutting, 2003]{cutting2003gustave}
-Cutting, J.~E. (2003).
-\newblock Gustave caillebotte, french impressionism, and mere exposure.
-\newblock {\em Psychonomic Bulletin \& Review}, 10(2):319--343.
+\bibitem[Correll and Ridgeway, 2003]{correll2003expectation}
+Correll, S.~J. and Ridgeway, C.~L. (2003).
+\newblock Expectation states theory.
+\newblock In {\em Handbook of social psychology}, pages 29--51. Springer.
 
 \bibitem[DiMaggio, 1987]{dimaggio1987}
 DiMaggio, P. (1987).
@@ -68,54 +32,37 @@ Erickson, B.~H. (1996).
 \newblock Culture, class, and connections.
 \newblock {\em American Journal of Sociology}, 102(1):217--251.
 
-\bibitem[Gelman and Carlin, 2014]{gelman2014beyond}
-Gelman, A. and Carlin, J. (2014).
-\newblock Beyond power calculations: Assessing type s (sign) and type m
-  (magnitude) errors.
-\newblock {\em Perspectives on Psychological Science}, 9(6):641--651.
-
-\bibitem[Greifer, 2022]{greifer2022cobalt}
-Greifer, N. (2022).
-\newblock {\em cobalt: Covariate Balance Tables and Plots}.
-\newblock R package version 4.4.1.
-
-\bibitem[Hoenig and Heisey, 2001]{hoenig2001abuse}
-Hoenig, J.~M. and Heisey, D.~M. (2001).
-\newblock The abuse of power: The pervasive fallacy of analyzing power for data
-  analytic results.
-\newblock {\em The American Statistician}, 55(1):19--24.
-
-\bibitem[Hope, 1975]{hope1975models}
-Hope, K. (1975).
-\newblock Models of status inconsistency and social mobility effects.
-\newblock {\em American Sociological Review}, pages 322--343.
+\bibitem[Heider, 1946]{heider1946attitudes-ff3}
+Heider, F. (1946).
+\newblock Attitudes and cognitive organization.
+\newblock {\em The Journal of psychology}, 21(1):107--112.
 
 \bibitem[Lamont and Moln{\'a}r, 2002]{lamont2002}
 Lamont, M. and Moln{\'a}r, V. (2002).
 \newblock The study of boundaries in the social sciences.
 \newblock {\em Annual review of sociology}, 28(1):167--195.
 
-\bibitem[Lewis and Kaufman, 2018]{lewis2018conversion-9be}
-Lewis, K. and Kaufman, J. (2018).
-\newblock The conversion of cultural tastes into social network ties.
-\newblock {\em The American journal of sociology}, 123(6):1684--1742.
-\newblock doi: 10.1086/697525.
-
 \bibitem[Lizardo, 2006]{lizardo2006}
 Lizardo, O. (2006).
 \newblock How cultural tastes shape personal networks.
 \newblock {\em American Sociological Review}, 71(5):778--807.
 
+\bibitem[Lizardo and Skiles, 2016]{lizardo2016cultural-aaa}
+Lizardo, O. and Skiles, S. (2016).
+\newblock Cultural objects as prisms: Perceived audience composition of musical
+  genres as a resource for symbolic exclusion.
+\newblock {\em Socius}.
+
+\bibitem[Olivos and Wang, 2023]{olivos2023cultural-0cd}
+Olivos, F. and Wang, P. (2023).
+\newblock Cultural omnivorousness and status inconsistency in chile: The role
+  of objective and subjective social status.
+\newblock {\em Sociological Research Online}, 28(3):736--758.
+
 \bibitem[Reber et~al., 1998]{reber1998effects-efe}
 Reber, R., Winkielman, P., and Schwarz, N. (1998).
 \newblock Effects of perceptual fluency on affective judgments.
 \newblock {\em Psychological science}, 9(1):45--48.
-
-\bibitem[Rosenbaum and Rubin, 1983]{rosenbaum1983central}
-Rosenbaum, P.~R. and Rubin, D.~B. (1983).
-\newblock The central role of the propensity score in observational studies for
-  causal effects.
-\newblock {\em Biometrika}, 70(1):41--55.
 
 \bibitem[Salganik et~al., 2006]{salganik2006experimental-88d}
 Salganik, M.~J., Dodds, P.~S., and Watts, D.~J. (2006).
@@ -123,16 +70,27 @@ Salganik, M.~J., Dodds, P.~S., and Watts, D.~J. (2006).
   artificial cultural market.
 \newblock {\em Science}, 311(5762):854--856.
 
-\bibitem[Shalizi and Thomas, 2011]{shalizi2011homophily-aab}
-Shalizi, C.~R. and Thomas, A.~C. (2011).
-\newblock Homophily and contagion are generically confounded in observational
-  social network studies.
-\newblock {\em Sociological methods \& research}, 40(2):211--239.
-
 \bibitem[Simmel, 1957]{simmel1957}
 Simmel, G. (1957).
 \newblock Fashion.
 \newblock {\em American journal of sociology}, 62(6):541--558.
+
+\bibitem[Strang and Macy, 2001]{strang2001search-10a}
+Strang, D. and Macy, M.~W. (2001).
+\newblock In search of excellence: Fads, success stories, and adaptive
+  emulation.
+\newblock {\em American Journal of Sociology}, 107(1):147--182.
+
+\bibitem[Stryker and Macke, 1978]{stryker1978status-d86}
+Stryker, S. and Macke, A.~S. (1978).
+\newblock Status inconsistency and role conflict.
+\newblock {\em Annual Review of Sociology}, 4(1):57--90.
+
+\bibitem[Tampubolon, 2008]{tampubolon2008revisiting}
+Tampubolon, G. (2008).
+\newblock Revisiting omnivores in america circa 1990s: The exclusiveness of
+  omnivores?
+\newblock {\em Poetics}, 36(2-3):243--264.
 
 \bibitem[Vanzella-Yang and Abrutyn, 2022]{vanzella2022tastes}
 Vanzella-Yang, A. and Abrutyn, S. (2022).
@@ -144,10 +102,5 @@ Vanzella-Yang, A. and Abrutyn, S. (2022).
 Wohl, H. (2015).
 \newblock Community sense: The cohesive power of aesthetic judgment.
 \newblock {\em Sociological Theory}, 33(4):299--326.
-
-\bibitem[Zajonc, 1968]{zajonc1968attitudinal}
-Zajonc, R.~B. (1968).
-\newblock Attitudinal effects of mere exposure.
-\newblock {\em Journal of Personality and Social Psychology}, 9(2p2):1--27.
 
 \end{thebibliography}
