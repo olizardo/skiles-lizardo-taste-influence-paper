@@ -50,24 +50,28 @@ $$\text{Taste}_{it} = \beta_0 + \beta_1 \text{Trial}_{it} + \beta_2 \text{Like}_
   - *Valence Contrast:* Direct contrast yields a significant directional swing ($\Delta = +0.240^{**}, SE = 0.075, \chi^2 = 10.32, p = 0.0013$), demonstrating that negative social consensus exerts an asymmetric veto power.
 
 ### 3. Moderated DiD Models & Status Consistency Matrix (Sections 3.2 & 3.3)
-- **Stepwise Models (Figure 3 & Appendix Table A.2):**
-  - *Education Alone:* Educational capital is the primary structural fault line. Non-college respondents align positively with generalized likes ($+0.228^{*}$) and react to low-status dislikes ($+0.198^{*}$). College graduates experience sharp evaluative suppression under High-Status Dislike ($-0.275^{**}$), Generalized Dislike ($-0.302^{*}$), and Low-Status Dislike ($-0.226^{*}$), along with Bourdieusian taste abandonment under Low-Status Likes ($-0.248^{*}$).
-  - *Subjective Class Alone:* Middle-class identifiers display significant negative shifts under High-Status Dislike ($-0.182^{*}$) and Low-Status Like ($-0.202^{*}$), but effects are attenuated relative to education-stratified models.
-- **The Four-Quadrant Status Consistency Matrix (Figure 4 & Appendix Table A.3):**
+- **Stepwise Models (Figure 4 & Appendix Table A.2):**
+  - Uses the uniform 4-group multinomial IPW weighting for complete methodological consistency across all specifications.
+  - *Education Alone:* Educational capital is the primary structural fault line. Non-college respondents align positively with generalized likes ($+0.246, p = 0.034$) and shift positively under low-status dislikes ($+0.147, p = 0.136$). College graduates experience sharp evaluative suppression under High-Status Dislike ($-0.302, p = 0.0006$), Generalized Dislike ($-0.329, p = 0.0022$), and Low-Status Dislike ($-0.202, p = 0.033$).
+  - *Subjective Class Alone:* Middle-class identifiers display significant negative shifts under High-Status Dislike ($-0.220, p = 0.017$) and Low-Status Like ($-0.207, p = 0.044$). Working-class identifiers adjust negatively under Generalized Dislikes ($-0.254, p = 0.015$) and High-Status Dislikes ($-0.186, p = 0.025$).
+- **The Four-Quadrant Status Consistency Matrix (Figure 5 & Appendix Table A.3):**
   - Cross-cutting education and subjective class reveals that status-consistent and inconsistent actors behave distinctively.
-  - *Hypothesis 1 (Same-Status Alignment):* Rejected across consistent groups ($p \ge 0.35$).
-  - *Hypothesis 2 (Cultural Goodwill / Upward Alignment):* Rejected for low-status consistent workers ($p \ge 0.25$), but college-educated workers display sharp negative reactivity to high-status dislikes ($-0.394^{***}, p = 0.001$).
-  - *Hypothesis 3 (Cross-Status Reactance / Taste Abandonment):* Strongly supported! High-status consistent respondents (Middle Class/College) actively abandon taste when exposed to low-status likes ($-0.296^{*}, p = 0.039$).
+  - *Hypothesis 3 (Same-Status Alignment):* Rejected across consistent groups ($p \ge 0.35$).
+  - *Hypothesis 4 (Cultural Goodwill / Upward Alignment):* Rejected for low-status consistent workers ($p \ge 0.25$), but college-educated workers display sharp negative reactivity to high-status dislikes ($-0.394, p = 0.0010$).
+  - *Hypothesis 5 (Status-Based Distancing Disalignment):* Strongly supported! High-status consistent respondents (Middle Class/College) actively abandon taste when exposed to low-status likes ($-0.296, p = 0.0391$).
 
 ### 4. Inverse Probability Weighting (IPW) Causal Architecture (`R/propensity_models.R`)
-- Multinomial propensity score weighting via `WeightIt` and `cobalt` balances baseline age, gender, race/ethnicity, and parental education across status groups, compressing all standardized mean differences below $0.10$ (Figure 2).
+- Multinomial propensity score weighting via `WeightIt` and `cobalt` balances strictly exogenous pre-treatment baseline covariates (`age`, `female`, `raceeth`, and `parented`), excluding post-treatment adult personal income and geographic region to avoid conditioning on post-treatment socioeconomic outcomes of education and prevent overcontrol bias.
+- All models (pooled baseline, stepwise education/class, status consistency quadrants, and discrete multinomial behavioral choice models) use this uniform 4-group multinomial weighting for complete methodological consistency.
+- Standardized mean differences across all status groups are compressed below $0.10$ (Figure 2).
 
-### 5. Discrete Behavioral Modeling via Marginal Effects (Section 3.4 & Figure 5)
+### 5. Discrete Behavioral Modeling via Marginal Effects (Section 3.4 & Figure 6)
 - Evaluated via Average Marginal Effects from multinomial logit relative to *Working Class, No College*:
+  - **Hypothesis 6 (Status Consistency):** Strongly supported ($p < 0.001$).
   - **Inertia (Stay):** Structural status consistency drives stability. Middle Class/College is $+4.6\%$ more likely to stay ($p < 0.001$), while Middle Class/No College is $-5.4\%$ less likely to stay ($p < 0.001$).
   - **Conformity:** Status-inconsistent individuals are significantly more susceptible to external influence: Working Class/College is $+5.4\%$ more likely to conform ($p < 0.001$), and Middle Class/No College is $+4.1\%$ more likely to conform ($p < 0.001$).
   - **Reactance:** College-educated individuals are significantly less likely to react ($-3.2\%$ and $-2.5\%$, $p < 0.01$). Oppositional reactance is concentrated among non-college workers.
-  - **Sensitivity Check (Appendix Figure A.4):** Re-estimating the model excluding Taste-Only conditions ($N = 1,870$) yields identical substantive results.
+  - **Sensitivity Check (Appendix Figure A.3):** Re-estimating the model excluding Taste-Only conditions ($N = 1,870$) yields identical substantive results.
 
 ---
 
@@ -121,5 +125,10 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 - [x] **Valence Framing around Valence Asymmetry (R2 #4):** Reframed core claim around asymmetric veto power of negative evaluations.
 - [x] **Status Inconsistency Mechanism & Moderation (R2 #5, R2 #6):** Integrated status crystallization theory (Lenski 1954; Hope 1975); clarified that consistency anchors stability, whereas inconsistency breeds fluidity.
 - [x] **Clear Empirical Takeaways for Researchers (R2 #7):** Added Table 2 systematically summarizing each hypothesis, DiD estimate, and statistical verdict.
+- [x] **Hypothesis Alignment & Numbering:** Systematically numbered and aligned all hypotheses across Section 1.3, Section 3 results, Table 2, and Section 4 discussion (H1: Mere Exposure, H2a: Positive Evaluations, H2b: Negative Evaluations, H3: Same-Status Alignment, H4: Cultural Goodwill, H5: Status-Based Distancing Disalignment, H6: Status Consistency).
+- [x] **Section 3.1 Baseline Influence Figure:** Added Figure 3 (`Figure_DiD_Baseline_Influence.png`), displaying within-subject evaluative trajectories across repeated trials (Panel A) alongside net DiD treatment effects relative to control exposure drift (Panel B).
+- [x] **Uniform 4-Group IPW Weighting:** Standardized all analyses (pooled baseline, stepwise education/class, status consistency quadrants, and discrete multinomial models) to use uniform 4-group multinomial IPW weights balancing strictly exogenous baseline covariates (`age`, `female`, `raceeth`, and `parented`).
+- [x] **Text Asterisk Formatting:** Removed all significance asterisks and daggers next to $p$-values from the main narrative text, preserving them strictly in regression and summary tables.
+- [x] **Asset Housekeeping:** Deleted obsolete `figures/Figure_DiD_Significant_Effects.*` assets.
 - [x] **Standardized Condition Ordering:** Imposed identical top-down y-axis ordering across all figures and tables (High-Status Like $\to$ Generalized Dislike).
 - [x] **Preservation of Original Manuscript:** `manuscript.tex` frozen as the historical original submission (14 pages); `manuscript_R1.tex` used for all active revision work.
