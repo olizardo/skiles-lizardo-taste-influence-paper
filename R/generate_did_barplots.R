@@ -162,11 +162,24 @@ cat("Figure_DiD_Status_All saved successfully.\n")
 # ==============================================================================
 # 3. Figure 4: Multinomial Behavioral Choices (AME Bar Plot)
 # ==============================================================================
-# Re-estimate multinomial model with IPW weights
-df_wide_cc <- df_wide %>%
-  filter(!is.na(objsubjclass_factor), !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented))
+# Re-estimate multinomial model with IPW weights (including income quartiles and region)
+df_wide <- df_wide %>%
+  mutate(
+    region4 = factor(case_match(
+      region,
+      c(1, 2) ~ "Northeast",
+      c(3, 4) ~ "Midwest",
+      c(5, 6, 7) ~ "South",
+      c(8, 9) ~ "West",
+      .default = NA_character_
+    )),
+    income_q = factor(ntile(income, 4), labels = c("Q1 (<$20k)", "Q2 ($20k-$40k)", "Q3 ($40k-$60k)", "Q4 ($60k+)"))
+  )
 
-W <- weightit(objsubjclass_factor ~ age + female + factor(raceeth) + parented, 
+df_wide_cc <- df_wide %>%
+  filter(!is.na(objsubjclass_factor), !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented), !is.na(income_q), !is.na(region4))
+
+W <- weightit(objsubjclass_factor ~ age + female + factor(raceeth) + parented + income_q + region4, 
               data = df_wide_cc, method = "ps", estimand = "ATE")
 df_wide_cc$ipw_weight <- W$weights
 

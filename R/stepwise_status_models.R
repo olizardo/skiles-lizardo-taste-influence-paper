@@ -21,6 +21,8 @@ suppressPackageStartupMessages({
   library(lme4)
   library(marginaleffects)
   library(patchwork)
+  library(WeightIt)
+  library(cobalt)
 })
 
 # Load clean data
@@ -33,6 +35,23 @@ df_long <- data_list$long
 df_wide$diff <- df_wide$taste2_rev - df_wide$taste1_rev
 df_wide$cond2_refctrl <- relevel(df_wide$cond2_factor, ref = "Baseline")
 df_long$cond2_refctrl <- relevel(df_long$cond2_factor, ref = "Baseline")
+
+# Filter complete cases and construct income quartiles and region
+df_wide <- df_wide %>%
+  mutate(
+    region4 = factor(case_match(
+      region,
+      c(1, 2) ~ "Northeast",
+      c(3, 4) ~ "Midwest",
+      c(5, 6, 7) ~ "South",
+      c(8, 9) ~ "West",
+      .default = NA_character_
+    )),
+    income_q = factor(ntile(income, 4), labels = c("Q1 (<$20k)", "Q2 ($20k-$40k)", "Q3 ($40k-$60k)", "Q4 ($60k+)"))
+  )
+
+df_wide_cc <- df_wide %>%
+  filter(!is.na(college), !is.na(class), !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented), !is.na(income_q), !is.na(region4))
 
 # Map condition names to clean publication labels
 clean_cond_labels <- function(x) {
@@ -49,10 +68,19 @@ clean_cond_labels <- function(x) {
 }
 
 # ==============================================================================
-# 1. Education-Moderated DiD Model
+# 1. Education-Moderated DiD Model (Targeted Binary IPW with Income & Region)
 # ==============================================================================
+cat("=== Estimating Targeted Binary IPW for Education ===\n")
+W_edu <- weightit(
+  college ~ age + female + factor(raceeth) + parented + income_q + region4,
+  data = df_wide_cc,
+  method = "ps",
+  estimand = "ATE"
+)
+df_wide_cc$ipw_edu <- W_edu$weights
+
 cat("=== Estimating Education-Moderated DiD Model ===\n")
-mod_edu <- lm(diff ~ cond2_refctrl * college_factor, data = df_wide)
+mod_edu <- lm(diff ~ cond2_refctrl * college_factor, data = df_wide_cc, weights = ipw_edu)
 
 # Extract DiD contrasts against Baseline within each education level
 comps_edu <- comparisons(
@@ -76,10 +104,19 @@ df_edu_res <- as.data.frame(comps_edu) %>%
   )
 
 # ==============================================================================
-# 2. Subjective Class-Moderated DiD Model
+# 2. Subjective Class-Moderated DiD Model (Targeted Binary IPW with Income & Region)
 # ==============================================================================
+cat("=== Estimating Targeted Binary IPW for Subjective Class ===\n")
+W_class <- weightit(
+  class ~ age + female + factor(raceeth) + parented + income_q + region4,
+  data = df_wide_cc,
+  method = "ps",
+  estimand = "ATE"
+)
+df_wide_cc$ipw_class <- W_class$weights
+
 cat("=== Estimating Subjective Class-Moderated DiD Model ===\n")
-mod_class <- lm(diff ~ cond2_refctrl * class_factor, data = df_wide)
+mod_class <- lm(diff ~ cond2_refctrl * class_factor, data = df_wide_cc, weights = ipw_class)
 
 comps_class <- comparisons(
   mod_class,
