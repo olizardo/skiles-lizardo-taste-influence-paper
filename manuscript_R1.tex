@@ -248,46 +248,16 @@ While this status-free model demonstrates clear valence asymmetry overall, evalu
 
 \subsection{Social Influence Moderated by Education and Subjective Class}
 \label{sec:stepwise_models}
-To examine how social influence operates across distinct dimensions of class and status difference, we first inspect how educational attainment alone (College Degree vs.\ No College) and subjective social class alone (Working Class vs.\ Middle Class) moderate the experimental treatments, using a model based on Equation~\ref{eq:did_moderation_model}. Table \ref{tbl:did_edu_class} presents the complete set of Difference-in-Differences estimates across all cue conditions for both dimensions, and Figure \ref{fig:did_edu_class} visualizes these treatment effects with 95\% confidence intervals compared against the unexposed Control Condition.
+To examine how social influence operates across distinct dimensions of class and status difference, we first inspect how educational attainment alone (College Degree vs.\ No College) and subjective social class alone (Working Class vs.\ Middle Class) moderate the experimental treatments, using a model based on Equation~\ref{eq:did_moderation_model}. Figure \ref{fig:did_edu_class} visualizes these treatment effects with 95\% confidence intervals compared against the unexposed Control Condition (complete regression estimates are reported in Appendix Table \ref{tbl:did_edu_class}).
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.92\textwidth]{figures/Figure_DiD_Edu_Class_Separate.png}
-    \caption{Difference-in-Differences Treatment Effects Moderated Separately by Educational Attainment (Panel A) and Subjective Social Class (Panel B). Horizontal bars depict point estimates with 95\% confidence intervals, compared with the unexposed Control Condition. Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
+    \caption{Difference-in-Differences Treatment Effects Moderated Separately by Educational Attainment (Panel A) and Subjective Social Class (Panel B). Horizontal bars depict point estimates with 95\% confidence intervals, compared with the unexposed Control Condition. Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$). Full regression estimates are provided in Appendix Table \ref{tbl:did_edu_class}.}
     \label{fig:did_edu_class}
 \end{figure}
 
-\begin{table}[ht!]
-\centering
-\small
-\caption{Difference-in-Differences Estimates Moderated Separately by Education and Subjective Class}
-\label{tbl:did_edu_class}
-\setlength{\tabcolsep}{2.8pt}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
-\toprule
-& \multicolumn{2}{c}{\textbf{Panel A: Education Alone}} & \multicolumn{2}{c}{\textbf{Panel B: Subjective Class Alone}} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-5}
-\textbf{Treatment Condition} & No College & College Degree & Working Class & Middle Class \\
-\midrule
-High-Status Like & +0.129$^{\dagger}$ (0.078) & -0.079 (0.093) & +0.085 (0.084) & -0.008 (0.086) \\
-Low-Status Like & -0.040 (0.087) & -0.248$^{*}$ (0.104) & -0.057 (0.093) & -0.202$^{*}$ (0.095) \\
-High-Status Dislike & -0.011 (0.078) & -0.275$^{**}$ (0.094) & -0.065 (0.083) & -0.182$^{*}$ (0.086) \\
-Low-Status Dislike & +0.198$^{*}$ (0.088) & -0.226$^{*}$ (0.101) & +0.107 (0.093) & -0.076 (0.095) \\
-Generalized Like & +0.228$^{*}$ (0.100) & -0.082 (0.112) & +0.106 (0.106) & +0.079 (0.106) \\
-Generalized Dislike & +0.000 (0.097) & -0.302$^{*}$ (0.118) & -0.168 (0.104) & -0.084 (0.107) \\
-\midrule
-Control Condition Drift & -0.000 (0.069) & +0.257$^{**}$ (0.081) & +0.065 (0.072) & +0.155$^{*}$ (0.076) \\
-Sample Size ($N$) & 1,340 & 913 & 1,099 & 1,154 \\
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-\vspace{4pt}
-\footnotesize
-$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. \newline \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation. Panel A estimates moderation by educational attainment alone (No College Degree vs.\ Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs.\ Middle Class).
-\end{minipage}
-\end{table}
-
-Inspecting the separate models reveals that education is the primary structural fault line governing responsiveness to external evaluations (Panel A of Figure \ref{fig:did_edu_class} and Table \ref{tbl:did_edu_class}). Non-college respondents tend to either maintain or positively shift their evaluations. In particular, non-college degree respondents align with an unmarked majority in terms of likes ($\text{DiD} = +0.228, SE = 0.100, p = 0.02$) and are marginally likely ($p < 0.10$), consistent with the cultural goodwill thesis, to align positively when told that high-status people liked the painting. Puzzlingly, and not predicted by any theory, people without a college degree tend to react to the painting when informed that low-status people \textit{dislike} it by increasing their evaluation of it ($\text{DiD} = +0.198, SE = 0.088, p = 0.025^{*}$).
+Inspecting the separate models reveals that education is the primary structural fault line governing responsiveness to external evaluations (Panel A of Figure \ref{fig:did_edu_class} and Appendix Table \ref{tbl:did_edu_class}). Non-college respondents tend to either maintain or positively shift their evaluations. In particular, non-college degree respondents align with an unmarked majority in terms of likes ($\text{DiD} = +0.228, SE = 0.100, p = 0.02$) and are marginally likely ($p < 0.10$), consistent with the cultural goodwill thesis, to align positively when told that high-status people liked the painting. Puzzlingly, and not predicted by any theory, people without a college degree tend to react to the painting when informed that low-status people \textit{dislike} it by increasing their evaluation of it ($\text{DiD} = +0.198, SE = 0.088, p = 0.025^{*}$).
 
 In sharp contrast, college-educated respondents—whose positive baseline exposure drift was established in Section \ref{sec:stepwise_models}—experience substantial evaluative suppression from external negative cues: High-Status Dislike ($\text{DiD} = -0.275, SE = 0.094, p = 0.003^{**}$), Generalized Dislike ($\text{DiD} = -0.302, SE = 0.118, p = 0.010^{*}$), and Low-Status Dislike ($\text{DiD} = -0.226, SE = 0.101, p = 0.026^{*}$). In addition, college graduates exhibit Bourdieusian taste abandonment when exposed to Low-Status Likes ($\text{DiD} = -0.248, SE = 0.104, p = 0.017^{*}$).
 
@@ -296,37 +266,14 @@ By comparison, examining subjective social class in isolation (Panel B of Figure
 Crucially, this stepwise comparison demonstrates why analyzing education and subjective class separately is insufficient. Because objective credential attainment and subjective class identification cross-cut one another—nearly 28\% of working-class self-identifiers hold college degrees, while over 28\% of middle-class identifiers do not—univariate stratification conflates status-consistent actors with status-inconsistent actors. As we show below, the apparent lack of responsiveness among ``working-class'' respondents is an artifact of aggregating non-college workers (who exhibit normative inertia) with college-educated workers (who exhibit sharp reactivity against high-status cues). Examining their four-quadrant intersection is therefore essential for isolating the distinct mechanisms of status consistency and cross-status influence.
 
 \subsection{Status Consistency and Relational Influence: Hypotheses 1--3}
-Table \ref{tbl:did_status_quadrants} presents the complete 24-cell matrix of Difference-in-Differences treatment effect estimates across all experimental conditions and all four status consistency quadrants, estimated using Inverse Probability Weighting (IPW) and benchmarked against the unexposed Control Condition. Figure \ref{fig:did_status_full} in the Appendix displays the corresponding point estimates and 95\% confidence intervals.
+Figure \ref{fig:did_status_full} displays the complete 24-cell matrix of Difference-in-Differences treatment effect estimates across all experimental conditions and all four status consistency quadrants, estimated using Inverse Probability Weighting (IPW) and benchmarked against the unexposed Control Condition (full tabular regression coefficients and standard errors are reported in Appendix Table \ref{tbl:did_status_quadrants}).
 
-\begin{table}[ht!]
-\centering
-\small
-\caption{Difference-in-Differences Treatment Effects Across Status Consistency Quadrants (IPW-Weighted)}
-\label{tbl:did_status_quadrants}
-\setlength{\tabcolsep}{4.5pt}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
-\toprule
-& \multicolumn{2}{c}{\textbf{Working Class Identification}} & \multicolumn{2}{c}{\textbf{Middle Class Identification}} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-5}
-\textbf{Treatment Condition} & No College & College Degree & No College & College Degree \\
-\midrule
-High-Status Like & +0.130 (0.115) & -0.024 (0.121) & +0.038 (0.133) & -0.118 (0.126) \\
-Low-Status Like & -0.110 (0.132) & +0.028 (0.133) & -0.111 (0.146) & -0.296$^{*}$ (0.144) \\
-High-Status Dislike & +0.006 (0.115) & -0.394$^{***}$ (0.119) & -0.209 (0.132) & -0.195 (0.128) \\
-Low-Status Dislike & +0.185 (0.132) & -0.171 (0.131) & +0.089 (0.149) & -0.227$^{\dagger}$ (0.136) \\
-Generalized Like & +0.138 (0.158) & -0.125 (0.145) & +0.338$^{\dagger}$ (0.173) & -0.055 (0.152) \\
-Generalized Dislike & -0.120 (0.140) & -0.396$^{*}$ (0.154) & +0.134 (0.168) & -0.264$^{\dagger}$ (0.151) \\
-\midrule
-Control Exposure Drift & -0.013 (0.099) & +0.311$^{**}$ (0.104) & +0.098 (0.120) & +0.241$^{*}$ (0.111) \\
-Analytic Sample ($N$) & 764 & 335 & 576 & 577 \\
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-\vspace{4pt}
-\footnotesize
-\textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses. Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each status consistency quadrant, estimated using Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education.
-\end{minipage}
-\end{table}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Figure_DiD_Status_All.png}
+    \caption{Estimated Difference-in-Differences Treatment Effects Across Status Consistency Quadrants (IPW-Weighted). Horizontal bars denote point estimates with 95\% confidence intervals relative to the unexposed Control Condition within each status quadrant. Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$). Complete regression coefficients are reported in Appendix Table \ref{tbl:did_status_quadrants}.}
+    \label{fig:did_status_full}
+\end{figure}
 
 Evaluating our status-differentiated hypotheses through the DiD framework across these quadrants reveals which theoretical expectations are empirically supported versus unsupported.
 
@@ -580,6 +527,70 @@ Following the intervening modules, respondents were re-shown the identical artwo
 \end{quote}
 recorded using the identical 8 single-choice options (from 1 = ``I like it very much'' to 7 = ``I dislike it very much'', plus ``I can't see the image''), reverse-coded on the same 1--7 scale.
 
+\section{Full Regression Tables for Moderated DiD Models}
+\label{sec:appendix_regression_tables}
+Tables \ref{tbl:did_edu_class} and \ref{tbl:did_status_quadrants} report the full set of Difference-in-Differences regression coefficients, standard errors, and sample sizes for the moderated models presented in Figures \ref{fig:did_edu_class} and \ref{fig:did_status_full} of the main text.
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences Estimates Moderated Separately by Education and Subjective Class}
+\label{tbl:did_edu_class}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{\textbf{Panel A: Education Alone}} & \multicolumn{2}{c}{\textbf{Panel B: Subjective Class Alone}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Treatment Condition} & No College & College Degree & Working Class & Middle Class \\
+\midrule
+High-Status Like & +0.129$^{\dagger}$ (0.078) & -0.079 (0.093) & +0.085 (0.084) & -0.008 (0.086) \\
+Low-Status Like & -0.040 (0.087) & -0.248$^{*}$ (0.104) & -0.057 (0.093) & -0.202$^{*}$ (0.095) \\
+High-Status Dislike & -0.011 (0.078) & -0.275$^{**}$ (0.094) & -0.065 (0.083) & -0.182$^{*}$ (0.086) \\
+Low-Status Dislike & +0.198$^{*}$ (0.088) & -0.226$^{*}$ (0.101) & +0.107 (0.093) & -0.076 (0.095) \\
+Generalized Like & +0.228$^{*}$ (0.100) & -0.082 (0.112) & +0.106 (0.106) & +0.079 (0.106) \\
+Generalized Dislike & +0.000 (0.097) & -0.302$^{*}$ (0.118) & -0.168 (0.104) & -0.084 (0.107) \\
+\midrule
+Control Condition Drift & -0.000 (0.069) & +0.257$^{**}$ (0.081) & +0.065 (0.072) & +0.155$^{*}$ (0.076) \\
+Sample Size ($N$) & 1,340 & 913 & 1,099 & 1,154 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation. Panel A estimates moderation by educational attainment alone (No College Degree vs.\ Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs.\ Middle Class).
+\end{minipage}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences Treatment Effects Across Status Consistency Quadrants (IPW-Weighted)}
+\label{tbl:did_status_quadrants}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{\textbf{Working Class Identification}} & \multicolumn{2}{c}{\textbf{Middle Class Identification}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Treatment Condition} & No College & College Degree & No College & College Degree \\
+\midrule
+High-Status Like & +0.130 (0.115) & -0.024 (0.121) & +0.038 (0.133) & -0.118 (0.126) \\
+Low-Status Like & -0.110 (0.132) & +0.028 (0.133) & -0.111 (0.146) & -0.296$^{*}$ (0.144) \\
+High-Status Dislike & +0.006 (0.115) & -0.394$^{***}$ (0.119) & -0.209 (0.132) & -0.195 (0.128) \\
+Low-Status Dislike & +0.185 (0.132) & -0.171 (0.131) & +0.089 (0.149) & -0.227$^{\dagger}$ (0.136) \\
+Generalized Like & +0.138 (0.158) & -0.125 (0.145) & +0.338$^{\dagger}$ (0.173) & -0.055 (0.152) \\
+Generalized Dislike & -0.120 (0.140) & -0.396$^{*}$ (0.154) & +0.134 (0.168) & -0.264$^{\dagger}$ (0.151) \\
+\midrule
+Control Exposure Drift & -0.013 (0.099) & +0.311$^{**}$ (0.104) & +0.098 (0.120) & +0.241$^{*}$ (0.111) \\
+Analytic Sample ($N$) & 764 & 335 & 576 & 577 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses. \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each status consistency quadrant, estimated using Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education.
+\end{minipage}
+\end{table}
+
 \section{Comparison of Unweighted and IPW-Weighted DiD Models}
 \label{sec:appendix_ipw_compare}
 Table \ref{tbl:appendix_did_compare} reports the side-by-side comparison between the primary unweighted DiD model and the IPW-weighted model balancing baseline age, gender, race/ethnicity, and parental education across the pooled sample. Both specifications produce consistent point estimates, standard errors, and substantive conclusions regarding valence asymmetry and exposure drift suppression.
@@ -625,17 +636,6 @@ $N$ (Observations / Individuals) & \multicolumn{2}{c}{4,506 / 2,253} & \multicol
     \includegraphics[width=0.88\textwidth]{figures/Figure_DiD_Pooled.png}
     \caption{Difference-in-Differences Treatment Effects in the Pooled Sample (Unweighted Linear Mixed Model). Horizontal bars denote point estimates with 95\% confidence intervals relative to the unexposed Control Condition (dashed line at zero). Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
     \label{fig:did_pooled}
-\end{figure}
-
-\section{Complete Status-Differentiated DiD Estimates}
-\label{sec:appendix_full_grid}
-Figure \ref{fig:did_status_full} displays the complete 24-cell grid of Difference-in-Differences treatment effect estimates across all six treatment conditions and all four status consistency quadrants, estimated using Inverse Probability Weighting (IPW). Bars indicate point estimates and error bars denote 95\% confidence intervals relative to the unexposed Control Condition within each status group.
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/Figure_DiD_Status_All.png}
-    \caption{Complete Grid of Difference-in-Differences Treatment Effects by Status Consistency Group (IPW-Weighted). Estimates benchmark condition shifts against the unexposed Control Condition. Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
-    \label{fig:did_status_full}
 \end{figure}
 
 \section{Sensitivity Analysis: Behavioral Choices Excluding Taste-Only Conditions}
