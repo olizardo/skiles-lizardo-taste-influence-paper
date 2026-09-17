@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.8.31)  17 SEP 2026 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.8.31)  17 SEP 2026 12:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -518,35 +518,35 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/Figure8_CovariateBalance.png, id=303, 614.295pt x 433.62pt>
+<figures/Figure8_CovariateBalance.png, id=302, 614.295pt x 433.62pt>
 File: figures/Figure8_CovariateBalance.png Graphic file (type png)
 <use figures/Figure8_CovariateBalance.png>
 Package pdftex.def Info: figures/Figure8_CovariateBalance.png  used on input li
 ne 225.
 (pdftex.def)             Requested size: 375.80544pt x 265.27533pt.
  [11] [12 <./figures/Figure8_CovariateBalance.png>] [13]
-<figures/Figure_DiD_Baseline_Influence.png, id=340, 794.97pt x 346.896pt>
+<figures/Figure_DiD_Baseline_Influence.png, id=339, 794.97pt x 346.896pt>
 File: figures/Figure_DiD_Baseline_Influence.png Graphic file (type png)
 <use figures/Figure_DiD_Baseline_Influence.png>
 Package pdftex.def Info: figures/Figure_DiD_Baseline_Influence.png  used on inp
 ut line 290.
 (pdftex.def)             Requested size: 460.35791pt x 200.88751pt.
  [14 <./figures/Figure_DiD_Baseline_Influence.png>]
-<figures/Figure_DiD_Edu_Class_Separate.png, id=354, 758.835pt x 664.884pt>
+<figures/Figure_DiD_Edu_Class_Separate.png, id=353, 758.835pt x 664.884pt>
 File: figures/Figure_DiD_Edu_Class_Separate.png Graphic file (type png)
 <use figures/Figure_DiD_Edu_Class_Separate.png>
 Package pdftex.def Info: figures/Figure_DiD_Edu_Class_Separate.png  used on inp
 ut line 307.
 (pdftex.def)             Requested size: 432.17375pt x 378.67332pt.
  [15] [16 <./figures/Figure_DiD_Edu_Class_Separate.png>]
-<figures/Figure_DiD_Status_All.png, id=372, 758.835pt x 614.295pt>
+<figures/Figure_DiD_Status_All.png, id=371, 758.835pt x 614.295pt>
 File: figures/Figure_DiD_Status_All.png Graphic file (type png)
 <use figures/Figure_DiD_Status_All.png>
 Package pdftex.def Info: figures/Figure_DiD_Status_All.png  used on input line 
 326.
 (pdftex.def)             Requested size: 446.26582pt x 361.2686pt.
  [17] [18 <./figures/Figure_DiD_Status_All.png>]
-<figures/Figure7_MultinomialBehavior.png, id=386, 794.97pt x 346.896pt>
+<figures/Figure7_MultinomialBehavior.png, id=385, 794.97pt x 346.896pt>
 File: figures/Figure7_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure7_MultinomialBehavior.png>
 Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input
@@ -554,21 +554,21 @@ Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input
 (pdftex.def)             Requested size: 446.26582pt x 194.73682pt.
  [19 <./figures/Figure7_MultinomialBehavior.png>] [20] [21] [22]
 (./manuscript_R1.bbl [23] [24]) [25]
-<figures/Figure_MDE_Power_Curves.png, id=440, 939.51pt x 448.074pt>
+<figures/Figure_MDE_Power_Curves.png, id=439, 939.51pt x 448.074pt>
 File: figures/Figure_MDE_Power_Curves.png Graphic file (type png)
 <use figures/Figure_MDE_Power_Curves.png>
 Package pdftex.def Info: figures/Figure_MDE_Power_Curves.png  used on input lin
 e 492.
 (pdftex.def)             Requested size: 460.35791pt x 219.55133pt.
  [26] [27] [28 <./figures/Figure_MDE_Power_Curves.png>] [29] [30]
-<figures/Figure_DiD_Pooled.png, id=479, 614.295pt x 397.485pt>
+<figures/Figure_DiD_Pooled.png, id=478, 614.295pt x 397.485pt>
 File: figures/Figure_DiD_Pooled.png Graphic file (type png)
 <use figures/Figure_DiD_Pooled.png>
 Package pdftex.def Info: figures/Figure_DiD_Pooled.png  used on input line 691.
 
 (pdftex.def)             Requested size: 413.3867pt x 267.49019pt.
  [31] [32]
-<figures/Figure11_Sens_MultinomialBehavior.png, id=494, 794.97pt x 346.896pt>
+<figures/Figure11_Sens_MultinomialBehavior.png, id=493, 794.97pt x 346.896pt>
 File: figures/Figure11_Sens_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure11_Sens_MultinomialBehavior.png>
 Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on
@@ -579,13 +579,13 @@ Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on
 LaTeX Warning: Text page 34 contains only floats.
 
 [34 <./figures/Figure_DiD_Pooled.png> <./figures/Figure11_Sens_MultinomialBehav
-ior.png>] (./manuscript_R1.aux)
+ior.png>] [35] (./manuscript_R1.aux)
 Package rerunfilecheck Info: File `manuscript_R1.out' has not changed.
 (rerunfilecheck)             Checksum: 26E3FD3A81664E7238736AB35EE3A7FD;8539.
  ) 
 Here is how much of TeX's memory you used:
- 14079 strings out of 478051
- 229053 string characters out of 5840943
+ 14080 strings out of 478051
+ 229060 string characters out of 5840943
  1874330 words of memory out of 5000000
  33902 multiletter control sequences out of 15000+600000
  524049 words of font info for 72 fonts, out of 8000000 for 9000
@@ -609,10 +609,10 @@ share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on manuscript_R1.pdf (34 pages, 1892477 bytes).
+Output written on manuscript_R1.pdf (35 pages, 1893183 bytes).
 PDF statistics:
- 616 PDF objects out of 1000 (max. 8388607)
- 525 compressed objects within 6 object streams
- 134 named destinations out of 1000 (max. 500000)
+ 619 PDF objects out of 1000 (max. 8388607)
+ 527 compressed objects within 6 object streams
+ 135 named destinations out of 1000 (max. 500000)
  13614 words of extra memory for PDF output out of 14400 (max. 10000000)
 
