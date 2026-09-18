@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex manuscript_R1"] 1789693120 "manuscript_R1.aux" "manuscript_R1.bbl" "manuscript_R1" 1789693123 0
-  "./references.bib" 1789668075 13719 6e47e0841758ebdc68ac0fd039ae43d7 ""
+["bibtex manuscript_R1"] 1789697429 "manuscript_R1.aux" "manuscript_R1.bbl" "manuscript_R1" 1789697429 0
+  "./references.bib" 1789697280 14733 3c7aaf54cc400946812dfd19f82224b3 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "manuscript_R1.aux" 1789693123 23988 1b4d77c694803757bc3fcdc742f7ca6d "pdflatex"
+  "manuscript_R1.aux" 1789697233 21676 ee9745b3f88f8c06c86815c0590ec9e0 "pdflatex"
   (generated)
   "manuscript_R1.bbl"
   "manuscript_R1.blg"
   (rewritten before read)
-["pdflatex"] 1789693120 "manuscript_R1.tex" "manuscript_R1.pdf" "manuscript_R1" 1789693123 0
+["pdflatex"] 1789697231 "manuscript_R1.tex" "manuscript_R1.pdf" "manuscript_R1" 1789697429 0
   "/etc/texmf/web2c/texmf.cnf" 1788206240 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/omarlizardo/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1789511325 14040 d303526afe20d391f9181ca5a2b982ee ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -129,15 +129,13 @@
   "figures/Figure8_CovariateBalance.png" 1789688389 95735 eac82e52a263a3136c7f6b518939095e ""
   "figures/Figure_DiD_Baseline_Influence.png" 1789688390 158369 dfc6f43a9a4d65e7b3da30c9e30f641a ""
   "figures/Figure_DiD_Edu_4Tiers.png" 1789692779 203285 2f23a58c418925b0c682a5cf73cf5366 ""
-  "figures/Figure_DiD_Edu_Class_Separate.png" 1789688411 234722 5ee0500b1ad52247fd8d04f00f5a4880 ""
   "figures/Figure_DiD_Pooled.png" 1789688485 109747 e853097add1e9ddb8b2c11fb3dc106b9 ""
-  "figures/Figure_DiD_Status_All.png" 1789688455 199467 7c2d4d9c07af84eaba409966d544ae73 ""
   "figures/Figure_MDE_Power_Curves.png" 1789688773 363635 1f26e83edede9db4417eb0913793028c ""
   "figures/experimental_stimulus.jpeg" 1789509703 93033 619c4e3e1d3e8c03b46dd25e4e1f95d8 ""
-  "manuscript_R1.aux" 1789693123 23988 1b4d77c694803757bc3fcdc742f7ca6d "pdflatex"
-  "manuscript_R1.bbl" 1789693120 6335 555faf141df13b55342ef1a28e829839 "bibtex manuscript_R1"
-  "manuscript_R1.out" 1789693123 9355 e4e5258b2debf600f70e90919044ad8e "pdflatex"
-  "manuscript_R1.tex" 1789693103 111925 c1e3ac3ab7d91bfb4dc8368a9d57128a ""
+  "manuscript_R1.aux" 1789697233 21676 ee9745b3f88f8c06c86815c0590ec9e0 "pdflatex"
+  "manuscript_R1.bbl" 1789697429 7115 f44e03f7ea711ebccc527dac25907953 "bibtex manuscript_R1"
+  "manuscript_R1.out" 1789697233 8798 eb87e19532075a5687249d6ad0f78c1d "pdflatex"
+  "manuscript_R1.tex" 1789697209 105506 9d9eeab0b26f9d1ab8333843b711fdb7 ""
   (generated)
   "manuscript_R1.aux"
   "manuscript_R1.log"
