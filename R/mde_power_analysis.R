@@ -31,17 +31,17 @@ df_wide <- data_list$wide
 # ------------------------------------------------------------------------------
 # 1. Empirical Parameters of the Repeated-Measures Design
 # ------------------------------------------------------------------------------
-df_clean <- df_wide %>% filter(!is.na(taste1_rev), !is.na(taste2_rev))
+df_clean <- df_wide %>% filter(!is.na(taste1_rev), !is.na(taste2_rev), age >= 4)
 N_total <- nrow(df_clean)
 
 # Baseline and post-treatment standard deviations
-sd_t1 <- sd(df_clean$taste1_rev, na.rm = TRUE)      # 1.5001
-sd_t2 <- sd(df_clean$taste2_rev, na.rm = TRUE)      # 1.5478
+sd_t1 <- sd(df_clean$taste1_rev, na.rm = TRUE)      # 1.5042
+sd_t2 <- sd(df_clean$taste2_rev, na.rm = TRUE)      # 1.5540
 diff_taste <- df_clean$taste2_rev - df_clean$taste1_rev
-sd_diff <- sd(diff_taste, na.rm = TRUE)             # 0.7017
-r_test_retest <- cor(df_clean$taste1_rev, df_clean$taste2_rev, use = "complete.obs") # 0.8945
+sd_diff <- sd(diff_taste, na.rm = TRUE)             # 0.6880
+r_test_retest <- cor(df_clean$taste1_rev, df_clean$taste2_rev, use = "complete.obs") # 0.8993
 
-cat(sprintf("=== Design Parameters ===\n"))
+cat(sprintf("=== Design Parameters (Age >= 24 Sample) ===\n"))
 cat(sprintf("Total Complete N: %d\n", N_total))
 cat(sprintf("Trial 1 SD (sigma_1): %.4f\n", sd_t1))
 cat(sprintf("Trial 2 SD (sigma_2): %.4f\n", sd_t2))
@@ -76,24 +76,24 @@ calc_mde <- function(n_t, n_c = NULL, s_diff = sd_diff, s_base = sd_t1, alpha = 
 # 3. Systematically Calculate MDE Across All Analytical Levels
 # ------------------------------------------------------------------------------
 # A. Within-Subject Exposure Drift
-mde_drift_full_80 <- calc_mde(n_t = 2253, power = 0.80)
-mde_drift_full_90 <- calc_mde(n_t = 2253, power = 0.90)
+mde_drift_full_80 <- calc_mde(n_t = 1981, power = 0.80)
+mde_drift_full_90 <- calc_mde(n_t = 1981, power = 0.90)
 
-mde_drift_ctrl_80 <- calc_mde(n_t = 177, power = 0.80)
-mde_drift_ctrl_90 <- calc_mde(n_t = 177, power = 0.90)
+mde_drift_ctrl_80 <- calc_mde(n_t = 157, power = 0.80)
+mde_drift_ctrl_90 <- calc_mde(n_t = 157, power = 0.90)
 
-# B. Pooled Difference-in-Differences Contrasts (Reference = Control N = 177)
-# 1. Taste Only conditions (N = 172 vs. 177)
-mde_did_to_80 <- calc_mde(n_t = 172, n_c = 177, power = 0.80)
-mde_did_to_90 <- calc_mde(n_t = 172, n_c = 177, power = 0.90)
+# B. Pooled Difference-in-Differences Contrasts (Reference = Control N = 157)
+# 1. Taste Only conditions (approx N = 150 vs. 157)
+mde_did_to_80 <- calc_mde(n_t = 150, n_c = 157, power = 0.80)
+mde_did_to_90 <- calc_mde(n_t = 150, n_c = 157, power = 0.90)
 
-# 2. Single Status conditions (Like/-Status N=288, Dislike/-Status N=293, approx 290 vs. 177)
-mde_did_single_80 <- calc_mde(n_t = 290, n_c = 177, power = 0.80)
-mde_did_single_90 <- calc_mde(n_t = 290, n_c = 177, power = 0.90)
+# 2. Single Status conditions (approx N = 258 vs. 157)
+mde_did_single_80 <- calc_mde(n_t = 258, n_c = 157, power = 0.80)
+mde_did_single_90 <- calc_mde(n_t = 258, n_c = 157, power = 0.90)
 
-# 3. Pooled Status conditions (Like/+Status N=574, Dislike/+Status N=577, approx 575 vs. 177)
-mde_did_pooled_80 <- calc_mde(n_t = 575, n_c = 177, power = 0.80)
-mde_did_pooled_90 <- calc_mde(n_t = 575, n_c = 177, power = 0.90)
+# 3. Pooled Status conditions (approx N = 505 vs. 157)
+mde_did_pooled_80 <- calc_mde(n_t = 505, n_c = 157, power = 0.80)
+mde_did_pooled_90 <- calc_mde(n_t = 505, n_c = 157, power = 0.90)
 
 # C. Status Quadrant Subgroup DiD Contrasts
 # Cell counts by quadrant:
@@ -103,10 +103,10 @@ mde_did_pooled_90 <- calc_mde(n_t = 575, n_c = 177, power = 0.90)
 # Working, College:    Control N=23, Taste Only N~19, Single N~37,  Pooled N~67
 
 subgroup_specs <- list(
-  list(group = "Working Class, No College", n_c = 70, n_min = 60, n_max = 214, n_med = 104),
-  list(group = "Middle Class, College",     n_c = 51, n_min = 51, n_max = 164, n_med = 87),
-  list(group = "Middle Class, No College",  n_c = 33, n_min = 32, n_max = 146, n_med = 64),
-  list(group = "Working Class, College",    n_c = 23, n_min = 16, n_max = 72,  n_med = 37)
+  list(group = "Working Class, No College", n_c = 55, n_min = 51, n_max = 181, n_med = 83),
+  list(group = "Middle Class, College",     n_c = 50, n_min = 48, n_max = 160, n_med = 82),
+  list(group = "Middle Class, No College",  n_c = 31, n_min = 26, n_max = 125, n_med = 58),
+  list(group = "Working Class, College",    n_c = 21, n_min = 15, n_max = 61,  n_med = 35)
 )
 
 subgroup_rows <- lapply(subgroup_specs, function(sg) {
@@ -136,8 +136,8 @@ df_subgroups <- do.call(rbind, subgroup_rows)
 df_mde_summary <- rbind(
   data.frame(
     Tier = "Within-Subject Drift",
-    Comparison = "Full Sample Repeated Measures Drift",
-    N_T = "2,253", N_C = "---",
+    Comparison = "Primary Analytic Sample Drift",
+    N_T = "1,981", N_C = "---",
     SE = sprintf("%.3f", mde_drift_full_80$se),
     MDE_raw_80 = sprintf("%.3f", mde_drift_full_80$mde_raw),
     MDE_d_80 = sprintf("%.3f", mde_drift_full_80$mde_d),
@@ -149,7 +149,7 @@ df_mde_summary <- rbind(
   data.frame(
     Tier = "Within-Subject Drift",
     Comparison = "Control Condition Exposure Drift",
-    N_T = "177", N_C = "---",
+    N_T = "157", N_C = "---",
     SE = sprintf("%.3f", mde_drift_ctrl_80$se),
     MDE_raw_80 = sprintf("%.3f", mde_drift_ctrl_80$mde_raw),
     MDE_d_80 = sprintf("%.3f", mde_drift_ctrl_80$mde_d),
@@ -161,7 +161,7 @@ df_mde_summary <- rbind(
   data.frame(
     Tier = "Pooled DiD vs. Control",
     Comparison = "Taste-Only Conditions vs. Control",
-    N_T = "172", N_C = "177",
+    N_T = "150", N_C = "157",
     SE = sprintf("%.3f", mde_did_to_80$se),
     MDE_raw_80 = sprintf("%.3f", mde_did_to_80$mde_raw),
     MDE_d_80 = sprintf("%.3f", mde_did_to_80$mde_d),
@@ -172,8 +172,8 @@ df_mde_summary <- rbind(
   ),
   data.frame(
     Tier = "Pooled DiD vs. Control",
-    Comparison = "Single Status Conditions vs. Control",
-    N_T = "290", N_C = "177",
+    Comparison = "Single-Status Conditions vs. Control",
+    N_T = "258", N_C = "157",
     SE = sprintf("%.3f", mde_did_single_80$se),
     MDE_raw_80 = sprintf("%.3f", mde_did_single_80$mde_raw),
     MDE_d_80 = sprintf("%.3f", mde_did_single_80$mde_d),
@@ -185,7 +185,7 @@ df_mde_summary <- rbind(
   data.frame(
     Tier = "Pooled DiD vs. Control",
     Comparison = "Pooled High-Status Conditions vs. Control",
-    N_T = "575", N_C = "177",
+    N_T = "505", N_C = "157",
     SE = sprintf("%.3f", mde_did_pooled_80$se),
     MDE_raw_80 = sprintf("%.3f", mde_did_pooled_80$mde_raw),
     MDE_d_80 = sprintf("%.3f", mde_did_pooled_80$mde_d),
@@ -226,7 +226,7 @@ latex_table <- c(
           df_mde_summary$MDE_raw_80[2], df_mde_summary$MDE_d_80[2],
           df_mde_summary$MDE_raw_90[2], df_mde_summary$MDE_d_90[2]),
   "\\addlinespace[4pt]",
-  "\\multicolumn{8}{l}{\\textit{Panel B: Pooled Difference-in-Differences Contrasts (vs. Control $N_C=177$)}} \\\\[2pt]",
+  "\\multicolumn{8}{l}{\\textit{Panel B: Pooled Difference-in-Differences Contrasts (vs. Control $N_C=157$)}} \\\\[2pt]",
   sprintf("Taste-Only Conditions & %s & %s & %s & %s & %s & %s & %s \\\\",
           df_mde_summary$N_T[3], df_mde_summary$N_C[3], df_mde_summary$SE[3],
           df_mde_summary$MDE_raw_80[3], df_mde_summary$MDE_d_80[3],
@@ -262,7 +262,7 @@ latex_table <- c(
   "\\begin{minipage}{\\linewidth}",
   "\\vspace{4pt}",
   "\\footnotesize",
-  "\\textit{Note:} Minimum Detectable Effects (MDE) are calculated assuming a two-tailed $\\alpha = 0.05$ with standard statistical power thresholds of $80\\%$ ($z = 2.802$) and $90\\%$ ($z = 3.242$). Calculations incorporate the empirical test-retest correlation across repeated trials ($r = 0.8945$, yielding $\\sigma_{\\Delta} = 0.702$ relative to baseline $\\sigma_1 = 1.500$). $\\text{MDE}_{\\text{raw}}$ is expressed in units of the 7-point aesthetic rating scale; Cohen's $d = \\text{MDE}_{\\text{raw}} / \\sigma_1$. In Panel C, $N_T$ indicates the range of treatment cell sizes across specific cue conditions, and reported $SE$ and MDE values correspond to median cell sizes.",
+  "\\textit{Note:} Minimum Detectable Effects (MDE) are calculated assuming a two-tailed $\\alpha = 0.05$ with standard statistical power thresholds of $80\\%$ ($z = 2.802$) and $90\\%$ ($z = 3.242$). Calculations incorporate the empirical test-retest correlation across repeated trials ($r = 0.8993$, yielding $\\sigma_{\\Delta} = 0.688$ relative to baseline $\\sigma_1 = 1.504$). $\\text{MDE}_{\\text{raw}}$ is expressed in units of the 7-point aesthetic rating scale; Cohen's $d = \\text{MDE}_{\\text{raw}} / \\sigma_1$. In Panel C, $N_T$ indicates the range of treatment cell sizes across specific cue conditions, and reported $SE$ and MDE values correspond to median cell sizes.",
   "\\end{minipage}",
   "\\end{table}"
 )
@@ -332,7 +332,7 @@ p_curves_clean <- ggplot(df_curves, aes(x = n, y = mde_d, color = rho_fac, linet
 empirical_points <- data.frame(
   Spec = factor(
     c(
-      "Full Sample Drift",
+      "Primary Sample Drift",
       "Control Condition Drift",
       "Pooled DiD (High-Status)",
       "Pooled DiD (Single Status)",
@@ -343,7 +343,7 @@ empirical_points <- data.frame(
       "DiD: Working/College"
     ),
     levels = rev(c(
-      "Full Sample Drift",
+      "Primary Sample Drift",
       "Control Condition Drift",
       "Pooled DiD (High-Status)",
       "Pooled DiD (Single Status)",

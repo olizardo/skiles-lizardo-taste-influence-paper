@@ -111,59 +111,60 @@ The basic expectation stemming from this literature, along with more contemporar
 \subsection{Sample Recruitment and Survey Administration}
 Data for this study were collected between February 28 and March 6, 2012, via an online experimental survey administered by Survey Sampling International (SSI), a leading research firm specializing in online panel recruitment and survey sampling. A total of 3,782 panel members accessed the survey instrument. Of these, 97 were excluded due to lack of informed consent ($N = 85$) or age under 18 ($N = 12$), 1,394 were screened out because demographic quota targets had already been met, and 16 dropped out during early screens, resulting in an analytic sample of $N = 2,275$ completed responses (with $N = 2,253$ providing complete initial and post-treatment evaluations). Participants received monetary compensation (\$3.92) via SSI, funded by an NSF Doctoral Dissertation Improvement Grant (Award SES-1203426) and the University of Notre Dame Institute for Scholarship in Liberal Arts.
 
-The sampling frame employed dynamic quota matching calibrated to U.S. Census benchmarks for gender, age, race/ethnicity, and geographic region to achieve a diverse and quasi-representative national sample of U.S. adults. To ensure adequate statistical power for examining status-differentiated cultural dynamics---particularly within high-cultural-capital occupational cells---the sample incorporated a deliberate oversample of college graduates (40.5\% holding a bachelor's degree or higher in the sample versus approximately 28\% nationally in 2012). Table \ref{tbl:descriptives} presents the full demographic breakdown of the sample, compared with U.S. population parameters, separated by experimental treatment condition.\footnote{Because the survey used a quota-matched, opt-in online consumer panel rather than a strict probability-based sample with known inclusion probabilities (such as the GSS or ANES), the reported standard errors, $p$-values, and confidence intervals should be interpreted as reflecting \textit{model-based and experimental design uncertainty within the sample}, rather than formal design-based population parameter estimates.}
+To give respondents an opportunity to complete higher education and eliminate right-censoring in educational attainment among individuals still of standard undergraduate age (18--24), our primary analytic sample restricts the population to adults aged 24 or older (specifically, $\ge 25$ given standard five-year Census survey brackets; $N = 1,981$, yielding $3,962$ repeated observations across trials). In this mature adult population, educational attainment reflects completed institutional cultural capital, allowing for an unambiguous test of status-based influence without conflating non-completion with non-enrollment. As documented in Appendix \ref{sec:appendix_full_sample}, re-estimating all models on the unrestricted full sample ($N = 2,253$) yields identical substantive findings and theoretical verdicts.
+
+The sampling frame employed dynamic quota matching calibrated to U.S. Census benchmarks for gender, age, race/ethnicity, and geographic region to achieve a diverse and quasi-representative national sample of U.S. adults. To ensure adequate statistical power for examining status-differentiated cultural dynamics---particularly within high-cultural-capital occupational cells---the sample incorporated a deliberate oversample of college graduates (43.3\% holding a bachelor's degree or higher in the primary analytic sample versus 40.5\% in the full sample and approximately 28\% nationally in 2012). Table \ref{tbl:descriptives} presents the full demographic breakdown of the primary analytic sample, compared with U.S. population parameters, separated by experimental treatment condition.\footnote{Because the survey used a quota-matched, opt-in online consumer panel rather than a strict probability-based sample with known inclusion probabilities (such as the GSS or ANES), the reported standard errors, $p$-values, and confidence intervals should be interpreted as reflecting \textit{model-based and experimental design uncertainty within the sample}, rather than formal design-based population parameter estimates.}
 
 The randomization mechanism built into the \textit{Qualtrics} survey engine ensures that internal validity is maximized: respondents were randomly assigned to treatment and control conditions, creating balanced experimental groups across all observed baseline characteristics (Table \ref{tbl:descriptives}). At the same time, the demographic diversity across gender, age, race, and geographic region provides substantial ecological validity and heterogeneity compared to conventional undergraduate convenience samples.\footnote{Because cell sample sizes vary across experimental conditions and observational status consistency subgroups, we also report a comprehensive Minimum Detectable Effect (MDE) power analysis in Appendix \ref{sec:appendix_power_mde} (Table \ref{tbl:mde_analysis} and Figure \ref{fig:mde_curves}), explicitly delineating the statistical precision and empirical detection boundaries of the experimental design.}
 
 \begin{table}[ht!]
 \centering
 \small
-\caption{Demographic Characteristics of Survey Sample Compared to U.S. Population Benchmarks}
+\caption{Demographic Characteristics of Survey Sample (Age $\ge 24$) Compared to U.S. Population Benchmarks}
 \label{tbl:descriptives}
 \setlength{\tabcolsep}{2.5pt}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
 \toprule
-Demographic Variable & Sample $N$ & Sample \% & U.S. Pop \% & Treatment & No Alter & Taste Only \\
+Demographic Variable & Sample $N$ & Sample \% & U.S. Pop \% & Treatment & Control & Taste Only \\
 \midrule
 \textbf{Gender} & & & & & & \\
-\quad Women & 1,184 & 52.1\% & 51.5\% & 51.7\% & 52.2\% & 53.9\% \\
-\quad Men & 1,091 & 47.9\% & 48.5\% & 48.3\% & 47.8\% & 46.1\% \\
+\quad Women & 1,036 & 52.3\% & 51.5\% & 51.9\% & 52.9\% & 54.0\% \\
+\quad Men & 945 & 47.7\% & 48.5\% & 48.1\% & 47.1\% & 46.0\% \\
 \addlinespace[3pt]
 \textbf{Race / Ethnicity} & & & & & & \\
-\quad White & 1,463 & 64.3\% & 65.1\% & 64.7\% & 63.2\% & 63.1\% \\
-\quad Hispanic / Latino & 365 & 16.1\% & 15.8\% & 16.2\% & 14.8\% & 15.9\% \\
-\quad Black / African American & 279 & 12.3\% & 12.3\% & 12.1\% & 13.7\% & 12.1\% \\
-\quad Asian / Pacific Islander & 103 & 4.5\% & 4.5\% & 4.4\% & 5.5\% & 4.6\% \\
-\quad Other / Multiracial & 65 & 2.8\% & 2.3\% & 2.5\% & 2.7\% & 4.3\% \\
+\quad White & 1,284 & 64.8\% & 65.1\% & 65.0\% & 64.3\% & 64.3\% \\
+\quad Hispanic / Latino & 306 & 15.4\% & 15.8\% & 15.7\% & 14.6\% & 14.3\% \\
+\quad Black / African American & 250 & 12.6\% & 12.3\% & 12.5\% & 13.4\% & 13.0\% \\
+\quad Asian / Pacific Islander & 90 & 4.5\% & 4.5\% & 4.3\% & 5.7\% & 5.0\% \\
+\quad Other / Multiracial & 51 & 2.6\% & 2.3\% & 2.5\% & 1.9\% & 3.3\% \\
 \addlinespace[3pt]
 \textbf{Age Group} & & & & & & \\
-\quad 18--24 & 272 & 12.0\% & 13.1\% & 11.9\% & 11.0\% & 12.7\% \\
-\quad 25--34 & 410 & 18.0\% & 17.5\% & 18.2\% & 16.5\% & 17.9\% \\
-\quad 35--44 & 402 & 17.7\% & 17.5\% & 17.9\% & 13.7\% & 18.7\% \\
-\quad 45--54 & 441 & 19.4\% & 19.2\% & 19.4\% & 20.9\% & 18.4\% \\
-\quad 55--64 & 372 & 16.3\% & 15.6\% & 16.5\% & 15.4\% & 16.1\% \\
-\quad 65+ & 377 & 16.6\% & 17.2\% & 16.1\% & 22.5\% & 16.2\% \\
+\quad 25--34 & 407 & 20.5\% & 17.5\% & 20.7\% & 19.1\% & 20.7\% \\
+\quad 35--44 & 400 & 20.2\% & 17.5\% & 20.4\% & 15.3\% & 21.7\% \\
+\quad 45--54 & 437 & 22.1\% & 19.2\% & 22.0\% & 23.6\% & 21.3\% \\
+\quad 55--64 & 366 & 18.5\% & 15.6\% & 18.7\% & 17.2\% & 18.0\% \\
+\quad 65+ & 371 & 18.7\% & 17.2\% & 18.2\% & 24.8\% & 18.3\% \\
 \addlinespace[3pt]
 \textbf{Geographic Region} & & & & & & \\
-\quad Northeast & 417 & 18.3\% & 17.9\% & 18.8\% & 16.5\% & 17.0\% \\
-\quad South & 816 & 35.9\% & 37.2\% & 36.6\% & 39.6\% & 30.5\% \\
-\quad Midwest & 505 & 22.2\% & 21.6\% & 21.2\% & 26.4\% & 24.8\% \\
-\quad West & 536 & 23.6\% & 23.3\% & 23.4\% & 17.6\% & 27.7\% \\
+\quad Northeast & 371 & 18.7\% & 17.9\% & 19.0\% & 17.8\% & 17.7\% \\
+\quad South & 689 & 34.8\% & 37.2\% & 35.6\% & 37.6\% & 29.3\% \\
+\quad Midwest & 445 & 22.5\% & 21.6\% & 21.5\% & 26.1\% & 25.7\% \\
+\quad West & 476 & 24.0\% & 23.3\% & 24.0\% & 18.5\% & 27.3\% \\
 \addlinespace[3pt]
 \textbf{Education (Oversampled)} & & & & & & \\
-\quad Less than High School & 89 & 3.9\% & 13.3\% & 3.8\% & 3.3\% & 4.6\% \\
-\quad High School Diploma & 474 & 20.8\% & 30.4\% & 20.3\% & 23.6\% & 21.9\% \\
-\quad Some College / AA & 791 & 34.8\% & 28.5\% & 36.0\% & 31.3\% & 30.6\% \\
-\quad Bachelor's Degree & 625 & 27.5\% & 18.1\% & 27.3\% & 27.5\% & 28.5\% \\
-\quad Graduate / Professional & 296 & 13.0\% & 9.6\% & 12.6\% & 14.3\% & 14.5\% \\
+\quad Less than High School & 66 & 3.3\% & 13.3\% & 3.6\% & 1.9\% & 2.7\% \\
+\quad High School Diploma & 402 & 20.3\% & 30.4\% & 19.8\% & 22.3\% & 22.0\% \\
+\quad Some College / AA & 655 & 33.1\% & 28.5\% & 34.1\% & 30.6\% & 29.3\% \\
+\quad Bachelor's Degree & 577 & 29.1\% & 18.1\% & 28.6\% & 29.9\% & 31.3\% \\
+\quad Graduate / Professional & 281 & 14.2\% & 9.6\% & 14.0\% & 15.3\% & 14.7\% \\
 \midrule
-\textbf{Total $N$} & \textbf{2,275} & \textbf{100.0\%} & & \textbf{1,746} & \textbf{182} & \textbf{347} \\
+\textbf{Total $N$} & \textbf{1,981} & \textbf{100.0\%} & & \textbf{1,524} & \textbf{157} & \textbf{300} \\
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}
 \vspace{4pt}
 \footnotesize
-\textit{Note:} U.S. population benchmarks are drawn from the 2010/2012 U.S. Census Bureau Current Population Survey (CPS). The analytic sample oversamples college-educated respondents to populate higher-status occupational cells.
+\textit{Note:} Primary analytic sample is restricted to respondents aged 24 or older ($N = 1,981$), giving all participants an opportunity to complete college. U.S. population benchmarks are drawn from the 2010/2012 U.S. Census Bureau Current Population Survey (CPS). The analytic sample oversamples college-educated respondents to populate higher-status occupational cells. Full sample demographics ($N = 2,275$) including the 18--24 cohort are reported in Appendix Table \ref{tbl:full_sample_descriptives}.
 \end{minipage}
 \end{table}
 
@@ -205,11 +206,11 @@ Finally, the empirical distribution of discrete behavioral choices provides stro
 \subsection{Variables and Measurement}
 Aesthetic evaluation was measured on a reversed 1--7 scale. In continuous models, the outcome is the repeated evaluation across trials. In behavioral models, change between trials is categorized into three mutually exclusive choices: \textit{Stay} ($\Delta = 0$), \textit{Conform} (moving in the direction of others' evaluations), and \textit{React} (moving in the opposite direction).
 
-The treatment conditions crossed others' evaluation (Like vs.\ Dislike) with others' social status. High-status others were differentiated into Cultural Specialists (possessing multiple advanced degrees including a PhD and working in higher education) and Economic Specialists (holding a bachelor's degree in business and working in financial investment). Low-status others were described as possessing a high school education and working in food service. In addition, two Taste-Only conditions provided other like-or-dislike evaluations without any status indicators, and a pure Control Condition provided no information about others between trials ($N=182$).
+The treatment conditions crossed others' evaluation (Like vs.\ Dislike) with others' social status. High-status others were differentiated into Cultural Specialists (possessing multiple advanced degrees including a PhD and working in higher education) and Economic Specialists (holding a bachelor's degree in business and working in financial investment). Low-status others were described as possessing a high school education and working in food service. In addition, two Taste-Only conditions provided other like-or-dislike evaluations without any status indicators, and a pure Control Condition provided no information about others between trials ($N=157$ in the primary sample; $N=182$ in the full sample).
 
-We collapse the Economic Specialist and Cultural Specialist conditions into a single High-Status condition (\textit{+Status}) for the primary analysis. This consolidation is justified on both statistical and substantive grounds. First, crossing respondents' own status consistency quadrants by all nine experimental conditions would expand the design to 36 cells, reducing cell sizes in smaller subgroups to $N \approx 20$--$35$ (and $N = 23$ in control), severely inflating the Minimum Detectable Effect threshold ($d > 0.45$). Second, formal linear hypothesis tests confirm that responses to Economic Specialists and Cultural Specialists are statistically indistinguishable for both positive cues ($F = 0.29, p = 0.591$ in the pooled sample; $F = 0.92, p = 0.337$ among college graduates) and negative cues ($F = 0.06, p = 0.803$ in the pooled sample; $F = 0.04, p = 0.846$ among college graduates). Collapsing them into a single high-status category effectively doubles the statistical power for high-status cues ($N \approx 575$ per arm) without obscuring any empirical heterogeneity.
+We collapse the Economic Specialist and Cultural Specialist conditions into a single High-Status condition (\textit{+Status}) for the primary analysis. This consolidation is justified on both statistical and substantive grounds. First, crossing respondents' own status consistency quadrants by all nine experimental conditions would expand the design to 36 cells, reducing cell sizes in smaller subgroups to $N \approx 20$--$35$ (and $N = 21$ in control), severely inflating the Minimum Detectable Effect threshold ($d > 0.45$). Second, formal linear hypothesis tests confirm that responses to Economic Specialists and Cultural Specialists are statistically indistinguishable for both positive cues ($F = 0.29, p = 0.591$ in the pooled sample; $F = 0.92, p = 0.337$ among college graduates) and negative cues ($F = 0.06, p = 0.803$ in the pooled sample; $F = 0.04, p = 0.846$ among college graduates). Collapsing them into a single high-status category effectively doubles the statistical power for high-status cues ($N \approx 505$ per arm in the primary sample and $N \approx 575$ in the full sample) without obscuring any empirical heterogeneity.
 
-To capture respondents' structural social location, we examine objective educational attainment (College Degree vs.\ No College) and subjective class self-identification (Middle Class vs.\ Working Class). Methodologically, we analyze these dimensions stepwise: we first evaluate the separate moderating effects of educational attainment alone and subjective class identification alone (Section \ref{sec:stepwise_models}, Figure \ref{fig:did_edu_class}, and Table \ref{tbl:did_edu_class}) before examining their intersection in a four-quadrant typology of status consistency: Working Class without College, Working Class with College, Middle Class without College, and Middle Class with College. In the base operationalization, ``Working Class'' includes a minority of respondents who self-identified as ``Lower Class'' ($N = 268$, 11.9\%) and ``Middle Class'' includes a small proportion of respondents who self-identified as ``Upper Class'' ($N = 54$, 2.4\%). To verify that our substantive conclusions are not sensitive to boundaries of subjective class, we fit models using an alternative categorization that restricts the sample only to self-identified working- and middle-class respondents (excluding lower- and upper-class extremes) as an additional sensitivity analysis in Appendix \ref{sec:appendix_class_robustness}.
+To capture respondents' structural social location, we examine objective educational attainment (College Degree vs.\ No College) and subjective class self-identification (Middle Class vs.\ Working Class). Methodologically, we analyze these dimensions stepwise: we first evaluate the separate moderating effects of educational attainment alone and subjective class identification alone (Section \ref{sec:stepwise_models}, Figure \ref{fig:did_edu_class}, and Table \ref{tbl:did_edu_class}) before examining their intersection in a four-quadrant typology of status consistency: Working Class without College, Working Class with College, Middle Class without College, and Middle Class with College. In the base operationalization, ``Working Class'' includes a minority of respondents who self-identified as ``Lower Class'' ($N = 220$, 11.1\%) and ``Middle Class'' includes a small proportion of respondents who self-identified as ``Upper Class'' ($N = 47$, 2.4\%). To verify that our substantive conclusions are not sensitive to boundaries of subjective class, we fit models using an alternative categorization that restricts the sample only to self-identified working- and middle-class respondents (excluding lower- and upper-class extremes) as an additional sensitivity analysis in Appendix \ref{sec:appendix_class_robustness}.
 
 \subsection{Inverse Probability Weighting}
 A key methodological challenge in experimental design examining status-contingent influences stems from the hybrid nature of the design. While the experimental cues (others' evaluation valence and others' status) were randomly assigned, respondents' own social locations—captured by the crossing of educational attainment and subjective class identification—represent pre-existing, observational attributes \citep{cruces2013biases}. Consequently, individuals do not have an equal probability of belonging to each status group: for example, Middle Class individuals with a college degree are systematically older, more likely to have college-educated parents, and differ in racial/ethnic composition compared to non-college Working Class individuals. If unaddressed, comparisons across status groups (and their interactions with the randomized treatments) risk confounding the effect of social class with these correlated background characteristics.
@@ -273,7 +274,7 @@ where the intercept and status main effects estimate the control exposure drift 
 \section{Results}
 
 \subsection{Baseline Exposure Drift and Generalized Social Influence}
-We begin by establishing a status-free empirical baseline: testing simultaneously for any mere-exposure drift observed under repeated evaluation in the unexposed Control Condition and examining whether learning that unknown others liked or disliked the artwork shifts aggregate aesthetic evaluations via a generalized influence mechanism. To do so, we estimate a repeated-measures linear mixed model on the subset of respondents assigned to the Control Condition ($N = 177$), the Generalized Like condition ($N = 172$), and the Generalized Dislike condition ($N = 172$), totaling $N = 521$ respondents ($1,042$ observations across trials) with Inverse Probability Weighting (IPW):
+We begin by establishing a status-free empirical baseline: testing simultaneously for any mere-exposure drift observed under repeated evaluation in the unexposed Control Condition and examining whether learning that unknown others liked or disliked the artwork shifts aggregate aesthetic evaluations via a generalized influence mechanism. To do so, we estimate a repeated-measures linear mixed model on the subset of respondents assigned to the Control Condition ($N = 157$), the Generalized Like condition ($N = 152$), and the Generalized Dislike condition ($N = 148$), totaling $N = 457$ respondents ($914$ observations across trials) with Inverse Probability Weighting (IPW):
 
 \begin{equation}
 \begin{split}
@@ -288,13 +289,13 @@ Where the unexposed Control Condition serves as the omitted reference group. Fig
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.98\textwidth]{figures/Figure_DiD_Baseline_Influence.png}
-    \caption{Baseline Exposure Drift and Generalized Social Influence (Status-Free Sample, $N = 521$). Panel A displays mean aesthetic evaluations across repeated trials with 95\% confidence intervals (IPW-weighted) for the Control Condition, Generalized Like, and Generalized Dislike. Panel B displays net Difference-in-Differences treatment effects ($\delta_k$) relative to the Control Condition exposure drift (dashed line at zero), with 95\% confidence intervals. Colors indicate statistical significance: red ($p < 0.05$) and grey ($p \ge 0.10$).}
+    \caption{Baseline Exposure Drift and Generalized Social Influence (Status-Free Primary Sample, $N = 457$). Panel A displays mean aesthetic evaluations across repeated trials with 95\% confidence intervals (IPW-weighted) for the Control Condition, Generalized Like, and Generalized Dislike. Panel B displays net Difference-in-Differences treatment effects ($\delta_k$) relative to the Control Condition exposure drift (dashed line at zero), with 95\% confidence intervals. Colors indicate statistical significance: red ($p < 0.05$) and grey ($p \ge 0.10$).}
     \label{fig:did_baseline}
 \end{figure}
 
-This status-free baseline model establishes two main findings. First, consistent with \textit{Hypothesis 1 (Mere Exposure Effect)}, in the complete absence of external social cues (the Control Condition), repeated exposure generates a statistically significant upward appreciation of the artwork ($\beta_1 = +0.156, SE = 0.052, t = 3.00, p = 0.0029$), confirming that mere exposure alone produces positive drift across trials. Second, evaluating generalized social influence reveals a pronounced \textit{valence asymmetry} between positive and negative consensus. When respondents are informed that unknown others liked the painting, raw evaluations increase from 4.51 to 4.74 ($+0.224, p < 0.001$); however, relative to the natural counterfactual drift observed in the control group, this additional increment is positive but not statistically distinguishable from mere exposure drift ($\delta_{\text{Like}} = +0.068, SE = 0.075, t = 0.90, p = 0.367$). Consequently, \textit{Hypothesis 2a (Positive Evaluations)} is not supported, as generalized positive cues fail to significantly facilitate evaluative drift beyond the baseline exposure effect.
+This status-free baseline model establishes two main findings. First, consistent with \textit{Hypothesis 1 (Mere Exposure Effect)}, in the complete absence of external social cues (the Control Condition), repeated exposure generates a statistically significant upward appreciation of the artwork ($\beta_1 = +0.156, SE = 0.055, t = 2.86, p = 0.0044$), confirming that mere exposure alone produces positive drift across trials. Second, evaluating generalized social influence reveals a pronounced \textit{valence asymmetry} between positive and negative consensus. When respondents are informed that unknown others liked the painting, raw evaluations increase from 4.65 to 4.85 ($+0.203, p = 0.009$); however, relative to the natural counterfactual drift observed in the control group, this additional increment is positive but not statistically distinguishable from mere exposure drift ($\delta_{\text{Like}} = +0.047, SE = 0.080, t = 0.59, p = 0.555$). Consequently, \textit{Hypothesis 2a (Positive Evaluations)} is not supported, as generalized positive cues fail to significantly facilitate evaluative drift beyond the baseline exposure effect.
 
-In contrast, learning that others disliked the painting completely overrides the mere exposure effect, reducing second-trial evaluations to a flat $-0.016$ ($p = 0.758$). Relative to the control baseline drift, this constitutes a statistically significant negative Difference-in-Differences suppression ($\delta_{\text{Dislike}} = -0.172, SE = 0.074, t = -2.34, p = 0.02$), providing strong empirical support for \textit{Hypothesis 2b (Negative Evaluations)}. Directly contrasting positive and negative cues reveals a significant directional swing of nearly a quarter point on the 7-point scale ($\Delta = +0.240, SE = 0.075, \chi^2 = 10.32, p = 0.001$), demonstrating that while generalized endorsements fail to reliably boost appreciation over mere exposure, generalized disliking exerts a discernible suppressing effect.
+In contrast, learning that others disliked the painting completely overrides the mere exposure effect, reducing second-trial evaluations to a flat $-0.030$ ($p = 0.68$). Relative to the control baseline drift, this constitutes a statistically significant negative Difference-in-Differences suppression ($\delta_{\text{Dislike}} = -0.186, SE = 0.078, t = -2.40, p = 0.0169$), providing strong empirical support for \textit{Hypothesis 2b (Negative Evaluations)}. Directly contrasting positive and negative cues reveals a significant directional swing of nearly a quarter point on the 7-point scale ($\Delta = +0.233, SE = 0.080, \chi^2 = 8.51, p = 0.0035$), demonstrating that while generalized endorsements fail to reliably boost appreciation over mere exposure, generalized disliking exerts a discernible suppressing effect.
 
 While this status-free model demonstrates clear valence asymmetry overall, evaluating social influence solely at the aggregate level conceals substantial causal heterogeneity based on social location \citep{brand2013causal}.\footnote{As shown in the full pooled models in Appendix Table A.4 and Appendix Figure A.2.} We therefore turn to our moderated models to examine how social influence is conditioned by educational capital, subjective social class, and structural status consistency.
 
@@ -309,13 +310,13 @@ To examine how social influence works across distinct dimensions of class and st
     \label{fig:did_edu_class}
 \end{figure}
 
-Looking at the separate models reveals that education is one of the primary structural fault lines governing responsiveness to external evaluations when evaluators are differentiated by status (Panel A of Figure \ref{fig:did_edu_class} and Appendix Table \ref{tbl:did_edu_class}). Non-college respondents tend to maintain or positively shift their evaluations: they exhibit positive shifts when informed that low-status others disliked the artwork ($\text{DiD} = +0.159, SE = 0.097, p = 0.100$) and when told that an unmarked majority liked it ($\text{DiD} = +0.185, SE = 0.114, p = 0.104$), while remaining largely unresponsive to high-status cues.
+Looking at the separate models reveals that education is one of the primary structural fault lines governing responsiveness to external evaluations when evaluators are differentiated by status (Panel A of Figure \ref{fig:did_edu_class} and Appendix Table \ref{tbl:did_edu_class}). Non-college respondents tend to maintain or positively shift their evaluations: they exhibit positive shifts when informed that an unmarked majority liked the artwork ($\text{DiD} = +0.189, SE = 0.119, p = 0.112$) and when told that high-status others liked it ($\text{DiD} = +0.100, SE = 0.089, p = 0.264$), while remaining largely unresponsive to high-status dislikes ($\text{DiD} = -0.110, SE = 0.089, p = 0.216$).
 
-In contrast, college-educated respondents are statistically significantly more likely to revise their evaluations downward, but never upward, across experimental conditions. In particular, college-educated respondents respond negatively in the High-Status Dislike condition ($\text{DiD} = -0.282$, $SE = 0.087$, $p = 0.0011$), the Low-Status Dislike condition ($\text{DiD} = -0.187$, $SE = 0.094$, $p = 0.0454$), and the Generalized Dislike condition ($\text{DiD} = -0.305$, $SE = 0.107$, $p = 0.0045$). As such, the highly educated seem to be sensitive mainly to negative evaluations of others. 
+In contrast, college-educated respondents are statistically significantly more likely to revise their evaluations downward, but never upward, across experimental conditions. In particular, college-educated respondents respond negatively in the High-Status Dislike condition ($\text{DiD} = -0.263$, $SE = 0.090$, $p = 0.0036$), the Low-Status Dislike condition ($\text{DiD} = -0.175$, $SE = 0.096$, $p = 0.0689$), and the Generalized Dislike condition ($\text{DiD} = -0.325$, $SE = 0.111$, $p = 0.0034$). As such, the highly educated seem to be sensitive mainly to negative evaluations of others. To inspect whether this pattern is robust across finer gradations of educational attainment, we also disaggregate education into four granular tiers (High School or Less, Two-Year / Some College, Bachelor's Degree, and Postgraduate Degree) in Appendix \ref{sec:appendix_edu_4tiers} (Figure \ref{fig:did_edu_4tiers} and Table \ref{tbl:did_edu_4tiers}), which demonstrates a clear monotonic gradient: sub-baccalaureate groups remain positive or inert, while negative suppression and status distancing emerge at the Bachelor's level and intensify dramatically among postgraduates. 
 
-By comparison, examining subjective social class without regard to education (Panel B of Figure \ref{fig:did_edu_class}) produces a more diffuse picture. Self-identified working-class respondents tend to either revise their judgments downward or, more commonly, not at all, and, like college degree holders, are mainly sensitive to dislike information. Accordingly, working-class respondents show significant negative adjustments under Generalized Dislikes ($\text{DiD} = -0.212, SE = 0.102, p = 0.037$). 
+By comparison, examining subjective social class without regard to education (Panel B of Figure \ref{fig:did_edu_class}) produces a more diffuse picture. Self-identified working-class respondents tend to either revise their judgments downward or, more commonly, not at all, and, like college degree holders, are mainly sensitive to dislike information. Accordingly, working-class respondents show significant negative adjustments under Generalized Dislikes ($\text{DiD} = -0.248, SE = 0.107, p = 0.0200$) and a marginally significant negative shift under High-Status Dislikes ($\text{DiD} = -0.143, SE = 0.086, p = 0.0956$). 
 
-Middle-class self-identifiers also exhibit predominantly negative or null shifts, but their behavior is consistent with both status-distancing and status-solidarity mechanisms. Accordingly, middle-class respondents display significant negative shifts under High-Status Dislike ($\text{DiD} = -0.172, SE = 0.089, p = 0.053$) and Low-Status Like ($\text{DiD} = -0.191, SE = 0.099, p = 0.053$)---thus demonstrating sensitivity to dislike information and taste abandonment under outgroup liking, alongside positive facilitation under Generalized Likes ($\text{DiD} = +0.147, SE = 0.109, p = 0.178$).
+Middle-class self-identifiers also exhibit predominantly negative or null shifts, but their behavior is consistent with both status-distancing and status-solidarity mechanisms. Accordingly, middle-class respondents display significant negative shifts under High-Status Dislike ($\text{DiD} = -0.204, SE = 0.091, p = 0.0249$) and Low-Status Like ($\text{DiD} = -0.179, SE = 0.101, p = 0.0752$)---thus demonstrating sensitivity to dislike information and taste abandonment under outgroup liking, alongside positive facilitation under Generalized Likes ($\text{DiD} = +0.111, SE = 0.113, p = 0.325$).
 
 % Crucially, this comparison of education and subjective class identification, taken separately, is insufficient. Because objective credential attainment and subjective class identification cross-cut one another—nearly 28\% of working-class self-identifiers hold college degrees, while over 28\% of middle-class identifiers do not—univariate stratification conflates status-consistent actors with status-inconsistent actors. As we show below, the apparent lack of responsiveness among ``working-class'' respondents is an artifact of aggregating non-college workers (who exhibit normative inertia) with college-educated workers (who exhibit sharp reactivity against high-status cues). Examining their four-quadrant intersection is therefore essential for isolating the distinct mechanisms of status consistency and cross-status influence.
 
@@ -332,33 +333,33 @@ Figure \ref{fig:did_status_full} displays the complete 24-cell matrix of Differe
 
 Evaluating our status-differentiated hypotheses through the DiD framework across these quadrants reveals which theoretical expectations are empirically supported versus unsupported.
 
-First, Same-Status Alignment (\textit{Hypothesis 3}) is not supported. Hypothesis 3 predicted that individuals would align their judgments with the positive and negative evaluations of others sharing their status. When evaluated relative to the control condition counterfactual, neither high-status consistent respondents ($\text{DiD} = -0.118, SE = 0.126, p = 0.348$) nor low-status consistent respondents ($\text{DiD} = -0.110, SE = 0.132, p = 0.404$) show a statistically significant DiD shift when exposed to same-status likes. Similarly, low-status respondents exposed to same-status dislikes do not exhibit a statistically significant shift ($\text{DiD} = +0.185, SE = 0.132, p = 0.163$). Because none of these estimates are statistically significant ($p \ge 0.10$), the data do not support Hypothesis 3.
+First, Same-Status Alignment (\textit{Hypothesis 3}) is not supported. Hypothesis 3 predicted that individuals would align their judgments with the positive and negative evaluations of others sharing their status. When evaluated relative to the control condition counterfactual, neither high-status consistent respondents ($\text{DiD} = -0.142, SE = 0.127, p = 0.2625$) nor low-status consistent respondents ($\text{DiD} = -0.056, SE = 0.139, p = 0.6896$) show a statistically significant DiD shift when exposed to same-status likes. Similarly, low-status respondents exposed to same-status dislikes do not exhibit a statistically significant shift ($\text{DiD} = +0.149, SE = 0.140, p = 0.2884$). Because none of these estimates are statistically significant ($p \ge 0.10$), the data do not support Hypothesis 3.
 
-Second, Cultural Goodwill (\textit{Hypothesis 4}) is not supported for low-status consistent individuals. Hypothesis 4 predicted that lower-status individuals would align their judgments with higher-status others, adopting their likes and conforming to their dislikes. Among low-status consistent respondents (Working Class/No College), neither exposure to High-Status Likes ($\text{DiD} = +0.130, SE = 0.115, p = 0.256$) nor High-Status Dislikes ($\text{DiD} = +0.006, SE = 0.115, p = 0.959$) produces a statistically significant change. Thus, Hypothesis 4 is not supported for low-status consistent individuals. However, for status-inconsistent workers who hold a college degree (Working Class/College), exposure to High-Status Dislikes produces a statistically significant negative DiD shift of $\text{DiD} = -0.394$ ($SE = 0.119, t = -3.30, p = 0.0010$), alongside a significant negative shift under Generalized Dislikes ($\text{DiD} = -0.396, SE = 0.154, p = 0.0100$). This indicates that sensitivity to high-status negative evaluation is concentrated among individuals who possess institutional cultural capital but identify with the working class.
+Second, Cultural Goodwill (\textit{Hypothesis 4}) is not supported for low-status consistent individuals. Hypothesis 4 predicted that lower-status individuals would align their judgments with higher-status others, adopting their likes and conforming to their dislikes. Among low-status consistent respondents (Working Class/No College), neither exposure to High-Status Likes ($\text{DiD} = +0.097, SE = 0.120, p = 0.4204$) nor High-Status Dislikes ($\text{DiD} = -0.045, SE = 0.121, p = 0.7085$) produces a statistically significant change. Thus, Hypothesis 4 is not supported for low-status consistent individuals. However, for status-inconsistent workers who hold a college degree (Working Class/College), exposure to High-Status Dislikes produces a statistically significant negative DiD shift of $\text{DiD} = -0.320$ ($SE = 0.125, t = -2.56, p = 0.0106$), alongside a significant negative shift under Generalized Dislikes ($\text{DiD} = -0.349, SE = 0.156, p = 0.0251$). This indicates that sensitivity to high-status negative evaluation is concentrated among individuals who possess institutional cultural capital but identify with the working class.
 
-Third, Status-Based Distancing Disalignment (\textit{Hypothesis 5}) is strongly supported. Netting out the counterfactual exposure drift provides direct empirical confirmation of Hypothesis 5. For high-status consistent respondents (Middle Class/College), exposure to Low-Status Likes (working-class others liking the painting) produces a statistically significant negative DiD divergence of $\text{DiD} = -0.296$ ($SE = 0.144, t = -2.06, p = 0.0391$) relative to the control condition. Because college-educated middle-class respondents naturally drift upward by $+0.241$ under mere exposure, discovering that working-class others liked the artwork actively reverses their appreciation. High-status consistent respondents also exhibit marginal negative shifts under Generalized Dislikes ($\text{DiD} = -0.264, SE = 0.151, p = 0.0805$) and Low-Status Dislikes ($\text{DiD} = -0.227, SE = 0.136, p = 0.0968$). This confirms that high-status individuals distance their judgments from low-status endorsements, providing experimental evidence of Bourdieusian symbolic distinction and taste abandonment.
+Third, Status-Based Distancing Disalignment (\textit{Hypothesis 5}) is strongly supported. Netting out the counterfactual exposure drift provides direct empirical confirmation of Hypothesis 5. For high-status consistent respondents (Middle Class/College), exposure to Low-Status Likes (working-class others liking the painting) produces a statistically significant negative DiD divergence of $\text{DiD} = -0.308$ ($SE = 0.147, t = -2.09, p = 0.0362$) relative to the control condition. Because college-educated middle-class respondents naturally drift upward by $+0.246$ under mere exposure, discovering that working-class others liked the artwork actively reverses their appreciation. High-status consistent respondents also exhibit significant negative shifts under Generalized Dislikes ($\text{DiD} = -0.344, SE = 0.155, p = 0.0268$) and marginal negative shifts under High-Status Dislikes ($\text{DiD} = -0.243, SE = 0.131, p = 0.0643$) and Low-Status Dislikes ($\text{DiD} = -0.239, SE = 0.139, p = 0.0852$). This confirms that high-status individuals distance their judgments from low-status endorsements, providing experimental evidence of Bourdieusian symbolic distinction and taste abandonment.
 
-Finally, regarding status-inconsistent positive influence, among Middle Class individuals without a college degree, exposure to Generalized Likes produces a marginally significant positive DiD shift of $\text{DiD} = +0.338$ ($SE = 0.173, t = 1.96, p = 0.0501$). All other conditions for this group remain statistically indistinguishable from zero ($p \ge 0.11$).
+Finally, regarding status-inconsistent positive influence, among Middle Class individuals without a college degree, exposure to Generalized Likes produces a marginally significant positive DiD shift of $\text{DiD} = +0.335$ ($SE = 0.183, t = 1.83, p = 0.0677$). All other conditions for this group remain statistically indistinguishable from zero ($p \ge 0.13$).
 
 \subsection{Discrete Behavioral Choices: Inertia, Conformity, and Reactance}
 While continuous change models identify average shifts across conditions, they mask non-linear behavioral choices where opposing individual movements cancel each other out in the aggregate. For instance, an average shift close to zero could reflect complete evaluative rigidity, or it could reflect equal proportions of respondents conforming and reacting in opposite directions. To examine these discrete underlying choices, we categorize responses into three mutually exclusive behaviors: \textit{Stay} ($\Delta = 0$, maintaining one's initial evaluation), \textit{Conform} (moving in the direction of others' evaluation), and \textit{React} (moving in the opposite direction of others' evaluation) and use this as the outcome variable in a multinomial logit model with the four status consistency categories as predictors.  
 
-Figure \ref{fig:multinom} presents the Average Marginal Effects (AME) on the probability of each behavioral choice from an IPW-weighted multinomial logistic regression, compared against the reference group of Working Class respondents without a college degree. In the baseline reference group, the predicted probabilities are $74.4\%$ for staying, $13.6\%$ for conforming, and $12.0\%$ for reacting.
+Figure \ref{fig:multinom} presents the Average Marginal Effects (AME) on the probability of each behavioral choice from an IPW-weighted multinomial logistic regression, compared against the reference group of Working Class respondents without a college degree. In the baseline reference group, the predicted probabilities are $73.8\%$ for staying, $14.2\%$ for conforming, and $12.0\%$ for reacting.
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.95\textwidth]{figures/Figure7_MultinomialBehavior.png}
-    \caption{Average Marginal Effects on Behavioral Choices (Stay, Conform, React) Across Status-Consistency Groups. Horizontal bars indicate differences in choice probability relative to the baseline reference category (Working Class, No College), with 95\% confidence intervals. Colors indicate statistical significance: red ($p < 0.05$) and grey ($p \ge 0.10$).}
+    \caption{Average Marginal Effects on Behavioral Choices (Stay, Conform, React) Across Status-Consistency Groups (Age $\ge 24$ Primary Sample). Horizontal bars indicate differences in choice probability relative to the baseline reference category (Working Class, No College), with 95\% confidence intervals. Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
     \label{fig:multinom}
 \end{figure}
 
-The marginal effects provide compelling empirical confirmation of \textit{Hypothesis 6 (Status Consistency)} and offer new insights into the social dynamics of status inconsistency. First, in terms of evaluative stability (Panel A: Stay), structural status consistency acts as the primary anchor of aesthetic confidence and inertia. Middle-class individuals with a college degree are significantly more likely to maintain their initial judgment than non-college workers ($\text{AME} = +0.046, SE = 0.013, z = 3.64, p < 0.001$), with an overall stay rate of $79.0\%$. In sharp contrast, status-inconsistent individuals without a college degree exhibit significantly lower stability ($\text{AME} = -0.054, SE = 0.013, z = -4.05, p < 0.001$), with their stay rate falling to $65.5\%$. College-educated workers also display attenuated stability ($\text{AME} = -0.022, p = 0.105$, stay rate $68.2\%$). This shows that evaluative inertia is not a simple linear function of high status; rather, both high-consistent (Middle/College) and low-consistent (Working/No College) individuals occupy unambiguous positions within the social structure that foster normative certainty, whereas status inconsistency breeds evaluative fluidity.
+The marginal effects provide compelling empirical confirmation of \textit{Hypothesis 6 (Status Consistency)} and offer new insights into the social dynamics of status inconsistency. First, in terms of evaluative stability (Panel A: Stay), structural status consistency acts as the primary anchor of aesthetic confidence and inertia. Middle-class individuals with a college degree are significantly more likely to maintain their initial judgment than non-college workers ($\text{AME} = +0.073, SE = 0.013, z = 5.47, p < 0.001$), with an overall stay rate of $81.1\%$. In contrast, status-inconsistent individuals without a college degree exhibit lower stability ($\text{AME} = -0.026, SE = 0.014, z = -1.81, p = 0.070$), with their stay rate falling to $71.2\%$. College-educated workers also display attenuated stability ($\text{AME} = -0.012, p = 0.379$, stay rate $72.5\%$). This shows that evaluative inertia is not a simple linear function of high status; rather, both high-consistent (Middle/College) and low-consistent (Working/No College) individuals occupy unambiguous positions within the social structure that foster normative certainty, whereas status inconsistency breeds evaluative fluidity.
 
-Second, in terms of conformity (Panel B), status inconsistency emerges as the primary driver of susceptibility to external social influence. Both status-inconsistent groups display large, highly significant increases in the probability of conforming to others' judgments. Working Class individuals with a college degree are $+5.4\%$ more likely to conform relative to the reference group ($\text{AME} = +0.054, SE = 0.011, z = 4.86, p < 0.001$), and Middle Class individuals without college are $+4.1\%$ more likely to conform ($\text{AME} = +0.041, SE = 0.011, z = 3.82, p < 0.001$). In stark contrast, high-status consistent individuals are significantly less likely to conform ($\text{AME} = -0.021, SE = 0.010, z = -2.11, p = 0.035$). This shows that when actors occupy contradictory locations in social space—possessing formal educational credentials while identifying as working class, or claiming middle-class status without institutional degrees—they experience evaluative cross-pressures and cognitive ambiguity that heighten their inclination to align with external social signals.
+Second, in terms of conformity (Panel B), status inconsistency emerges as the primary driver of susceptibility to external social influence. Both status-inconsistent groups display large, highly significant increases in the probability of conforming to others' judgments. Working Class individuals with a college degree are $+4.2\%$ more likely to conform relative to the reference group ($\text{AME} = +0.042, SE = 0.012, z = 3.60, p = 0.0003$, overall conformity rate $18.4\%$), and Middle Class individuals without college are $+4.3\%$ more likely to conform ($\text{AME} = +0.043, SE = 0.012, z = 3.69, p = 0.0002$, conformity rate $18.5\%$). In stark contrast, high-status consistent individuals are significantly less likely to conform ($\text{AME} = -0.033, SE = 0.011, z = -3.08, p = 0.0021$, conformity rate $10.9\%$). This shows that when actors occupy contradictory locations in social space—possessing formal educational credentials while identifying as working class, or claiming middle-class status without institutional degrees—they experience evaluative cross-pressures and cognitive ambiguity that heighten their inclination to align with external social signals.
 
-Finally, regarding oppositional reactance (Panel C), behavioral divergence is strongly structured by educational capital. Both college-educated groups are significantly less likely to move away from others' judgments compared to non-college workers: Working Class respondents with a college degree are $-3.2\%$ less likely to react ($\text{AME} = -0.032, SE = 0.009, z = -3.54, p < 0.001$), and Middle Class college graduates are $-2.5\%$ less likely to react ($\text{AME} = -0.025, SE = 0.009, z = -2.70, p = 0.007$). Meanwhile, middle-class individuals without a college degree do not differ significantly from their working-class peers ($\text{AME} = +0.013, p = 0.191$). This shows that oppositional reactance to external cues is concentrated among individuals without a college education, whereas institutionalized cultural capital inhibits oppositional defiance.
+Finally, regarding oppositional reactance (Panel C), behavioral divergence is strongly structured by educational capital. Both college-educated groups are significantly less likely to move away from others' judgments compared to non-college workers: Working Class respondents with a college degree are $-3.0\%$ less likely to react ($\text{AME} = -0.030, SE = 0.010, z = -3.06, p = 0.0022$), and Middle Class college graduates are $-4.0\%$ less likely to react ($\text{AME} = -0.040, SE = 0.010, z = -4.20, p < 0.0001$). Meanwhile, middle-class individuals without a college degree exhibit a marginally lower reactance rate ($\text{AME} = -0.018, p = 0.0788$). This shows that oppositional reactance to external cues is concentrated among individuals without a college education, whereas institutionalized cultural capital inhibits oppositional defiance.
 
-To confirm that these behavioral dynamics are driven specifically by status-laden social cues rather than by generic feedback about others' opinions, we re-estimated the multinomial model excluding the two Taste-Only conditions ($N = 1,870$). As displayed in Appendix Figure \ref{fig:sens_multinom}, the results are virtually identical: structural status consistency continues to anchor evaluative inertia (Middle Class with College: $+4.8\%, p < 0.001$), status inconsistency heightens conformity (Working Class with College: $+6.0\%, p < 0.001$; Middle Class without College: $+4.3\%, p < 0.001$), and oppositional reactance remains concentrated among non-college workers ($-3.0\%$ and $-2.1\%$ for college-educated groups, $p < 0.05$). Netting out generic popularity cues therefore confirms that status consistency uniquely structures discrete behavioral responses to social influence.
+To confirm that these behavioral dynamics are driven specifically by status-laden social cues rather than by generic feedback about others' opinions, we re-estimated the multinomial model excluding the two Taste-Only conditions ($N = 1,643$). As displayed in Appendix Figure \ref{fig:sens_multinom}, the results are virtually identical: structural status consistency continues to anchor evaluative inertia (Middle Class with College: $+7.6\%, p < 0.001$), status inconsistency heightens conformity (Working Class with College: $+4.9\%, p < 0.001$; Middle Class without College: $+4.1\%, p < 0.001$), and oppositional reactance remains concentrated among non-college workers ($-3.1\%$ and $-4.1\%$ for college-educated groups, $p < 0.001$). Netting out generic popularity cues therefore confirms that status consistency uniquely structures discrete behavioral responses to social influence.
 
 \section{Discussion}
 
@@ -375,33 +376,33 @@ In this study, we investigated how access to others' aesthetic evaluations causa
 \toprule
 \textbf{Hypothesis / Mechanism} & \textbf{Theoretical Expectation} & \textbf{Empirical DiD Estimate / Statistic} & \textbf{Empirical Verdict} \\
 \midrule
-\textit{Hypothesis 1: Mere Exposure Effect} & Upward drift in evaluation across repeated trials without external social cues & $\beta_1 = +0.156$ ($SE = 0.052, t = 3.00, p = 0.0029^{**}$) & Supported ($p < 0.01$) \\
+\textit{Hypothesis 1: Mere Exposure Effect} & Upward drift in evaluation across repeated trials without external social cues & $\beta_1 = +0.156$ ($SE = 0.055, t = 2.86, p = 0.0044^{**}$) & Supported ($p < 0.01$) \\
 \addlinespace[2.5pt]
-\textit{Hypothesis 2a: Generalized Influence (Positive Evaluations)} & Endorsements from generalized others facilitate and enhance baseline exposure drift & $\delta_{\text{Like}} = +0.068$ ($SE = 0.075, t = 0.90, p = 0.367$);\newline Raw shift: $+0.224$ ($p < 0.001^{***}$) & Not Supported ($p \ge 0.10$) \\
+\textit{Hypothesis 2a: Generalized Influence (Positive Evaluations)} & Endorsements from generalized others facilitate and enhance baseline exposure drift & $\delta_{\text{Like}} = +0.047$ ($SE = 0.080, t = 0.59, p = 0.555$);\newline Raw shift: $+0.203$ ($p = 0.009^{**}$) & Not Supported ($p \ge 0.10$) \\
 \addlinespace[2.5pt]
-\textit{Hypothesis 2b: Generalized Influence (Negative Evaluations)} & Disapproval from generalized others suppresses and blocks baseline exposure drift & $\delta_{\text{Dislike}} = -0.172$ ($SE = 0.074, t = -2.34, p = 0.0197^{*}$);\newline Valence contrast: $\Delta = +0.240$ ($p = 0.0013^{**}$) & Supported ($p < 0.05$) \\
+\textit{Hypothesis 2b: Generalized Influence (Negative Evaluations)} & Disapproval from generalized others suppresses and blocks baseline exposure drift & $\delta_{\text{Dislike}} = -0.186$ ($SE = 0.078, t = -2.40, p = 0.0169^{*}$);\newline Valence contrast: $\Delta = +0.233$ ($p = 0.0035^{**}$) & Supported ($p < 0.05$) \\
 \addlinespace[2.5pt]
-\textit{Hypothesis 3: Same-Status Alignment} & Individuals align judgments with aggregate evaluations of peers sharing their status & High-Status Like: $\text{DiD} = -0.118$ ($p = 0.348$);\newline Low-Status Like: $\text{DiD} = -0.110$ ($p = 0.404$);\newline Low-Status Dislike: $\text{DiD} = +0.185$ ($p = 0.163$) & Not Supported ($p \ge 0.10$ across all same-status cells) \\
+\textit{Hypothesis 3: Same-Status Alignment} & Individuals align judgments with aggregate evaluations of peers sharing their status & High-Status Like: $\text{DiD} = -0.142$ ($p = 0.263$);\newline Low-Status Like: $\text{DiD} = -0.056$ ($p = 0.690$);\newline Low-Status Dislike: $\text{DiD} = +0.149$ ($p = 0.288$) & Not Supported ($p \ge 0.10$ across all same-status cells) \\
 \addlinespace[2.5pt]
-\textit{Hypothesis 4: Cultural Goodwill} & Lower-status individuals align judgments with higher-status others & Low-status consistent like: $\text{DiD} = +0.130$ ($p = 0.256$);\newline Low-status consistent dislike: $\text{DiD} = +0.006$ ($p = 0.959$);\newline Working/College dislike: $\text{DiD} = -0.394$ ($p = 0.001^{**}$) & Not Supported for Low-Status Consistent ($p \ge 0.25$) \\
+\textit{Hypothesis 4: Cultural Goodwill} & Lower-status individuals align judgments with higher-status others & Low-status consistent like: $\text{DiD} = +0.097$ ($p = 0.420$);\newline Low-status consistent dislike: $\text{DiD} = -0.045$ ($p = 0.709$);\newline Working/College dislike: $\text{DiD} = -0.320$ ($p = 0.011^{*}$) & Not Supported for Low-Status Consistent ($p \ge 0.40$) \\
 \addlinespace[2.5pt]
-\textit{Hypothesis 5: Status-Based Distancing Disalignment} & Individuals distance judgments from outgroup evaluations (taste abandonment) & High-status exposed to Low-Status Like: $\text{DiD} = -0.296$ ($p = 0.0391^{*}$);\newline Low-Status Dislike: $\text{DiD} = -0.227$ ($p = 0.0968^{\dagger}$) & Supported ($p < 0.05$) \\
+\textit{Hypothesis 5: Status-Based Distancing Disalignment} & Individuals distance judgments from outgroup evaluations (taste abandonment) & High-status exposed to Low-Status Like: $\text{DiD} = -0.308$ ($p = 0.0362^{*}$);\newline High-Status Dislike: $\text{DiD} = -0.243$ ($p = 0.0643^{\dagger}$);\newline Low-Status Dislike: $\text{DiD} = -0.239$ ($p = 0.0852^{\dagger}$) & Supported ($p < 0.05$) \\
 \addlinespace[2.5pt]
-\textit{Hypothesis 6: Status Consistency} & Consistent status profiles exhibit higher stability (``staying'') than inconsistent profiles & Stay (Middle/College): $\text{AME} = +0.046^{***}$ ($p < 0.001$);\newline Stay (Middle/No College): $\text{AME} = -0.054^{***}$ ($p < 0.001$);\newline Conform (Working/College): $\text{AME} = +0.054^{***}$ ($p < 0.001$);\newline Conform (Middle/No College): $\text{AME} = +0.041^{***}$ ($p < 0.001$) & Supported ($p < 0.001$) \\
+\textit{Hypothesis 6: Status Consistency} & Consistent status profiles exhibit higher stability (``staying'') than inconsistent profiles & Stay (Middle/College): $\text{AME} = +0.073^{***}$ ($p < 0.001$);\newline Stay (Middle/No College): $\text{AME} = -0.026^{\dagger}$ ($p = 0.070$);\newline Conform (Working/College): $\text{AME} = +0.042^{***}$ ($p < 0.001$);\newline Conform (Middle/No College): $\text{AME} = +0.043^{***}$ ($p < 0.001$) & Supported ($p < 0.001$) \\
 \bottomrule
 \end{tabularx}
 \begin{minipage}{\linewidth}
 \vspace{3pt}
 \footnotesize
-\textit{Note:} Difference-in-Differences estimates control treatment shifts against the unexposed Control Condition. Status-subgroup estimates and behavioral models incorporate Inverse Probability Weighting (IPW) on strictly exogenous baseline covariates: age, gender, race/ethnicity, and parental education.
+\textit{Note:} Difference-in-Differences estimates control treatment shifts against the unexposed Control Condition in the primary analytic sample (Age $\ge 24$, $N = 1,981$). Status-subgroup estimates and behavioral models incorporate Inverse Probability Weighting (IPW) on strictly exogenous baseline covariates: age, gender, race/ethnicity, and parental education.
 \end{minipage}
 \end{table}
 
-As summarized in Table \ref{tbl:hypotheses_summary}, the DiD framework clarifies which of our initial intuitions withstood experimental scrutiny in this study. First, we confirm \textit{Hypothesis 1 (Mere Exposure Effect)}: repeated aesthetic evaluation produces an intrinsic positive exposure drift in the absence of external cues ($\beta_1 = +0.156, p = 0.0029$), demonstrating that aesthetic appreciation naturally increases upon re-encountering a cultural object.
+As summarized in Table \ref{tbl:hypotheses_summary}, the DiD framework clarifies which of our initial intuitions withstood experimental scrutiny in this study. First, we confirm \textit{Hypothesis 1 (Mere Exposure Effect)}: repeated aesthetic evaluation produces an intrinsic positive exposure drift in the absence of external cues ($\beta_1 = +0.156, p = 0.0044$), demonstrating that aesthetic appreciation naturally increases upon re-encountering a cultural object.
 
-Second, testing generalized social influence reveals decisive evidence of \textit{valence asymmetry}. While \textit{Hypothesis 2a (Positive Evaluations)} is not supported because positive cues from generalized others fail to produce an increment significantly above baseline exposure drift ($\delta_{\text{Like}} = +0.068, p = 0.367$), \textit{Hypothesis 2b (Negative Evaluations)} is strongly supported ($\delta_{\text{Dislike}} = -0.172, p = 0.0197$). Learning that unknown others disliked the artwork completely overrides the mere exposure effect, confirming that negative consensus exerts a dependable veto on aesthetic appreciation ($\Delta = +0.240, p = 0.0013$).
+Second, testing generalized social influence reveals decisive evidence of \textit{valence asymmetry}. While \textit{Hypothesis 2a (Positive Evaluations)} is not supported because positive cues from generalized others fail to produce an increment significantly above baseline exposure drift ($\delta_{\text{Like}} = +0.047, p = 0.555$), \textit{Hypothesis 2b (Negative Evaluations)} is strongly supported ($\delta_{\text{Dislike}} = -0.186, p = 0.0169$). Learning that unknown others disliked the artwork completely overrides the mere exposure effect, confirming that negative consensus exerts a dependable veto on aesthetic appreciation ($\Delta = +0.233, p = 0.0035$).
 
-Third, the status-stratified DiD framework shows that two prominent mechanisms---same-status alignment (\textit{Hypothesis 3}) and upward cultural goodwill (\textit{Hypothesis 4})---are not supported for status-consistent groups once counterfactual exposure drift is accounted for. For low-status consistent individuals, exposure to same-status likes ($\text{DiD} = -0.110, p = 0.404$) and high-status likes ($\text{DiD} = +0.130, p = 0.256$) remain statistically indistinguishable from zero. Instead, the primary status-driven dynamic is status-based distancing disalignment (\textit{Hypothesis 5}): high-status consistent respondents exposed to low-status likes exhibit a statistically significant negative divergence ($\text{DiD} = -0.296, p = 0.039$), providing clear experimental evidence of Bourdieusian symbolic distinction and taste abandonment.
+Third, the status-stratified DiD framework shows that two prominent mechanisms---same-status alignment (\textit{Hypothesis 3}) and upward cultural goodwill (\textit{Hypothesis 4})---are not supported for status-consistent groups once counterfactual exposure drift is accounted for. For low-status consistent individuals, exposure to same-status likes ($\text{DiD} = -0.056, p = 0.690$) and high-status likes ($\text{DiD} = +0.097, p = 0.420$) remain statistically indistinguishable from zero. Instead, the primary status-driven dynamic is status-based distancing disalignment (\textit{Hypothesis 5}): high-status consistent respondents exposed to low-status likes exhibit a statistically significant negative divergence ($\text{DiD} = -0.308, p = 0.036$), providing clear experimental evidence of Bourdieusian symbolic distinction and taste abandonment.
 
 Finally, discrete behavioral modeling provides robust confirmation of \textit{Hypothesis 6 (Status Consistency)}. Aesthetic stability (``staying'') is governed by structural status consistency rather than high status alone: both high-consistent and low-consistent individuals exhibit high inertia, whereas status-inconsistent individuals display heightened fluidity and conformity ($p < 0.001$).
 
@@ -440,7 +441,7 @@ In a repeated-measures Difference-in-Differences (DiD) framework where each resp
 \begin{equation}
 \sigma_{\Delta} = \sqrt{\sigma_1^2 + \sigma_2^2 - 2 \rho \sigma_1 \sigma_2}
 \end{equation}
-When the test-retest correlation is high, within-subject differencing cancels out stable individual evaluative variance, yielding a change-score standard deviation substantially smaller than the cross-sectional baseline standard deviation ($\sigma_{\Delta} \ll \sigma_1$). In our survey sample, aesthetic judgments exhibit strong stability across repeated trials ($r = 0.8945$, with $\sigma_1 = 1.500$ and $\sigma_2 = 1.548$), yielding an empirical standard deviation of the change score, $\sigma_{\Delta} = 0.702$. This within-subject autocorrelation reduces the standard error of treatment comparisons by more than 50\% relative to an independent post-test design without pre-treatment baselines.
+When the test-retest correlation is high, within-subject differencing cancels out stable individual evaluative variance, yielding a change-score standard deviation substantially smaller than the cross-sectional baseline standard deviation ($\sigma_{\Delta} \ll \sigma_1$). In our primary analytic sample, aesthetic judgments exhibit strong stability across repeated trials ($r = 0.8993$, with $\sigma_1 = 1.504$ and $\sigma_2 = 1.554$), yielding an empirical standard deviation of the change score, $\sigma_{\Delta} = 0.688$. This within-subject autocorrelation reduces the standard error of treatment comparisons by more than 50\% relative to an independent post-test design without pre-treatment baselines.
 
 For a two-sample Difference-in-Differences comparison between a treatment condition of size $N_T$ and the unexposed Control Condition of size $N_C$, the standard error is:
 \begin{equation}
@@ -457,7 +458,7 @@ Table \ref{tbl:mde_analysis} presents the complete MDE calculations across all a
 \begin{table}[ht!]
 \centering
 \small
-\caption{Ex-Post Minimum Detectable Effect (MDE) Analysis Across Experimental Specifications}
+\caption{Ex-Post Minimum Detectable Effect (MDE) Analysis Across Experimental Specifications (Age $\ge 24$ Sample)}
 \label{tbl:mde_analysis}
 \setlength{\tabcolsep}{4.0pt}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccccc@{}}
@@ -467,25 +468,25 @@ Table \ref{tbl:mde_analysis} presents the complete MDE calculations across all a
 \textbf{Model Specification / Level} & $N_T$ & $N_C$ & $SE$ & $\text{MDE}_{\text{raw}}$ & Cohen's $d$ & $\text{MDE}_{\text{raw}}$ & Cohen's $d$ \\
 \midrule
 \multicolumn{8}{l}{\textit{Panel A: Within-Subject Exposure Drift (Paired Comparison)}} \\[2pt]
-Full Sample Drift & 2,253 & --- & 0.015 & 0.041 & 0.028 & 0.048 & 0.032 \\
-Control Condition Drift & 177 & --- & 0.053 & 0.148 & 0.099 & 0.171 & 0.114 \\
+Primary Sample Drift & 1,981 & --- & 0.015 & 0.043 & 0.029 & 0.050 & 0.033 \\
+Control Condition Drift & 157 & --- & 0.055 & 0.154 & 0.102 & 0.178 & 0.118 \\
 \addlinespace[4pt]
-\multicolumn{8}{l}{\textit{Panel B: Pooled Difference-in-Differences Contrasts (vs. Control $N_C=177$)}} \\[2pt]
-Taste-Only Conditions & 172 & 177 & 0.075 & 0.210 & 0.140 & 0.244 & 0.162 \\
-Single Status Conditions & 290 & 177 & 0.067 & 0.188 & 0.125 & 0.217 & 0.145 \\
-Pooled High-Status Conditions & 575 & 177 & 0.060 & 0.169 & 0.113 & 0.196 & 0.130 \\
+\multicolumn{8}{l}{\textit{Panel B: Pooled Difference-in-Differences Contrasts (vs. Control $N_C=157$)}} \\[2pt]
+Taste-Only Conditions & 150 & 157 & 0.079 & 0.220 & 0.146 & 0.255 & 0.169 \\
+Single Status Conditions & 258 & 157 & 0.070 & 0.195 & 0.130 & 0.226 & 0.150 \\
+Pooled High-Status Conditions & 505 & 157 & 0.063 & 0.176 & 0.117 & 0.204 & 0.135 \\
 \addlinespace[4pt]
 \multicolumn{8}{l}{\textit{Panel C: Subgroup DiD Contrasts Within Status Consistency Quadrants}} \\[2pt]
-Working Class, No College & 60--214 & 70 & 0.108 & 0.304 & 0.203 & 0.352 & 0.234 \\
-Middle Class, College & 51--164 & 51 & 0.124 & 0.347 & 0.231 & 0.401 & 0.267 \\
-Middle Class, No College & 32--146 & 33 & 0.150 & 0.421 & 0.281 & 0.487 & 0.325 \\
-Working Class, College & 16--72 & 23 & 0.186 & 0.522 & 0.348 & 0.604 & 0.403 \\
+Working Class, No College & 51--181 & 55 & 0.120 & 0.335 & 0.223 & 0.388 & 0.258 \\
+Middle Class, College & 48--160 & 50 & 0.123 & 0.346 & 0.230 & 0.400 & 0.266 \\
+Middle Class, No College & 26--125 & 31 & 0.153 & 0.429 & 0.285 & 0.496 & 0.330 \\
+Working Class, College & 15--61 & 21 & 0.190 & 0.532 & 0.354 & 0.616 & 0.409 \\
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}
 \vspace{4pt}
 \footnotesize
-\textit{Note:} Minimum Detectable Effects (MDE) are calculated assuming a two-tailed $\alpha = 0.05$ with standard statistical power thresholds of $80\%$ ($z = 2.802$) and $90\%$ ($z = 3.242$). Calculations incorporate the empirical test-retest correlation across repeated trials ($r = 0.8945$, yielding $\sigma_{\Delta} = 0.702$ relative to baseline $\sigma_1 = 1.500$). $\text{MDE}_{\text{raw}}$ is expressed in units of the 7-point aesthetic rating scale; Cohen's $d = \text{MDE}_{\text{raw}} / \sigma_1$. In Panel C, $N_T$ indicates the range of treatment cell sizes across specific cue conditions, and reported $SE$ and MDE values correspond to median cell sizes.
+\textit{Note:} Minimum Detectable Effects (MDE) are calculated assuming a two-tailed $\alpha = 0.05$ with standard statistical power thresholds of $80\%$ ($z = 2.802$) and $90\%$ ($z = 3.242$). Calculations incorporate the empirical test-retest correlation across repeated trials ($r = 0.8993$, yielding $\sigma_{\Delta} = 0.688$ relative to baseline $\sigma_1 = 1.504$). $\text{MDE}_{\text{raw}}$ is expressed in units of the 7-point aesthetic rating scale; Cohen's $d = \text{MDE}_{\text{raw}} / \sigma_1$. In Panel C, $N_T$ indicates the range of treatment cell sizes across specific cue conditions, and reported $SE$ and MDE values correspond to median cell sizes.
 \end{minipage}
 \end{table}
 
@@ -586,13 +587,195 @@ recorded using the identical 8 single-choice options (from 1 = ``I like it very 
 
 \section{Full Regression Tables for Moderated DiD Models}
 \label{sec:appendix_regression_tables}
-Tables \ref{tbl:did_edu_class} and \ref{tbl:did_status_quadrants} report the full set of Difference-in-Differences regression coefficients, standard errors, and sample sizes for the moderated models presented in Figures \ref{fig:did_edu_class} and \ref{fig:did_status_full} of the main text.
+Tables \ref{tbl:did_edu_class} and \ref{tbl:did_status_quadrants} report the full set of Difference-in-Differences regression coefficients, standard errors, and sample sizes for the moderated models in the primary analytic sample (Age $\ge 24$, $N = 1,981$), corresponding to Figures \ref{fig:did_edu_class} and \ref{fig:did_status_full} of the main text.
 
 \begin{table}[ht!]
 \centering
 \small
-\caption{Difference-in-Differences Estimates Moderated Separately by Education and Subjective Class}
+\caption{Difference-in-Differences Estimates Moderated Separately by Education and Subjective Class (Age $\ge 24$ Sample)}
 \label{tbl:did_edu_class}
+\setlength{\tabcolsep}{2.0pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{\textbf{Panel A: Education Alone}} & \multicolumn{2}{c}{\textbf{Panel B: Subjective Class Alone}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Treatment Condition} & No College & College Degree & Working Class & Middle Class \\
+\midrule
+Generalized Like & +0.189 (0.119) & -0.087 (0.107) & +0.043 (0.110) & +0.111 (0.113) \\
+High-Status Like & +0.100 (0.089) & -0.083 (0.089) & +0.048 (0.085) & -0.008 (0.090) \\
+Low-Status Like & -0.052 (0.101) & -0.109 (0.101) & -0.064 (0.096) & -0.179$^{\dagger}$ (0.101) \\
+Generalized Dislike & -0.003 (0.110) & -0.325$^{**}$ (0.111) & -0.248$^{*}$ (0.107) & -0.142 (0.112) \\
+High-Status Dislike & -0.110 (0.089) & -0.263$^{**}$ (0.090) & -0.143$^{\dagger}$ (0.086) & -0.204$^{*}$ (0.091) \\
+Low-Status Dislike & +0.098 (0.101) & -0.175$^{\dagger}$ (0.096) & +0.007 (0.097) & -0.107 (0.100) \\
+\midrule
+Control Condition Drift & +0.041 (0.078) & +0.233$^{**}$ (0.077) & +0.135$^{\dagger}$ (0.074) & +0.162$^{*}$ (0.080) \\
+Sample Size ($N$) & 1,123 & 858 & 923 & 1,058 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation in the primary sample (Age $\ge 24$, $N = 1,981$), estimated via targeted binary Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education. Panel A estimates moderation by educational attainment alone (No College Degree vs.\ Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs.\ Middle Class).
+\end{minipage}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences Treatment Effects Across Status Consistency Quadrants (Age $\ge 24$ Sample, IPW-Weighted)}
+\label{tbl:did_status_quadrants}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{\textbf{Working Class Identification}} & \multicolumn{2}{c}{\textbf{Middle Class Identification}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Treatment Condition} & No College & College Degree & No College & College Degree \\
+\midrule
+Generalized Like & +0.179 (0.164) & -0.145 (0.150) & +0.335$^{\dagger}$ (0.183) & -0.094 (0.156) \\
+High-Status Like & +0.097 (0.120) & +0.035 (0.125) & +0.131 (0.135) & -0.142 (0.127) \\
+Low-Status Like & -0.056 (0.139) & +0.122 (0.138) & -0.058 (0.150) & -0.308$^{*}$ (0.147) \\
+Generalized Dislike & -0.137 (0.148) & -0.349$^{*}$ (0.156) & +0.155 (0.174) & -0.344$^{*}$ (0.155) \\
+High-Status Dislike & -0.045 (0.121) & -0.320$^{*}$ (0.125) & -0.201 (0.134) & -0.243$^{\dagger}$ (0.131) \\
+Low-Status Dislike & +0.149 (0.140) & -0.134 (0.134) & -0.011 (0.150) & -0.239$^{\dagger}$ (0.139) \\
+\midrule
+Control Exposure Drift & +0.019 (0.104) & +0.278$^{**}$ (0.107) & +0.082 (0.121) & +0.246$^{*}$ (0.112) \\
+Analytic Sample ($N$) & 680 & 243 & 443 & 615 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses. \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each status consistency quadrant for the primary sample (Age $\ge 24$, $N = 1,981$), estimated using generalized multinomial Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education.
+\end{minipage}
+\end{table}
+
+\section{Comparison of Unweighted and IPW-Weighted DiD Models}
+\label{sec:appendix_ipw_compare}
+Table \ref{tbl:appendix_did_compare} reports the side-by-side comparison between the primary unweighted DiD model and the IPW-weighted model balancing baseline age, gender, race/ethnicity, and parental education across the primary analytic sample (Age $\ge 24$). Both specifications produce consistent point estimates, standard errors, and substantive conclusions regarding valence asymmetry and exposure drift suppression.
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Comparison of Unweighted and IPW-Weighted Difference-in-Differences Models (Age $\ge 24$ Sample)}
+\label{tbl:appendix_did_compare}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Unweighted DiD}} & \multicolumn{2}{c}{\textbf{IPW-Weighted DiD}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Independent Variable} & Estimate (SE) & $t$ value & Estimate (SE) & $t$ value \\
+\midrule
+Intercept ($\beta_0$) & 4.624 (0.122) & 37.93$^{***}$ & 4.625 (0.122) & 37.86$^{***}$ \\
+Trial 2 Exposure Drift ($\beta_{1}$) & 0.140 (0.054) & 2.57$^{*}$ & 0.156 (0.055) & 2.82$^{**}$ \\
+\addlinespace[3pt]
+\multicolumn{5}{l}{\textit{Difference-in-Differences Treatment Effects ($\text{Trial} \times \text{Condition}$):}} \\
+\quad Taste Only / Like & $+0.064$ (0.078) & 0.82 & $+0.047$ (0.081) & 0.58 \\
+\quad Class \& Taste / Like / $+$Status & $+0.018$ (0.062) & 0.29 & $+0.025$ (0.063) & 0.40 \\
+\quad Class \& Taste / Like / $-$Status & $-0.124^{\dagger}$ (0.069) & $-1.79$ & $-0.063$ (0.072) & $-0.88$ \\
+\quad Taste Only / Dislike & $-0.160^{*}$ (0.078) & $-2.05$ & $-0.186^{*}$ (0.079) & $-2.36$ \\
+\quad Class \& Taste / Dislike / $+$Status & $-0.158^{*}$ (0.063) & $-2.53$ & $-0.207^{**}$ (0.064) & $-3.26$ \\
+\quad Class \& Taste / Dislike / $-$Status & $-0.037$ (0.069) & $-0.54$ & $-0.062$ (0.070) & $-0.88$ \\
+\addlinespace[3pt]
+Condition Main Effects Included & \multicolumn{2}{c}{Yes} & \multicolumn{2}{c}{Yes} \\
+Random Intercept Variance ($\sigma^2_u$) & \multicolumn{2}{c}{2.100} & \multicolumn{2}{c}{2.060} \\
+Residual Variance ($\sigma^2_e$) & \multicolumn{2}{c}{0.233} & \multicolumn{2}{c}{0.982} \\
+$N$ (Observations / Individuals) & \multicolumn{2}{c}{3,962 / 1,981} & \multicolumn{2}{c}{3,962 / 1,981} \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Reference condition: unexposed Control Condition.
+\end{minipage}
+\end{table}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.88\textwidth]{figures/Figure_DiD_Pooled.png}
+    \caption{Difference-in-Differences Treatment Effects in the Primary Sample (Age $\ge 24$, Unweighted Linear Mixed Model). Horizontal bars denote point estimates with 95\% confidence intervals relative to the unexposed Control Condition (dashed line at zero). Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
+    \label{fig:did_pooled}
+\end{figure}
+
+\section{Sensitivity Analysis: Behavioral Choices Excluding Taste-Only Conditions}
+\label{sec:appendix_sens_multinom}
+To verify that the discrete behavioral patterns documented in the main text (Figure \ref{fig:multinom}) are specifically generated by status-differentiated social influence rather than by undifferentiated taste-consensus cues, we conducted a sensitivity analysis by excluding respondents assigned to the two Taste-Only conditions ($N = 300$ in the primary sample). The resulting analytic sample ($N = 1,643$) restricts behavioral classification to respondents exposed to feedback that combines evaluation valence and others' occupational/educational status, alongside unexposed control stayers.
+
+Figure \ref{fig:sens_multinom} displays the Average Marginal Effects from this sensitivity specification, compared against Working Class respondents without a college degree. As shown in the figure, all substantive patterns persist with exceptional stability: status-consistent college-educated respondents exhibit elevated evaluative stability ($\text{AME} = +0.076, p < 0.001$), status-inconsistent respondents exhibit heightened conformity ($\text{AME} = +0.049, p < 0.001$ for Working Class with College; $\text{AME} = +0.041, p < 0.001$ for Middle Class without College), and college education sharply reduces oppositional reactance ($\text{AME} = -0.031, p < 0.001$ and $\text{AME} = -0.041, p < 0.001$). Notably, under this status-restricted specification, the lower evaluative stability of status-inconsistent non-college respondents remains apparent, reinforcing our core finding that status crystallization anchors aesthetic judgments against external social influence.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Figure11_Sens_MultinomialBehavior.png}
+    \caption{Sensitivity Analysis: Average Marginal Effects on Behavioral Choices (Stay, Conform, React) Across Status-Consistency Groups, Excluding Taste-Only Conditions (Age $\ge 24$ Sample, $N = 1,643$). Horizontal bars indicate differences in choice probability relative to Working Class respondents without a college degree, with 95\% confidence intervals. Colors indicate statistical significance: red ($p < 0.05$) and grey ($p \ge 0.10$).}
+    \label{fig:sens_multinom}
+\end{figure}
+
+\section{Robustness Check: Alternative Definition of Social Class}
+\label{sec:appendix_class_robustness}
+Restricting the subjective class definition strictly to respondents self-identifying as ``working class'' or ``middle class'' (excluding lower and upper class extremes) produces identical conclusions: status-consistent groups maintain the highest stay rates (Middle/College: 80.5\%; Working/No College: 74.1\%) and status-inconsistent groups maintain the highest conformity rates (Middle/No College: 18.2\%; Working/College: 17.6\%).
+
+\section{Robustness Check: Unrestricted Full Sample (N = 2,253) Estimates}
+\label{sec:appendix_full_sample}
+In this appendix, we report the complete estimation results obtained when including the entire survey population without age restrictions ($N = 2,253$ complete cases, including the 18--24 cohort; $4,506$ repeated observations across trials). As demonstrated below, all substantive conclusions, directional signs, and empirical hypothesis verdicts are completely invariant to the inclusion of younger respondents who may not yet have completed college.
+
+Table \ref{tbl:full_sample_descriptives} reproduces the demographic distribution of the full unrestricted sample ($N = 2,275$). Tables \ref{tbl:did_edu_class_full} and \ref{tbl:did_status_quadrants_full} report the full sample estimates for the stepwise models (moderated separately by education and subjective class) and the four-quadrant status consistency matrix, respectively.
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Demographic Characteristics of Full Unrestricted Sample ($N = 2,275$)}
+\label{tbl:full_sample_descriptives}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
+\toprule
+Demographic Variable & Sample $N$ & Sample \% & U.S. Pop \% & Treatment & Control & Taste Only \\
+\midrule
+\textbf{Gender} & & & & & & \\
+\quad Women & 1,184 & 52.1\% & 51.5\% & 51.7\% & 52.2\% & 53.9\% \\
+\quad Men & 1,091 & 47.9\% & 48.5\% & 48.3\% & 47.8\% & 46.1\% \\
+\addlinespace[3pt]
+\textbf{Race / Ethnicity} & & & & & & \\
+\quad White & 1,463 & 64.3\% & 65.1\% & 64.7\% & 63.2\% & 63.1\% \\
+\quad Hispanic / Latino & 365 & 16.1\% & 15.8\% & 16.2\% & 14.8\% & 15.9\% \\
+\quad Black / African American & 279 & 12.3\% & 12.3\% & 12.1\% & 13.7\% & 12.1\% \\
+\quad Asian / Pacific Islander & 103 & 4.5\% & 4.5\% & 4.4\% & 5.5\% & 4.6\% \\
+\quad Other / Multiracial & 65 & 2.8\% & 2.3\% & 2.5\% & 2.7\% & 4.3\% \\
+\addlinespace[3pt]
+\textbf{Age Group} & & & & & & \\
+\quad 18--24 & 272 & 12.0\% & 13.1\% & 11.9\% & 11.0\% & 12.7\% \\
+\quad 25--34 & 410 & 18.0\% & 17.5\% & 18.2\% & 16.5\% & 17.9\% \\
+\quad 35--44 & 402 & 17.7\% & 17.5\% & 17.9\% & 13.7\% & 18.7\% \\
+\quad 45--54 & 441 & 19.4\% & 19.2\% & 19.4\% & 20.9\% & 18.4\% \\
+\quad 55--64 & 372 & 16.3\% & 15.6\% & 16.5\% & 15.4\% & 16.1\% \\
+\quad 65+ & 377 & 16.6\% & 17.2\% & 16.1\% & 22.5\% & 16.2\% \\
+\addlinespace[3pt]
+\textbf{Geographic Region} & & & & & & \\
+\quad Northeast & 417 & 18.3\% & 17.9\% & 18.8\% & 16.5\% & 17.0\% \\
+\quad South & 816 & 35.9\% & 37.2\% & 36.6\% & 39.6\% & 30.5\% \\
+\quad Midwest & 505 & 22.2\% & 21.6\% & 21.2\% & 26.4\% & 24.8\% \\
+\quad West & 536 & 23.6\% & 23.3\% & 23.4\% & 17.6\% & 27.7\% \\
+\addlinespace[3pt]
+\textbf{Education (Oversampled)} & & & & & & \\
+\quad Less than High School & 89 & 3.9\% & 13.3\% & 3.8\% & 3.3\% & 4.6\% \\
+\quad High School Diploma & 474 & 20.8\% & 30.4\% & 20.3\% & 23.6\% & 21.9\% \\
+\quad Some College / AA & 791 & 34.8\% & 28.5\% & 36.0\% & 31.3\% & 30.6\% \\
+\quad Bachelor's Degree & 625 & 27.5\% & 18.1\% & 27.3\% & 27.5\% & 28.5\% \\
+\quad Graduate / Professional & 296 & 13.0\% & 9.6\% & 12.6\% & 14.3\% & 14.5\% \\
+\midrule
+\textbf{Total $N$} & \textbf{2,275} & \textbf{100.0\%} & & \textbf{1,746} & \textbf{182} & \textbf{347} \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+\textit{Note:} U.S. population benchmarks are drawn from the 2010/2012 U.S. Census Bureau Current Population Survey (CPS).
+\end{minipage}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences Estimates Moderated Separately by Education and Subjective Class (Full Sample, $N = 2,253$)}
+\label{tbl:did_edu_class_full}
 \setlength{\tabcolsep}{2.0pt}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
 \toprule
@@ -614,15 +797,15 @@ Sample Size ($N$) & 1,340 & 913 & 1,099 & 1,154 \\
 \begin{minipage}{\linewidth}
 \vspace{4pt}
 \footnotesize
-$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation, estimated via targeted binary Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education. Panel A estimates moderation by educational attainment alone (No College Degree vs.\ Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs.\ Middle Class).
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition in the unrestricted full sample ($N = 2,253$).
 \end{minipage}
 \end{table}
 
 \begin{table}[ht!]
 \centering
 \small
-\caption{Difference-in-Differences Treatment Effects Across Status Consistency Quadrants (IPW-Weighted)}
-\label{tbl:did_status_quadrants}
+\caption{Difference-in-Differences Treatment Effects Across Status Consistency Quadrants (Full Sample, $N = 2,252$, IPW-Weighted)}
+\label{tbl:did_status_quadrants_full}
 \setlength{\tabcolsep}{2.5pt}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
 \toprule
@@ -644,72 +827,60 @@ Analytic Sample ($N$) & 832 & 267 & 507 & 646 \\
 \begin{minipage}{\linewidth}
 \vspace{4pt}
 \footnotesize
-$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses. \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each status consistency quadrant, estimated using generalized multinomial Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education.
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses. \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition in the unrestricted full sample ($N = 2,252$).
 \end{minipage}
 \end{table}
 
-\section{Comparison of Unweighted and IPW-Weighted DiD Models}
-\label{sec:appendix_ipw_compare}
-Table \ref{tbl:appendix_did_compare} reports the side-by-side comparison between the primary unweighted DiD model and the IPW-weighted model balancing baseline age, gender, race/ethnicity, and parental education across the pooled sample. Both specifications produce consistent point estimates, standard errors, and substantive conclusions regarding valence asymmetry and exposure drift suppression.
+\section{Robustness Check: Disaggregating Educational Attainment into Four Tiers}
+\label{sec:appendix_edu_4tiers}
+
+To evaluate whether the educational fault line identified in Section \ref{sec:stepwise_models} is sensitive to binary aggregation (College Degree vs.\ No College), we disaggregate educational attainment into four granular tiers: (1) High School or Less ($N = 468$), (2) Two-Year Associate Degree or Some College ($N = 655$), (3) Bachelor's Degree ($N = 577$), and (4) Postgraduate or Advanced Degree ($N = 281$). We estimate the moderated Difference-in-Differences model using generalized multinomial Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education across all four educational tiers.
+
+Figure \ref{fig:did_edu_4tiers} displays the Difference-in-Differences estimates across all six experimental conditions relative to the unexposed Control Condition within each educational tier, and Table \ref{tbl:did_edu_4tiers} reports the complete tabular estimates, standard errors, and significance levels.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figures/Figure_DiD_Edu_4Tiers.png}
+    \caption{Difference-in-Differences Treatment Effects Moderated Across Four Educational Tiers (Multinomial IPW-Weighted, Age $\ge 24$ Primary Sample). Horizontal bars indicate point estimates with 95\% confidence intervals relative to the unexposed Control Condition within each tier (dashed line at zero). Colors denote statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
+    \label{fig:did_edu_4tiers}
+\end{figure}
 
 \begin{table}[ht!]
 \centering
 \small
-\caption{Comparison of Unweighted and IPW-Weighted Difference-in-Differences Models (Pooled Sample)}
-\label{tbl:appendix_did_compare}
-\setlength{\tabcolsep}{4.5pt}
+\caption{Difference-in-Differences Treatment Effects Across Four Educational Tiers (Age $\ge 24$ Sample, IPW-Weighted)}
+\label{tbl:did_edu_4tiers}
+\setlength{\tabcolsep}{2.5pt}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
 \toprule
- & \multicolumn{2}{c}{\textbf{Unweighted DiD}} & \multicolumn{2}{c}{\textbf{IPW-Weighted DiD}} \\
-\cmidrule(lr){2-3} \cmidrule(lr){4-5}
-\textbf{Independent Variable} & Estimate (SE) & $t$ value & Estimate (SE) & $t$ value \\
+\textbf{Treatment Condition} & \textbf{HS or Less} & \textbf{2-Yr / Some Col} & \textbf{Bachelor's} & \textbf{Postgraduate} \\
 \midrule
-Intercept ($\beta_0$) & 4.689 (0.114) & 40.99$^{***}$ & 4.672 (0.115) & 40.72$^{***}$ \\
-Trial 2 Exposure Drift ($\beta_{1}$) & 0.107 (0.052) & 2.05$^{*}$ & 0.156 (0.054) & 2.90$^{**}$ \\
-\addlinespace[3pt]
-\multicolumn{5}{l}{\textit{Difference-in-Differences Treatment Effects ($\text{Trial} \times \text{Condition}$):}} \\
-\quad Taste Only / Like & $+0.096$ (0.075) & 1.29 & $+0.068$ (0.078) & 0.87 \\
-\quad Class \& Taste / Like / $+$Status & $+0.041$ (0.060) & 0.68 & $+0.006$ (0.062) & 0.09 \\
-\quad Class \& Taste / Like / $-$Status & $-0.128$ (0.067) & $-1.93^{\dagger}$ & $-0.112$ (0.069) & $-1.61$ \\
-\quad Taste Only / Dislike & $-0.125$ (0.075) & $-1.67^{\dagger}$ & $-0.172$ (0.076) & $-2.26^{*}$ \\
-\quad Class \& Taste / Dislike / $+$Status & $-0.121$ (0.060) & $-2.02^{*}$ & $-0.201$ (0.062) & $-3.27^{**}$ \\
-\quad Class \& Taste / Dislike / $-$Status & $+0.016$ (0.066) & 0.23 & $-0.034$ (0.068) & $-0.49$ \\
-\addlinespace[3pt]
-Condition Main Effects Included & \multicolumn{2}{c}{Yes} & \multicolumn{2}{c}{Yes} \\
-Random Intercept Variance ($\sigma^2_u$) & \multicolumn{2}{c}{2.074} & \multicolumn{2}{c}{2.026} \\
-Residual Variance ($\sigma^2_e$) & \multicolumn{2}{c}{0.243} & \multicolumn{2}{c}{1.022} \\
-$N$ (Observations / Individuals) & \multicolumn{2}{c}{4,506 / 2,253} & \multicolumn{2}{c}{4,504 / 2,252} \\
+Generalized Like & +0.284$^{\dagger}$ (0.151) & +0.086 (0.173) & -0.040 (0.145) & -0.232 (0.149) \\
+High-Status Like & +0.032 (0.113) & +0.145 (0.127) & -0.030 (0.123) & -0.235$^{\dagger}$ (0.120) \\
+Low-Status Like & +0.051 (0.130) & -0.113 (0.141) & +0.044 (0.139) & -0.491$^{***}$ (0.135) \\
+Generalized Dislike & -0.108 (0.147) & +0.069 (0.154) & -0.308$^{*}$ (0.154) & -0.442$^{**}$ (0.151) \\
+High-Status Dislike & -0.140 (0.113) & -0.080 (0.126) & -0.271$^{*}$ (0.125) & -0.266$^{*}$ (0.122) \\
+Low-Status Dislike & +0.240$^{\dagger}$ (0.134) & +0.036 (0.139) & -0.106 (0.136) & -0.345$^{**}$ (0.123) \\
+\midrule
+Control Exposure Drift & +0.053 (0.118) & +0.021 (0.103) & +0.149 (0.101) & +0.375$^{**}$ (0.137) \\
+Analytic Sample ($N$) & 468 & 655 & 577 & 281 \\
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}
 \vspace{4pt}
 \footnotesize
-\textit{Note:} $^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Reference condition: unexposed Control Condition.
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses. \newline \textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each educational tier, estimated via multinomial Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education.
 \end{minipage}
 \end{table}
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.88\textwidth]{figures/Figure_DiD_Pooled.png}
-    \caption{Difference-in-Differences Treatment Effects in the Pooled Sample (Unweighted Linear Mixed Model). Horizontal bars denote point estimates with 95\% confidence intervals relative to the unexposed Control Condition (dashed line at zero). Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
-    \label{fig:did_pooled}
-\end{figure}
+As shown in Figure \ref{fig:did_edu_4tiers} and Table \ref{tbl:did_edu_4tiers}, disaggregating education reveals a monotonic, stepped cultural capital gradient that substantively enriches the main findings:
+\begin{enumerate}
+    \item \textbf{Tier 1 (High School or Less):} Respondents with a high school education or less are the only group in the study that exhibits positive evaluative shifts, showing positive facilitation under Generalized Likes ($\text{DiD} = +0.284, p = 0.061$) and an oppositional positive reaction when informed that low-status others disliked the artwork ($\text{DiD} = +0.240, p = 0.074$). They are completely indifferent to high-status opinions.
+    \item \textbf{Tier 2 (Two-Year Associate Degree / Some College):} Respondents occupying the intermediate sub-baccalaureate tier display complete evaluative stability: all six treatment estimates hover near zero (ranging from $-0.11$ to $+0.14$), with no condition approaching statistical significance ($p \ge 0.25$). Ancillary tests confirm that terminal Associate degree holders ($N = 196$) and those with some college but no degree ($N = 459$) are equally inert.
+    \item \textbf{Tier 3 (Bachelor's Degree):} Upon crossing the 4-year baccalaureate threshold, evaluative behavior flips decisively into selective downward correction: Bachelor's degree holders adjust downward under High-Status Dislike ($\text{DiD} = -0.271, p = 0.030$) and Generalized Dislike ($\text{DiD} = -0.308, p = 0.046$), while ignoring all positive endorsements ($p \ge 0.75$).
+    \item \textbf{Tier 4 (Postgraduate Degree):} Among respondents holding advanced credentials (Master's, Doctoral, and Professional degrees), cultural boundary-making and taste abandonment emerge in their most intense form. Exposure to Low-Status Likes produces a massive downward divergence of $\text{DiD} = -0.491$ ($SE = 0.135, t = -3.64, p = 0.0003$), representing the single largest negative treatment effect observed in the experiment. Postgraduates also exhibit pervasive sensitivity to dislikes across all categories (High-Status, Low-Status, and Generalized Dislikes, all $p < 0.03$).
+\end{enumerate}
 
-\section{Sensitivity Analysis: Behavioral Choices Excluding Taste-Only Conditions}
-\label{sec:appendix_sens_multinom}
-To verify that the discrete behavioral patterns documented in the main text (Figure \ref{fig:multinom}) are specifically generated by status-differentiated social influence rather than by undifferentiated taste-consensus cues, we conducted a sensitivity analysis by excluding respondents assigned to the two Taste-Only conditions ($N = 344$). The resulting analytic sample ($N = 1,870$) restricts behavioral classification to respondents exposed to feedback that combines evaluation valence and others' occupational/educational status, alongside unexposed control stayers.
-
-Figure \ref{fig:sens_multinom} displays the Average Marginal Effects from this sensitivity specification, compared against Working Class respondents without a college degree. As shown in the figure, all substantive patterns persist with exceptional stability: status-consistent college-educated respondents exhibit elevated evaluative stability ($\text{AME} = +0.048, p < 0.001$), status-inconsistent respondents exhibit heightened conformity ($\text{AME} = +0.060, p < 0.001$ for Working Class with College; $\text{AME} = +0.043, p < 0.001$ for Middle Class without College), and college education sharply reduces oppositional reactance ($\text{AME} = -0.030, p = 0.003$ and $\text{AME} = -0.021, p = 0.042$). Notably, under this status-restricted specification, the lower evaluative stability of status-inconsistent workers is statistically significant ($\text{AME} = -0.030, p = 0.038$), reinforcing our core finding that status crystallization anchors aesthetic judgments against external social influence.
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/Figure11_Sens_MultinomialBehavior.png}
-    \caption{Sensitivity Analysis: Average Marginal Effects on Behavioral Choices (Stay, Conform, React) Across Status-Consistency Groups, Excluding Taste-Only Conditions ($N = 1,870$). Horizontal bars indicate differences in choice probability relative to Working Class respondents without a college degree, with 95\% confidence intervals. Colors indicate statistical significance: red ($p < 0.05$) and grey ($p \ge 0.10$).}
-    \label{fig:sens_multinom}
-\end{figure}
-
-\section{Robustness Check: Alternative Definition of Social Class}
-\label{sec:appendix_class_robustness}
-Restricting the subjective class definition strictly to respondents self-identifying as ``working class'' or ``middle class'' (excluding lower and upper class extremes) produces identical conclusions: status-consistent groups maintain the highest stay rates (Middle/College: 78.2\%; Working/No College: 74.7\%) and status-inconsistent groups maintain the highest conformity rates (Middle/No College: 17.9\%; Working/College: 16.9\%).
+These patterns confirm that collapsing Tiers 1 and 2 into ``No College'' and Tiers 3 and 4 into ``College Degree'' accurately reflects the primary institutional fault line of cultural capital, while disaggregation demonstrates that Bourdieusian distinction intensifies monotonically with advanced educational attainment.
 
 \end{document}
