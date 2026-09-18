@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex manuscript_R1"] 1789697429 "manuscript_R1.aux" "manuscript_R1.bbl" "manuscript_R1" 1789697429 0
+["bibtex manuscript_R1"] 1789697843 "manuscript_R1.aux" "manuscript_R1.bbl" "manuscript_R1" 1789697846 0
   "./references.bib" 1789697280 14733 3c7aaf54cc400946812dfd19f82224b3 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "manuscript_R1.aux" 1789697233 21676 ee9745b3f88f8c06c86815c0590ec9e0 "pdflatex"
+  "manuscript_R1.aux" 1789697846 21676 a4c0072813a67d398166c4300ca7f83d "pdflatex"
   (generated)
   "manuscript_R1.bbl"
   "manuscript_R1.blg"
   (rewritten before read)
-["pdflatex"] 1789697231 "manuscript_R1.tex" "manuscript_R1.pdf" "manuscript_R1" 1789697429 0
+["pdflatex"] 1789697844 "manuscript_R1.tex" "manuscript_R1.pdf" "manuscript_R1" 1789697846 0
   "/etc/texmf/web2c/texmf.cnf" 1788206240 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/omarlizardo/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1789511325 14040 d303526afe20d391f9181ca5a2b982ee ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -132,10 +132,10 @@
   "figures/Figure_DiD_Pooled.png" 1789688485 109747 e853097add1e9ddb8b2c11fb3dc106b9 ""
   "figures/Figure_MDE_Power_Curves.png" 1789688773 363635 1f26e83edede9db4417eb0913793028c ""
   "figures/experimental_stimulus.jpeg" 1789509703 93033 619c4e3e1d3e8c03b46dd25e4e1f95d8 ""
-  "manuscript_R1.aux" 1789697233 21676 ee9745b3f88f8c06c86815c0590ec9e0 "pdflatex"
-  "manuscript_R1.bbl" 1789697429 7115 f44e03f7ea711ebccc527dac25907953 "bibtex manuscript_R1"
-  "manuscript_R1.out" 1789697233 8798 eb87e19532075a5687249d6ad0f78c1d "pdflatex"
-  "manuscript_R1.tex" 1789697209 105506 9d9eeab0b26f9d1ab8333843b711fdb7 ""
+  "manuscript_R1.aux" 1789697846 21676 a4c0072813a67d398166c4300ca7f83d "pdflatex"
+  "manuscript_R1.bbl" 1789697843 7115 f44e03f7ea711ebccc527dac25907953 "bibtex manuscript_R1"
+  "manuscript_R1.out" 1789697846 8798 eb87e19532075a5687249d6ad0f78c1d "pdflatex"
+  "manuscript_R1.tex" 1789697809 105975 704d87f66d42ecf0900b3666badf5d62 ""
   (generated)
   "manuscript_R1.aux"
   "manuscript_R1.log"
