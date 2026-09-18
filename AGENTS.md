@@ -60,7 +60,7 @@ Because the treatment vignettes explicitly differentiated alter status via educa
 - **Tier 3: Four-Year Bachelor's Degree ($N = 577$):** Onset of downward evaluative suppression under High-Status Dislikes ($\text{DiD} = -0.271^{*}, p = 0.0296$) and Generalized Dislikes ($\text{DiD} = -0.308^{*}, p = 0.0455$), with complete unresponsiveness to positive cues ($p \ge 0.75$).
   - *Hypothesis 3 (Same-Status Alignment) is rejected across strata:* BA holders do not follow high-status likes ($-0.030, p = 0.809$).
 - **Tier 4: Postgraduate / Advanced Degree ($N = 281$):** Severe, pervasive Bourdieusian boundary-drawing and status distancing:
-  - *Hypothesis 5 (Status-Based Distancing Disalignment) is strongly supported:* Learning that working-class peers liked the painting triggers an immediate evaluative collapse of nearly half a point ($\text{DiD} = -0.491^{***}, SE = 0.135, t = -3.64, p = 0.0003$, Cohen's $d = 0.33$)—the single largest negative treatment effect in the study.
+  - *Hypothesis 5 (Status-Based Distancing) is strongly supported:* Learning that working-class peers liked the painting triggers an immediate evaluative collapse of nearly half a point ($\text{DiD} = -0.491^{***}, SE = 0.135, t = -3.64, p = 0.0003$, Cohen's $d = 0.33$)—the single largest negative treatment effect in the study.
   - Reinforced by severe downward vetoes across all dislike conditions (Generalized Dislike: $-0.442^{**}$; Low-Status Dislike: $-0.345^{**}$; High-Status Dislike: $-0.266^{*}$).
 
 ### 4. Status Inconsistency and Discrete Behavioral Choices (Section 3.3 & Figure 5)
@@ -136,7 +136,7 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 - [x] **Valence Framing around Valence Asymmetry (R2 #4):** Reframed core claim around asymmetric veto power of negative evaluations.
 - [x] **Status Inconsistency Mechanism & Moderation (R2 #5, R2 #6):** Integrated status crystallization theory (Lenski 1954; Hope 1975); clarified that consistency anchors stability, whereas inconsistency breeds fluidity.
 - [x] **Clear Empirical Takeaways for Researchers (R2 #7):** Added Table 2 systematically summarizing each hypothesis, DiD estimate, and statistical verdict.
-- [x] **Hypothesis Alignment & Numbering:** Systematically numbered and aligned all hypotheses across Section 1.3, Section 3 results, Table 2, and Section 4 discussion (H1: Mere Exposure, H2a: Positive Evaluations, H2b: Negative Evaluations, H3: Same-Status Alignment, H4: Cultural Goodwill, H5: Status-Based Distancing Disalignment, H6: Status Consistency).
+- [x] **Hypothesis Alignment & Numbering:** Systematically numbered and aligned all hypotheses across Section 1.3, Section 3 results, Table 2, and Section 4 discussion (H1: Mere Exposure, H2a: Positive Evaluations, H2b: Negative Evaluations, H3: Same-Status Alignment, H4: Cultural Goodwill, H5: Status-Based Distancing, H6: Status Consistency).
 - [x] **Section 3.1 Baseline Influence Figure:** Added Figure 3 (`Figure_DiD_Baseline_Influence.png`), displaying within-subject evaluative trajectories across repeated trials (Panel A) alongside net DiD treatment effects relative to control exposure drift (Panel B).
 - [x] **Text Asterisk Formatting:** Removed all significance asterisks and daggers next to $p$-values from the main narrative text, preserving them strictly in regression and summary tables.
 - [x] **Asset Housekeeping:** Deleted obsolete `figures/Figure_DiD_Significant_Effects.*` assets.
