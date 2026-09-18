@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.8.31)  17 SEP 2026 21:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.8.31)  18 SEP 2026 08:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -587,7 +587,7 @@ Package rerunfilecheck Info: File `manuscript_R1.out' has not changed.
 Here is how much of TeX's memory you used:
  14143 strings out of 478051
  230547 string characters out of 5840943
- 1877330 words of memory out of 5000000
+ 1878330 words of memory out of 5000000
  33941 multiletter control sequences out of 15000+600000
  524408 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -611,7 +611,7 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on manuscript_R1.pdf (40 pages, 1614354 bytes).
+Output written on manuscript_R1.pdf (40 pages, 1614316 bytes).
 PDF statistics:
  782 PDF objects out of 1000 (max. 8388607)
  684 compressed objects within 7 object streams
