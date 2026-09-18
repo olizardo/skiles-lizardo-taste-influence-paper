@@ -94,11 +94,11 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 | :--- | :--- | :--- | :--- |
 | **Figure 1** | `figures/experimental_stimulus.jpeg` | `\ref{fig:stimulus}` | Whistler's *Nocturne: Blue and Gold -- Old Battersea Bridge* (1872) |
 | **Figure 2** | `figures/Figure8_CovariateBalance.png` | `\ref{fig:balance}` | IPW Love Plot of covariate balance across status quadrants |
-| **Figure 3** | `figures/Figure_DiD_Baseline_Influence.png` | `\ref{fig:did_baseline}` | 2-panel plot of trajectories and DiD effects for Section 3.1 baseline influence ($N = 457$) |
+| **Figure 3** | `figures/Figure_DiD_Baseline_Influence.png` | `\ref{fig:did_baseline}` | Horizontal bar plot of net DiD treatment effects for Section 3.1 generalized influence ($N = 457$) |
 | **Figure 4** | `figures/Figure_DiD_Edu_4Tiers.png` | `\ref{fig:did_edu_4tiers}` | 4-panel horizontal bar plot of DiD effects across four educational tiers ($N = 1,981$) |
 | **Figure 5** | `figures/Figure7_MultinomialBehavior.png` | `\ref{fig:multinom}` | 3-panel horizontal bar plot of AMEs for Stay, Conform, and React across status consistency quadrants |
 | **Table 1** | `manuscript_R1.tex` | `\ref{tbl:descriptives}` | Primary sample demographics (Age $\ge 24$, $N = 1,981$) vs. 2012 Census benchmarks across experimental arms |
-| **Table 2** | `manuscript_R1.tex` | `\ref{tbl:hypotheses_summary}` | Summary of Hypotheses (H1–H6), DiD Estimates, and Empirical Verdicts |
+| **Table 2** | `manuscript_R1.tex` | `\ref{tbl:hypotheses_summary}` | Summary of Hypotheses (H1–H6), Theoretical Expectations, and Empirical Verdicts |
 | **Appendix Fig A.1** | `figures/Figure_MDE_Power_Curves.png` | `\ref{fig:mde_curves}` | Dual-panel MDE power curves (theoretical & empirical benchmarks for Age $\ge 24$ sample) |
 | **Appendix Fig A.2** | `figures/Figure_DiD_Pooled.png` | `\ref{fig:did_pooled}` | Difference-in-Differences Treatment Effects in the Pooled Primary Sample ($N = 1,981$) |
 | **Appendix Fig A.3** | `figures/Figure11_Sens_MultinomialBehavior.png` | `\ref{fig:sens_multinom}` | Sensitivity behavioral bar plot (excluding Taste-Only conditions, $N = 1,643$) |

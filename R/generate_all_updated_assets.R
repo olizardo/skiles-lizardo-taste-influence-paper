@@ -227,8 +227,8 @@ generate_figure_3 <- function(df_w, df_l, out_prefix, sample_label) {
   
   p_did <- ggplot(df_did, aes(x = estimate, y = Condition, fill = sig, color = sig)) +
     geom_vline(xintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.6) +
-    geom_col(width = 0.45, alpha = 0.85, color = NA) +
-    geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = 0.20, linewidth = 0.75) +
+    geom_col(width = 0.50, alpha = 0.85, color = NA) +
+    geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = 0.22, linewidth = 0.75) +
     scale_fill_manual(name = "Significance", values = sig_palette, limits = names(sig_palette), drop = FALSE) +
     scale_color_manual(name = "Significance", values = sig_palette, limits = names(sig_palette), drop = FALSE) +
     scale_x_continuous(
@@ -237,21 +237,21 @@ generate_figure_3 <- function(df_w, df_l, out_prefix, sample_label) {
       labels = c("-0.3", "-0.2", "-0.1", "0.0", "+0.1", "+0.2", "+0.3")
     ) +
     labs(
-      title = "B. Net DiD Treatment Effects vs. Control Drift",
-      subtitle = "Relative to Control exposure drift (95% CI, net of mere exposure)",
+      title = sprintf("Difference-in-Differences Treatment Effects (%s)", sample_label),
+      subtitle = "Relative to Control Condition exposure drift (95% CI, net of mere exposure)",
       x = "DiD Treatment Effect (Change Score vs. Control)",
       y = ""
     ) +
     theme_pub +
     theme(
-      axis.text.y = element_text(face = "bold", size = 10),
-      legend.title = element_text(face = "bold", size = 10)
+      axis.text.y = element_text(face = "bold", size = 10.5),
+      legend.title = element_text(face = "bold", size = 10),
+      legend.position = "bottom"
     )
   
-  p_comb <- p_traj + p_did + plot_layout(widths = c(1.05, 1))
-  ggsave(paste0(out_prefix, ".png"), p_comb, width = 11, height = 4.8, dpi = 300)
-  ggsave(paste0(out_prefix, ".pdf"), p_comb, width = 11, height = 4.8)
-  p_comb
+  ggsave(paste0(out_prefix, ".png"), p_did, width = 7.5, height = 3.6, dpi = 300)
+  ggsave(paste0(out_prefix, ".pdf"), p_did, width = 7.5, height = 3.6)
+  p_did
 }
 
 generate_figure_3(df_wide_cc_primary, df_long_primary, "figures/Figure_DiD_Baseline_Influence", "Age >= 24 Sample")
