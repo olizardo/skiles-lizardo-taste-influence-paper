@@ -6,7 +6,11 @@ This project modernizes, revises, and revives the analysis for the paper *"Stay,
 - **Journal:** *Poetics* (Editor-in-Chief: Hannah Wohl)
 - **Overleaf Project URL:** https://www.overleaf.com/project/6a3fe1ed665ddc04ec45136a
 - **Overleaf Git Endpoint:** `https://git.overleaf.com/6a3fe1ed665ddc04ec45136a`
-- **Revision Tracking:** `REVISION_PLAN_POETICS.md` and `response_to_reviewers.md`
+- **Revision Tracking & Response Documents:**
+  - `REVISION_PLAN_POETICS.md`: Comprehensive strategy and execution plan for the major revision.
+  - `response_to_reviewers.md`: Active Markdown memo detailing point-by-point responses to Editor Hannah Wohl and both reviewers.
+  - `response_to_reviewers.tex`: Publication-grade LaTeX document containing the complete response memo styled with `tcolorbox` reviewer callouts, mathematical formulas, and formal `booktabs` tables.
+  - `response_to_reviewers.pdf`: Compiled 27-page PDF response memo ready for journal resubmission.
 - **Manuscript Files & Critical Preservation Policy:**
   - `manuscript.tex`: **DO NOT OVERWRITE OR EDIT.** Preserves the frozen, historical original version of the manuscript as initially submitted to *Poetics* (14 pages).
   - `manuscript_R1.tex`: **The ONLY active working manuscript file.** All current revisions, Overleaf edits, DiD models, IPW specifications, and text updates belong exclusively in `manuscript_R1.tex`.
@@ -31,7 +35,7 @@ This project modernizes, revises, and revives the analysis for the paper *"Stay,
 
 ## Streamlined Results Architecture & Core Findings
 
-### 1. Difference-in-Differences Causal Architecture (Section 2.5)
+### 1. Difference-in-Differences Causal Architecture (Section 2.7)
 - **Base DiD Linear Mixed Model (Equation \ref{eq:did_model}):**
   $$\text{Taste}_{it} = \beta_0 + \beta_1 \text{Trial}_{it} + \sum_{k=2}^{K} \beta_k \text{Cond}_{ik} + \sum_{k=2}^{K} \delta_k (\text{Trial}_{it} \times \text{Cond}_{ik}) + u_i + \epsilon_{it}$$
 - **Fully Moderated DiD Model (Equation \ref{eq:did_moderation_model}):**
@@ -52,8 +56,8 @@ $$\text{Taste}_{it} = \beta_0 + \beta_1 \text{Trial}_{it} + \beta_2 \text{Like}_
   - *Generalized Dislike (H2b):* Negative feedback completely halts exposure appreciation (raw change $-0.030$), resulting in statistically significant negative DiD suppression ($\delta_{\text{Dislike}} = -0.186^{*}, SE = 0.078, t = -2.40, p = 0.0169$).
   - *Valence Contrast:* Direct contrast yields a significant directional swing ($\Delta = +0.233^{**}, SE = 0.080, \chi^2 = 8.51, p = 0.0035$), demonstrating that negative social consensus exerts an asymmetric veto power.
 
-### 3. Status-Differentiated Influence Across Four Educational Tiers (Section 3.2 & Figure 4)
-Because the treatment vignettes explicitly differentiated alter status via educational credentials and occupations, educational attainment is the primary structural axis of cultural capital matching ego to alter. With $N = 1,981$ and high repeated-measures test-retest precision ($r = 0.899, \sigma_{\Delta} = 0.688$), the design has ample statistical power to test four granular educational tiers via multinomial IPW (Figure \ref{fig:did_edu_4tiers} and Appendix Table \ref{tbl:did_edu_4tiers}):
+### 3. Status-Differentiated Social Influence Across Four Educational Tiers (Section 3.2 & Figure 4)
+Because the treatment vignettes explicitly differentiated alter status via educational credentials and occupations, educational attainment is the primary structural axis of cultural capital matching ego to alter (titled `\subsection{Status-Differentiated Social Influence}` in `manuscript_R1.tex`). With $N = 1,981$ and high repeated-measures test-retest precision ($r = 0.899, \sigma_{\Delta} = 0.688$), the design has ample statistical power to test four granular educational tiers via multinomial IPW (Figure \ref{fig:did_edu_4tiers} and Appendix Table \ref{tbl:did_edu_4tiers}):
 - **Tier 1: High School or Less ($N = 468$):** Exclusively positive or inert shifts. Positive facilitation under Generalized Likes ($\text{DiD} = +0.284^{\dagger}, p = 0.0608$) and Low-Status Dislikes ($\text{DiD} = +0.240^{\dagger}, p = 0.0737$). Unresponsive to elite cues ($+0.032, p = 0.777$ for like; $-0.140, p = 0.215$ for dislike).
   - *Hypothesis 4 (Cultural Goodwill) is decisively rejected:* Lower-status individuals exhibit no deference or upward alignment with elite consensus.
 - **Tier 2: Two-Year Associate / Some College ($N = 655$):** Complete evaluative stability and inertia across all six conditions ($p \ge 0.25$, estimates tightly bounded between $-0.113$ and $+0.145$). Functions as an evaluative buffer.
@@ -72,11 +76,11 @@ Subjective social class identification (Middle Class vs. Working Class) is reser
 - **Sensitivity Check (Appendix Figure A.3):** Re-estimating the model excluding Taste-Only conditions ($N = 1,643$) yields identical substantive results (Middle Class with College stay $+7.6\%, p < 0.001$).
 - **Streamlining Benefit:** Eliminating the old 24-cell continuous grid from the main text removed narrative redundancy and statistical dilution; the full 24-cell regression table is retained in Appendix Table \ref{tbl:did_status_quadrants} for reference.
 
-### 5. Inverse Probability Weighting (IPW) Causal Architecture
+### 5. Inverse Probability Weighting (IPW) Causal Architecture (Section 2.6)
 - Propensity score weighting via `WeightIt` and `cobalt` balances strictly exogenous pre-treatment baseline covariates (`age`, `female`, `raceeth`, and `parented`), excluding post-treatment adult personal income and geographic region to avoid conditioning on post-treatment socioeconomic outcomes of education.
 - Multinomial IPW across the four educational tiers is applied to the DiD models in Section 3.2 (Figure 4).
 - Multinomial IPW across the four status consistency quadrants is applied to the discrete behavioral models in Section 3.3 (Figure 5).
-- Standardized mean differences across all status groups are compressed below $0.10$ (Figure 2).
+- Standardized mean differences across all status groups are compressed below $0.10$ (Figure 2 in Section 2.6).
 
 ---
 
@@ -109,6 +113,9 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 | **Appendix Tab G.1** | `manuscript_R1.tex` | `\ref{tbl:full_sample_descriptives}` | Full unrestricted sample demographics ($N = 2,275$) |
 | **Appendix Tab G.2** | `manuscript_R1.tex` | `\ref{tbl:did_edu_class_full}` | Full unrestricted sample stepwise DiD estimates ($N = 2,253$) |
 | **Appendix Tab G.3** | `manuscript_R1.tex` | `\ref{tbl:did_status_quadrants_full}` | Full unrestricted sample 24-cell status consistency matrix ($N = 2,252$) |
+| **Response Memo (MD)** | `response_to_reviewers.md` | --- | Active Markdown point-by-point response memo to editor and reviewers |
+| **Response Memo (TeX)** | `response_to_reviewers.tex` | --- | Publication-grade LaTeX response memo styled with `tcolorbox` and math equations |
+| **Response Memo (PDF)** | `response_to_reviewers.pdf` | --- | Compiled 27-page PDF response memo ready for submission to *Poetics* |
 
 ---
 
@@ -142,3 +149,5 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 - [x] **Asset Housekeeping:** Deleted obsolete `figures/Figure_DiD_Significant_Effects.*` assets.
 - [x] **Standardized Condition Ordering:** Imposed identical top-down y-axis ordering across all figures and tables (Generalized Like $\to$ High-Status Like $\to$ Low-Status Like $\to$ Generalized Dislike $\to$ High-Status Dislike $\to$ Low-Status Dislike).
 - [x] **Preservation of Original Manuscript:** `manuscript.tex` frozen as the historical original submission (14 pages); `manuscript_R1.tex` used for all active revision work.
+- [x] **Response to Reviewers Ported to LaTeX & PDF:** Ported `response_to_reviewers.md` into `response_to_reviewers.tex` with custom `tcolorbox` environments and compiled `response_to_reviewers.pdf` (27 pages) with 0 errors.
+- [x] **Overleaf Branch Reconciliation:** Fetched and merged Overleaf updates (Section 1.4 status crystallization wording and Section 3.2 heading streamlining to `Status-Differentiated Social Influence`) and synchronized across `manuscript_R1.tex`, `response_to_reviewers.md`, and `response_to_reviewers.tex`.
