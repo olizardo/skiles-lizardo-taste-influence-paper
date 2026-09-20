@@ -9,11 +9,27 @@ This project modernizes, revises, and revives the analysis for the paper *"Stay,
 - **Revision Tracking & Response Documents:**
   - `REVISION_PLAN_POETICS.md`: Comprehensive strategy and execution plan for the major revision.
   - `response_to_reviewers.md`: Active Markdown memo detailing point-by-point responses to Editor Hannah Wohl and both reviewers.
-  - `response_to_reviewers.tex`: Publication-grade LaTeX document containing the complete response memo styled with `tcolorbox` reviewer callouts, mathematical formulas, and formal `booktabs` tables.
-  - `response_to_reviewers.pdf`: Compiled 27-page PDF response memo ready for journal resubmission.
+  - `response_to_reviewers.tex`: Publication-grade LaTeX document containing the complete response memo styled with `tcolorbox` reviewer callouts, mathematical formulas, and formal `booktabs` tables. Written in full academic prose paragraphs (avoiding bullet points), using italics for emphasis, and stripped of bug-tracker status tags.
+  - `response_to_reviewers.pdf`: Compiled 18-page PDF response memo ready for journal resubmission (0 errors).
 - **Manuscript Files & Critical Preservation Policy:**
   - `manuscript.tex`: **DO NOT OVERWRITE OR EDIT.** Preserves the frozen, historical original version of the manuscript as initially submitted to *Poetics* (14 pages).
   - `manuscript_R1.tex`: **The ONLY active working manuscript file.** All current revisions, Overleaf edits, DiD models, IPW specifications, and text updates belong exclusively in `manuscript_R1.tex`.
+
+---
+
+## Manuscript Architecture & Word Count Balance (`manuscript_R1.tex`)
+
+The revised manuscript contains **8,404 words** in the main body (Sections 1–4, including text, in-text citations, and footnotes; excluding floating tables, figures, display equations, and references), hitting the optimal target for a *Poetics* full article (8,000–10,000 words).
+
+| Section | Subsection Titles | Word Count | Share of Main Text |
+| :--- | :--- | :---: | :---: |
+| **Front Matter** | Title, Authors, Abstract (201 words) | 240 words | — |
+| **Section 1: Introduction** | 1.1 Personal Tastes vs. Others' Tastes (424w)<br>1.2 How Do Others' Tastes Influence Our Own? (672w)<br>1.3 Study Description (303w)<br>1.4 Hypotheses H1–H6 (747w) | 2,161 words | 25.7% |
+| **Section 2: Data & Methods** | 2.1 Sample Recruitment & Administration (482w)<br>2.2 Experimental Design & Stimulus (309w)<br>2.3 Demand Characteristics & Reactivity (371w)<br>2.4 Variables & Measurement (541w)<br>2.5 Inverse Probability Weighting (450w)<br>2.6 DiD Analytic Strategy (638w) | 2,817 words | 33.5% |
+| **Section 3: Results** | 3.1 Baseline Exposure Drift & Generalized Influence (447w)<br>3.2 Status-Differentiated Social Influence (794w)<br>3.3 Status Inconsistency & Behavioral Choices (652w) | 1,909 words | 22.7% |
+| **Section 4: Discussion** | 4.1 Summary of Key Results / Table 2 (437w)<br>4.2 Limitations & Suggestions for Future Work (575w)<br>4.3 Implications: Distinction, Defense, Negativity, Crystallization (494w) | 1,517 words | 18.1% |
+| **Main Body Total** | **Sections 1–4 Combined** | **8,404 words** | **100.0%** |
+| *Appendices (Prose)* | *Appendices A–G (Power, Vignettes, Tables, Sensitivity, Full Sample)* | *1,863 words* | — |
 
 ---
 
@@ -35,7 +51,7 @@ This project modernizes, revises, and revives the analysis for the paper *"Stay,
 
 ## Streamlined Results Architecture & Core Findings
 
-### 1. Difference-in-Differences Causal Architecture (Section 2.7)
+### 1. Difference-in-Differences Causal Architecture (Section 2.6)
 - **Base DiD Linear Mixed Model (Equation \ref{eq:did_model}):**
   $$\text{Taste}_{it} = \beta_0 + \beta_1 \text{Trial}_{it} + \sum_{k=2}^{K} \beta_k \text{Cond}_{ik} + \sum_{k=2}^{K} \delta_k (\text{Trial}_{it} \times \text{Cond}_{ik}) + u_i + \epsilon_{it}$$
 - **Fully Moderated DiD Model (Equation \ref{eq:did_moderation_model}):**
@@ -51,10 +67,11 @@ This project modernizes, revises, and revives the analysis for the paper *"Stay,
 Estimated on the 3-condition status-free subset of the primary sample (Control $N = 157$, Generalized Like $N = 152$, Generalized Dislike $N = 148$, total $N = 457$, $914$ observations) via Equation \ref{eq:generalized_did_model}:
 $$\text{Taste}_{it} = \beta_0 + \beta_1 \text{Trial}_{it} + \beta_2 \text{Like}_i + \beta_3 \text{Dislike}_i + \delta_{\text{Like}} (\text{Trial}_{it} \times \text{Like}_i) + \delta_{\text{Dislike}} (\text{Trial}_{it} \times \text{Dislike}_i) + u_i + \epsilon_{it}$$
 - **Mere Exposure Drift in Control (H1):** Seeing the artwork a second time in the absence of external cues produces an intrinsic appreciation boost ($\beta_1 = +0.156^{**}, SE = 0.055, t = 2.86, p = 0.0044$).
-- **Valence Asymmetry in Generalized Cues:**
+- **Valence Asymmetry & Negativity Bias in Generalized Cues:**
   - *Generalized Like (H2a):* Raw increase ($+0.203^{**}$), but net DiD boost relative to control drift is positive and modest ($\delta_{\text{Like}} = +0.047, p = 0.555$).
   - *Generalized Dislike (H2b):* Negative feedback completely halts exposure appreciation (raw change $-0.030$), resulting in statistically significant negative DiD suppression ($\delta_{\text{Dislike}} = -0.186^{*}, SE = 0.078, t = -2.40, p = 0.0169$).
   - *Valence Contrast:* Direct contrast yields a significant directional swing ($\Delta = +0.233^{**}, SE = 0.080, \chi^2 = 8.51, p = 0.0035$), demonstrating that negative social consensus exerts an asymmetric veto power.
+  - *Negativity Bias Mechanism:* Grounded in psychological and cognitive research on negativity dominance (Baumeister et al. 2001; Rozin & Royzman 2001; Kahneman 2011; Cerulo 2010), negative consensus functions as a diagnostic alarm alerting individuals to social risk and taste stigma, overriding automatic perceptual fluency.
 
 ### 3. Status-Differentiated Social Influence Across Four Educational Tiers (Section 3.2 & Figure 4)
 Because the treatment vignettes explicitly differentiated alter status via educational credentials and occupations, educational attainment is the primary structural axis of cultural capital matching ego to alter (titled `\subsection{Status-Differentiated Social Influence}` in `manuscript_R1.tex`). With $N = 1,981$ and high repeated-measures test-retest precision ($r = 0.899, \sigma_{\Delta} = 0.688$), the design has ample statistical power to test four granular educational tiers via multinomial IPW (Figure \ref{fig:did_edu_4tiers} and Appendix Table \ref{tbl:did_edu_4tiers}):
@@ -68,7 +85,7 @@ Because the treatment vignettes explicitly differentiated alter status via educa
   - Reinforced by severe downward vetoes across all dislike conditions (Generalized Dislike: $-0.442^{**}$; Low-Status Dislike: $-0.345^{**}$; High-Status Dislike: $-0.266^{*}$).
 
 ### 4. Status Inconsistency and Discrete Behavioral Choices (Section 3.3 & Figure 5)
-Subjective social class identification (Middle Class vs. Working Class) is reserved for its true theoretical home: cross-cutting education to form the four status consistency quadrants (Working/No College, Working/College, Middle/No College, Middle/College) to test **Hypothesis 6 (Status Consistency)** via multinomial logistic regression (Figure \ref{fig:multinom}):
+Subjective social class identification (Middle Class vs. Working Class) cross-cuts education to form the four status consistency quadrants (Working/No College, Working/College, Middle/No College, Middle/College) to test **Hypothesis 6 (Status Consistency)** via multinomial logistic regression (Figure \ref{fig:multinom}):
 - **Baseline Reference Group (Working Class, No College):** $73.8\%$ Stay, $14.2\%$ Conform, $12.0\%$ React.
 - **Inertia (Stay):** Status consistency anchors stability. Middle Class/College is $+7.3\%$ more likely to stay ($\text{AME} = +0.073^{***}, SE = 0.013, z = 5.47, p < 0.001$, overall stay rate $81.1\%$). Inconsistent non-college actors are less stable ($\text{AME} = -0.026^{\dagger}, p = 0.070$, stay rate $71.2\%$).
 - **Conformity:** Status-inconsistent individuals are significantly more susceptible to external influence: Working Class/College is $+4.2\%$ more likely to conform ($\text{AME} = +0.042^{***}, p = 0.0003$), and Middle Class/No College is $+4.3\%$ more likely to conform ($\text{AME} = +0.043^{***}, p = 0.0002$). High-status consistent respondents are significantly less likely to conform ($\text{AME} = -0.033^{**}, p = 0.0021$).
@@ -76,11 +93,11 @@ Subjective social class identification (Middle Class vs. Working Class) is reser
 - **Sensitivity Check (Appendix Figure A.3):** Re-estimating the model excluding Taste-Only conditions ($N = 1,643$) yields identical substantive results (Middle Class with College stay $+7.6\%, p < 0.001$).
 - **Streamlining Benefit:** Eliminating the old 24-cell continuous grid from the main text removed narrative redundancy and statistical dilution; the full 24-cell regression table is retained in Appendix Table \ref{tbl:did_status_quadrants} for reference.
 
-### 5. Inverse Probability Weighting (IPW) Causal Architecture (Section 2.6)
+### 5. Inverse Probability Weighting (IPW) Causal Architecture (Section 2.5)
 - Propensity score weighting via `WeightIt` and `cobalt` balances strictly exogenous pre-treatment baseline covariates (`age`, `female`, `raceeth`, and `parented`), excluding post-treatment adult personal income and geographic region to avoid conditioning on post-treatment socioeconomic outcomes of education.
 - Multinomial IPW across the four educational tiers is applied to the DiD models in Section 3.2 (Figure 4).
 - Multinomial IPW across the four status consistency quadrants is applied to the discrete behavioral models in Section 3.3 (Figure 5).
-- Standardized mean differences across all status groups are compressed below $0.10$ (Figure 2 in Section 2.6).
+- Standardized mean differences across all status groups are compressed below $0.10$ (Figure 2 in Section 2.5).
 
 ---
 
@@ -97,25 +114,24 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 | Manuscript Asset | File Path | Label | Description |
 | :--- | :--- | :--- | :--- |
 | **Figure 1** | `figures/experimental_stimulus.jpeg` | `\ref{fig:stimulus}` | Whistler's *Nocturne: Blue and Gold -- Old Battersea Bridge* (1872) |
-| **Figure 2** | `figures/Figure8_CovariateBalance.png` | `\ref{fig:balance}` | IPW Love Plot of covariate balance across status quadrants |
+| **Figure 2** | `figures/Figure8_CovariateBalance.png` | `\ref{fig:balance}` | IPW Love Plot of covariate balance across status quadrants (Section 2.5) |
 | **Figure 3** | `figures/Figure_DiD_Baseline_Influence.png` | `\ref{fig:did_baseline}` | Horizontal bar plot of net DiD treatment effects for Section 3.1 generalized influence ($N = 457$) |
-| **Figure 4** | `figures/Figure_DiD_Edu_4Tiers.png` | `\ref{fig:did_edu_4tiers}` | 4-panel horizontal bar plot of DiD effects across four educational tiers ($N = 1,981$) |
-| **Figure 5** | `figures/Figure7_MultinomialBehavior.png` | `\ref{fig:multinom}` | 3-panel horizontal bar plot of AMEs for Stay, Conform, and React across status consistency quadrants |
+| **Figure 4** | `figures/Figure_DiD_Edu_4Tiers.png` | `\ref{fig:did_edu_4tiers}` | 4-panel horizontal bar plot of DiD effects across four educational tiers ($N = 1,981$, Section 3.2) |
+| **Figure 5** | `figures/Figure7_MultinomialBehavior.png` | `\ref{fig:multinom}` | 3-panel horizontal bar plot of AMEs for Stay, Conform, and React across status quadrants (Section 3.3) |
 | **Table 1** | `manuscript_R1.tex` | `\ref{tbl:descriptives}` | Primary sample demographics (Age $\ge 24$, $N = 1,981$) vs. 2012 Census benchmarks across experimental arms |
-| **Table 2** | `manuscript_R1.tex` | `\ref{tbl:hypotheses_summary}` | Summary of Hypotheses (H1–H6), Theoretical Expectations, and Empirical Verdicts |
-| **Appendix Fig A.1** | `figures/Figure_MDE_Power_Curves.png` | `\ref{fig:mde_curves}` | Dual-panel MDE power curves (theoretical & empirical benchmarks for Age $\ge 24$ sample) |
-| **Appendix Fig A.2** | `figures/Figure_DiD_Pooled.png` | `\ref{fig:did_pooled}` | Difference-in-Differences Treatment Effects in the Pooled Primary Sample ($N = 1,981$) |
-| **Appendix Fig A.3** | `figures/Figure11_Sens_MultinomialBehavior.png` | `\ref{fig:sens_multinom}` | Sensitivity behavioral bar plot (excluding Taste-Only conditions, $N = 1,643$) |
-| **Appendix Tab A.1** | `tables/table_mde_summary.tex` | `\ref{tbl:mde_analysis}` | Ex-post Minimum Detectable Effect (MDE) analysis table |
-| **Appendix Tab A.2** | `manuscript_R1.tex` | `\ref{tbl:did_edu_4tiers}` | DiD estimates across Four Educational Tiers ($N = 1,981$) |
-| **Appendix Tab A.3** | `manuscript_R1.tex` | `\ref{tbl:did_status_quadrants}` | Complete 24-cell DiD matrix across Status Consistency Quadrants (Reference) |
-| **Appendix Tab A.4** | `manuscript_R1.tex` | `\ref{tbl:appendix_did_compare}` | Comparison of Unweighted and IPW-Weighted pooled DiD models ($N = 1,981$) |
-| **Appendix Tab G.1** | `manuscript_R1.tex` | `\ref{tbl:full_sample_descriptives}` | Full unrestricted sample demographics ($N = 2,275$) |
-| **Appendix Tab G.2** | `manuscript_R1.tex` | `\ref{tbl:did_edu_class_full}` | Full unrestricted sample stepwise DiD estimates ($N = 2,253$) |
-| **Appendix Tab G.3** | `manuscript_R1.tex` | `\ref{tbl:did_status_quadrants_full}` | Full unrestricted sample 24-cell status consistency matrix ($N = 2,252$) |
-| **Response Memo (MD)** | `response_to_reviewers.md` | --- | Active Markdown point-by-point response memo to editor and reviewers |
-| **Response Memo (TeX)** | `response_to_reviewers.tex` | --- | Publication-grade LaTeX response memo styled with `tcolorbox` and math equations |
-| **Response Memo (PDF)** | `response_to_reviewers.pdf` | --- | Compiled 27-page PDF response memo ready for submission to *Poetics* |
+| **Table 2** | `manuscript_R1.tex` | `\ref{tbl:hypotheses_summary}` | Summary of Hypotheses (H1–H6), Theoretical Expectations, and Empirical Verdicts (Section 4.1) |
+| **Appendix Fig A.1** | `figures/Figure_MDE_Power_Curves.png` | `\ref{fig:mde_curves}` | Dual-panel MDE power curves (theoretical & empirical benchmarks for Age $\ge 24$ sample, Appendix A) |
+| **Appendix Fig A.2** | `figures/Figure_DiD_Pooled.png` | `\ref{fig:did_pooled}` | Difference-in-Differences Treatment Effects in the Pooled Primary Sample ($N = 1,981$, Appendix D) |
+| **Appendix Fig A.3** | `figures/Figure11_Sens_MultinomialBehavior.png` | `\ref{fig:sens_multinom}` | Sensitivity behavioral bar plot (excluding Taste-Only conditions, $N = 1,643$, Appendix E) |
+| **Appendix Tab A.1** | `tables/table_mde_summary.tex` | `\ref{tbl:mde_analysis}` | Ex-post Minimum Detectable Effect (MDE) analysis table (Appendix A) |
+| **Appendix Tab A.2** | `manuscript_R1.tex` | `\ref{tbl:did_edu_4tiers}` | DiD estimates across Four Educational Tiers ($N = 1,981$, Appendix C) |
+| **Appendix Tab A.3** | `manuscript_R1.tex` | `\ref{tbl:did_status_quadrants}` | Complete 24-cell DiD matrix across Status Consistency Quadrants (Appendix C) |
+| **Appendix Tab A.4** | `manuscript_R1.tex` | `\ref{tbl:appendix_did_compare}` | Comparison of Unweighted and IPW-Weighted pooled DiD models ($N = 1,981$, Appendix D) |
+| **Appendix Tab A.5** | `manuscript_R1.tex` | `\ref{tbl:full_sample_descriptives}` | Full unrestricted sample demographics ($N = 2,275$, Appendix G) |
+| **Appendix Tab A.6** | `manuscript_R1.tex` | `\ref{tbl:did_edu_class_full}` | Full unrestricted sample stepwise DiD estimates ($N = 2,253$, Appendix G) |
+| **Appendix Tab A.7** | `manuscript_R1.tex` | `\ref{tbl:did_status_quadrants_full}` | Full unrestricted sample 24-cell status consistency matrix ($N = 2,252$, Appendix G) |
+| **Response Memo (TeX)** | `response_to_reviewers.tex` | --- | Publication-grade LaTeX response memo styled with `tcolorbox`, full prose paragraphs, and verified citations |
+| **Response Memo (PDF)** | `response_to_reviewers.pdf` | --- | Compiled 18-page PDF response memo ready for submission to *Poetics* |
 
 ---
 
@@ -124,30 +140,30 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 - [x] **Primary Sample Restriction ($\text{Age} \ge 24$):** Restricts main analysis to respondents aged 24+ ($N = 1,981$) to ensure completed college attainment, preserving full unrestricted sample ($N = 2,253$) in Appendix G.
 - [x] **Four-Tier Educational Disaggregation (Section 3.2 & Figure 4):** Promoted the 4-tier education model to Section 3.2 as Figure 4, testing H3, H4, and H5 directly.
 - [x] **Streamlined Status Consistency (Section 3.3 & Figure 5):** Eliminated the unwieldy 24-cell continuous grid from the main text; dedicated Section 3.3 exclusively to the discrete multinomial model of Stay, Conform, and React (Figure 5) testing Hypothesis 6.
-- [x] **Reviewer 1 Response Framing (Point 6):** Framed the reorganization in `response_to_reviewers.md` as inspired by Reviewer 1's recommendation to separate education and class, explaining that our repeated-measures statistical power enabled the four-tier education analysis.
-- [x] **Multiple Comparisons Audit:** Verified that focal findings across baseline influence (H1, H2b) and behavioral choices (H6) survive Benjamini-Hochberg False Discovery Rate (FDR $q < 0.05$) and Holm-Bonferroni corrections.
+- [x] **Negativity Bias Grounding (Section 3.1 & Section 4.3):** Integrated cognitive and social psychological literature on negativity bias and negativity dominance (Baumeister et al. 2001; Rozin & Royzman 2001; Kahneman 2011; Cerulo 2010), explaining why negative peer consensus acts as an authoritative veto against natural aesthetic familiarization.
+- [x] **Discussion Streamlining (Section 4):** Structured into 3 punchy, academic sections (4.1 Summary of Key Results with Table 2; 4.2 Limitations & Suggestions for Future Work; 4.3 Implications synthesizing distinction, reactive defense, negativity bias, and status crystallization).
+- [x] **Word Count Balance Optimization:** Main body balanced at 8,404 words (Intro 25.7%, Methods 33.5%, Results 22.7%, Discussion 18.1%), adhering to *Poetics* standards.
+- [x] **Response Memo Prose Overhaul:** Rewrote all responses in `response_to_reviewers.tex` into continuous academic paragraphs (eliminating fragmented bullet lists), using italics for emphasis and removing bug-tracker status tags (`Status: [Addressed]`).
+- [x] **Response Memo Cross-Reference Audit:** Verified and synchronized all section, equation, table, and figure numbers against `manuscript_R1.tex` (e.g., Section 2.3 for Demand Characteristics, Section 2.6 for DiD Strategy, Section 4.1 for Table 2, Equation 5 for generalized DiD, and Appendix Tables A.5–A.7 for full sample estimates).
+- [x] **Global AGENTS.md Standards:** Updated `~/.config/agents/AGENTS.md` with permanent standards for Response to Reviewers memos across all projects.
 - [x] **DiD Estimation Strategy (R1 #1):** Fully implemented in `R/did_models.R`, woven into narrative and equations.
 - [x] **Terminology Disambiguation (R1 #2):** Reserved "baseline" strictly for Trial 1; renamed unexposed group "Control Condition"; drift termed "exposure drift".
 - [x] **Survey Sampling & Descriptives (R1 #3):** Documented 2012 SSI panel recruitment, quota matching, deliberate college oversample ($43.3\%$ in primary sample), participant flow, CI inferential scope, and Table 1.
 - [x] **Ex-Post Minimum Detectable Effect (MDE) Analysis (R1 #4):** Fully calculated via `R/mde_power_analysis.R`, documented in Appendix A, Table \ref{tbl:mde_analysis}, and Figure \ref{fig:mde_curves}.
 - [x] **Treatment Vignettes in Appendix (R1 #5):** Verbatim transcription of Qualtrics survey flow, stimuli, and vignettes in Appendix B.
-- [x] **IPW Causal Logic & Covariate Balance (R1 #7, #8):** Added pedagogical explanation of pseudo-populations and conditional exchangeability; documented Love plot in Section 2.4 (Figure \ref{fig:balance}).
+- [x] **IPW Causal Logic & Covariate Balance (R1 #7, #8):** Added pedagogical explanation of pseudo-populations and conditional exchangeability; documented Love plot in Section 2.5 (Figure \ref{fig:balance}).
 - [x] **Figure Polish & Color Matching (R1 #9):** Standardized title capitalization, zero-effect dashed lines, color-matched error bars, and single clean 3-level legends.
 - [x] **Generalized Influence Baseline (R1 #10):** Established status-free baseline in Section 3.1 (Equation \ref{eq:generalized_did_model}), demonstrating mere exposure drift and decisive veto suppression by Generalized Dislike.
 - [x] **Disaggregated Behavioral Analysis (R1 #11):** Retained and streamlined multinomial directional shift models; added sensitivity analysis in Appendix Figure A.3.
 - [x] **Full Regression Tables in Appendix (R1 #12):** Relocated regression tables into Appendix (Tables A.2, A.3, A.4), showcasing figures in the main text.
-- [x] **Update Literature & Theoretical Engagement (R1 #13):** Integrated scholarship on cultural cognition, dual-process habitus, aesthetic signaling, and symbolic boundaries (Lizardo et al., Wohl, Vanzella, Brand & Thomas, Okada, Pomiès & Arsel, Kahneman).
 - [x] **Causal Warrant Hook & Research Question Rationale (Editor, R2 #1):** Centered opening around observational vs. experimental causal gap in cultural sociology.
-- [x] **Streamline Section 1.1 (R2 #2):** Organized study description into concise academic prose paragraphs.
 - [x] **Demand Characteristics & Reactivity (Editor, R2 #3):** Added Section 2.3 detailing 4 procedural safeguards based on survey protocol.
 - [x] **Valence Framing around Valence Asymmetry (R2 #4):** Reframed core claim around asymmetric veto power of negative evaluations.
 - [x] **Status Inconsistency Mechanism & Moderation (R2 #5, R2 #6):** Integrated status crystallization theory (Lenski 1954; Hope 1975); clarified that consistency anchors stability, whereas inconsistency breeds fluidity.
 - [x] **Clear Empirical Takeaways for Researchers (R2 #7):** Added Table 2 systematically summarizing each hypothesis, DiD estimate, and statistical verdict.
-- [x] **Hypothesis Alignment & Numbering:** Systematically numbered and aligned all hypotheses across Section 1.3, Section 3 results, Table 2, and Section 4 discussion (H1: Mere Exposure, H2a: Positive Evaluations, H2b: Negative Evaluations, H3: Same-Status Alignment, H4: Cultural Goodwill, H5: Status-Based Distancing, H6: Status Consistency).
-- [x] **Section 3.1 Baseline Influence Figure:** Added Figure 3 (`Figure_DiD_Baseline_Influence.png`), displaying within-subject evaluative trajectories across repeated trials (Panel A) alongside net DiD treatment effects relative to control exposure drift (Panel B).
+- [x] **Hypothesis Alignment & Numbering:** Systematically numbered and aligned all hypotheses across Section 1.4, Section 3 results, Table 2 (Section 4.1), and Section 4.3 discussion.
+- [x] **Section 3.1 Baseline Influence Figure:** Added Figure 3 (`Figure_DiD_Baseline_Influence.png`), displaying net DiD treatment effects relative to control exposure drift.
 - [x] **Text Asterisk Formatting:** Removed all significance asterisks and daggers next to $p$-values from the main narrative text, preserving them strictly in regression and summary tables.
-- [x] **Asset Housekeeping:** Deleted obsolete `figures/Figure_DiD_Significant_Effects.*` assets.
 - [x] **Standardized Condition Ordering:** Imposed identical top-down y-axis ordering across all figures and tables (Generalized Like $\to$ High-Status Like $\to$ Low-Status Like $\to$ Generalized Dislike $\to$ High-Status Dislike $\to$ Low-Status Dislike).
 - [x] **Preservation of Original Manuscript:** `manuscript.tex` frozen as the historical original submission (14 pages); `manuscript_R1.tex` used for all active revision work.
-- [x] **Response to Reviewers Ported to LaTeX & PDF:** Ported `response_to_reviewers.md` into `response_to_reviewers.tex` with custom `tcolorbox` environments and compiled `response_to_reviewers.pdf` (27 pages) with 0 errors.
-- [x] **Overleaf Branch Reconciliation:** Fetched and merged Overleaf updates (Section 1.4 status crystallization wording and Section 3.2 heading streamlining to `Status-Differentiated Social Influence`) and synchronized across `manuscript_R1.tex`, `response_to_reviewers.md`, and `response_to_reviewers.tex`.
+- [x] **Overleaf Branch Reconciliation:** Merged latest Overleaf updates (commit `81a89a8`), synchronizing Section 1.2.3 heading, Section 4.3 streamlined 4-paragraph synthesis, and literature additions across repository.
