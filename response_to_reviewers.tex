@@ -11,6 +11,7 @@
 \usepackage{hyperref}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins, breakable}
+\usepackage{natbib}
 
 \definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
 \definecolor{forestgreen}{rgb}{0.13, 0.54, 0.13}
@@ -200,7 +201,7 @@ Specifically, the no-information experimental group is now strictly referred to 
 3. Please provide more details about the survey sampling procedure. Because this is an experimental study, external validity is less central than internal validity. However, if the survey used probability sampling, this would strengthen the conclusions. This information is also important for assessing what the reported confidence intervals represent---for example, whether they reflect only experimental uncertainty within the sample or can support population-level inference. Relatedly, the authors should include a table presenting descriptive statistics for the sample.
 \end{reviewercomment}
 
-\textbf{Location in Revised Manuscript:} Section 2.1 (Sample Recruitment and Survey Administration), Table 1, and Appendix Table A.5 (Appendix G)
+\textbf{Location in Revised Manuscript:} Section 2.1 (Sample Recruitment and Survey Administration), Table 1, and Appendix Table A.6 (Appendix G)
 
 \textbf{Response:}
 We have substantially expanded Sections 2.1 and 2.2 to provide comprehensive details on the survey sampling procedure, participant recruitment, quota filtering, the primary analytic sample restriction, and the inferential scope of our statistical estimates.
@@ -245,7 +246,7 @@ In particular, addressing the reviewer's query regarding whether the reference g
 6. Before moving to the analysis of combined status, please report the results for subjective social class and education separately. These results could be presented as additional subfigures or included in the appendix. The robustness check using an alternative categorization is useful, as this possibility came to mind immediately when reading the analysis. It would also be relevant to mention this robustness check when the combined-status variable is first described.
 \end{reviewercomment}
 
-\textbf{Location in Revised Manuscript:} Section 2.4 (Variables and Measurement), Section 3.2 (Status-Differentiated Social Influence: Testing Hypotheses 3--5), Figure 4, Section 3.3 (Status Inconsistency and Discrete Behavioral Choices: Testing Hypothesis 6), Figure 5, Appendix Table A.2, Appendix Table A.3, Appendix Table A.6 (Appendix G), and Appendix F
+\textbf{Location in Revised Manuscript:} Section 2.4 (Variables and Measurement), Section 3.2 (Status-Differentiated Social Influence: Testing Hypotheses 3--5), Figure 4, Section 3.3 (Status Inconsistency and Discrete Behavioral Choices: Testing Hypothesis 6), Figure 5, Appendix Table A.2, Appendix Table A.3, Appendix Table A.4, Appendix Figure A.2, Appendix Table A.7 (Appendix G), and Appendix F
 
 \textbf{Response:}
 We are exceptionally grateful to the reviewer for this suggestion. Disaggregating educational attainment and subjective social class prompted us to fundamentally reconsider how we operationalize structural status location in the empirical analysis. This led to a major, substantive reorganization that has significantly improved the manuscript's clarity, theoretical coherence, and empirical power.
@@ -258,7 +259,9 @@ Estimating DiD models across these four groups via generalized multinomial Inver
 
 Having established the educational gradient, we use subjective social class identification for the status inconsistency analysis in Section 3.3: cross-cutting education to construct the four-quadrant status consistency typology (Working Class + No College, Working Class + College, Middle Class + No College, Middle Class + College). Grounded in Lenski's (1954) status crystallization framework, status consistency governs the tension between normative certainty and evaluative fluidity, which we assess directly through discrete behavioral choices using multinomial logistic regression (Figure 5). Status consistency anchors evaluative stability: Middle-class college graduates are $+7.3\%$ more likely to maintain their initial judgment, whereas inconsistent actors exhibit lower stability. Conversely, status-inconsistent actors are significantly more susceptible to external influence (Working Class with College: $+4.2\%$; Middle Class without College: $+4.3\%$), while high-status consistent actors are significantly less likely to conform. Oppositional reactance is concentrated among non-college workers ($12.0\%$), whereas institutional cultural capital inhibits reactance.
 
-This reorganization also allowed us to remove the old, unwieldy 24-cell continuous interaction matrix (old Figure 5) from the main text, which had diluted statistical power and invited multiple-comparison concerns. By relocating the 24-cell matrix to Appendix Table A.3 and reporting separate models for Education alone and Subjective Class alone in Appendix Table A.6 (Appendix G), the empirical narrative flows more seamlessly from baseline influence (Section 3.1) to educational status tiers (Section 3.2) to discrete status consistency choices (Section 3.3).
+This reorganization also allowed us to remove the old, unwieldy 24-cell continuous interaction matrix (old Figure 5) from the main text, which had diluted statistical power and invited multiple-comparison concerns. By relocating the 24-cell matrix to Appendix Table A.3 and reporting separate models for Education alone and Subjective Class alone in Appendix Table A.7 (Appendix G), the empirical narrative flows more seamlessly from baseline influence (Section 3.1) to educational status tiers (Section 3.2) to discrete status consistency choices (Section 3.3).
+
+We additionally report this same education-alone/subjective-class-alone specification estimated directly on the primary analytic sample itself (Age $\ge 24$, $N = 1{,}981$) in Appendix Table A.4 and Appendix Figure A.2. This confirms, within the focal sample used throughout the main text, that educational attainment is the more decisive single-axis moderator of social influence (with significant negative suppression under Generalized Dislike and High-Status Dislike among college-educated respondents), while subjective class identification alone yields a comparatively diffuse pattern---consistent with the full-sample robustness check in Appendix G and further motivating our decision to foreground the four-tier educational model in the main text.
 
 \vspace{10pt}
 
@@ -298,7 +301,7 @@ Second, regarding the observational status categories, Figure 2 evaluates covari
 9. In Figure 2, please explain what the dashed line represents and capitalize the variable labels consistently.
 \end{reviewercomment}
 
-\textbf{Location in Revised Manuscript:} Figure 2, Figure 3, Figure 4, Figure 5, Appendix Figure A.1, Appendix Figure A.2, Appendix Figure A.3
+\textbf{Location in Revised Manuscript:} Figure 2, Figure 3, Figure 4, Figure 5, Appendix Figure A.1, Appendix Figure A.2, Appendix Figure A.3, Appendix Figure A.4
 
 \textbf{Response:}
 We have systematically overhauled all figures across the manuscript and appendix. All legacy forest plots have been replaced with clean horizontal bar plots featuring color-matched 95\% error bars, color-coded by statistical significance ($p < 0.05$ in red, $p < 0.10$ in orange, and non-significant in grey).
@@ -328,14 +331,14 @@ To resolve this, we introduced a dedicated subsection---\textit{Section 3.1: Bas
 11. The contribution of the disaggregated analysis is unclear to me. The categorical analysis also reports average effects, as do all the regression models in the paper. If the authors intend to move beyond average effects, they would need to apply methods that explicitly examine distributional differences or treatment-effect heterogeneity. I recommend removing this analysis, which would also free up space to develop other aspects of the research note.
 \end{reviewercomment}
 
-\textbf{Location in Revised Manuscript:} Section 3.3 (Status Inconsistency and Discrete Behavioral Choices), Figure 5, Appendix E, Appendix Figure A.3
+\textbf{Location in Revised Manuscript:} Section 3.3 (Status Inconsistency and Discrete Behavioral Choices), Figure 5, Appendix E, Appendix Figure A.4
 
 \textbf{Response:}
 We thank the reviewer for this thoughtful reflection. We carefully weighed whether to remove the behavioral analysis, but chose to retain it in a streamlined form because it addresses a critical limitation of continuous average effect models. Specifically, in continuous models, an average treatment effect near zero cannot distinguish between complete evaluative stability (everyone staying) versus polarized churn (equal numbers conforming and reacting in opposite directions). By categorizing individual trajectories into mutually exclusive discrete modes---\textit{Stay} ($\Delta = 0$), \textit{Conform} (shifting in the direction of the cue), and \textit{React} (shifting against the cue)---multinomial logit models directly evaluate distributional shifts via Average Marginal Effects (AMEs).
 
 This approach reveals three empirical findings that continuous average effects completely obscure, directly testing \textit{Hypothesis 6 (Status Consistency)}. First, status consistency anchors evaluative stability: high-status consistent individuals (Middle Class / College) exhibit the highest stay rate ($81.1\%$) and are significantly more likely to stay ($\text{AME} = +0.073$), while low-status consistent actors (Working Class / No College) also show high inertia ($73.8\%$ stay rate). In contrast, status-inconsistent actors display lower stability (Middle Class / No College stay rate $71.2\%$). Second, status-inconsistent individuals are significantly more susceptible to external influence: Working-Class college graduates are $+4.2\%$ more likely to conform, and Middle-Class non-college respondents are $+4.3\%$ more likely to conform, whereas high-status-consistent respondents are significantly less likely to conform. Third, institutional cultural capital sharply inhibits oppositional reactance ($-3.0\%$ and $-4.0\%, p < 0.003$), whereas reactance is concentrated among non-college working-class individuals ($12.0\%$).
 
-To address concerns about robustness, we also report a dedicated sensitivity analysis in Appendix E (Appendix Figure A.3) that excludes the Taste-Only conditions. This confirms that the discrete behavioral distributions replicate with exceptional fidelity when only status-laden cues are evaluated.
+To address concerns about robustness, we also report a dedicated sensitivity analysis in Appendix E (Appendix Figure A.4) that excludes the Taste-Only conditions. This confirms that the discrete behavioral distributions replicate with exceptional fidelity when only status-laden cues are evaluated.
 
 \vspace{10pt}
 
@@ -345,12 +348,12 @@ To address concerns about robustness, we also report a dedicated sensitivity ana
 12. Report tables with full models in the appendix.
 \end{reviewercomment}
 
-\textbf{Location in Revised Manuscript:} Table 1, Table 2, Appendix Table A.1, Appendix Table A.2, Appendix Table A.3, Appendix Table A.4, Appendix Table A.5, Appendix Table A.6, Appendix Table A.7 (Appendix G)
+\textbf{Location in Revised Manuscript:} Table 1, Table 2, Appendix Table A.1, Appendix Table A.2, Appendix Table A.3, Appendix Table A.4, Appendix Table A.5, Appendix Table A.6, Appendix Table A.7, Appendix Table A.8 (Appendix G)
 
 \textbf{Response:}
 The revised manuscript incorporates complete regression tables and diagnostic metrics across the manuscript and Supplementary Appendix. In the main text, Table 1 reports descriptive statistics for the primary analytic sample ($N = 1,981$) against 2012 Census benchmarks across experimental conditions, and Table 2 provides a comprehensive summary of all hypotheses (H1--H6), theoretical mechanisms, empirical estimates, and statistical verdicts.
 
-The Supplementary Appendix provides the full suite of econometric models: Table A.1 reports the complete ex-post Minimum Detectable Effect (MDE) power analysis; Table A.2 presents the full Difference-in-Differences regression models across the four educational tiers; Table A.3 details the complete 24-cell DiD matrix across status consistency quadrants; and Table A.4 provides a side-by-side comparison of unweighted and IPW-weighted pooled DiD models with random effect variance components. In addition, Appendix G provides the full unrestricted sample models ($N = 2,275$), including complete descriptive statistics (Table A.5), stepwise DiD models separating education and class (Table A.6), and the 24-cell status consistency matrix (Table A.7).
+The Supplementary Appendix provides the full suite of econometric models: Table A.1 reports the complete ex-post Minimum Detectable Effect (MDE) power analysis; Table A.2 presents the full Difference-in-Differences regression models across the four educational tiers; Table A.3 details the complete 24-cell DiD matrix across status consistency quadrants; Table A.4 reports the education-alone and subjective-class-alone stepwise specifications estimated on the primary analytic sample; and Table A.5 provides a side-by-side comparison of unweighted and IPW-weighted pooled DiD models with random effect variance components. In addition, Appendix G provides the full unrestricted sample models ($N = 2,275$), including complete descriptive statistics (Table A.6), stepwise DiD models separating education and class (Table A.7), and the 24-cell status consistency matrix (Table A.8).
 
 \vspace{10pt}
 
@@ -462,5 +465,7 @@ For me, one of the virtues of a research note is that it presents clear findings
 \textbf{Response:}
 To ensure maximum clarity and utility for other researchers, we have synthesized the study's core empirical findings into \textit{Table 2 (Summary of Hypotheses, Expectations, and Empirical Verdicts)} in Section 4.1. This table presents a clear summary of the theoretical expectations and empirical verdicts across all six hypotheses.
 
+\bibliographystyle{apalike}
+\bibliography{references}
 
 \end{document}

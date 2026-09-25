@@ -56,19 +56,19 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R1 #1):**  
   > *"The analytical strategy may not be the most appropriate. To better isolate the treatment effects, the authors may consider applying a difference-in-differences approach, using the no-information condition as the control group and exploiting the pre-treatment measurement. Without such a comparison, the observed changes could potentially be attributed to repeated measurement rather than the information treatment itself."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 2.5 (Analytic Strategy), Section 3.2 (Difference-in-Differences Estimation of Treatment Effects), Table \ref{tbl:did_models}
+* **Location in Manuscript:** Section 2.6 (Difference-in-Differences Analytic Strategy), Section 3.1 (Baseline Exposure Drift and Generalized Social Influence), Section 3.2 (Status-Differentiated Social Influence), Figures 3--4, Appendix Tables \ref{tbl:did_edu_4tiers}, \ref{tbl:did_status_quadrants}, \ref{tbl:appendix_did_compare}
 * **Actions Completed:**
   1. Formalized repeated-measures linear mixed models and change score regressions into a DiD framework with the unexposed Control Condition as reference (`R/did_models.R`).
   2. Documented empirical exposure drift in the Control Condition ($\beta_{\text{Trial}} = +0.107, p = 0.041$ unweighted; $\beta_{\text{Trial}} = +0.156, p = 0.0038$ IPW-weighted).
   3. Confirmed and sharpened Valence Asymmetry: High-Status Dislike ($\text{DiD} = -0.201, p = 0.0011^{**}$) and Generalized Dislike ($\text{DiD} = -0.172, p = 0.0238^{*}$) significantly suppress baseline exposure drift.
   4. Discovered direct empirical support for Hypothesis 3 (Cross-status reactance): High-status respondents exposed to Low-Status Likes show a statistically significant negative divergence relative to control drift ($\text{DiD} = -0.296, p = 0.0391^{*}$), demonstrating active taste abandonment.
-  5. Added Table \ref{tbl:did_models} and dedicated narrative to `manuscript_R1.tex`.
+  5. Added Appendix Tables \ref{tbl:did_edu_4tiers}, \ref{tbl:did_status_quadrants}, and \ref{tbl:appendix_did_compare}, plus dedicated DiD narrative in Sections 2.6, 3.1, and 3.2 of `manuscript_R1.tex`.
 
 #### 2. Disambiguate Baseline vs. Control Terminology
 * **Reviewer Concern (R1 #2):**  
   > *"I also suggest avoiding the term 'baseline' when referring to the no-information condition, because the study includes a pre-treatment measurement that may also be understood as a baseline. Using the same term for both is confusing. The authors could instead refer to the no-information condition as the control condition."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Throughout `manuscript_R1.tex` (Section 2.3, Section 3.2, Section 3.3)
+* **Location in Manuscript:** Throughout `manuscript_R1.tex` (Section 2.2, Section 3.1, Section 3.2)
 * **Actionable Steps:**
   1. Systematically replace "baseline condition" with **"control condition"** or **"no-information control group"**.
   2. Reserve the term **"baseline measurement"** or **"pre-treatment rating"** strictly for Trial 1 ($t_1$).
@@ -77,7 +77,7 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R1 #4):**  
   > *"The sample sizes within conditions are relatively small. If an a priori power analysis was not conducted during the study design, I recommend reporting an ex post minimum detectable effect (MDE) analysis in the appendix. This would help readers assess which effect sizes the study was capable of detecting."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 2.2 (Inferential Scope and Interpretation of Confidence Intervals), Appendix \ref{sec:appendix_power_mde}, Table \ref{tbl:mde_analysis}, Figure \ref{fig:mde_curves}, `tables/table_mde_summary.tex`, `figures/Figure_MDE_Power_Curves.png`
+* **Location in Manuscript:** Section 2.1 (Sample Recruitment and Survey Administration), Appendix A (Statistical Power and Minimum Detectable Effect Analysis, \ref{sec:appendix_power_mde}), Table \ref{tbl:mde_analysis}, Figure \ref{fig:mde_curves}, `tables/table_mde_summary.tex`, `figures/Figure_MDE_Power_Curves.png`
 * **Actions Completed:**
   1. Developed dedicated calculation and visualization script `R/mde_power_analysis.R` calculating formal MDE benchmarks following Bloom (1995), Hoenig and Heisey (2001), and Gelman and Carlin (2014).
   2. Incorporated empirical repeated-measures test-retest correlation ($r = 0.8945$, reducing change score SD to $\sigma_{\Delta} = 0.702$ vs. $\sigma_1 = 1.500$).
@@ -88,20 +88,20 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R1 #6):**  
   > *"Before moving to the analysis of combined status, please report the results for subjective social class and education separately. These results could be presented as additional subfigures or included in the appendix. The robustness check using an alternative categorization is useful... It would also be relevant to mention this robustness check when the combined-status variable is first described."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 2.4, Section 3.4, Figure \ref{fig:did_edu_class}, Table \ref{tbl:did_edu_class}, Appendix \ref{sec:appendix_sens_multinom}, Appendix \ref{sec:appendix_class_robustness}
+* **Location in Manuscript:** Section 2.4 (Variables and Measurement), Section 3.2 (Status-Differentiated Social Influence, \ref{sec:edu_models}), Figure \ref{fig:did_edu_4tiers}, Appendix C (Table \ref{tbl:did_edu_class_primary}, Figure \ref{fig:did_edu_class_separate}), Appendix \ref{sec:appendix_class_robustness} (Appendix F), Appendix G (Table \ref{tbl:did_edu_class_full})
 * **Actions Completed:**
-  1. Estimated stepwise models for Education alone and Subjective Class alone (`R/stepwise_status_models.R`).
-  2. Created two-panel publication horizontal bar plot `figures/Figure_DiD_Edu_Class_Separate.png` (and `.pdf`).
-  3. Exported formal regression table `tables/table_did_edu_class_separate.tex` (and `.rds`).
-  4. Added Section 3.4 to `manuscript_R1.tex`, discussing findings and showing why four-quadrant status consistency is necessary.
+  1. Estimated stepwise models for Education alone and Subjective Class alone on both the primary sample (`R/stepwise_status_models_primary.R`) and the full unrestricted sample (`R/stepwise_status_models.R`).
+  2. Created two-panel publication horizontal bar plot `figures/Figure_DiD_Edu_Class_Separate.png` (and `.pdf`) for the primary sample (Age $\ge 24$, $N = 1,981$); companion `figures/Figure_DiD_Edu_Class_Separate_FullSample.png` generated for the full sample.
+  3. Exported formal regression tables: primary sample in `tables/table_did_edu_class_primary.tex` (Appendix C, Table \ref{tbl:did_edu_class_primary}) and full unrestricted sample in `tables/table_did_edu_class_separate.tex` (Appendix G, Table \ref{tbl:did_edu_class_full}).
+  4. Added discussion to Section 3.2 (\ref{sec:edu_models}) and Section 3.3 (\ref{sec:behavioral_models}) of `manuscript_R1.tex` explaining why the four-quadrant status consistency typology is necessary beyond single-axis education/class models.
   5. Added forward-pointer in Section 2.4 to alternative class categorization check in Appendix \ref{sec:appendix_class_robustness}.
-  6. Embedded sensitivity multinomial behavioral model excluding Taste-Only conditions (Figure 11 / `Figure11_Sens_MultinomialBehavior.png`) into Appendix \ref{sec:appendix_sens_multinom} with main text forward-pointer in Section 3.6.
+  6. Embedded sensitivity multinomial behavioral model excluding Taste-Only conditions (Figure \ref{fig:sens_multinom} / `Figure11_Sens_MultinomialBehavior.png`) into Appendix \ref{sec:appendix_sens_multinom} with main text forward-pointer in Section 3.3.
 
 #### 5. Clarify Causal Interpretation and Logic of Inverse Probability Weighting (IPW)
 * **Reviewer Concern (R1 #7, R1 #8):**  
   > *"Although the information treatment was randomly assigned, membership in categories such as 'low–high' and 'low–low' is also determined by respondents’ pre-existing education or subjective social class... respondents do not necessarily have the same probability of entering each combined-status category... The authors acknowledge this problem and address it using inverse probability weighting (IPW), but it would be valuable to devote a few additional sentences to explaining the logic of this approach and its implications for causal interpretation."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 2.4 (Variables and Measurement: IPW and Causal Logic), Section 3.1 (Covariate Balance Across Observational Status Categories)
+* **Location in Manuscript:** Section 2.5 (Inverse Probability Weighting), Figure \ref{fig:balance}
 * **Actionable Steps:**
   1. Clarify that while experimental conditions were randomly assigned, respondents' social locations (Education $\times$ Class) are observational attributes (citing Cruces et al., 2013).
   2. Dedicate a focused paragraph explaining how IPW balances baseline covariates (age, gender, race, parental education) across status groups to recover conditional exchangeability.
@@ -111,7 +111,7 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R1 #10):**  
   > *"In discussing generalized influence, the authors state that 'exposure to generalized negative evaluations largely suppresses the positive baseline drift across all groups.' If I understand correctly, readers are expected to interpret the 'dislike (no status)' effect in Figure 3. However, only one effect appears to be statistically significant, and it is in the opposite direction... The authors should clarify which results support this conclusion."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 3.3 (Valence Asymmetry in Difference-in-Differences Effects), Table \ref{tbl:did_models}, Table \ref{tbl:hypotheses_summary}
+* **Location in Manuscript:** Section 3.1 (Baseline Exposure Drift and Generalized Social Influence), Equation \ref{eq:generalized_did_model}, Figure \ref{fig:did_baseline}, Table \ref{tbl:hypotheses_summary} (Section 4.1)
 * **Actions Completed:**
   1. Clarified that the unexposed Control Condition drifts upward significantly ($+0.107, p = 0.041$).
   2. Evaluated Generalized Dislike (Taste Only / Dislike), showing it halts drift ($\Delta = -0.017$), yielding a negative DiD shift ($\text{DiD} = -0.125, p = 0.095^\dagger$ unweighted; $\text{DiD} = -0.172, p = 0.0238^*$ IPW-weighted) that suppresses the counterfactual appreciation.
@@ -120,7 +120,7 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R1 #11):**  
   > *"The contribution of the disaggregated analysis is unclear to me. The categorical analysis also reports average effects, as do all the regression models in the paper. If the authors intend to move beyond average effects, they would need to apply methods that explicitly examine distributional differences or treatment-effect heterogeneity. I recommend removing this analysis, which would also free up space to develop other aspects of the research note."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 3.6 (Discrete Behavioral Choices: Inertia, Conformity, and Reactance), Figure \ref{fig:multinom}, Appendix \ref{sec:appendix_sens_multinom}, Appendix Figure \ref{fig:sens_multinom}
+* **Location in Manuscript:** Section 3.3 (Status Inconsistency and Discrete Behavioral Choices, \ref{sec:behavioral_models}), Figure \ref{fig:multinom}, Appendix E (\ref{sec:appendix_sens_multinom}), Appendix Figure \ref{fig:sens_multinom}
 * **Actions Completed:**
   1. Retained multinomial models framed strictly as discrete directional modes (Stay, Conform, React) that decompose continuous means and uncover hidden structural inertia and oppositional reactance.
   2. Added sensitivity analysis in Appendix \ref{sec:appendix_sens_multinom} (Figure \ref{fig:sens_multinom}) excluding Taste-Only conditions, confirming findings hold with exceptional stability.
@@ -129,7 +129,7 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R1 #12):**  
   > *"Report tables with full models in the appendix."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Table \ref{tbl:descriptives}, Table \ref{tbl:did_models}, Table \ref{tbl:did_edu_class}, Table \ref{tbl:hypotheses_summary}, Appendix Table \ref{tbl:mde_analysis}, Appendix Table \ref{tbl:appendix_did_compare}, Appendix Figure \ref{fig:did_status_full}
+* **Location in Manuscript:** Table \ref{tbl:descriptives}, Table \ref{tbl:hypotheses_summary}, Appendix Table \ref{tbl:mde_analysis}, Appendix Table \ref{tbl:did_edu_4tiers}, Appendix Table \ref{tbl:did_status_quadrants}, Appendix Table \ref{tbl:did_edu_class_primary}, Appendix Table \ref{tbl:appendix_did_compare}, Appendix Figure \ref{fig:did_pooled}
 * **Actions Completed:**
   1. Exported complete regression tables, coefficients, standard errors, test statistics, and variance components across all models.
 
@@ -142,7 +142,7 @@ The revision points are grouped below into three prioritized tiers:
   > *"Reviewer 2 suggested that the empirical novelty and warrant for the research question could be made clearer... As I read it, you are offering the first empirical test of what can be inferred from a synthesis of the literature, but has not yet been empirically proven as such."* (Editor)  
   > *"It’s not clear why this research question needs to be asked, given the literature that just got reviewed... However, I think there is room to ask whether these relationships have been rigorously demonstrated with data that are designed to assess causal relationships. I think it might be the case that past work is observational and cross-sectional. Perhaps that should be the hook that highlights the novelty and contribution of the findings?"* (R2)
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 1 (Introduction), Section 1.1 (Theoretical Background)
+* **Location in Manuscript:** Section 1 (Introduction), Section 1.1--1.2 (Personal Tastes versus Others' Tastes; How Do Others' Tastes Influence Our Own?)
 * **Actions Completed:**
   1. Restructured opening around the observational vs. experimental causal gap: homophily in static surveys conflates selection and social influence.
   2. Framed study as providing the first clean experimental identification of real-time evaluative shifts.
@@ -151,7 +151,7 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R2 #2):**  
   > *"The third paragraph of section 1.1 reviews work showing that high status groups’ tastes tend to induce conformity... The fourth paragraph brings the status of the self back in... The last paragraph adds in a new consideration: the distinction between objective and subjective class status... I think section 1.1 has to be rewritten to be more focused and streamlined on the concepts central to the data analysis. Right now it is meandering."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 1.1
+* **Location in Manuscript:** Section 1.1--1.3 (Personal Tastes versus Others' Tastes; How Do Others' Tastes Influence Our Own?; Study Description)
 * **Actions Completed:**
   1. Rewrote Section 1.1 into three linear, cumulative concepts: (1) Informational vs. Status-Based Influence, (2) Relational Status Matching, and (3) Status Consistency vs. Inconsistency.
 
@@ -159,7 +159,7 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R2 #4):**  
   > *"In section 4, the authors write, 'While previous research suggests that information about others’ choices acts as a heuristic to resolve uncertainty (Strang and Macy, 2001; Salganik et al., 2006), we find that valence matters.' Isn’t it true that valence mattered in past research as well, insofar as others’ likes vs dislikes mattered? Instead, isn’t the novel finding here is that there is an asymmetry to the valence?"*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 1.1, Section 2, Section 3.3, Section 5
+* **Location in Manuscript:** Abstract, Section 1.2, Section 3.1, Section 4.1, Section 4.3
 * **Actions Completed:**
   1. Reframed claims around valence asymmetry: negative evaluations act as a potent suppressive veto against exposure drift, whereas positive evaluations act conditionally.
 
@@ -167,7 +167,7 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R2 #5, R2 #6):**  
   > *"Although the discussion very briefly describes status inconsistency as a driver of evaluative fluidity, that finding is not sufficiently integrated with the hypotheses and there is no clear mechanism attributed to it. The authors should formally test whether status inconsistency moderates the experimental conditions... This sentence needs clarification: '...we see that status consistent individuals, and particularly high-status consistent individuals have the highest propensity to stay with their initial judgment... a classic behavioral indicator of high status (Correll and Ridgeway, 2003).' The lowest status individuals have a much higher propensity to stay than the two inconsistent groups who both have higher status. What does this imply about the link between high status and staying with a taste judgment?"*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 1.1, Section 2 (Hypothesis 4), Section 3.6, Section 5
+* **Location in Manuscript:** Section 1.2, Section 1.4 (Hypothesis 6), Section 3.3, Section 4.3
 * **Actions Completed:**
   1. Formulated explicit theoretical mechanism grounded in Lenski (1954) status crystallization: status consistency anchors normative certainty and inertia ("staying"), whereas status inconsistency induces evaluative fluidity.
   2. Reframed staying away from "high status" to "structural status consistency".
@@ -176,7 +176,7 @@ The revision points are grouped below into three prioritized tiers:
 * **Reviewer Concern (R1 #13):**  
   > *"My only comment on the theoretical discussion is that the authors should engage more directly with the latest debates on taste and social influence, including more recent papers and book chapters by Lizardo and other scholars working in this area."*
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 1, Section 5, `references.bib`
+* **Location in Manuscript:** Section 1, Section 4 (Discussion), `references.bib`
 * **Actions Completed:**
   1. Integrated contemporary scholarship on cultural cognition, dual-process habitus, aesthetic signaling, and symbolic boundaries.
 
@@ -189,7 +189,7 @@ The revision points are grouped below into three prioritized tiers:
   > *"Reviewer 2’s point about whether the experimental design might have been obvious to participants was something I wondered too, and providing more methodological detail might help alleviate these concerns."* (Editor)  
   > *"I’m wondering whether this design made respondents aware that a shift in their preference was being measured, and how that might influence their responses. Where any steps taken to minimize demand awareness or respondent reactivity?"* (R2)
 * **Status:** `[Addressed]`
-* **Location in Manuscript:** Section 2.4 (Mitigation of Experimenter Demand Characteristics and Respondent Reactivity)
+* **Location in Manuscript:** Section 2.3 (Mitigation of Experimenter Demand Characteristics and Respondent Reactivity)
 * **Actions Completed:**
   1. Documented four procedural safeguards: extensive 15-20 min intervening survey buffer, naturalistic aggregate framing, unexposed control benchmark, and empirical evidence against demand compliance (high inertia and active reactance).
 
