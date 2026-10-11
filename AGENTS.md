@@ -124,13 +124,13 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 | **Appendix Fig A.2** | `figures/Figure_DiD_Edu_Class_Separate.png` | `\ref{fig:did_edu_class_separate}` | Two-panel DiD bar plot moderated separately by Education Alone and Subjective Class Alone (Primary Sample, $N = 1,981$, Appendix C) |
 | **Appendix Fig A.3** | `figures/Figure_DiD_Pooled.png` | `\ref{fig:did_pooled}` | Difference-in-Differences Treatment Effects in the Pooled Primary Sample ($N = 1,981$, Appendix D) |
 | **Appendix Fig A.4** | `figures/Figure11_Sens_MultinomialBehavior.png` | `\ref{fig:sens_multinom}` | Sensitivity behavioral bar plot (excluding Taste-Only conditions, $N = 1,643$, Appendix E) |
-| **Appendix Tab A.1** | `tables/table_mde_summary.tex` | `\ref{tbl:mde_analysis}` | Ex-post Minimum Detectable Effect (MDE) analysis table (Appendix A) |
+| **Appendix Tab A.1** | `tables/table_mde_summary.tex` | `\ref{tbl:mde_analysis}` | Ex-post Minimum Detectable Effect (MDE) analysis table (Appendix A), generated via `R/mde_power_analysis.R` and `\input` into `manuscript_R1.tex` (line ~470). |
 | **Appendix Tab A.2** | `manuscript_R1.tex` | `\ref{tbl:did_edu_4tiers}` | DiD estimates across Four Educational Tiers ($N = 1,981$, Appendix C) |
 | **Appendix Tab A.3** | `manuscript_R1.tex` | `\ref{tbl:did_status_quadrants}` | Complete 24-cell DiD matrix across Status Consistency Quadrants (Appendix C) |
 | **Appendix Tab A.4** | `tables/table_did_edu_class_primary.tex` | `\ref{tbl:did_edu_class_primary}` | DiD estimates moderated separately by Education Alone and Subjective Class Alone (Primary Sample, $N = 1,981$, Appendix C; generated via `R/stepwise_status_models_primary.R`) |
 | **Appendix Tab A.5** | `manuscript_R1.tex` | `\ref{tbl:appendix_did_compare}` | Comparison of Unweighted and IPW-Weighted pooled DiD models ($N = 1,981$, Appendix D) |
 | **Appendix Tab A.6** | `manuscript_R1.tex` | `\ref{tbl:full_sample_descriptives}` | Full unrestricted sample demographics ($N = 2,275$, Appendix G) |
-| **Appendix Tab A.7** | `tables/table_did_edu_class_separate.tex` | `\ref{tbl:did_edu_class_full}` | Full unrestricted sample stepwise DiD estimates ($N = 2,253$, Appendix G; generated via `R/stepwise_status_models.R`) |
+| **Appendix Tab A.7** | `tables/table_did_edu_class_separate.tex` | `\ref{tbl:did_edu_class_full}` | Full unrestricted sample stepwise DiD estimates ($N = 2,253$, Appendix G), generated via `R/stepwise_status_models.R` and `\input` into `manuscript_R1.tex` (line ~799). |
 | **Appendix Tab A.8** | `manuscript_R1.tex` | `\ref{tbl:did_status_quadrants_full}` | Full unrestricted sample 24-cell status consistency matrix ($N = 2,252$, Appendix G) |
 | **Response Memo (TeX)** | `response_to_reviewers.tex` | --- | Publication-grade LaTeX response memo styled with `tcolorbox`, full prose paragraphs, and verified citations |
 | **Response Memo (PDF)** | `response_to_reviewers.pdf` | --- | Compiled 18-page PDF response memo ready for submission to *Poetics* |

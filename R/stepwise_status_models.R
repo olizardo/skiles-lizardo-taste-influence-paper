@@ -230,7 +230,8 @@ saveRDS(list(
 
 format_cell <- function(est, se, p) {
   stars <- if (p < 0.001) "^{***}" else if (p < 0.01) "^{**}" else if (p < 0.05) "^{*}" else if (p < 0.10) "^{\\dagger}" else ""
-  sprintf("%+.3f%s (%.3f)", est, stars, se)
+  stars_math <- if (stars != "") sprintf("$%s$", stars) else ""
+  sprintf("%+.3f%s (%.3f)", est, stars_math, se)
 }
 
 # Construct side-by-side table rows following identical top-down order
@@ -240,9 +241,9 @@ tbl_lines <- c(
   "\\begin{table}[ht!]",
   "\\centering",
   "\\small",
-  "\\caption{Difference-in-Differences Estimates Moderated Separately by Education and Subjective Class}",
-  "\\label{tbl:did_edu_class}",
-  "\\setlength{\\tabcolsep}{4.5pt}",
+  "\\caption{Difference-in-Differences Estimates Moderated Separately by Education and Subjective Class (Full Sample, $N = 2,253$)}",
+  "\\label{tbl:did_edu_class_full}",
+  "\\setlength{\\tabcolsep}{2.0pt}",
   "\\begin{tabular*}{\\linewidth}{@{\\extracolsep{\\fill}}lcccc@{}}",
   "\\toprule",
   "& \\multicolumn{2}{c}{\\textbf{Panel A: Education Alone}} & \\multicolumn{2}{c}{\\textbf{Panel B: Subjective Class Alone}} \\\\",
@@ -303,7 +304,7 @@ tbl_lines <- c(
   "\\begin{minipage}{\\linewidth}",
   "\\vspace{4pt}",
   "\\footnotesize",
-  "\\textit{Note:} $^{\\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation, estimated via targeted binary Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education. Panel A estimates moderation by educational attainment alone (No College Degree vs. Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs. Middle Class).",
+  "$^{\\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. \\newline \\textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition in the unrestricted full sample ($N = 2,253$).",
   "\\end{minipage}",
   "\\end{table}"
 )
