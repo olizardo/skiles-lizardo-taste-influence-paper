@@ -5,6 +5,11 @@
     },
     "edit": {
       "*.bib": "allow"
+    },
+    "bash": {
+      "git add *": "allow",
+      "git commit *": "allow",
+      "git push *": "allow"
     }
   }
 }
