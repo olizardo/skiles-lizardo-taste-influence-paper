@@ -152,7 +152,8 @@ arm_of <- function(df) {
   )
 }
 
-build_descriptives <- function(df) {
+build_descriptives <- function(df, drop_na_arm = FALSE) {
+  if (drop_na_arm) df <- df %>% filter(!is.na(control))
   d <- df %>%
     mutate(
       arm = arm_of(df),
@@ -176,16 +177,16 @@ build_descriptives <- function(df) {
         ma == 1 | docprof == 1 ~ "Graduate / Professional",
         bach == 1 ~ "Bachelor's Degree",
         aadeg == 1 | somcol == 1 ~ "Some College / AA",
-        nodipdeg == 1 ~ "Less than High School",
+        nodipdeg == 1 & (is.na(hsged) | hsged == 0) ~ "Less than High School",
         TRUE ~ "High School Diploma"
       )
     )
   total_n <- nrow(d)
-  # per-arm percentages
+  # per-arm percentages: share of each arm belonging to the category
   arm_pct <- function(var, category) {
     sapply(c("Treatment", "Control", "Taste Only"), function(a) {
-      sub <- d[!is.na(d[[var]]) & d[[var]] == category, ]
-      round(100 * mean(sub$arm == a, na.rm = TRUE), 1)
+      arm_sub <- d[!is.na(d$arm) & d$arm == a & !is.na(d[[var]]), ]
+      round(100 * mean(arm_sub[[var]] == category), 1)
     })
   }
   blocks <- list(
@@ -212,7 +213,7 @@ build_descriptives <- function(df) {
 }
 
 desc_primary <- build_descriptives(pri)
-desc_full_raw <- build_descriptives(raw)  # full unrestricted sample (N = 2,275)
+desc_full_raw <- build_descriptives(raw, drop_na_arm = TRUE)  # full unrestricted sample (N = 2,275)
 saveRDS(list(desc_primary = desc_primary, desc_full_raw = desc_full_raw),
        "tables/descriptives.rds")
 cat("Descriptives: primary N =", desc_primary$total_n,

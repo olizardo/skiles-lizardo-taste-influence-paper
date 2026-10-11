@@ -1,0 +1,179 @@
+---
+title: "Taste Influence Analysis: Output Generation"
+author: "Omar Lizardo & Sara Skiles"
+date: "June 2026"
+format:
+  html:
+    toc: true
+    theme: flatly
+    code-fold: true
+    embed-resources: true
+---
+
+# Analysis Pipeline
+
+This reproducible document executes the models and generates the tables and figures used in the main manuscript.
+
+## 1. Data Setup & Propensity Score Weighting
+
+```{r setup, message=FALSE, warning=FALSE}
+library(lme4)
+library(dplyr)
+library(ggplot2)
+library(modelsummary)
+library(marginaleffects)
+library(ordinal)
+library(nnet)
+library(WeightIt)
+library(cobalt)
+
+# Execute data processing
+source("R/dataproc.R")
+data_list <- process_data()
+df_long <- data_list$long
+df_wide <- data_list$wide
+
+# Generate Complete Cases for Weighting
+df_wide_cc <- df_wide %>%
+  filter(!is.na(objsubjclass_factor), 
+         !is.na(age), !is.na(female), !is.na(raceeth), !is.na(parented))
+
+# Compute Inverse Probability Weights (IPW)
+W <- weightit(objsubjclass_factor ~ age + female + factor(raceeth) + parented, 
+              data = df_wide_cc, method = "ps", estimand = "ATE")
+
+df_wide_cc$ipw_weight <- W$weights
+
+# Join weights back to the long dataset for mixed models
+df_long <- df_long %>%
+  inner_join(df_wide_cc %>% select(id, ipw_weight), by = "id")
+```
+
+## 2. Covariate Balance Check
+
+```{r balance, warning=FALSE, message=FALSE, fig.width=8, fig.height=6}
+p_balance <- love.plot(W, binary = "std", thresholds = c(m = .1), 
+          title = "Covariate Balance Before and After Weighting") +
+  theme_minimal()
+print(p_balance)
+ggsave("figures/Figure_CovariateBalance.png", p_balance, width = 8, height = 6)
+```
+
+## 3. Linear Baseline and Trial Effects (Weighted)
+
+```{r table2, warning=FALSE, message=FALSE}
+mod0 <- lmer(taste ~ 1 + (1 | id), data = df_long, weights = ipw_weight, REML = FALSE)
+mod1 <- lmer(taste ~ cond_factor + (1 | id), data = df_long, weights = ipw_weight, REML = FALSE)
+mod2 <- lmer(taste ~ factor(trial) + cond_factor + (1 | id), data = df_long, weights = ipw_weight, REML = FALSE)
+mod3 <- lmer(taste ~ factor(trial) * cond_factor + (1 | id), data = df_long, weights = ipw_weight, REML = FALSE)
+anova(mod0, mod1, mod2, mod3)
+```
+
+## 4. Trial Effects by Status Consistency (Weighted)
+
+```{r fig5, fig.width=10, fig.height=8, warning=FALSE, message=FALSE}
+mod_objsubj <- lmer(taste ~ factor(trial) * cond2_factor * objsubjclass_factor + (1 | id), 
+                    data = df_long, weights = ipw_weight, REML = FALSE)
+te_objsubj <- avg_comparisons(mod_objsubj, variables = "trial", by = c("cond2_factor", "objsubjclass_factor"))
+
+te_objsubj <- te_objsubj %>%
+  mutate(
+    cond_clean = factor(cond2_factor, levels = c(
+      "Class & Taste/Dislike/-Status",
+      "Class & Taste/Dislike/+Status",
+      "Taste Only/Dislike",
+      "Baseline",
+      "Taste Only/Like",
+      "Class & Taste/Like/-Status",
+      "Class & Taste/Like/+Status"
+    ), labels = c(
+      "Dislike / Low Status",
+      "Dislike / High Status",
+      "Dislike (No Status)",
+      "Baseline (No Info)",
+      "Like (No Status)",
+      "Like / Low Status",
+      "Like / High Status"
+    )),
+    sig = ifelse(conf.low > 0 | conf.high < 0, "Significant", "Not Significant")
+  )
+
+p_forest <- ggplot(te_objsubj, aes(x = estimate, y = cond_clean, color = sig)) +
+  geom_point(size = 3) +
+  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = 0.2, linewidth = 1, orientation = "y") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "darkgray") +
+  facet_wrap(~objsubjclass_factor, ncol = 2) +
+  scale_color_manual(values = c("Significant" = "firebrick", "Not Significant" = "grey50")) +
+  labs(title = "Estimated Trial Effect by Condition and Status (IPW Weighted)",
+       x = "Shift in Evaluation (Taste 2 - Taste 1)", y = "") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom", legend.title = element_blank())
+
+print(p_forest)
+ggsave("figures/Figure5_TrialEffects_Forest.png", p_forest, width = 10, height = 8)
+```
+
+## 5. Disaggregating Behavior: Conformity vs. Reactance (Weighted)
+
+```{r multinom, warning=FALSE, message=FALSE, fig.width=8, fig.height=6}
+df_multi <- df_wide_cc %>%
+  mutate(
+    diff = taste2_rev - taste1_rev,
+    behavior = case_when(
+      cond2_factor == "Baseline" & diff == 0 ~ "Stay",
+      cond2_factor == "Baseline" & diff > 0 ~ "Shift Up",
+      cond2_factor == "Baseline" & diff < 0 ~ "Shift Down",
+      cond2_factor %in% c("Class & Taste/Like/-Status", "Class & Taste/Like/+Status", "Taste Only/Like") & diff == 0 ~ "Stay",
+      cond2_factor %in% c("Class & Taste/Like/-Status", "Class & Taste/Like/+Status", "Taste Only/Like") & diff > 0 ~ "Conform",
+      cond2_factor %in% c("Class & Taste/Like/-Status", "Class & Taste/Like/+Status", "Taste Only/Like") & diff < 0 ~ "React",
+      cond2_factor %in% c("Class & Taste/Dislike/-Status", "Class & Taste/Dislike/+Status", "Taste Only/Dislike") & diff == 0 ~ "Stay",
+      cond2_factor %in% c("Class & Taste/Dislike/-Status", "Class & Taste/Dislike/+Status", "Taste Only/Dislike") & diff < 0 ~ "Conform",
+      cond2_factor %in% c("Class & Taste/Dislike/-Status", "Class & Taste/Dislike/+Status", "Taste Only/Dislike") & diff > 0 ~ "React",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(behavior %in% c("Stay", "Conform", "React")) %>%
+  mutate(behavior = factor(behavior, levels = c("Stay", "Conform", "React")))
+
+multi_mod <- multinom(behavior ~ objsubjclass_factor, 
+                      data = df_multi, weights = ipw_weight, trace = FALSE)
+multi_preds <- predictions(multi_mod, type = "probs", by = c("objsubjclass_factor", "group"))
+
+p_multi <- ggplot(multi_preds, aes(x = estimate, y = objsubjclass_factor, color = group)) +
+  geom_point(position = position_dodge(width = 0.5), size = 3) +
+  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), position = position_dodge(width = 0.5), width = 0.2, linewidth = 1, orientation = "y") +
+  scale_color_manual(values = c("Stay" = "forestgreen", "Conform" = "steelblue", "React" = "firebrick")) +
+  labs(title = "Probability of Behavioral Response by Status Group (IPW Weighted)",
+       x = "Predicted Probability", y = "", color = "Behavior") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom")
+
+print(p_multi)
+ggsave("figures/Figure7_MultinomialBehavior.png", p_multi, width = 10, height = 6)
+```
+
+## 6. Sensitivity Analysis: Isolating Class Feedback (Weighted)
+
+```{r sensitivity, warning=FALSE, message=FALSE, fig.width=8, fig.height=6}
+# Filter out "Taste Only" conditions
+df_multi_sens <- df_multi %>%
+  filter(!cond2_factor %in% c("Taste Only/Like", "Taste Only/Dislike")) %>%
+  mutate(cond2_factor = droplevels(cond2_factor))
+
+multi_mod_sens <- multinom(behavior ~ objsubjclass_factor, 
+                           data = df_multi_sens, weights = ipw_weight, trace = FALSE)
+
+multi_preds_sens <- predictions(multi_mod_sens, type = "probs", by = c("objsubjclass_factor", "group"))
+
+p_sens <- ggplot(multi_preds_sens, aes(x = estimate, y = objsubjclass_factor, color = group)) +
+  geom_point(position = position_dodge(width = 0.5), size = 3) +
+  geom_errorbar(aes(xmin = conf.low, xmax = conf.high), position = position_dodge(width = 0.5), width = 0.2, linewidth = 1, orientation = "y") +
+  scale_color_manual(values = c("Stay" = "forestgreen", "Conform" = "steelblue", "React" = "firebrick")) +
+  labs(title = "Behavioral Response (Excluding 'Taste Only' Conditions)",
+       x = "Predicted Probability", y = "", color = "Behavior") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom")
+
+print(p_sens)
+ggsave("figures/Figure11_Sens_MultinomialBehavior.png", p_sens, width = 10, height = 6)
+```

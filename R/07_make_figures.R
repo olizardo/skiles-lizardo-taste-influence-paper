@@ -291,7 +291,7 @@ p_emp <- ggplot(empirical_points, aes(x = MDE_d_80, y = Spec, color = Category))
   geom_text(aes(label = sprintf("%.2f (%.2f pts)", MDE_d_80, MDE_raw_80)),
             hjust = -0.12, size = 3.2, fontface = "bold", show.legend = FALSE) +
   scale_color_manual(values = c("Drift" = "#2CA02C", "Pooled DiD" = "#1F77B4", "Subgroup DiD" = "#D62728")) +
-  coord_cartesian(xlim = c(0, max(empirical_points$MDE_d_80) * 1.45)) +
+  coord_cartesian(xlim = c(0, max(empirical_points$MDE_d_80) * 1.6)) +
   scale_x_continuous(breaks = seq(0, 0.50, by = 0.10)) +
   labs(
     title = "B. Empirical MDE Achieved in This Study (Power = 0.80)",
@@ -353,9 +353,9 @@ p_stepwise <- step_panels(did$res_stepwise_primary$frame_edu, did$res_stepwise_p
 save_fig(p_stepwise, "figures/Figure_DiD_Edu_Class_Separate", 10, 9)
 
 # ------------------------------------------------------------------------------
-# Appendix Figure A.3: Pooled DiD (primary sample)
+# Appendix Figure A.3: Pooled DiD (primary sample, unweighted; matches caption)
 # ------------------------------------------------------------------------------
-df_pool <- did$res_pooled$primary_ipw$frame %>% for_display()
+df_pool <- did$res_pooled$primary_unwt$frame %>% for_display()
 
 p_pool <- ggplot(df_pool, aes(x = estimate, y = Condition, fill = sig, color = sig)) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.6) +
@@ -370,7 +370,7 @@ p_pool <- ggplot(df_pool, aes(x = estimate, y = Condition, fill = sig, color = s
   ) +
   labs(
     title = sprintf("Difference-in-Differences Treatment Effects (%s)", SAMPLE_LABEL),
-    subtitle = sprintf("IPW-Weighted pooled model, relative to unexposed Control Condition (95%% CI, N = %d)",
+    subtitle = sprintf("Unweighted pooled model, relative to unexposed Control Condition (95%% CI, N = %d)",
                        did$res_pooled$n),
     x = "DiD Treatment Effect (Change Score vs. Control)",
     y = ""

@@ -54,9 +54,14 @@ max_smd_raw <- max(smd_summary$max_smd_raw)
 max_smd_adj <- max(smd_summary$max_smd_weighted)
 
 # --- Covariate-by-experimental-arm balance tests (randomization check) -------
+pri$.regiongrp <- dplyr::case_when(
+  pri$region %in% c(1, 2) ~ "Northeast", pri$region %in% c(3, 4) ~ "Midwest",
+  pri$region %in% c(5, 6, 7) ~ "South", pri$region %in% c(8, 9) ~ "West",
+  TRUE ~ NA_character_
+)
 arm_tests <- data.frame()
-for (v in c("age", "parented", "female", "raceeth", "taste1_rev")) {
-  if (v %in% c("female", "raceeth")) {
+for (v in c("age", "parented", "female", "raceeth", ".regiongrp", "college", "taste1_rev")) {
+  if (v %in% c("female", "raceeth", ".regiongrp", "college")) {
     p <- suppressWarnings(chisq.test(table(pri[[v]], pri$cond2_factor))$p.value)
     stat <- suppressWarnings(chisq.test(table(pri[[v]], pri$cond2_factor))$statistic)
     method <- "Chi-square"

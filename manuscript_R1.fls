@@ -724,6 +724,14 @@ INPUT ./figures/Figure_MDE_Power_Curves.png
 INPUT figures/Figure_MDE_Power_Curves.png
 INPUT ./figures/Figure_MDE_Power_Curves.png
 INPUT ./figures/Figure_MDE_Power_Curves.png
+INPUT ./tables/table_did_edu_4tiers.tex
+INPUT tables/table_did_edu_4tiers.tex
+INPUT ./tables/table_did_edu_4tiers.tex
+INPUT tables/table_did_edu_4tiers.tex
+INPUT ./tables/table_did_status_quadrants.tex
+INPUT tables/table_did_status_quadrants.tex
+INPUT ./tables/table_did_status_quadrants.tex
+INPUT tables/table_did_status_quadrants.tex
 INPUT ./figures/Figure_DiD_Edu_Class_Separate.png
 INPUT ./figures/Figure_DiD_Edu_Class_Separate.png
 INPUT figures/Figure_DiD_Edu_Class_Separate.png
@@ -733,6 +741,10 @@ INPUT ./tables/table_did_edu_class_primary.tex
 INPUT tables/table_did_edu_class_primary.tex
 INPUT ./tables/table_did_edu_class_primary.tex
 INPUT tables/table_did_edu_class_primary.tex
+INPUT ./tables/table_did_pooled_compare.tex
+INPUT tables/table_did_pooled_compare.tex
+INPUT ./tables/table_did_pooled_compare.tex
+INPUT tables/table_did_pooled_compare.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT ./figures/Figure_DiD_Pooled.png
@@ -749,6 +761,10 @@ INPUT ./tables/table_did_edu_class_separate.tex
 INPUT tables/table_did_edu_class_separate.tex
 INPUT ./tables/table_did_edu_class_separate.tex
 INPUT tables/table_did_edu_class_separate.tex
+INPUT ./tables/table_did_status_quadrants_full.tex
+INPUT tables/table_did_status_quadrants_full.tex
+INPUT ./tables/table_did_status_quadrants_full.tex
+INPUT tables/table_did_status_quadrants_full.tex
 INPUT manuscript_R1.aux
 INPUT ./manuscript_R1.out
 INPUT ./manuscript_R1.out

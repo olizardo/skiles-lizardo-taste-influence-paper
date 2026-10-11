@@ -383,11 +383,11 @@ simple_row <- function(base_term, label) {
   rw <- cw %>% filter(term == base_term)
   pu_v <- 2 * (1 - pnorm(abs(ru$t)))
   pw_v <- 2 * (1 - pnorm(abs(rw$t)))
-  star <- function(p) if (p < 0.001) "$^{***}$" else if (p < 0.01) "$^{**}$" else if (p < 0.05) "$^{*}$" else if (p < 0.10) "$^{\\dagger}$" else ""
+  star <- function(p) if (p < 0.001) "^{***}" else if (p < 0.01) "^{**}" else if (p < 0.05) "^{\\ast}" else if (p < 0.10) "^{\\dagger}" else ""
   sprintf("%s & $%+.3f%s$ (%.3f) & $%.2f$ & $%+.3f%s$ (%.3f) & $%.2f$ \\\\",
           label,
-          ru$estimate, star(pu_v), ru$se, abs(ru$t),
-          rw$estimate, star(pw_v), rw$se, abs(rw$t))
+          ru$estimate, star(pu_v), ru$se, ru$t,
+          rw$estimate, star(pw_v), rw$se, rw$t)
 }
 
 tex_a5 <- c(

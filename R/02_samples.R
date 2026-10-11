@@ -75,18 +75,25 @@ sd_diff <- sd(pri$taste2_rev - pri$taste1_rev)
 r_test_retest <- cor(pri$taste1_rev, pri$taste2_rev)
 
 # --- 9. ES vs CS equivalence tests (High-Status consolidation) ---------------
-escs_tests <- lapply(list(c(2, 3, "Likes"), c(5, 6, "Dislikes")), function(pr) {
-  d1 <- full$diff[full$cond == pr[1]]
-  d2 <- full$diff[full$cond == pr[2]]
-  tt <- t.test(d1, d2, var.equal = TRUE)
-  data.frame(
-    arm = pr[3],
-    n_ES = length(d1), mean_ES = mean(d1),
-    n_CS = length(d2), mean_CS = mean(d2),
-    F = unname(tt$statistic^2), p = tt$p.value
-  )
-})
-escs_tests <- do.call(rbind, escs_tests)
+escs_one <- function(df, subset_label) {
+  do.call(rbind, lapply(list(c(2, 3, "Likes"), c(5, 6, "Dislikes")), function(pr) {
+    a <- df$diff[df$cond == pr[1]]
+    b <- df$diff[df$cond == pr[2]]
+    tt <- t.test(a, b, var.equal = TRUE)
+    data.frame(
+      subset = subset_label, arm = pr[3],
+      n_ES = length(a), mean_ES = mean(a),
+      n_CS = length(b), mean_CS = mean(b),
+      F = unname(tt$statistic^2), p = tt$p.value
+    )
+  }))
+}
+escs_tests <- rbind(
+  escs_one(full, "Pooled"),
+  escs_one(full %>% filter(college == 1), "College graduates"),
+  escs_one(pri, "Pooled (primary)"),
+  escs_one(pri %>% filter(college == 1), "College graduates (primary)")
+)
 
 # --- 10. Behavioral-choice sample construction --------------------------------
 assign_behavior <- function(df) {
