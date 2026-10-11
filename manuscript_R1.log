@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.9.29)  11 OCT 2026 11:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.9.29)  11 OCT 2026 11:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -511,43 +511,43 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 File: figures/experimental_stimulus.jpeg Graphic file (type jpg)
 <use figures/experimental_stimulus.jpeg>
 Package pdftex.def Info: figures/experimental_stimulus.jpeg  used on input line
- 190.
+ 188.
 (pdftex.def)             Requested size: 469.75502pt x 299.10606pt.
  [7] [8] [9 <./figures/experimental_stimulus.jpeg>] [10] [11]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/Figure8_CovariateBalance.png, id=348, 614.295pt x 433.62pt>
+<figures/Figure8_CovariateBalance.png, id=352, 614.295pt x 433.62pt>
 File: figures/Figure8_CovariateBalance.png Graphic file (type png)
 <use figures/Figure8_CovariateBalance.png>
 Package pdftex.def Info: figures/Figure8_CovariateBalance.png  used on input li
-ne 242.
+ne 230.
 (pdftex.def)             Requested size: 375.80544pt x 265.27533pt.
  [12] [13 <./figures/Figure8_CovariateBalance.png>] [14]
-<figures/Figure_DiD_Baseline_Influence.png, id=387, 542.025pt x 260.172pt>
+<figures/Figure_DiD_Baseline_Influence.png, id=391, 542.025pt x 260.172pt>
 File: figures/Figure_DiD_Baseline_Influence.png Graphic file (type png)
 <use figures/Figure_DiD_Baseline_Influence.png>
 Package pdftex.def Info: figures/Figure_DiD_Baseline_Influence.png  used on inp
-ut line 307.
+ut line 295.
 (pdftex.def)             Requested size: 366.40834pt x 175.88243pt.
- [15] [16 <./figures/Figure_DiD_Baseline_Influence.png>]
-<figures/Figure_DiD_Edu_4Tiers.png, id=417, 722.7pt x 650.43pt>
+ [15 <./figures/Figure_DiD_Baseline_Influence.png>]
+<figures/Figure_DiD_Edu_4Tiers.png, id=413, 722.7pt x 650.43pt>
 File: figures/Figure_DiD_Edu_4Tiers.png Graphic file (type png)
 <use figures/Figure_DiD_Edu_4Tiers.png>
 Package pdftex.def Info: figures/Figure_DiD_Edu_4Tiers.png  used on input line 
-326.
+314.
 (pdftex.def)             Requested size: 460.35791pt x 414.3186pt.
-
-[17] [18 <./figures/Figure_DiD_Edu_4Tiers.png>]
-<figures/Figure7_MultinomialBehavior.png, id=444, 794.97pt x 346.896pt>
+ [16]
+[17 <./figures/Figure_DiD_Edu_4Tiers.png>] [18]
+<figures/Figure7_MultinomialBehavior.png, id=446, 794.97pt x 346.896pt>
 File: figures/Figure7_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure7_MultinomialBehavior.png>
 Package pdftex.def Info: figures/Figure7_MultinomialBehavior.png  used on input
- line 355.
+ line 343.
 (pdftex.def)             Requested size: 446.26582pt x 194.73682pt.
  [19] [20 <./figures/Figure7_MultinomialBehavior.png>] [21] [22] [23]
-Overfull \hbox (3.50395pt too wide) in paragraph at lines 432--433
+Overfull \hbox (3.50395pt too wide) in paragraph at lines 420--421
 \OT1/cmr/m/n/12 ex-hibit greater po-tency, cog-ni-tive salience, and be-hav-ior
 al im-pact than pos-i-tive counterparts---
  []
@@ -558,66 +558,63 @@ Underfull \hbox (badness 3679) in paragraph at lines 16--21
 x-pe-ri-ence: To-
  []
 
-[25] [26] [27]) [28] (./tables/table_mde_summary.tex
+[25] [26]) [27] (./tables/table_mde_summary.tex
 Overfull \hbox (62.20642pt too wide) in alignment at lines 7--28
 [] [] [] [] [] [] [] [] 
  []
 
 )
-<figures/Figure_MDE_Power_Curves.png, id=595, 939.51pt x 448.074pt>
+<figures/Figure_MDE_Power_Curves.png, id=593, 939.51pt x 448.074pt>
 File: figures/Figure_MDE_Power_Curves.png Graphic file (type png)
 <use figures/Figure_MDE_Power_Curves.png>
 Package pdftex.def Info: figures/Figure_MDE_Power_Curves.png  used on input lin
-e 474.
+e 464.
 (pdftex.def)             Requested size: 460.35791pt x 219.55133pt.
- [29] [30] [31 <./figures/Figure_MDE_Power_Curves.png>] [32] [33]
+ [28] [29] [30 <./figures/Figure_MDE_Power_Curves.png>] [31] [32]
 (./tables/table_did_edu_4tiers.tex) (./tables/table_did_status_quadrants.tex)
-[34]
-<figures/Figure_DiD_Edu_Class_Separate.png, id=647, 722.7pt x 650.43pt>
+[33] [34]
+<figures/Figure_DiD_Edu_Class_Separate.png, id=650, 722.7pt x 650.43pt>
 File: figures/Figure_DiD_Edu_Class_Separate.png Graphic file (type png)
 <use figures/Figure_DiD_Edu_Class_Separate.png>
 Package pdftex.def Info: figures/Figure_DiD_Edu_Class_Separate.png  used on inp
-ut line 579.
+ut line 571.
 (pdftex.def)             Requested size: 422.77664pt x 380.49506pt.
- (./tables/table_did_edu_class_primary.tex) [35]
-(./tables/table_did_pooled_compare.tex
+ (./tables/table_did_edu_class_primary.tex) [35 <./figures/Figure_DiD_Edu_Class
+_Separate.png>] (./tables/table_did_pooled_compare.tex
 Underfull \hbox (badness 1286) in paragraph at lines 4--4
 []\OT1/cmr/bx/n/12 Table A.5: |Com-par-i-son of Un-weighted and IPW-Weighted Di
 fference-in-
  []
 
 )
-<figures/Figure_DiD_Pooled.png, id=658, 614.295pt x 397.485pt>
+<figures/Figure_DiD_Pooled.png, id=660, 614.295pt x 397.485pt>
 File: figures/Figure_DiD_Pooled.png Graphic file (type png)
 <use figures/Figure_DiD_Pooled.png>
-Package pdftex.def Info: figures/Figure_DiD_Pooled.png  used on input line 594.
+Package pdftex.def Info: figures/Figure_DiD_Pooled.png  used on input line 588.
 
 (pdftex.def)             Requested size: 413.3867pt x 267.49019pt.
- [36 <./figures/Figure_DiD_Edu_Class_Separate.png>]
-
-LaTeX Warning: Text page 37 contains only floats.
-
-[37] [38 <./figures/Figure_DiD_Pooled.png>]
-<figures/Figure11_Sens_MultinomialBehavior.png, id=675, 794.97pt x 346.896pt>
+ [36]
+<figures/Figure11_Sens_MultinomialBehavior.png, id=668, 794.97pt x 346.896pt>
 File: figures/Figure11_Sens_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure11_Sens_MultinomialBehavior.png>
 Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on
- input line 607.
+ input line 601.
 (pdftex.def)             Requested size: 446.26582pt x 194.73682pt.
- [39 <./figures/Figure11_Sens_MultinomialBehavior.png>] (./tables/table_did_edu
-_class_separate.tex)
-(./tables/table_did_status_quadrants_full.tex) [40] [41] (./manuscript_R1.aux)
+ [37] (./tables/table_did_edu_class_separate.tex)
+(./tables/table_did_status_quadrants_full.tex) [38 <./figures/Figure_DiD_Pooled
+.png>] [39 <./figures/Figure11_Sens_MultinomialBehavior.png>] [40] [41]
+(./manuscript_R1.aux)
 Package rerunfilecheck Info: File `manuscript_R1.out' has not changed.
 (rerunfilecheck)             Checksum: 15872D85E2C152A2B1402555BDDA4F76;8690.
  ) 
 Here is how much of TeX's memory you used:
  14203 strings out of 477975
  232595 string characters out of 5839281
- 1879330 words of memory out of 5000000
+ 1878330 words of memory out of 5000000
  33983 multiletter control sequences out of 15000+600000
  524408 words of font info for 73 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 75i,18n,76p,1905b,649s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,18n,76p,1905b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -637,10 +634,10 @@ t/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts
 public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on manuscript_R1.pdf (41 pages, 1874843 bytes).
+Output written on manuscript_R1.pdf (41 pages, 1876065 bytes).
 PDF statistics:
- 816 PDF objects out of 1000 (max. 8388607)
- 714 compressed objects within 8 object streams
+ 818 PDF objects out of 1000 (max. 8388607)
+ 716 compressed objects within 8 object streams
  163 named destinations out of 1000 (max. 500000)
  14142 words of extra memory for PDF output out of 14400 (max. 10000000)
 

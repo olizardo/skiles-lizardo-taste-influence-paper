@@ -22,7 +22,7 @@ This project modernizes, revises, and revives the analysis for the paper *"Stay,
   3. `R/03_models_did.R` — §3.1 baseline mixed model, pooled unweighted/IPW, 4-tier, stepwise, 24-cell quadrants (primary + full)
   4. `R/04_models_behavioral.R` — multinomial Stay/Conform/React AMEs (primary, sensitivity N=1,649, full)
   5. `R/05_ipw_balance.R` — love plot data, SMDs, covariate-by-arm balance tests
-  6. `R/06_models_appendix.R` — MDE analysis (all inputs data-computed), Table 1/A.6 descriptives, Appendix F class robustness
+  6. `R/06_models_appendix.R` — MDE analysis (all inputs data-computed), Table 1/A.6 descriptives, Appendix F class robustness, tier-2 homogeneity check (`tables/tier2_homogeneity.rds`)
   7. `R/07_make_figures.R` — all 8 manuscript figures (png + pdf), no hardcoded estimates
   8. `R/08_make_tables.R` — all 7 LaTeX results tables, `\input` into the manuscript
 - **`R/legacy/` contains superseded scripts. DO NOT RUN THEM** — several silently overwrite primary-sample figures with full-sample versions; two hardcode a dead data path. Kept for provenance only.
@@ -33,17 +33,17 @@ This project modernizes, revises, and revives the analysis for the paper *"Stay,
 
 ## Manuscript Architecture & Word Count Balance (`manuscript_R1.tex`)
 
-The revised manuscript contains approximately **8,500 words** in the main body (Sections 1–4, including text, in-text citations, and footnotes; excluding floating tables, figures, display equations, and references; recomputed after the pre-resubmission verification corrections), hitting the optimal target for a *Poetics* full article (8,000–10,000 words).
+The revised manuscript contains approximately **8,330 words** in the main body (Sections 1–4, including text, in-text citations, and footnotes; excluding floating tables, figures, display equations, and references; recomputed after the October 2026 structural revision, which moved ES/CS consolidation statistics to Appendix A and the tier-2 homogeneity check to Appendix C), hitting the optimal target for a *Poetics* full article (8,000–10,000 words).
 
 | Section | Subsection Titles | Word Count | Share of Main Text |
 | :--- | :--- | :---: | :---: |
 | **Front Matter** | Title, Authors, Abstract (201 words) | 240 words | — |
-| **Section 1: Introduction** | 1.1 Personal Tastes vs. Others' Tastes (424w)<br>1.2 How Do Others' Tastes Influence Our Own? (672w)<br>1.3 Study Description (303w)<br>1.4 Hypotheses H1–H6 (747w) | 2,161 words | 25.7% |
-| **Section 2: Data & Methods** | 2.1 Sample Recruitment & Administration (482w)<br>2.2 Experimental Design & Stimulus (309w)<br>2.3 Demand Characteristics & Reactivity (371w)<br>2.4 Variables & Measurement (541w)<br>2.5 Inverse Probability Weighting (450w)<br>2.6 DiD Analytic Strategy (638w) | 2,817 words | 33.5% |
-| **Section 3: Results** | 3.1 Baseline Exposure Drift & Generalized Influence (447w)<br>3.2 Status-Differentiated Social Influence (794w)<br>3.3 Status Inconsistency & Behavioral Choices (652w) | 1,909 words | 22.7% |
-| **Section 4: Discussion** | 4.1 Summary of Key Results / Table 2 (437w)<br>4.2 Limitations & Suggestions for Future Work (575w)<br>4.3 Implications: Distinction, Defense, Negativity, Crystallization (494w) | 1,517 words | 18.1% |
-| **Main Body Total** | **Sections 1–4 Combined** | **8,404 words** | **100.0%** |
-| *Appendices (Prose)* | *Appendices A–G (Power, Vignettes, Tables, Sensitivity, Full Sample)* | *1,863 words* | — |
+| **Section 1: Introduction** | 1.1 Personal Tastes vs. Others' Tastes (413w)<br>1.2 How Do Others' Tastes Influence Our Own? (668w)<br>1.3 Study Description (246w)<br>1.4 Hypotheses H1–H6 (744w) | 2,071 words | 25.1% |
+| **Section 2: Data & Methods** | 2.1 Sample Recruitment & Administration (491w)<br>2.2 Experimental Design & Stimulus (279w)<br>2.3 Demand Characteristics & Reactivity (380w)<br>2.4 Variables & Measurement (492w)<br>2.5 Inverse Probability Weighting (444w)<br>2.6 DiD Analytic Strategy (643w) | 2,733 words | 33.2% |
+| **Section 3: Results** | 3.1 Baseline Exposure Drift & Generalized Influence (451w)<br>3.2 Status-Differentiated Social Influence (840w)<br>3.3 Status Inconsistency & Behavioral Choices (654w) | 1,947 words | 23.6% |
+| **Section 4: Discussion** | 4.1 Summary of Key Results / Table 2 (439w)<br>4.2 Limitations & Suggestions for Future Work (568w)<br>4.3 Implications: Distinction, Defense, Negativity, Crystallization, & Concluding Paragraph (570w) | 1,579 words | 19.0% |
+| **Main Body Total** | **Sections 1–4 Combined** | **8,330 words** | **100.0%** |
+| *Appendices (Prose)* | *Appendices A–G (Power, Vignettes, Tables, Sensitivity, Full Sample; including Appendix B verbatim transcription)* | *~2,370 words* | — |
 
 ---
 
@@ -158,7 +158,8 @@ All figures use **horizontal bar plots with color-matched error bars** and stand
 - [x] **Streamlined Status Consistency (Section 3.3 & Figure 5):** Eliminated the unwieldy 24-cell continuous grid from the main text; dedicated Section 3.3 exclusively to the discrete multinomial model of Stay, Conform, and React (Figure 5) testing Hypothesis 6.
 - [x] **Negativity Bias Grounding (Section 3.1 & Section 4.3):** Integrated cognitive and social psychological literature on negativity bias and negativity dominance (Baumeister et al. 2001; Rozin & Royzman 2001; Kahneman 2011; Cerulo 2010), explaining why negative peer consensus acts as an authoritative veto against natural aesthetic familiarization.
 - [x] **Discussion Streamlining (Section 4):** Structured into 3 punchy, academic sections (4.1 Summary of Key Results with Table 2; 4.2 Limitations & Suggestions for Future Work; 4.3 Implications synthesizing distinction, reactive defense, negativity bias, and status crystallization).
-- [x] **Word Count Balance Optimization:** Main body balanced at approximately 8,500 words (Intro ~25.7%, Methods ~33.5%, Results ~22.7%, Discussion ~18.1%), adhering to *Poetics* standards.
+- [x] **Word Count Balance Optimization:** Main body balanced at approximately 8,330 words (Intro ~24.9%, Methods ~32.8%, Results ~23.4%, Discussion ~19.0%), adhering to *Poetics* standards.
+- [x] **Structural Revision (October 2026):** Editorial pass for structure, simplicity, and flow: corrected the Whistler–Ruskin libel trial date (1877→1878), fixed the §3.1 "raw evaluations" mislabel (4.65→4.85 are IPW-weighted trial means), replaced colloquial §3.2 phrasing ("one shining spot"/"had a rough time"), softened the overstated §3.3 reactance opener (MC/No College contrast is marginal), moved the ES/CS consolidation F-tests and 36-cell power arithmetic from §2.4 to a closing design note in Appendix A, replaced the §2.2 verbatim prompt quotes with a paraphrase pointing to Appendix B, compressed §1.3 Study Description, and gave the §3.2 tier-2 ancillary split real appendix backing (Appendix C note; stay rates 70.4% vs. 73.0%, χ² = 0.34, p = 0.56, now computed by `R/06_models_appendix.R` → `tables/tier2_homogeneity.rds`). Section/subsection numbering, equation numbering, and all memo cross-references unchanged; manuscript recompiled at 41 pp., 0 errors. Added a short concluding paragraph to Section 4.3, giving the article an explicit closing synthesis of the valence-asymmetry, status-distancing, and status-crystallization findings.
 - [x] **Response Memo Prose Overhaul:** Rewrote all responses in `response_to_reviewers.tex` into continuous academic paragraphs (eliminating fragmented bullet lists), using italics for emphasis and removing bug-tracker status tags (`Status: [Addressed]`).
 - [x] **Response Memo Cross-Reference Audit:** Verified and synchronized all section, equation, table, and figure numbers against `manuscript_R1.tex` (e.g., Section 2.3 for Demand Characteristics, Section 2.6 for DiD Strategy, Section 4.1 for Table 2, Equation 5 for generalized DiD, and Appendix Tables A.6–A.8 for full sample estimates). Re-synchronized after inserting Appendix Table A.4 / Figure A.2 (primary-sample education-alone/class-alone check), which shifted all subsequent appendix table numbers (old A.4–A.7 $\to$ A.5–A.8) and figure numbers (old A.2–A.3 $\to$ A.3–A.4) across `manuscript_R1.tex`, `response_to_reviewers.tex`, and this file.
 - [x] **Global AGENTS.md Standards:** Updated `~/.config/agents/AGENTS.md` with permanent standards for Response to Reviewers memos across all projects.

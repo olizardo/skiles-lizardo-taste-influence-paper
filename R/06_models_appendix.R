@@ -8,8 +8,11 @@
 #    Table A.6 (full unrestricted sample), by experimental arm.
 # 3. Class-definition robustness check (Appendix F): restricting subjective
 #    class to strict working/middle identifiers.
+# 4. Tier-2 internal homogeneity check (Appendix C note): stay rates for
+#    terminal Associate degree holders vs non-degreed college attenders.
 #
-# Saves: tables/mde_results.rds, tables/descriptives.rds, tables/class_robustness.rds
+# Saves: tables/mde_results.rds, tables/descriptives.rds, tables/class_robustness.rds,
+#        tables/tier2_homogeneity.rds
 # ==============================================================================
 
 suppressPackageStartupMessages({
@@ -261,4 +264,29 @@ class_rob_rates <- class_rob %>%
 saveRDS(list(rates = class_rob_rates, n = nrow(class_rob)), "tables/class_robustness.rds")
 cat("Class-robustness (percclass 2/3 only, N =", nrow(class_rob), ") rates:\n")
 print(class_rob_rates)
-cat("Saved tables/mde_results.rds, tables/descriptives.rds, tables/class_robustness.rds\n")
+
+# ==============================================================================
+# 4. Tier-2 internal homogeneity check (Appendix C note)
+# ==============================================================================
+# Stay rates (maintaining Trial 1 evaluation, Delta = 0) for terminal Associate
+# degree holders vs non-degreed college attenders within the intermediate
+# education tier (Associate/Some College), primary analytic sample.
+tier2 <- pri %>% filter(edu4 == 2)
+tier2_tab <- table(terminal_aa = tier2$aadeg == 1, stay = tier2$stay)
+tier2_chisq <- suppressWarnings(chisq.test(tier2_tab))
+tier2_split <- data.frame(
+  subgroup = c("Non-degreed attender", "Terminal Associate"),
+  n = as.integer(rowSums(tier2_tab)),
+  stay_rate = round(100 * as.numeric(tier2_tab[, "1"]) / as.integer(rowSums(tier2_tab)), 1)
+)
+tier2_homogeneity <- list(
+  split = tier2_split,
+  chisq = unname(tier2_chisq$statistic),
+  p = tier2_chisq$p.value
+)
+saveRDS(tier2_homogeneity, "tables/tier2_homogeneity.rds")
+cat("Tier-2 homogeneity (primary sample, N =", nrow(tier2), "):",
+    paste(tier2_split$subgroup, tier2_split$n, tier2_split$stay_rate, sep = "=", collapse = "; "),
+    "| chi2 =", round(tier2_homogeneity$chisq, 2),
+    "| p =", round(tier2_homogeneity$p, 3), "\n")
+cat("Saved tables/mde_results.rds, tables/descriptives.rds, tables/class_robustness.rds, tables/tier2_homogeneity.rds\n")
