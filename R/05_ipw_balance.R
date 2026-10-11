@@ -52,11 +52,15 @@ balance_var_names <- c(
   "raceeth_f_Other"        = "Race/Ethnicity: Other"
 )
 
+# Grouped display order: with the display labels in var.names, "alphabetical"
+# sorts all age brackets together youngest to oldest (Age: 25-29 ... Age: 80+),
+# then Female, parental education, then race/ethnicity categories.
+
 fig_balance <- love.plot(
   W_quad_primary,
   binary = "std",
   thresholds = c(m = .1),
-  var.order = "unadjusted",
+  var.order = "alphabetical",
   var.names = balance_var_names,
   title = "Covariate Balance Across Status Groups Before and After IPW Weighting (Age >= 25 Sample)"
 ) +

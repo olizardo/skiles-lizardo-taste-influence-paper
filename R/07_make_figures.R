@@ -100,6 +100,10 @@ df31 <- did$res_baseline$did_frame %>%
   mutate(Condition = factor(as.character(Condition),
                             levels = c("Generalized Dislike", "Generalized Like")))
 
+# Derive x-limits from the widest CI so no error-bar cap is clipped
+lim3 <- max(abs(c(df31$conf.low, df31$conf.high)))
+lim3 <- ceiling(lim3 * 20) / 20
+
 p3 <- ggplot(df31, aes(x = estimate, y = Condition, fill = sig, color = sig)) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.6) +
   geom_col(width = 0.50, alpha = 0.85, color = NA) +
@@ -107,9 +111,9 @@ p3 <- ggplot(df31, aes(x = estimate, y = Condition, fill = sig, color = sig)) +
   scale_fill_manual(name = "Significance", values = sig_palette, limits = names(sig_palette), drop = FALSE) +
   scale_color_manual(name = "Significance", values = sig_palette, limits = names(sig_palette), drop = FALSE) +
   scale_x_continuous(
-    limits = c(-0.38, 0.38),
-    breaks = seq(-0.3, 0.3, by = 0.1),
-    labels = c("-0.3", "-0.2", "-0.1", "0.0", "+0.1", "+0.2", "+0.3")
+    limits = c(-lim3, lim3),
+    breaks = seq(-0.4, 0.4, by = 0.1),
+    labels = c("-0.4", "-0.3", "-0.2", "-0.1", "0.0", "+0.1", "+0.2", "+0.3", "+0.4")
   ) +
   labs(
     title = "Difference-in-Differences Treatment Effects (Status-Free Conditions)",
