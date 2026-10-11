@@ -30,7 +30,18 @@ pri <- samples$wide_cc_primary
 # numeric codes. var.names maps the internal cobalt term names to intuitive
 # display labels for the y-axis.
 balance_var_names <- c(
-  "age"                    = "Age",
+  "age_f_25-29"            = "Age: 25-29",
+  "age_f_30-34"            = "Age: 30-34",
+  "age_f_35-39"            = "Age: 35-39",
+  "age_f_40-44"            = "Age: 40-44",
+  "age_f_45-49"            = "Age: 45-49",
+  "age_f_50-54"            = "Age: 50-54",
+  "age_f_55-59"            = "Age: 55-59",
+  "age_f_60-64"            = "Age: 60-64",
+  "age_f_65-69"            = "Age: 65-69",
+  "age_f_70-74"            = "Age: 70-74",
+  "age_f_75-79"            = "Age: 75-79",
+  "age_f_80+"              = "Age: 80+",
   "female"                 = "Female",
   "parented"               = "Parent has a college degree",
   "raceeth_f_Asian"        = "Race/Ethnicity: Asian",

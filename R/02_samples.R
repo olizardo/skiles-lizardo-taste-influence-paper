@@ -136,7 +136,7 @@ overall_stay_rate <- mean(full$diff == 0)
 
 # --- 11. Raw and IPW-weighted trial means, 3-condition subset ------------------
 W_pri <- WeightIt::weightit(
-  objsubjclass_factor ~ age + female + raceeth_f + parented,
+  objsubjclass_factor ~ age_f + female + raceeth_f + parented,
   data = pri, method = "ps", estimand = "ATE"
 )
 pri$.ipw_quad <- W_pri$weights

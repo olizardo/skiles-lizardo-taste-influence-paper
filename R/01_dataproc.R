@@ -243,17 +243,31 @@ build_samples <- function(data_path = NULL) {
   df_wide_cc_primary <- df_wide_cc_full %>%
     filter(age >= 4)
 
-  # Race/ethnicity as a labeled factor for IPW and cobalt balance diagnostics.
-  # The raw `raceeth` is a labelled numeric (1-6); cobalt treats labelled
-  # numerics as continuous and computes a single SMD over the numeric codes,
-  # so balance checks must use an explicit factor (raceeth_f). The numeric
-  # column is retained for scripts that rely on the numeric codes (e.g.,
-  # Table 1 descriptives in 06_models_appendix.R).
+  # Race/ethnicity and age as labeled factors for IPW and cobalt balance
+  # diagnostics. The raw `raceeth` (labelled numeric 1-6) and `age` (bracket
+  # code 4-15 in the primary sample) are treated as continuous by cobalt if
+  # passed as numerics: raceeth would get a single meaningless SMD over codes
+  # 1-6, and a linear age term leaves residual per-bracket imbalance (8 of 12
+  # brackets above 0.10 SMD after weighting). Factor versions give one SMD per
+  # category and a fully nonparametric age adjustment. The numeric columns are
+  # retained for scripts that rely on the numeric codes (e.g., Table 1
+  # descriptives in 06_models_appendix.R).
   raceeth_labels <- c("Asian", "Black", "Hispanic", "White", "Multiracial", "Other")
-  df_wide_cc_full <- df_wide_cc_full %>%
-    mutate(raceeth_f = factor(raceeth, levels = 1:6, labels = raceeth_labels))
-  df_wide_cc_primary <- df_wide_cc_primary %>%
-    mutate(raceeth_f = factor(raceeth, levels = 1:6, labels = raceeth_labels))
+  # Age bracket labels. Note: the Stata value label for code 9 reads "50 - 59",
+  # which overlaps code 10 ("55 - 59"); the bracket is 50-54.
+  age_labels <- c("2" = "18-19", "3" = "20-24", "4" = "25-29", "5" = "30-34",
+                  "6" = "35-39", "7" = "40-44", "8" = "45-49", "9" = "50-54",
+                  "10" = "55-59", "11" = "60-64", "12" = "65-69", "13" = "70-74",
+                  "14" = "75-79", "15" = "80+")
+  add_factors <- function(df) {
+    df %>%
+      mutate(
+        raceeth_f = factor(raceeth, levels = 1:6, labels = raceeth_labels),
+        age_f = droplevels(factor(age, levels = names(age_labels), labels = unname(age_labels)))
+      )
+  }
+  df_wide_cc_full <- add_factors(df_wide_cc_full)
+  df_wide_cc_primary <- add_factors(df_wide_cc_primary)
 
   list(
     wide_all = df_wide,                 # all complete evaluators (N = 2,253)

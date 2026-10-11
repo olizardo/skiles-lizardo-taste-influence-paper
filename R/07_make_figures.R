@@ -91,7 +91,7 @@ fig_balance <- bal$fig_balance +
     plot.title = element_text(face = "bold", size = 12, hjust = 0),
     legend.position = "bottom"
   )
-save_fig(fig_balance, "figures/Figure8_CovariateBalance", 8.5, 6.0)
+save_fig(fig_balance, "figures/Figure8_CovariateBalance", 8.5, 7.5)
 
 # ------------------------------------------------------------------------------
 # Figure 3: Baseline exposure drift & generalized influence (N = 457)

@@ -32,7 +32,7 @@ samples <- build_samples()
 pri <- samples$wide_cc_primary
 fw  <- samples$wide_cc_full
 
-ipw_covars <- "age + female + raceeth_f + parented"
+ipw_covars <- "age_f + female + raceeth_f + parented"
 
 quad_levels <- c("Working, No College", "Working, College",
                  "Middle, No College", "Middle, College")
