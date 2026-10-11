@@ -29,7 +29,7 @@ pipeline (`R/run_all.R`).
 | §2.2 trial sequence | vignette described as after the survey battery | vignette precedes the battery (pages 5–6 vs 7–15) | Qualtrics protocol (App. B) |
 | §2.4 ES/CS consolidation F-tests | F=0.29/p=.59; F=0.92/p=.34; F=0.06/p=.80; F=0.04/p=.85 (unreproducible) | pooled: F=0.35, p=.55 (likes); F=0.07, p=.80 (dislikes); college grads: F=1.11, p=.29; F=0.06, p=.80 | `02_samples.R` (t² on change scores) |
 | §2.4 36-cell design | "N ≈ 20–35… d > 0.45" | smallest cell N=15, control as small as N=21; d ≈ 0.43 in smallest cells | `06_models_appendix.R` |
-| §2.5 raw SMD range | "0.35 to 0.50" | "0.29 to 0.59" (max weighted SMD 0.092 < 0.10) | `05_ipw_balance.R` |
+| §2.5 raw SMD range | "0.35 to 0.50" | "0.06 to 0.59" (max weighted SMD 0.109, Asian category, Middle/No College vs. Working/No College pair, raw −0.001; all other contrasts < 0.10) | `05_ipw_balance.R` |
 | §3.1 GenDislike raw change | p = 0.68 | **p = 0.59** (delta method on IPW mixed model) | `03_models_did.R` |
 | §3.2 postgraduate exposure drift | +0.375 (p < 0.01) | **+0.355 (p < 0.001)** (model-implied drift, consistent with A.3 method) | `03_models_did.R` |
 | §3.3 & App. E sensitivity sample | **N = 1,643** | **N = 1,649** (1,981 − 300 Taste-Only − 32 baseline shifters) | `02_samples.R` |

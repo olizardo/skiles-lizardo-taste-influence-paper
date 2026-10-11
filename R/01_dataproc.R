@@ -243,6 +243,18 @@ build_samples <- function(data_path = NULL) {
   df_wide_cc_primary <- df_wide_cc_full %>%
     filter(age >= 4)
 
+  # Race/ethnicity as a labeled factor for IPW and cobalt balance diagnostics.
+  # The raw `raceeth` is a labelled numeric (1-6); cobalt treats labelled
+  # numerics as continuous and computes a single SMD over the numeric codes,
+  # so balance checks must use an explicit factor (raceeth_f). The numeric
+  # column is retained for scripts that rely on the numeric codes (e.g.,
+  # Table 1 descriptives in 06_models_appendix.R).
+  raceeth_labels <- c("Asian", "Black", "Hispanic", "White", "Multiracial", "Other")
+  df_wide_cc_full <- df_wide_cc_full %>%
+    mutate(raceeth_f = factor(raceeth, levels = 1:6, labels = raceeth_labels))
+  df_wide_cc_primary <- df_wide_cc_primary %>%
+    mutate(raceeth_f = factor(raceeth, levels = 1:6, labels = raceeth_labels))
+
   list(
     wide_all = df_wide,                 # all complete evaluators (N = 2,253)
     long_all = df_long,

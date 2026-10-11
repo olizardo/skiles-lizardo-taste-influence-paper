@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.9.29)  11 OCT 2026 12:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2026.9.29)  11 OCT 2026 12:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -525,21 +525,21 @@ Package pdftex.def Info: figures/Figure8_CovariateBalance.png  used on input li
 ne 232.
 (pdftex.def)             Requested size: 375.80544pt x 265.27533pt.
  [12] [13 <./figures/Figure8_CovariateBalance.png>] [14]
-<figures/Figure_DiD_Baseline_Influence.png, id=400, 542.025pt x 260.172pt>
+<figures/Figure_DiD_Baseline_Influence.png, id=397, 542.025pt x 260.172pt>
 File: figures/Figure_DiD_Baseline_Influence.png Graphic file (type png)
 <use figures/Figure_DiD_Baseline_Influence.png>
 Package pdftex.def Info: figures/Figure_DiD_Baseline_Influence.png  used on inp
 ut line 297.
 (pdftex.def)             Requested size: 366.40834pt x 175.88243pt.
- [15 <./figures/Figure_DiD_Baseline_Influence.png>]
-<figures/Figure_DiD_Edu_4Tiers.png, id=422, 722.7pt x 650.43pt>
+ [15] [16 <./figures/Figure_DiD_Baseline_Influence.png>]
+<figures/Figure_DiD_Edu_4Tiers.png, id=427, 722.7pt x 650.43pt>
 File: figures/Figure_DiD_Edu_4Tiers.png Graphic file (type png)
 <use figures/Figure_DiD_Edu_4Tiers.png>
 Package pdftex.def Info: figures/Figure_DiD_Edu_4Tiers.png  used on input line 
 316.
 (pdftex.def)             Requested size: 460.35791pt x 414.3186pt.
- [16]
-[17 <./figures/Figure_DiD_Edu_4Tiers.png>] [18]
+
+[17] [18 <./figures/Figure_DiD_Edu_4Tiers.png>]
 <figures/Figure7_MultinomialBehavior.png, id=455, 794.97pt x 346.896pt>
 File: figures/Figure7_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure7_MultinomialBehavior.png>
@@ -558,28 +558,28 @@ Underfull \hbox (badness 3679) in paragraph at lines 16--21
 x-pe-ri-ence: To-
  []
 
-[25] [26]) [27] (./tables/table_mde_summary.tex
+[25] [26] [27]) [28] (./tables/table_mde_summary.tex
 Overfull \hbox (62.20642pt too wide) in alignment at lines 7--28
 [] [] [] [] [] [] [] [] 
  []
 
 )
-<figures/Figure_MDE_Power_Curves.png, id=602, 939.51pt x 448.074pt>
+<figures/Figure_MDE_Power_Curves.png, id=606, 939.51pt x 448.074pt>
 File: figures/Figure_MDE_Power_Curves.png Graphic file (type png)
 <use figures/Figure_MDE_Power_Curves.png>
 Package pdftex.def Info: figures/Figure_MDE_Power_Curves.png  used on input lin
 e 466.
 (pdftex.def)             Requested size: 460.35791pt x 219.55133pt.
- [28] [29] [30 <./figures/Figure_MDE_Power_Curves.png>] [31] [32]
+ [29] [30] [31 <./figures/Figure_MDE_Power_Curves.png>] [32] [33]
 (./tables/table_did_edu_4tiers.tex) (./tables/table_did_status_quadrants.tex)
-[33] [34]
-<figures/Figure_DiD_Edu_Class_Separate.png, id=659, 722.7pt x 650.43pt>
+[34] [35]
+<figures/Figure_DiD_Edu_Class_Separate.png, id=663, 722.7pt x 650.43pt>
 File: figures/Figure_DiD_Edu_Class_Separate.png Graphic file (type png)
 <use figures/Figure_DiD_Edu_Class_Separate.png>
 Package pdftex.def Info: figures/Figure_DiD_Edu_Class_Separate.png  used on inp
 ut line 573.
 (pdftex.def)             Requested size: 422.77664pt x 380.49506pt.
- (./tables/table_did_edu_class_primary.tex) [35 <./figures/Figure_DiD_Edu_Class
+ (./tables/table_did_edu_class_primary.tex) [36 <./figures/Figure_DiD_Edu_Class
 _Separate.png>] (./tables/table_did_pooled_compare.tex
 Underfull \hbox (badness 1286) in paragraph at lines 4--4
 []\OT1/cmr/bx/n/12 Table A.5: |Com-par-i-son of Un-weighted and IPW-Weighted Di
@@ -587,34 +587,34 @@ fference-in-
  []
 
 )
-<figures/Figure_DiD_Pooled.png, id=669, 614.295pt x 397.485pt>
+<figures/Figure_DiD_Pooled.png, id=673, 614.295pt x 397.485pt>
 File: figures/Figure_DiD_Pooled.png Graphic file (type png)
 <use figures/Figure_DiD_Pooled.png>
 Package pdftex.def Info: figures/Figure_DiD_Pooled.png  used on input line 590.
 
 (pdftex.def)             Requested size: 413.3867pt x 267.49019pt.
- [36]
-<figures/Figure11_Sens_MultinomialBehavior.png, id=677, 794.97pt x 346.896pt>
+ [37]
+<figures/Figure11_Sens_MultinomialBehavior.png, id=682, 794.97pt x 346.896pt>
 File: figures/Figure11_Sens_MultinomialBehavior.png Graphic file (type png)
 <use figures/Figure11_Sens_MultinomialBehavior.png>
 Package pdftex.def Info: figures/Figure11_Sens_MultinomialBehavior.png  used on
  input line 603.
 (pdftex.def)             Requested size: 446.26582pt x 194.73682pt.
- [37] (./tables/table_did_edu_class_separate.tex)
-(./tables/table_did_status_quadrants_full.tex) [38 <./figures/Figure_DiD_Pooled
-.png>] [39 <./figures/Figure11_Sens_MultinomialBehavior.png>] [40] [41]
+ [38] (./tables/table_did_edu_class_separate.tex)
+(./tables/table_did_status_quadrants_full.tex) [39 <./figures/Figure_DiD_Pooled
+.png>] [40 <./figures/Figure11_Sens_MultinomialBehavior.png>] [41] [42]
 (./manuscript_R1.aux)
 Package rerunfilecheck Info: File `manuscript_R1.out' has not changed.
 (rerunfilecheck)             Checksum: 96037EBA61054ECFA9D31AD1B40FCF74;8708.
  ) 
 Here is how much of TeX's memory you used:
- 14210 strings out of 477975
- 232707 string characters out of 5839281
+ 14211 strings out of 477975
+ 232714 string characters out of 5839281
  1878330 words of memory out of 5000000
  33988 multiletter control sequences out of 15000+600000
  525082 words of font info for 75 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 75i,18n,76p,1905b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,18n,76p,1905b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -636,10 +636,10 @@ public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 nts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></
 usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/font
 s/type1/public/cm-super/sfrm1200.pfb>
-Output written on manuscript_R1.pdf (41 pages, 1892789 bytes).
+Output written on manuscript_R1.pdf (42 pages, 1931556 bytes).
 PDF statistics:
- 835 PDF objects out of 1000 (max. 8388607)
- 729 compressed objects within 8 object streams
- 163 named destinations out of 1000 (max. 500000)
+ 839 PDF objects out of 1000 (max. 8388607)
+ 732 compressed objects within 8 object streams
+ 164 named destinations out of 1000 (max. 500000)
  15166 words of extra memory for PDF output out of 17280 (max. 10000000)
 

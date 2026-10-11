@@ -85,7 +85,7 @@ save_fig <- function(p, prefix, w, h) {
 # Figure 2: Covariate balance love plot
 # ------------------------------------------------------------------------------
 fig_balance <- bal$fig_balance +
-  ggtitle("Covariate Balance Across Status Groups Before and After IPW Weighting (Age >= 25 Sample)") +
+  ggtitle("Covariate Balance Across Status Groups Before and After IPW Weighting\n(Age 25+ Sample)") +
   theme_minimal(base_size = 12) +
   theme(
     plot.title = element_text(face = "bold", size = 12, hjust = 0),

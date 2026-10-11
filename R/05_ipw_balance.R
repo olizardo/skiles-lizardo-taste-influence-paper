@@ -25,11 +25,28 @@ samples <- build_samples()
 pri <- samples$wide_cc_primary
 
 # --- Love plot (Figure 2) ------------------------------------------------------
+# Note: raceeth_f is a factor (created in 01_dataproc.R), so cobalt reports one
+# SMD per race/ethnicity category rather than a single misleading SMD over the
+# numeric codes. var.names maps the internal cobalt term names to intuitive
+# display labels for the y-axis.
+balance_var_names <- c(
+  "age"                    = "Age",
+  "female"                 = "Female",
+  "parented"               = "Parent has a college degree",
+  "raceeth_f_Asian"        = "Race/Ethnicity: Asian",
+  "raceeth_f_Black"        = "Race/Ethnicity: Black",
+  "raceeth_f_Hispanic"     = "Race/Ethnicity: Hispanic",
+  "raceeth_f_White"        = "Race/Ethnicity: White",
+  "raceeth_f_Multiracial"  = "Race/Ethnicity: Multiracial",
+  "raceeth_f_Other"        = "Race/Ethnicity: Other"
+)
+
 fig_balance <- love.plot(
   W_quad_primary,
   binary = "std",
   thresholds = c(m = .1),
   var.order = "unadjusted",
+  var.names = balance_var_names,
   title = "Covariate Balance Across Status Groups Before and After IPW Weighting (Age >= 25 Sample)"
 ) +
   ggplot2::theme_minimal(base_size = 12) +

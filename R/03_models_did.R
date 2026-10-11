@@ -38,7 +38,7 @@ fw$cond2_refctrl  <- relevel(fw$cond2_factor, ref = "Baseline")
 pri_long <- samples$long_cc_primary %>% mutate(cond2_refctrl = relevel(cond2_factor, ref = "Baseline"))
 fw_long  <- samples$long_cc_full  %>% mutate(cond2_refctrl = relevel(cond2_factor, ref = "Baseline"))
 
-ipw_covars <- "age + female + factor(raceeth) + parented"
+ipw_covars <- "age + female + raceeth_f + parented"
 
 clean_cond_labels <- function(x) {
   dplyr::case_when(
