@@ -90,3 +90,30 @@ descriptives, class robustness) → `07_make_figures` (8 figures, png+pdf) →
 sizes; every figure/table has exactly one producer. Legacy scripts are quarantined
 in `R/legacy/` (do not run — they overwrite primary-sample figures with full-sample
 versions).
+
+## 6. Appendix reproducibility audit (October 11, 2026)
+
+Full pipeline (`Rscript R/run_all.R`, 2.5 min) rerun from the raw data. All outputs
+reproduce: PNG figures bit-identical; PDF figure diffs are embedded creation
+timestamps only; regenerated `model_results_did.rds` / `balance_results.rds` agree
+with the committed versions to floating-point noise (max coefficient drift ~1e-13).
+
+Every numeric claim in the Appendix prose (A-G) was checked against the `tables/*.rds`
+model outputs. All values verified, including: Appendix A variance inputs
+(r = 0.8993, sigma1 = 1.504, sigma2 = 1.554, sigma_Delta = 0.688), control drift
+(+0.140, t = 3.43, p = 0.00061), all Panel A-C MDE thresholds and cell sizes,
+the ES/CS consolidation F-tests (4/4 match), smallest-cell MDE d ~ 0.43, and the
+N = 505 / 575 pooled High-Status per-arm sizes; Appendix C stepwise DiD prose
+(6 estimates + p-values) and the tier-2 homogeneity check (459/196, 73.0/70.4,
+chi2 = 0.335, p = 0.563); Appendix D unweighted/weighted Low-Status Like contrast;
+Appendix E sensitivity AMEs (6/6) and the N = 1,949 - 300 = 1,649 sample arithmetic;
+Appendix F class-robustness rates; Appendix G Ns verified directly from the raw
+data (2,253 evaluations / 2,252 covariate-complete / 4,504 observations) and all
+22 rows x 5 columns of typed Table A.6 against `descriptives.rds`.
+
+One correction: Appendix B stated that N = 6 respondents selected "I can't see the
+image" and were excluded. The raw data contain zero selections of code 98 at either
+trial, no variable in the file carries the label, and the documented exclusion
+ledger (85 + 12 + 1,394 + 16 = 1,507) has no can't-see bucket, so the count is not
+derivable from any available source. The "(N = 6)" was deleted; the sentence now
+states the exclusion rule without an unverifiable count.
