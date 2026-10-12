@@ -271,16 +271,25 @@ p_curves <- ggplot(df_curves, aes(x = n, y = mde_d, color = rho_fac, linetype = 
     linetype = guide_legend(nrow = 2, byrow = TRUE)
   )
 
-# Empirical points from the computed MDE table
+# Empirical points from the computed MDE table (group-driven; no hardcoded indices)
 dm <- mde$df_mde
+ord <- c(
+  which(dm$Tier == "Within-Subject Drift"),
+  which(dm$Tier == "Pooled DiD vs Control")[c(3, 2, 1)],  # High-Status, Single, Taste-Only
+  which(dm$Tier == "Subgroup Education DiD"),
+  which(dm$Tier == "Subgroup Status DiD")
+)
+dm <- dm[ord, ]
+relab <- c("Taste-Only Conditions (mean per arm)" = "Pooled DiD (Taste-Only)",
+           "Single-Status Cue Conditions (mean per arm)" = "Pooled DiD (Single Status)",
+           "Pooled High-Status Conditions (mean per arm)" = "Pooled DiD (High-Status)")
+lab <- unname(relab[dm$Comparison])
+lab[is.na(lab)] <- as.character(dm$Comparison)[is.na(lab)]
+subgroup <- dm$Tier %in% c("Subgroup Education DiD", "Subgroup Status DiD")
+lab[subgroup] <- paste("DiD:", lab[subgroup])
 empirical_points <- data.frame(
-  Spec = c(
-    "Primary Sample Drift", "Control Condition Drift",
-    "Pooled DiD (High-Status)", "Pooled DiD (Single Status)", "Pooled DiD (Taste-Only)",
-    sprintf("DiD: %s", dm$Comparison[6]), sprintf("DiD: %s", dm$Comparison[7]),
-    sprintf("DiD: %s", dm$Comparison[8]), sprintf("DiD: %s", dm$Comparison[9])
-  ),
-  Category = c("Drift", "Drift", rep("Pooled DiD", 3), rep("Subgroup DiD", 4)),
+  Spec = lab,
+  Category = c("Drift", "Drift", rep("Pooled DiD", 3), rep("Subgroup DiD", nrow(dm) - 5)),
   MDE_d_80 = as.numeric(dm$MDE_d_80),
   MDE_raw_80 = as.numeric(dm$MDE_raw_80)
 )
@@ -307,7 +316,7 @@ p_emp <- ggplot(empirical_points, aes(x = MDE_d_80, y = Spec, color = Category))
   theme(legend.position = "bottom")
 
 p_mde <- p_curves + p_emp + plot_layout(ncol = 2, widths = c(1.15, 1.2))
-save_fig(p_mde, "figures/Figure_MDE_Power_Curves", 13, 6.2)
+save_fig(p_mde, "figures/Figure_MDE_Power_Curves", 13, 7.4)
 
 # ------------------------------------------------------------------------------
 # Appendix Figure A.2: Stepwise education / class models (primary sample)

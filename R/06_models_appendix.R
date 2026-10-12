@@ -87,6 +87,20 @@ quad_spec <- lapply(quad_control$objsubjclass_factor, function(q) {
   )
 })
 
+# Education-tier cells (control N; treated cell min / median / max across 6 arms).
+# The four-tier model contrasts each tier x condition cell against that tier's own
+# control cell, so N_C is the tier-specific control count (not the pooled 157).
+tier_cells <- pri %>% count(edu4_factor, cond2_factor)
+tier_control <- tier_cells %>% filter(cond2_factor == "Baseline")
+tier_spec <- lapply(tier_control$edu4_factor, function(t) {
+  treated <- tier_cells %>% filter(edu4_factor == t, cond2_factor != "Baseline")
+  list(
+    group = t,
+    n_c = tier_control$n[tier_control$edu4_factor == t],
+    n_min = min(treated$n), n_max = max(treated$n), n_med = median(treated$n)
+  )
+})
+
 mde_row <- function(comparison, tier, n_t, n_c = NULL, power = c(0.80, 0.90)) {
   r80 <- calc_mde(n_t, n_c, sd_diff, sd_t1, power = 0.80)
   r90 <- calc_mde(n_t, n_c, sd_diff, sd_t1, power = 0.90)
@@ -108,6 +122,17 @@ df_mde <- rbind(
           n_singlestatus_percond, n_ctrl_primary),
   mde_row("Pooled High-Status Conditions (mean per arm)", "Pooled DiD vs Control",
           n_hs_pooled_percond, n_ctrl_primary),
+  do.call(rbind, lapply(tier_spec, function(sg) {
+    r80 <- calc_mde(sg$n_med, sg$n_c, sd_diff, sd_t1, power = 0.80)
+    r90 <- calc_mde(sg$n_med, sg$n_c, sd_diff, sd_t1, power = 0.90)
+    data.frame(
+      Tier = "Subgroup Education DiD", Comparison = sg$group,
+      N_T = sprintf("%d--%d", sg$n_min, sg$n_max), N_C = as.character(sg$n_c),
+      SE = sprintf("%.3f", r80$se),
+      MDE_raw_80 = sprintf("%.3f", r80$mde_raw), MDE_d_80 = sprintf("%.3f", r80$mde_d),
+      MDE_raw_90 = sprintf("%.3f", r90$mde_raw), MDE_d_90 = sprintf("%.3f", r90$mde_d)
+    )
+  })),
   do.call(rbind, lapply(quad_spec, function(sg) {
     r80 <- calc_mde(sg$n_med, sg$n_c, sd_diff, sd_t1, power = 0.80)
     r90 <- calc_mde(sg$n_med, sg$n_c, sd_diff, sd_t1, power = 0.90)

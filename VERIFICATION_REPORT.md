@@ -117,3 +117,19 @@ trial, no variable in the file carries the label, and the documented exclusion
 ledger (85 + 12 + 1,394 + 16 = 1,507) has no can't-see bucket, so the count is not
 derivable from any available source. The "(N = 6)" was deleted; the sentence now
 states the exclusion rule without an unverifiable count.
+
+## 7. Appendix A expansion: education-tier MDE panel (October 12, 2026)
+
+Consistency check of Appendix A against the restructured manuscript found: (a) an
+Overleaf-side trim had left the two larger quadrants sharing a single MDE threshold
+(0.223) although Middle/College's is 0.230 -- restored; (b) the MDE analysis covered
+pooled and status-quadrant contrasts but not the four education tiers that now carry
+the principal heterogeneity results. Added Panel C ("Subgroup DiD Contrasts Within
+Educational Tiers") to Table A.1 and the corresponding rows to Figure A.1 Panel B,
+computed in R/06 from actual tier x condition cell sizes (tier contrasts compare each
+tier cell against that tier's own control cell, matching the saturated
+tier x condition model). Median-cell 80% MDEs: High School or Less 0.410 (d = 0.272,
+N_C = 38), Associate/Some College 0.346 (d = 0.230, N_C = 48), Bachelor's 0.360
+(d = 0.239, N_C = 47), Postgraduate 0.491 (d = 0.326, N_C = 24). Quadrant panel
+relabeled Panel D; takeaway renumbered to four; R/07 and R/08 MDE code made
+group-driven (no hardcoded row indices). Recompiled: 42 pp., 0 errors, 0 overfull.

@@ -57,39 +57,32 @@ tex_mde <- c(
   "& & & & \\multicolumn{2}{c}{\\textbf{80\\% Power}} & \\multicolumn{2}{c}{\\textbf{90\\% Power}} \\\\",
   "\\cmidrule(lr){5-6} \\cmidrule(lr){7-8}",
   "\\textbf{Specification} & $N_T$ & $N_C$ & $SE$ & $\\text{MDE}_{\\text{raw}}$ & Cohen's $d$ & $\\text{MDE}_{\\text{raw}}$ & Cohen's $d$ \\\\",
-  "\\midrule",
-  "\\multicolumn{8}{l}{\\textit{Panel A: Within-Subject Exposure Drift (Paired Comparison)}} \\\\[2pt]",
-  sprintf("Primary Sample Drift & %s & %s & %s & %s & %s & %s & %s \\\\",
-          dm$N_T[1], dm$N_C[1], dm$SE[1], dm$MDE_raw_80[1], dm$MDE_d_80[1],
-          dm$MDE_raw_90[1], dm$MDE_d_90[1]),
-  sprintf("Control Condition Drift & %s & %s & %s & %s & %s & %s & %s \\\\",
-          dm$N_T[2], dm$N_C[2], dm$SE[2], dm$MDE_raw_80[2], dm$MDE_d_80[2],
-          dm$MDE_raw_90[2], dm$MDE_d_90[2]),
-  "\\addlinespace[4pt]",
-  sprintf("\\multicolumn{8}{l}{\\textit{Panel B: Pooled Difference-in-Differences Contrasts (vs.\\ Control, $N_C = %d$)}} \\\\[2pt]", inp$n_ctrl_primary),
-  sprintf("Taste-Only Conditions & %s & %s & %s & %s & %s & %s & %s \\\\",
-          dm$N_T[3], dm$N_C[3], dm$SE[3], dm$MDE_raw_80[3], dm$MDE_d_80[3],
-          dm$MDE_raw_90[3], dm$MDE_d_90[3]),
-  sprintf("Single-Status Cue Conditions & %s & %s & %s & %s & %s & %s & %s \\\\",
-          dm$N_T[4], dm$N_C[4], dm$SE[4], dm$MDE_raw_80[4], dm$MDE_d_80[4],
-          dm$MDE_raw_90[4], dm$MDE_d_90[4]),
-  sprintf("Pooled High-Status Conditions & %s & %s & %s & %s & %s & %s & %s \\\\",
-          dm$N_T[5], dm$N_C[5], dm$SE[5], dm$MDE_raw_80[5], dm$MDE_d_80[5],
-          dm$MDE_raw_90[5], dm$MDE_d_90[5]),
-  "\\addlinespace[4pt]",
-  "\\multicolumn{8}{l}{\\textit{Panel C: Subgroup DiD Contrasts Within Status Consistency Quadrants}} \\\\[2pt]",
-  sprintf("%s & %s & %s & %s & %s & %s & %s & %s \\\\",
-          dm$Comparison[6], dm$N_T[6], dm$N_C[6], dm$SE[6], dm$MDE_raw_80[6], dm$MDE_d_80[6],
-          dm$MDE_raw_90[6], dm$MDE_d_90[6]),
-  sprintf("%s & %s & %s & %s & %s & %s & %s & %s \\\\",
-          dm$Comparison[7], dm$N_T[7], dm$N_C[7], dm$SE[7], dm$MDE_raw_80[7], dm$MDE_d_80[7],
-          dm$MDE_raw_90[7], dm$MDE_d_90[7]),
-  sprintf("%s & %s & %s & %s & %s & %s & %s & %s \\\\",
-          dm$Comparison[8], dm$N_T[8], dm$N_C[8], dm$SE[8], dm$MDE_raw_80[8], dm$MDE_d_80[8],
-          dm$MDE_raw_90[8], dm$MDE_d_90[8]),
-  sprintf("%s & %s & %s & %s & %s & %s & %s & %s \\\\",
-          dm$Comparison[9], dm$N_T[9], dm$N_C[9], dm$SE[9], dm$MDE_raw_80[9], dm$MDE_d_80[9],
-          dm$MDE_raw_90[9], dm$MDE_d_90[9]),
+  "\\midrule"
+)
+
+# Group-driven panel construction (no hardcoded row indices)
+panel_titles <- c(
+  "Within-Subject Drift" = "Panel A: Within-Subject Exposure Drift (Paired Comparison)",
+  "Pooled DiD vs Control" = "Panel B: Pooled Difference-in-Differences Contrasts (vs.\\ Control, $N_C = %d$)",
+  "Subgroup Education DiD" = "Panel C: Subgroup DiD Contrasts Within Educational Tiers",
+  "Subgroup Status DiD" = "Panel D: Subgroup DiD Contrasts Within Status Consistency Quadrants"
+)
+tier_seq <- unique(dm$Tier)
+mde_body <- unlist(lapply(tier_seq, function(t) {
+  g <- dm[dm$Tier == t, ]
+  label <- gsub(" (mean per arm)", "", g$Comparison, fixed = TRUE)
+  rows <- sprintf("%s & %s & %s & %s & %s & %s & %s & %s \\\\",
+                  label, g$N_T, g$N_C, g$SE, g$MDE_raw_80, g$MDE_d_80,
+                  g$MDE_raw_90, g$MDE_d_90)
+  header <- sprintf("\\multicolumn{8}{l}{\\textit{%s}} \\\\[2pt]",
+                    sprintf(panel_titles[[t]], inp$n_ctrl_primary))
+  gap <- if (t != tier_seq[length(tier_seq)]) "\\addlinespace[4pt]" else character(0)
+  c(header, rows, gap)
+}))
+
+tex_mde <- c(
+  tex_mde,
+  mde_body,
   "\\bottomrule",
   "\\end{tabular*}",
   "\\begin{minipage}{\\linewidth}",
@@ -100,9 +93,9 @@ tex_mde <- c(
                  "Calculations incorporate the empirical test-retest correlation across repeated trials ",
                  "($r = %.4f$, yielding $\\sigma_{\\Delta} = %.3f$ relative to baseline $\\sigma_1 = %.3f$). ",
                  "$\\text{MDE}_{\\text{raw}}$ is expressed in units of the 7-point aesthetic rating scale; ",
-                 "Cohen's $d = \\text{MDE}_{\\text{raw}} / \\sigma_1$. In Panels B and C, $N_T$ values for pooled rows are ",
-                 "mean per-condition cell sizes; in Panel C, $N_T$ indicates the range of treatment cell sizes across ",
-                 "specific cue conditions, and reported $SE$ and MDE values correspond to median cell sizes."),
+                 "Cohen's $d = \\text{MDE}_{\\text{raw}} / \\sigma_1$. In Panel B, $N_T$ values are mean per-condition ",
+                 "cell sizes; in Panels C and D, $N_T$ indicates the range of treatment cell sizes across specific ",
+                 "cue conditions within each subgroup, and reported $SE$ and MDE values correspond to median cell sizes."),
           inp$rho, inp$sd_diff, inp$sd_t1),
   "\\end{minipage}",
   "\\end{table}"
