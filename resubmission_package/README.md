@@ -11,6 +11,7 @@
 | `manuscript_R1.tex` | Revised manuscript source (LaTeX, main text + Appendices A–G inline) |
 | `manuscript_R1.pdf` | Compiled revised manuscript (42 pp.) |
 | `title_page.tex` / `title_page.pdf` | Separate title page: authors, affiliations, corresponding author, funding |
+| `bio_page.tex` / `bio_page.pdf` | Separate author biographies page (Omar Lizardo & Sara Skiles) |
 | `response_to_reviewers.tex` | Point-by-point response memo source |
 | `response_to_reviewers.pdf` | Compiled response memo (18 pp.) |
 | `references.bib` | Bibliography database |

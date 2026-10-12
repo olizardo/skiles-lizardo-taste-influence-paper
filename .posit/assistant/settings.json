@@ -9,7 +9,11 @@
     "bash": {
       "git add *": "allow",
       "git commit *": "allow",
-      "git push *": "allow"
+      "git push *": "allow",
+      "cd *": "allow",
+      "cat *": "allow",
+      "git log *": "allow",
+      "head *": "allow"
     }
   }
 }
