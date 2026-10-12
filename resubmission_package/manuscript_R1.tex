@@ -1,0 +1,673 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+    citecolor=darkblue
+}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage[font=bf]{caption}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{tabularx}
+\usepackage[protrusion=true, expansion=false]{microtype}
+\geometry{margin=1in}
+
+\title{Stay, React, or Conform? Examining Social Influence Effects on Aesthetic Judgments}
+\author{Omar Lizardo \& Sara Skiles\thanks{\textbf{Funding:} Data collection was funded by an NSF Doctoral Dissertation Improvement Grant (Award SES-1203426) and the University of Notre Dame Institute for Scholarship in Liberal Arts.}}
+\date{Revised Manuscript --- \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Do others' aesthetic judgments causally alter our own, and how does this influence depend on the social distance between self and other? While cultural sociologists have long debated whether taste reflects emulation, distinction, or inertia, empirical research has relied almost exclusively on observational strategies. We address this question using a national survey experiment ($N = 1,981$, adults aged $\ge 25$) with a repeated-measures Difference-in-Differences design and inverse probability weighting. Manipulating exposure to aggregate evaluations of others (likes vs.\ dislikes) and others' educational credentials across repeated trials, we find strong evidence of \textit{valence asymmetry}: while re-evaluating artwork produces an intrinsic positive exposure drift in the absence of cues, negative social consensus completely suppresses this appreciation, functioning as an evaluative suppressor. In contrast, positive endorsements yield no increment beyond baseline exposure. Across educational strata, we find no evidence of upward cultural goodwill or same-status alignment; instead, status boundaries operate through reactive distancing, with postgraduate respondents abandoning appreciation when working-class others endorse an artwork. Finally, discrete behavioral modeling shows that evaluative stability (``staying'') is anchored in \textit{structural status consistency}: consistent actors show high inertia, whereas status-inconsistent actors show heightened conformity. Cultural influence thus operates through asymmetric influence effects and boundary policing, conditioned by status consistency.
+\end{abstract}
+
+\newpage
+\section{Introduction}
+
+\subsection{Personal Tastes versus Others' Tastes}
+
+In the sociology of taste, cultural orientations and practices have long been argued to be a function of individuals' socially induced motivation to differentiate themselves from others \citep{simmel1957, dimaggio1987, lizardo2016cultural-aaa, pomiès2018retracing-dd8}. In the classic statement, \citet{bourdieu1984} suggests that differences in taste evoke a visceral reaction of affinity or disaffinity, and that in following their embodied \textit{habitus} and choosing to engage with or avoid certain cultural objects, individuals simultaneously perform symbolic boundary work and status distinction, because the objects they choose and reject are, in turn, chosen or rejected by others. Accordingly, expressing \textit{dis}tastes in particular serves to communicate social distance from others who choose the objects we reject \citep{bryson1996, lamont2002, lizardo2016cultural-aaa}. Similarly, when individuals discover an unexpected \textit{similarity} between their taste and that of members of an outgroup they wish to distance themselves from, they should abandon, revise, or qualify those tastes to maintain social boundaries \citep{berger2008, simmel1957}.
+
+Post-Bourdieusian perspectives, however, argue that other people's tastes need not be solely a source of distinction and separation; they can also build solidarity and reveal shared perspectives, especially among people considered similar in some socially relevant way \citep{pomiès2018retracing-dd8}. Via this process, expressing shared likes and dislikes can signal affiliation with others and serve as a mechanism for creating bounded groups and interactional communities \citep{dimaggio1987, benzecry2014high-9bf, lizardo2006, vanzella2022tastes, wohl2015community-2d2}. Accordingly, contexts in which individuals find an unexpected \textit{similarity} in tastes with others whom they consider status peers can lead them to reinforce those tastes. 
+
+In both ideal-typical stories, information about others' tastes can shape our own cultural choices and judgments of taste, directly or indirectly. In the first story, tastes serve as a source of distinction and separation, while in the second, they foster affiliation and solidarity. In both cases, knowing others' tastes is presumed to \textit{causally} affect our own tastes, either enhancing them or shifting them in a different direction. Yet, despite the centrality of this assumption to sociological theories of taste, there is surprisingly little empirical evidence that others' tastes causally influence our own \citep[but see][]{salganik2006experimental-88d}. In this paper, we address this gap by experimentally testing for the causal effect (if any) of information about others' tastes on people's aesthetic evaluations of a particular cultural object.
+
+Accordingly, we ask: \textit{How does access to others' evaluations influence our own aesthetic evaluations of a cultural object?}
+
+
+\subsection{How Do Others' Tastes Influence Our Own?}
+
+\subsubsection{The Generalized Influence Mechanism}
+
+The simplest answer to the question we posed is to see the production of aesthetic judgments as a special case of producing a judgment under uncertainty \citep{kahneman2011thinking-137}. This means that information about other people's judgments becomes a key cog in a \textit{generalized influence mechanism} in which some aggregation of others' tastes serves as a guidepost for forming our own evaluation, moving it closer to the perceived consensus \citep{salganik2006experimental-88d, childress2012cultural-0cc}. 
+
+In this sense, the basic idea behind generalized influence is simple: in any context where there is uncertainty about how to evaluate a cultural object, access to information about how others have evaluated it provides a heuristic for resolving that uncertainty, such that going along with the crowd is not necessarily a sub-optimal strategy \citep{strang2001search-10a, mark2003culture-ed5}. Under this view, individuals should adjust their evaluations in a direction consistent with others' evaluations. For instance, discovering that a cultural object is broadly endorsed by others (regardless of those others' characteristics) often increases its appeal, while discovering it is disliked decreases its appeal \citep{salganik2006experimental-88d}. 
+
+Now, whether positive and negative signals (e.g., in our case likes and dislikes on the part of others) are \textit{equally} potent as sources of influence---the question of \textit{valence symmetry}---remains an unanswered question in prior research in the sociology of taste, although an influential line of work in psychology suggests that people are more sensitive to,  pay more attention to, and are more likely to be behaviorally affected by negative compared to positive information---the so-called negativity bias \citep{rozin2001negativity-01e, baumeister2001bad-19b}. The research we report later bears directly on the valence asymmetry question.
+
+\subsubsection{Beyond Anonymous Others}
+
+Despite considerations from work under the rubric of generalized influence, the presumed causal effect of others on our own tastes is rarely so monolithic; the \textit{status} of those ``others" matters. Exposure to a high-status group's preferences might induce \textit{conformity} (alignment), whereas exposure to a low-status group's likes and dislikes might induce \textit{reactance} (distancing). This approach is consistent with traditional models in the sociology of culture and consumption, which use a balance-like logic \citep{heider1946attitudes-ff3}---e.g., if a group you want to distance yourself from likes something, then you dislike it---to predict how information about other people's choices (either explicit or implied) affects judgments of taste \citep{okada2017structure}. 
+
+These models thus suggest that access to positive evaluations from others leads to more positive subjective evaluations for a given cultural object when those others are high status, but not when they are low status. In the same way, access to other people’s negative evaluations will lead to more negative evaluations when those others are of high status, but not when they are low status \citep{lizardo2016cultural-aaa}. Here influence operates as either conformity or alignment to the perceived tastes (positive or negative) of others when the presumed others are high-status---the phenomenon \citep{bourdieu1984} dubbed ``cultural goodwill"---or as rejection of or disalignment from the same judgments of taste when others are low-status, a type of ``symbolic boundary drawing" \citep{bryson1996}.  
+
+\subsubsection{Connecting Aesthetic Judgment to Social Position}
+
+The ``strict Bourdieusian'' \citeyearpar {bourdieu1984} version of this model adds the complicating factor of the focal person's own position in the social space interacting with the status of others \citep{lizardo2016cultural-aaa}. This approach suggests that goodwill and conformity to the opinions of presumed high-status others should be more prevalent among lower-status respondents, while resistance and distancing from the judgments of presumed low-status others should be more prevalent among higher-status persons \citep{lizardo2016cultural-aaa}. 
+
+While the strict Bourdieusian model predicts either goodwill (conformity on the part of lower-status persons to the judgments of high-status others), or asymmetric distancing (disalignment on the part of high-status people to the judgment of low-status others), another possible pattern of results is that of generalized \textit{reactance} to others of different status than self. In this symbolic ``war of all against all'' world, low-status persons shift their judgments of taste in the opposite direction of the judgments of higher-status others, while higher-status people do the same sort of symbolic distancing when exposed to the judgments of lower-status others \citep{tampubolon2008revisiting}. 
+
+The final logical possibility, intimated at by solidarity-based models \citep{dimaggio1987, wohl2015community-2d2}, is universal alignment with the judgments of taste of same-status others. In this scenario, people's judgments of taste are swayed---in a negative or positive direction---by similar valence judgments of taste coming from others of similar status. This implies that our judgments will become more negative when we learn that same-status others think lowly of the cultural object and more positive when we find that they embrace it. 
+
+\subsection{The Present Research}
+
+In what follows, we put these considerations to the test by specifically examining how the respondent's objective and subjective class status interact with a fictional set of others' class status to produce three theoretically distinct outcomes: \textit{staying} (resisting influence), conforming (influence as a form of alignment or changing our judgment to be more similar to that of others), or reacting (influence as a form of distancing, or changing our judgments to be more dissimilar to that of others).
+
+To that end, we designed a survey-experimental study in which participants were asked to report their feelings about a painting---Whistler's \textit{Nocturne}; see Figure~\ref{fig:stimulus}---on a scale ranging from ``dislike it very much'' to ``like it very much.'' After we obtained this evaluation, we told a subset of participants that a group of prior survey respondents had either liked or disliked the painting, describing the group either only in terms of its opinion or also in terms of its members' educational credentials and occupations, which ranged from doctoral cultural specialists and business-trained financial professionals to high-school-educated food service workers. Participants then completed an intervening block of survey modules, were shown the same painting one last time, then asked to provide their final take using the same evaluative categories as at the beginning (an unexposed control group received no feedback and was asked to rate the painting twice). The key outcome of the study is how respondents' second judgment departs from their first---both the magnitude of that change, benchmarked against the natural drift observed in an unexposed control group, and the discrete behavioral pattern of staying with, conforming to, or reacting against the opinions of others.
+
+\subsection{Hypotheses}
+\subsubsection{Mere Exposure and Positive Drift}
+For participants in the Control Condition who are simply asked to rate the painting twice without being exposed to the opinions of others, repeated exposure to a cultural object across trials is expected to produce an upward drift in evaluation even in the absence of external social information, a phenomenon in psychology known as the \textit{mere exposure effect} \citep{zajonc1968attitudinal, reber1998effects-efe}.\footnote{For an application of the mere exposure effect to historical dynamics in the aesthetic evaluation of art see \citet{cutting2003gustave}.} 
+
+Accordingly, our baseline hypothesis is that we should observe \textit{positive drift} in the Control Condition for participants who do change their evaluation, with participants asked to judge the same cultural object twice being more likely to produce a more positive judgment (on average) on the second judgment. 
+
+\begin{itemize}
+    \item \textbf{Hypothesis 1 (Mere Exposure Effect):} \textit{Participants asked to judge the painting twice, without being exposed to the opinions, will be more likely to give a more positive judgment on the second trial.}
+\end{itemize}
+
+Thus, if the mere exposure mechanism is at work, the Control Condition should show a positive drift in evaluation across trials, which we can use as a baseline against which to compare the treatment conditions in which participants are exposed to the opinions. 
+
+\subsubsection{Social Influence and Generalized Alignment}
+
+Generalized positive or negative influence processes should operate in tandem with mere exposure, either enhancing it (in the positive generalized influence condition) or suppressing it (in the negative generalized influence condition). In other words, we expect exposure to positive evaluations from others to enhance the positive drift in evaluation across trials, whereas exposure to negative evaluations from others will suppress it.
+
+\begin{itemize}
+    \item \textbf{Hypothesis 2a (Positive Evaluations):} \textit{Endorsements (liking) from generalized others should exert an overall positive influence on the respondent's second evaluation, facilitating baseline drift.}
+    \item \textbf{Hypothesis 2b (Negative Evaluations):} \textit{Disapproval (disliking) from generalized others should exert an overall negative influence on the respondent's second evaluation, blocking the mere exposure effect.}
+\end{itemize}
+
+\subsubsection{Social Influence and Status Specific Alignment}
+
+When it comes to hypotheses having to do with the interaction between a person's own status and the perceived status of others who either like or dislike the painting, we can consider three possibilities:
+
+\begin{itemize}
+\item \textbf{Hypothesis 3 (Same-Status Alignment):} \textit{Individuals will align their evaluations with those of same-status others, shifting toward their others' likes and dislikes.}
+\item \textbf{Hypothesis 4 (Cultural Goodwill):} \textit{Lower-status individuals will align their evaluations with those of higher-status individuals, adopting their likes and deferring to their dislikes.}
+\item \textbf{Hypothesis 5 (Status-Based Distancing):} \textit{Individuals will distance their evaluations from status outgroups, shifting in the opposite direction of outgroup likes and dislikes.}
+\end{itemize}
+
+Of course it bears saying that some of these hypotheses do not imply mutual exclusivity. Individuals could certainly engage in both same-group taste alignment and outgroup taste distancing. Similarly, low-status individuals could engage in goodwill behaviors (aligning their tastes with those of their presumed status superiors) while also engaging in ingroup solidarity (aligning their tastes with those of others). In the real world, these causal effects are entangled in complex, sometimes self-canceling or self-enhancing, causal interplay; the advantage of the experimental approach is that it lets us separate them more cleanly.
+
+\subsubsection{Status Inconsistency and Aesthetic Malleability}
+
+The previous hypotheses presumed that individuals occupy a single, consistent status position, either high or low. However, in reality, many individuals occupy inconsistent status positions across different dimensions of social stratification. For instance, a person may be working class but have a college degree, or middle class but without one. The classic literature on the subject usually refers to this as status consistency and status crystallization \citep{hope1975models}. 
+
+The basic expectation stemming from this literature, along with more contemporary work on the social psychology of status \citep{correll2003expectations}, is that individuals with consistent status profiles will be more likely to maintain their initial evaluation (``staying'') than those with inconsistent status profiles, who will be more likely to revise their initial evaluation in response to information about the aesthetic opinions of others. Status crystallization provides people with assurance in their judgments (insulating them from influence), whereas individuals caught in contradictory slots in the social structure are more uncertain about their judgments and thus more susceptible to influence.
+
+\begin{itemize}
+    \item \textbf{Hypothesis 6 (Status Consistency):} \textit{Status-consistent individuals will be more likely to maintain their initial evaluations (``staying''), whereas status-inconsistent individuals will be more susceptible to social influence.}
+\end{itemize}
+
+
+\section{Data and Methods}
+
+\subsection{Sample Recruitment and Survey Administration}
+We collected data for this study between February 28 and March 6, 2012, via an online experimental survey administered by Survey Sampling International (SSI), a leading research firm specializing in online panel recruitment and survey sampling at the time. A total of 3,782 panel members accessed the survey instrument. Of these, 97 were excluded due to lack of informed consent ($N = 85$) or age under 18 ($N = 12$), 1,394 were screened out because demographic quota targets had already been met, and 16 dropped out during early screens, resulting in an analytic sample of $N = 2,275$ completed responses (with $N = 2,253$ providing complete initial and post-treatment evaluations). Participants received monetary compensation (\$3.92) via SSI.
+
+To give respondents an opportunity to complete higher education and eliminate right-censoring in educational attainment among individuals still of standard undergraduate age (18--24), our primary analytic sample restricts the population to adults aged 25 or older (the youngest retained Census age bracket is 25--29; $N = 1,981$, yielding $3,962$ repeated observations across trials). In this mature adult population, educational attainment reflects completed institutional cultural capital, allowing for an unambiguous test of status-based influence without conflating non-completion with non-enrollment. As documented in Appendix \ref{sec:appendix_full_sample}, re-estimating all models on the unrestricted full sample ($N = 2,253$) yields identical substantive findings.
+
+The sampling frame used dynamic quota matching calibrated to U.S. Census benchmarks for gender, age, race/ethnicity, and geographic region to produce a diverse, quasi-representative national sample of U.S. adults. To ensure adequate statistical power for examining status-differentiated cultural dynamics---particularly within high-cultural-capital occupational cells---the sample incorporated a deliberate oversample of college graduates (43.3\% holding a bachelor's degree or higher in the primary analytic sample versus 40.5\% in the full sample and approximately 28\% nationally in 2012). Table \ref{tbl:descriptives} presents the full demographic breakdown of the primary analytic sample, compared with U.S. population parameters, separated by experimental treatment condition.\footnote{Because the survey used a quota-matched, opt-in online consumer panel rather than a strict probability-based sample with known inclusion probabilities (such as the GSS or ANES), the reported standard errors, $p$-values, and confidence intervals should be interpreted as reflecting \textit{model-based and experimental design uncertainty within the sample}, rather than formal design-based population parameter estimates.}
+
+The randomization mechanism built into the \textit{Qualtrics} survey engine ensures that internal validity is maximized: respondents were randomly assigned to treatment and control conditions, creating closely balanced experimental groups across baseline demographic characteristics (Table \ref{tbl:descriptives}). At the same time, the demographic diversity across gender, age, race, and geographic region provides substantial ecological validity and heterogeneity compared to conventional undergraduate convenience samples.\footnote{Because cell sample sizes vary across experimental conditions and observational status consistency subgroups, we also report a comprehensive Minimum Detectable Effect (MDE) power analysis in Appendix \ref{sec:appendix_power_mde} (Table \ref{tbl:mde_analysis} and Figure \ref{fig:mde_curves}), explicitly delineating the statistical precision and empirical detection boundaries of the experimental design.}
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Demographic Characteristics of Survey Sample (Age $\ge 25$) Compared to U.S. Population Benchmarks}
+\label{tbl:descriptives}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
+\toprule
+Demographic Variable & Sample $N$ & Sample \% & U.S. Pop \% & Treatment & Control & Taste Only \\
+\midrule
+\textbf{Gender} & & & & & & \\
+\quad Women & 1,036 & 52.3\% & 51.5\% & 51.9\% & 52.9\% & 54.0\% \\
+\quad Men & 945 & 47.7\% & 48.5\% & 48.1\% & 47.1\% & 46.0\% \\
+\addlinespace[3pt]
+\textbf{Race / Ethnicity} & & & & & & \\
+\quad White & 1,284 & 64.8\% & 65.1\% & 65.0\% & 64.3\% & 64.3\% \\
+\quad Hispanic / Latino & 306 & 15.4\% & 15.8\% & 15.7\% & 14.6\% & 14.3\% \\
+\quad Black / African American & 250 & 12.6\% & 12.3\% & 12.5\% & 13.4\% & 13.0\% \\
+\quad Asian / Pacific Islander & 90 & 4.5\% & 4.5\% & 4.3\% & 5.7\% & 5.0\% \\
+\quad Other / Multiracial & 51 & 2.6\% & 2.3\% & 2.5\% & 1.9\% & 3.3\% \\
+\addlinespace[3pt]
+\textbf{Age Group} & & & & & & \\
+\quad 25--34 & 407 & 20.5\% & 17.5\% & 20.7\% & 19.1\% & 20.7\% \\
+\quad 35--44 & 400 & 20.2\% & 17.5\% & 20.4\% & 15.3\% & 21.7\% \\
+\quad 45--54 & 437 & 22.1\% & 19.2\% & 22.0\% & 23.6\% & 21.3\% \\
+\quad 55--64 & 366 & 18.5\% & 15.6\% & 18.7\% & 17.2\% & 18.0\% \\
+\quad 65+ & 371 & 18.7\% & 17.2\% & 18.2\% & 24.8\% & 18.3\% \\
+\addlinespace[3pt]
+\textbf{Geographic Region} & & & & & & \\
+\quad Northeast & 371 & 18.7\% & 17.9\% & 19.0\% & 17.8\% & 17.7\% \\
+\quad South & 689 & 34.8\% & 37.2\% & 35.6\% & 37.6\% & 29.3\% \\
+\quad Midwest & 445 & 22.5\% & 21.6\% & 21.5\% & 26.1\% & 25.7\% \\
+\quad West & 476 & 24.0\% & 23.3\% & 24.0\% & 18.5\% & 27.3\% \\
+\addlinespace[3pt]
+\textbf{Education (Oversampled)} & & & & & & \\
+\quad Less than High School & 66 & 3.3\% & 13.3\% & 3.6\% & 1.9\% & 2.7\% \\
+\quad High School Diploma & 402 & 20.3\% & 30.4\% & 19.8\% & 22.3\% & 22.0\% \\
+\quad Some College / AA & 655 & 33.1\% & 28.5\% & 34.1\% & 30.6\% & 29.3\% \\
+\quad Bachelor's Degree & 577 & 29.1\% & 18.1\% & 28.6\% & 29.9\% & 31.3\% \\
+\quad Graduate / Professional & 281 & 14.2\% & 9.6\% & 14.0\% & 15.3\% & 14.7\% \\
+\midrule
+\textbf{Total $N$} & \textbf{1,981} & \textbf{100.0\%} & & \textbf{1,524} & \textbf{157} & \textbf{300} \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+\textit{Note:} The primary analytic sample includes respondents aged 25 or older ($N = 1,981$), giving all participants the opportunity to complete college. U.S. population benchmarks are drawn from the 2010/2012 U.S. Census Bureau Current Population Survey (CPS). The analytic sample oversamples college-educated respondents to populate higher-status occupational cells. Full sample demographics ($N = 2,275$), including the 18--24 subsample, are reported in Appendix Table \ref{tbl:full_sample_descriptives}.
+\end{minipage}
+\end{table}
+
+\subsection{Experimental Design and Stimulus}
+All respondents viewed the same artwork, namely, \textit{Nocturne: Blue and Gold---Old Battersea Bridge} by James McNeill Whistler (1872), shown in Figure \ref{fig:stimulus}. We selected the painting based on an online pilot study ($N=100$) that tested eight artworks; we chose the Whistler painting because it produced the highest initial pre-treatment variance in aesthetic evaluations across all demographic subgroups.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/experimental_stimulus.jpeg}
+    \caption{Experimental Stimulus: \textit{Nocturne: Blue and Gold -- Old Battersea Bridge}, by James McNeill Whistler (1872)}
+    \label{fig:stimulus}
+\end{figure}
+
+The experiment used an incomplete factorial design with within-subject pre- and post-trials. In Trial 1 (pre-treatment baseline), respondents viewed the artwork and reported their first impression of it on a 7-point Likert scale (ranging from 1 = ``I like it very much'' to 7 = ``I dislike it very much'', along with an ``I can't see the image'' screening option; reverse-coded so that 7 = ``like very much'' and 1 = ``dislike very much''). Next, treatment respondents read a brief vignette describing how a group of other people evaluated the artwork, and then completed an intervening survey block of demographic questions and a musical taste battery. Finally, in Trial 2 (post-treatment final impression), respondents were shown the same painting again and asked for their final impression on the same scale, without any reminder of their initial rating. (The complete verbatim wording of all survey screens, prompts, and response scales, transcribed from the original \textit{Qualtrics} protocol, appears in Appendix \ref{sec:appendix_vignettes}.)
+
+To prevent terminological confusion, we distinguish between the \textit{pre-treatment baseline measurement} (Trial 1, which captures initial, uninfluenced aesthetic preference) and the \textit{Control Condition} (the experimental group that receives no information about others between trials, allowing us to observe pure temporal re-evaluation in the absence of treatment). We refer to changes over repeated trials in this unexposed group as \textit{exposure drift}.
+
+\subsection{Experimental Checks}
+A common methodological concern in within-subject experimental designs is whether respondents become aware that an evaluative shift is being measured, thereby inducing experimenter demand compliance or artificial consistency. We implemented four procedural and design safeguards to mitigate demand awareness and assess respondent reactivity.
+
+First, we separated Trial 1 and Trial 2 with an extensive cognitive and temporal buffer comprising 15 to 20 minutes of substantive survey batteries. Between aesthetic evaluations, respondents completed detailed modules on educational history, parental degree attainment, employment status, 22-category Standard Occupational Classification (SOC) coding, annual household income, and a comprehensive 20-genre musical taste battery evaluating preference ratings, listening frequency, and listener demographic stereotypes. This substantial intervening distance prevented respondents from mechanically recalling or feeling compelled to repeat their Trial 1 ratings.
+
+Second, the experimental feedback screens were framed naturalistically as observational descriptive summaries from prior survey waves rather than prescriptive social norms: respondents were told, \textit{``Our survey so far indicates that the group of people most likely to say that they [LIKE / DISLIKE] the painting you saw have completed\dots''} Immediately following this prompt, respondents completed attribution and subjective similarity probes concerning the evaluating group, maintaining the perception that the survey was investigating social perception rather than testing their personal susceptibility to persuasion. When respondents subsequently reached the end of the survey and were re-shown the painting, they were simply asked for their ``final impression'' using the identical rating scale, without being reminded of their initial Trial 1 score and without any instructional prompt linking their second rating to the opinions of others or suggesting that conformity was expected.
+
+Third, the following analyses compare all treatment shifts against the unexposed Control Condition. Because control respondents completed the same intervening survey battery without any cue from others, comparing treatment conditions against this baseline cleanly separates genuine informational influence from residual re-test reactivity or temporal fatigue.
+
+Finally, the empirical distribution of discrete behavioral choices strongly argues against demand compliance. Across conditions, approximately 74\% of respondents showed complete evaluative stability (``staying''), and a substantial proportion displayed active oppositional reactance by shifting in the direction opposite the cue. If respondents were compliance-driven, conformity rates would have dominated across conditions rather than emerging selectively in status-inconsistent configurations.
+
+\subsection{Variables and Measurement}
+We measured aesthetic evaluation on a reversed 1--7 scale. In continuous models, the outcome is the repeated evaluation across trials. In behavioral models, we categorize change between trials into three mutually exclusive choices: \textit{Stay} ($\Delta = 0$), \textit{Conform} (moving in the direction of others' evaluations), and \textit{React} (moving in the opposite direction).
+
+The treatment conditions crossed others' evaluation (Like vs.\ Dislike) with others' social status. We classified high-status others into \textit{Cultural Specialists} (holding multiple advanced degrees, including a PhD, and working in higher education) and \textit{Economic Specialists} (holding a bachelor's degree in business and working in financial investment). We collapse the Economic Specialist and Cultural Specialist conditions into a single High-Status condition (\textit{+Status}) for the primary analysis.\footnote{This consolidation is justified on both statistical and substantive grounds. Crossing respondents' own status consistency quadrants with all nine experimental conditions would expand the design to 36 severely undersized cells, and formal linear hypothesis tests confirm that responses to Economic Specialists and Cultural Specialists are statistically indistinguishable for both positive and negative cues (Appendix \ref{sec:appendix_power_mde}). Collapsing the two arms effectively doubles the statistical power for high-status cues without obscuring any empirical heterogeneity.} Low-status others had a high school education and worked in food service. In addition, two Taste-Only conditions provided like-or-dislike evaluations from general ``others'' without any status indicators, and a pure Control Condition provided no information about others between trials ($N=157$ in the primary sample; $N=182$ in the full sample).
+
+To capture respondents' objective social location, we examine objective educational attainment as the primary status dimension governing cultural capital and aesthetic distinction. Because our experimental treatment vignettes explicitly differentiated alter status through educational credentials and occupations (doctoral cultural specialists, business baccalaureates, and high school food service workers), stratifying respondents by their own educational attainment provides direct construct congruence between ego and alter. We operationalize educational attainment into four groups: (1) High School or Less ($N = 468$), (2) Two-Year Associate Degree or Some College ($N = 655$), (3) Four-Year Bachelor's Degree ($N = 577$), and (4) Postgraduate or Advanced Degree ($N = 281$). This four-tier specification serves as our primary analytical framework for testing Hypotheses 3--5 in Section \ref{sec:edu_models} (Figure \ref{fig:did_edu_4tiers} and Appendix Table \ref{tbl:did_edu_4tiers}).
+
+Next, to test Hypothesis 6 concerning status consistency and crystallization (Section \ref{sec:behavioral_models}), we introduce respondents' subjective social class self-identification (Middle Class vs.\ Working Class) and cross it with educational attainment to form a four-quadrant typology of status consistency: Working Class without College, Working Class with College, Middle Class without College, and Middle Class with College. In the base operationalization, ``Working Class'' includes a minority of respondents who self-identified as ``Lower Class'' ($N = 220$, 11.1\%) and ``Middle Class'' includes a small proportion of respondents who self-identified as ``Upper Class'' ($N = 47$, 2.4\%). To verify that our substantive conclusions are not sensitive to subjective class boundaries, we fit models using an alternative categorization that restricts the sample to self-identified working- and middle-class respondents (excluding lower- and upper-class extremes) as an additional sensitivity analysis in Appendix \ref{sec:appendix_class_robustness}.
+
+\subsection{Inverse Probability Weighting}
+A key methodological challenge in experimental designs examining status-contingent influences stems from the design's hybrid nature. While the experimental cues (others' evaluation valence and others' status) were randomly assigned, respondents' own social locations—captured by educational attainment and subjective class identification—represent pre-existing, observational attributes \citep{cruces2013biases}. Consequently, individuals do not have an equal probability of belonging to each status group: for example, respondents holding graduate degrees or middle-class identities are systematically older, more likely to have college-educated parents, and differ in racial/ethnic composition compared to non-college working-class individuals. If unaddressed, comparisons across status groups (and their interactions with the randomized treatments) risk confounding the effect of social status with these correlated background characteristics.
+
+To solve this problem and strengthen causal inference without inducing overcontrol bias (avoiding conditioning on post-treatment socioeconomic outcomes of education, such as personal income or adult migration), we implement Inverse Probability Weighting (IPW) using strictly exogenous pre-treatment social background characteristics \citep{rosenbaum1983central}. IPW proceeds in two steps. First, for each respondent, we estimate a propensity model predicting status group membership conditional on exogenous baseline covariates $\mathbf{X}_i$ (age, gender, race/ethnicity, and parental educational capital): $e_s(\mathbf{X}_i) = P(S_i = s \mid \mathbf{X}_i)$. We estimate generalized multinomial propensity scores both across the four educational groups (for the Difference-in-Differences models in Section \ref{sec:edu_models}) and across the four status consistency quadrants (for the discrete behavioral choice models in Section \ref{sec:behavioral_models}). Second, each observation is weighted by the inverse of its estimated propensity score to target the Average Treatment Effect (ATE) across the sample: $w_i = 1 / e_s(\mathbf{X}_i) = 1 / P(S_i = s \mid \mathbf{X}_i)$.
+
+Intuitively, IPW creates a synthetic ``pseudo-population'' by up-weighting underrepresented demographic profiles within each status group and down-weighting overrepresented profiles. This weighting scheme breaks the empirical association between the baseline covariates $\mathbf{X}_i$ and status group membership. Under the assumption of conditional exchangeability (no unmeasured confounders given $\mathbf{X}_i$) and positivity, IPW ensures that status groups are demographically comparable. As a result, subsequent differences in evaluative shifts, behavioral inertia, or reactance across status categories reflect structural status location and status consistency, rather than demographic artifacts.
+
+Figure \ref{fig:balance} shows the standardized mean differences (SMD) for all baseline covariates---with each race/ethnicity category and each age bracket assessed separately---across status categories before and after Inverse Probability Weighting (IPW), generated with \texttt{cobalt} \citep{greifer2022cobalt}. Prior to weighting, status groups exhibited substantial demographic disparities: raw SMDs ranged from 0.06 to 0.59 across covariates and status-group contrasts, and, for instance, relative to working-class respondents without a college degree, college-educated middle-class respondents were more concentrated in the older age brackets (raw SMD up to 0.33 among respondents aged 80 or older) and had substantially higher rates of parental college attainment (raw SMD = 0.59). Following IPW estimation, the weighted pseudo-population achieved balance: all but two covariate contrasts fell below the conventional 0.10 threshold. The parental education contrast, reduced from a raw SMD of 0.59 to 0.111, and the very small ``Other'' race/ethnicity category ($N = 11$), which shifted from 0.093 to 0.116, marginally exceed the threshold---the latter a known artifact of reweighting on a rare category rather than residual confounding. All remaining weighted SMDs fell below 0.08. This confirms that subsequent model estimates isolate the effect of social class and status consistency, net of observed demographic sorting.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Figure8_CovariateBalance.png}
+    \caption{Covariate Balance Across Observational Status Groups Before and After IPW Weighting (Balancing Age, Gender, Race/Ethnicity, and Parental Education). The dashed lines indicate the standard $\pm 0.10$ threshold for acceptable balance.}
+    \label{fig:balance}
+\end{figure}
+
+\subsection{Difference-in-Differences Analytic Strategy}
+To strictly isolate information-induced shifts from exposure drift, we formulate our analysis within a Difference-in-Differences (DiD) framework. Rather than examining simple pre-to-post changes within each condition in isolation—which conflates the effect of others' information with the natural exposure drift that occurs when viewing an artwork a second time—the DiD strategy compares each treatment condition to the influence-unexposed Control Condition.
+
+Accordingly, we specify a linear mixed-effects model with random intercepts of the general form:
+
+\begin{equation}
+\begin{split}
+\text{Taste}_{it} = {} & \beta_0 + \beta_{1} \text{Trial}_{it} + \sum_{k=2}^{K} \beta_{k} \text{Cond}_{ik} + \sum_{k=2}^{K} \delta_{k} (\text{Trial}_{it} \times \text{Cond}_{ik}) + u_i + \epsilon_{it}
+\end{split}
+\label{eq:did_model}
+\end{equation}
+
+where $i$ indexes individual respondents ($i = 1, \dots, N$), $t \in \{1, 2\}$ indexes measurement trials (Trial 1 pre-treatment baseline vs.\ Trial 2 post-treatment evaluation), $k \in \{1, \dots, K\}$ indexes the experimental conditions with the unexposed Control Condition ($k = 1$) serving as the omitted reference category, $u_i \sim \mathcal{N}(0, \sigma^2_u)$ is the individual-specific random intercept, and $\epsilon_{it} \sim \mathcal{N}(0, \sigma^2_\epsilon)$ is the trial-level residual error.
+
+In the Equation~\ref{eq:did_model} specification, the intercept ($\beta_0$) represents the expected baseline aesthetic evaluation at Trial 1 (pre-treatment) for respondents assigned to the unexposed Control Condition: $\beta_0 = E[\text{Taste} \mid \text{Trial} = 1, \text{Control}]$. The Trial main effect ($\beta_{1}$) captures the counterfactual \textit{exposure drift} from Trial 1 to Trial 2 in the absence of external information from others: $\beta_{1} = E[\text{Taste} \mid \text{Trial} = 2, \text{Control}] - E[\text{Taste} \mid \text{Trial} = 1, \text{Control}]$. When repeated viewing induces an intrinsic appreciation of the artwork (the mere exposure effect), $\beta_{1}$ should be positive and statistically significant.
+
+The condition main effects ($\beta_k$) reflect pre-treatment differences between condition $k$ and the Control Condition at Trial 1: $\beta_k = E[\text{Taste} \mid \text{Trial} = 1, \text{Cond} = k] - E[\text{Taste} \mid \text{Trial} = 1, \text{Control}]$. Because respondents were randomly assigned to experimental conditions before viewing the painting, these coefficients assess baseline balance and are expected to be close to zero. The interaction coefficients ($\delta_k$) represent the \textit{causal Difference-in-Differences treatment effects}. Each $\delta_k$ measures whether the change in evaluations from Trial 1 to Trial 2 in treatment condition $k$ differed significantly from the change observed in the unexposed Control Condition:
+
+\begin{equation}
+\begin{split}
+\delta_k = {} & \left( E[\text{Taste} \mid \text{Trial} = 2, k] - E[\text{Taste} \mid \text{Trial} = 1, k] \right) \\
+              & - \left( E[\text{Taste} \mid \text{Trial} = 2, \text{Control}] - E[\text{Taste} \mid \text{Trial} = 1, \text{Control}] \right)
+\end{split}
+\end{equation}
+
+Substantively, $\delta_k$ answers the counterfactual question: \textit{Did exposure to evaluation $k$ cause respondents' aesthetic judgments to change significantly more or less than they would have changed under mere repeated exposure alone?} A positive estimate ($\delta_k > 0$) indicates that feedback from others facilitated aesthetic appreciation beyond natural exposure drift, whereas a negative estimate ($\delta_k < 0$) indicates that feedback from others suppressed or reversed the positive exposure drift that would have naturally occurred.
+
+Estimating the simple pooled DiD model in Equation~\ref{eq:did_model} without differentiating by social location yields mostly muted or null effects (reported in Appendix Table \ref{tbl:appendix_did_compare} and Appendix Figure \ref{fig:did_pooled}). As our introductory considerations suggest, however, this pooled invariance is an artifact of aggregation that hides underlying heterogeneity in the causal effect \citep{brand2013causal}. In essence, because aesthetic influence operates relationally via status congruence between ego and alter, pooling across socially dissimilar respondents washes out opposing directional adjustments. The substantive dynamics of social influence emerge when we examine models interacting experimental conditions with education, subjective social class, and status consistency.
+
+Instead, to test hypotheses of how social influence is moderated by respondents' structural social location (educational attainment, subjective social class, and status consistency), we extend Equation \ref{eq:did_model} to a fully moderated Difference-in-Differences specification:
+
+\begin{equation}
+\begin{split}
+\text{Taste}_{it} = {} & \beta_0 + \beta_{1} \text{Trial}_{it} + \sum_{k=2}^{K} \beta_{k} \text{Cond}_{ik} + \sum_{m=2}^{M} \gamma_m \text{Status}_{im} \\
+& + \sum_{k=2}^{K} \delta_k (\text{Trial}_{it} \times \text{Cond}_{ik}) + \sum_{m=2}^{M} \theta_m (\text{Trial}_{it} \times \text{Status}_{im}) \\
+& + \sum_{k=2}^{K} \sum_{m=2}^{M} \lambda_{km} (\text{Cond}_{ik} \times \text{Status}_{im}) \\
+& + \sum_{k=2}^{K} \sum_{m=2}^{M} \psi_{km} (\text{Trial}_{it} \times \text{Cond}_{ik} \times \text{Status}_{im}) + u_i + \epsilon_{it}
+\end{split}
+\label{eq:did_moderation_model}
+\end{equation}
+
+Where $\text{Status}_{im}$ represents indicators for respondent $i$'s structural social location across $M$ categories ($m = 1, \dots, M$, with $m = 1$ denoting the reference group). In this moderated framework, $\theta_m$ captures group-specific differences in counterfactual baseline exposure drift in the Control Condition ($\text{Trial}_{it} \times \text{Status}_{im}$), $\delta_k$ represents the DiD treatment effect for the reference status group, and $\psi_{km}$ represents the three-way interaction coefficient ($\text{Trial}_{it} \times \text{Cond}_{ik} \times \text{Status}_{im}$) testing whether the causal DiD treatment effect of condition $k$ diverges significantly across status groups. The status-specific causal DiD treatment effect for subgroup $m$ is given by the linear combination $\delta_{km} = \delta_k + \psi_{km}$.\footnote{By the Frisch-Waugh-Lovell theorem, estimating Equation \ref{eq:did_model} (or Equation \ref{eq:did_moderation_model}) via linear mixed models with individual random intercepts ($u_i$) is mathematically equivalent to regressing individual change scores ($\Delta \text{Taste}_i = \text{Taste}_{i2} - \text{Taste}_{i1}$) on the treatment and status interaction terms with the Control Condition as the omitted reference group:
+\begin{equation}
+\Delta \text{Taste}_i = \beta_{1} + \sum_{m=2}^{M} \theta_m \text{Status}_{im} + \sum_{k=2}^{K} \delta_k \text{Cond}_{ik} + \sum_{k=2}^{K} \sum_{m=2}^{M} \psi_{km} (\text{Cond}_{ik} \times \text{Status}_{im}) + \epsilon_i
+\end{equation}
+where the intercept and status main effects estimate the control exposure drift within each status group, and the interaction terms estimate the status-specific DiD treatment effects.} 
+
+\section{Results}
+
+\subsection{Baseline Exposure Drift and Generalized Social Influence}
+We begin by establishing a status-free empirical baseline, testing whether any mere-exposure drift emerges under repeated evaluation in the unexposed Control Condition and whether learning that unknown others liked or disliked the artwork shifts aggregate aesthetic evaluations via a generalized influence mechanism. To do so, we estimate a repeated-measures linear mixed model on the subset of respondents assigned to the Control Condition ($N = 157$), the Generalized Like condition ($N = 152$), and the Generalized Dislike condition ($N = 148$), totaling $N = 457$ respondents ($914$ observations across trials) with Inverse Probability Weighting (IPW):
+
+\begin{equation}
+\begin{split}
+\text{Taste}_{it} = {} & \beta_0 + \beta_1 \text{Trial}_{it} + \beta_2 \text{Like}_i + \beta_3 \text{Dislike}_i \\
+& + \delta_{\text{Like}} (\text{Trial}_{it} \times \text{Like}_i) + \delta_{\text{Dislike}} (\text{Trial}_{it} \times \text{Dislike}_i) + u_i + \epsilon_{it}
+\end{split}
+\label{eq:generalized_did_model}
+\end{equation}
+
+Where the unexposed Control Condition serves as the omitted reference group. Figure \ref{fig:did_baseline} visualizes these baseline dynamics, reporting the net Difference-in-Differences treatment effects for generalized social influence relative to the counterfactual exposure drift observed in the unexposed Control Condition.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.78\textwidth]{figures/Figure_DiD_Baseline_Influence.png}
+    \caption{Difference-in-Differences Treatment Effects for Generalized Social Influence (Status-Free Primary Sample, $N = 457$). The figure displays net Difference-in-Differences treatment effects ($\delta_k$) relative to the unexposed Control Condition exposure drift (dashed vertical line at zero), with 95\% confidence intervals. Colors denote statistical significance: red ($p < 0.05$) and grey ($p \ge 0.10$).}
+    \label{fig:did_baseline}
+\end{figure}
+
+This status-free baseline model establishes two main findings. First, consistent with \textit{Hypothesis 1 (Mere Exposure Effect)}, in the complete absence of external social cues (the Control Condition), repeated exposure generates a statistically significant upward appreciation of the artwork ($\beta_1 = +0.157, p < 0.01$), confirming that mere exposure alone produces positive drift across trials. Second, evaluating generalized social influence reveals a pronounced \textit{valence asymmetry} between positive and negative consensus. When respondents are informed that unknown others liked the painting, evaluations increase from 4.65 to 4.85 ($+0.202, p < 0.01$); however, relative to the natural counterfactual drift observed in the control group, this additional increment is positive but not statistically distinguishable from mere exposure drift ($\delta_{\text{Like}} = +0.045, p = 0.57$). Consequently, \textit{Hypothesis 2a (Positive Evaluations)} is not supported, as generalized positive cues fail to significantly facilitate evaluative drift beyond the baseline exposure effect.
+
+In contrast, learning that others disliked the painting completely overrides the mere exposure effect, reducing second-trial evaluations to a statistically flat change of $-0.076$ ($p = 0.19$). Relative to the control baseline drift, this yields a statistically significant negative Difference-in-Differences suppression ($\delta_{\text{Dislike}} = -0.232, p = 0.004$), supporting \textit{Hypothesis 2b (Negative Evaluations)}. As Figure~\ref{fig:did_baseline} shows, directly contrasting positive and negative cues reveals a significant directional swing of nearly three-tenths of a point on the 7-point scale ($\Delta = +0.278, p < 0.001$), demonstrating that while generalized endorsements fail to reliably boost appreciation over mere exposure, generalized disliking exerts a discernible suppressing effect, consistent with the idea of negativity bias in aesthetic judgment \citep{rozin2001negativity-01e, baumeister2001bad-19b}.
+
+While this status-free model provides evidence of both positive drift and valence asymmetry favoring other people's \textit{negative} evaluations as the strongest signal exerting a causal effect on aesthetic judgments, evaluating social influence solely at the aggregate level may conceal causal effect heterogeneity based on social location \citep{brand2013causal}.\footnote{As shown in the full pooled models in Appendix Table \ref{tbl:appendix_did_compare} and Appendix Figure \ref{fig:did_pooled}.} We therefore turn to our status-differentiated models to examine how social influence is conditioned by educational cultural capital (Section \ref{sec:edu_models}) and structural status consistency (Section \ref{sec:behavioral_models}).
+
+\subsection{Status-Differentiated Social Influence}
+\label{sec:edu_models}
+Because our experimental treatment vignettes explicitly differentiated alter status using educational credentials and professional occupations as signals, we use respondents' own educational attainment as the index of respondents' own status position, since education is the main structural axis governing cultural capital, symbolic boundaries, and aesthetic judgment \citep{bennett2009culture-aef}.
+
+Given our achieved analytic sample ($N = 1,981$ individuals; $3,962$ repeated observations) and the strong statistical precision of our repeated-measures Difference-in-Differences design ($r = 0.899, \sigma_{\Delta} = 0.688$), we disaggregate educational attainment into four groups: (1) High School or Less ($N = 468$), (2) Two-Year Associate Degree or Some College ($N = 655$), (3) Four-Year Bachelor's Degree ($N = 577$), and (4) Postgraduate or Advanced Degree ($N = 281$). We estimate Difference-in-Differences models using generalized multinomial Inverse Probability Weighting (IPW) to balance baseline age, gender, race/ethnicity, and parental education across all four educational groups as described earlier. 
+
+Figure \ref{fig:did_edu_4tiers} visualizes the net DiD treatment effects relative to the counterfactual exposure drift in the Control Condition within each group.\footnote{Full tabular regression estimates, standard errors, and sample sizes are reported in Appendix Table \ref{tbl:did_edu_4tiers}.} Evaluating our status-differentiated hypotheses using the DiD framework across these four institutionalized cultural capital categories reveals a monotonic gradient of causal heterogeneity. The simplest interpretation is that \textit{the overall sensitivity to negative evaluations from anonymous others is characteristic of the highly educated}; in essence, postgraduates ($\text{DiD} = -0.483, p = 0.002$) and, to a somewhat lesser degree, Bachelor's degree holders ($\text{DiD} = -0.348, p = 0.028$) tend to be particularly sensitive to information that others did not like the painting, even when these others are just an anonymous mass.\footnote{Before adopting this four-tier disaggregation, we first estimated education and subjective social class as separate, single-axis binary moderators on this same primary sample; education alone emerged as the more decisive structural fault line, while subjective class alone produced a comparatively diffuse pattern (Appendix Table \ref{tbl:did_edu_class_primary} and Appendix Figure \ref{fig:did_edu_class_separate}).}  
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figures/Figure_DiD_Edu_4Tiers.png}
+    \caption{Estimated Difference-in-Differences Treatment Effects Across Four Educational Groups (Multinomial IPW-Weighted, Age $\ge 25$ Primary Sample). Horizontal bars indicate point estimates with 95\% confidence intervals relative to the unexposed Control Condition within each group (dashed line at zero). Colors denote statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$). Complete regression coefficients are reported in Appendix Table \ref{tbl:did_edu_4tiers}.}
+    \label{fig:did_edu_4tiers}
+\end{figure}
+
+
+This sensitivity to negative feedback among the highly educated, however, extends to status-differentiated information, supporting the negative version of the same-status alignment idea (\textit{Hypothesis 3}) for high-status respondents. Accordingly, when bachelor's degree holders learn that high-status people dislike the painting, they downgrade their evaluation of it ($\text{DiD} = -0.303, p = 0.02$), and postgraduates show a similarly significant downward suppression ($\text{DiD} = -0.251, p = 0.04$). Puzzlingly, the aversion of high-status respondents to negative feedback even extends to news that \textit{low-status} others dislike it, with people with a post-graduate degree decreasing their liking for the painting after hearing this news ($\text{DiD} = -0.351, p = 0.003$), a result not predicted by any theory.
+
+Apart from this isolated instance of negative same-status alignment, \textit{Hypothesis 3 (Same-Status Alignment)} receives little to no support in these data, especially for information about others' \textit{positive} aesthetic judgments (likes). Hypothesis 3 predicted that individuals would align their judgments with others sharing their educational status. However, high-status respondents with a Bachelor's degree show no positive alignment when informed that high-status people liked the artwork ($\text{DiD} = -0.052, p = 0.68$). However, among postgraduates, exposure to high-status likes is associated with a significant \textit{negative} shift ($\text{DiD} = -0.248, p = 0.04$), once again a result not predicted by any theory.  At the other end of the spectrum, respondents with a high school education or less also fail to exhibit same-status alignment, displaying null shifts when told that low-status others liked the artwork ($\text{DiD} = +0.093, p = 0.47$) and marginally significant positive oppositional shifts when told that low-status others disliked it ($\text{DiD} = +0.261, p = 0.051$). Because same-status positive cues fail to foster appreciation across all groups, the data do not support Hypothesis 3.
+
+A similar verdict applies to the Cultural Goodwill idea (\textit{Hypothesis 4}), which is also rejected. Hypothesis 4 predicted that lower-status individuals would defer to elites' aesthetic authority, adopting their likes and conforming to their dislikes. Among respondents with a high school education or less, neither exposure to High-Status Likes ($\text{DiD} = +0.040, p = 0.72$) nor exposure to High-Status Dislikes ($\text{DiD} = -0.109, p = 0.33$) produces a statistically significant change. In this study, lower-educated respondents are completely unresponsive to feedback about elite tastes, displaying neither upward emulation \citep{simmel1957} nor aesthetic deference \citep{bourdieu1984}. Instead, their evaluative responsiveness is selectively populist, shifting positively and significantly when told that an anonymous majority liked the painting (Generalized Like: $\text{DiD} = +0.324, p = 0.03$) or, more tentatively, when informed that low-status others disliked it.
+
+Third, the Bourdieusian version of the Status-Based Distancing idea (\textit{Hypothesis 5}) is strongly supported and emerges as the defining behavioral marker of elite cultural capital. When respondents with a postgraduate degree learn that working-class others liked the Whistler painting, their evaluations plunge by more than half a point on the 7-point scale relative to the control baseline ($\text{DiD} = -0.539, p < 0.001$, Cohen's $d = 0.36$, standardized against the Trial 1 standard deviation of $1.50$), representing the single largest negative treatment effect in the entire experiment. Because postgraduates naturally drift upward by $+0.378$ ($p < 0.001$) under mere exposure, observing that lower-status others appreciated the artwork more than they did reverses their judgment, providing experimental evidence of Bourdieusian symbolic distinction and Simmelian taste abandonment on the upper end of the status scale. 
+
+Finally, the intermediate educational group (Two-Year Associate Degree or Some College, $N = 655$) displays complete evaluative inertia across all conditions ($p \ge 0.31$, with point estimates tightly bounded between $-0.102$ and $+0.130$).\footnote{A supplementary decomposition confirms that terminal Associate degree holders ($N = 196$) and non-degreed college attenders ($N = 459$) are equally likely to use ``staying'' as the dominant response (Appendix \ref{sec:appendix_regression_tables}).} Bachelor's degree holders represent the structural threshold where downward sensitivity begins: they adjust downward under High-Status Dislike ($\text{DiD} = -0.303, p = 0.02$) and Generalized Dislike ($\text{DiD} = -0.348, p = 0.03$), while ignoring all positive endorsements ($p \ge 0.62$). 
+
+\subsection{Status Inconsistency and Discrete Behavioral Choices}
+\label{sec:behavioral_models}
+While continuous Difference-in-Differences models identify average shifts across conditions, they mask non-linear behavioral choices where opposing individual movements cancel each other out in the aggregate. Furthermore, examining education alone presumes that individuals occupy an unambiguous status position. In reality, many individuals experience status inconsistency across structural dimensions—such as possessing a college degree while identifying as working-class \citep{friedman2021deflecting-8bf}, or claiming a middle-class identity without a college credential. 
+
+To test \textit{Hypothesis 6}, we introduce respondents' subjective social class self-identification (Middle Class vs. Working Class) and cross it with educational attainment (College Degree vs. No College) to construct a four-quadrant typology of status consistency: (1) Working Class without College ($N = 680$, low-consistent), (2) Working Class with College ($N = 243$, inconsistent), (3) Middle Class without College ($N = 443$, inconsistent), and (4) Middle Class with College ($N = 615$, high-consistent).\footnote{Complete 24-cell continuous DiD regression estimates across all experimental conditions and status consistency quadrants are reported in Appendix Table \ref{tbl:did_status_quadrants} for reference.} We categorize responses into three mutually exclusive behaviors: \textit{Stay} ($\Delta = 0$, maintaining one's initial evaluation), \textit{Conform} (moving in the direction of others' evaluation), and \textit{React} (moving in the opposite direction of others' evaluation) and estimate an IPW-weighted multinomial logistic regression across the four status consistency groups.
+
+Figure \ref{fig:multinom} presents the Average Marginal Effects (AME) on the probability of each behavioral choice from an IPW-weighted multinomial logistic regression, compared against the reference group of Working Class respondents without a college degree. In the baseline reference group, the predicted probabilities are $73.3\%$ for staying, $14.4\%$ for conforming, and $12.4\%$ for reacting.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Figure7_MultinomialBehavior.png}
+    \caption{Average Marginal Effects on Behavioral Choices (Stay, Conform, React) Across Status-Consistency Groups (Age $\ge 25$ Primary Sample). Horizontal bars indicate differences in choice probability relative to the baseline reference category (Working Class, No College), with 95\% confidence intervals. Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
+    \label{fig:multinom}
+\end{figure}
+
+The marginal effects empirically support \textit{Hypothesis 6} and offer new insights into the social dynamics of status inconsistency. First, in terms of evaluative stability (Panel A: Stay), status consistency provides aesthetic confidence and thus inertia in aesthetic judgment when faced with feedback on others' tastes. Self-identified middle-class individuals with a college degree are significantly more likely to maintain their initial judgment than non-college-educated working-class folk ($\text{AME} = +0.081, p < 0.001$), with an overall stay rate of $81.4\%$. Status-inconsistent individuals without a college degree show directionally lower stability ($\text{AME} = -0.021, p = 0.14$), with a stay rate of $71.2\%$. College-educated, self-identified working-class people, by contrast, are not statistically distinguishable from non-college-educated working-class people ($\text{AME} = -0.019, p = 0.19$, stay rate $71.4\%$). 
+
+Second, in terms of conformity (Panel B), status inconsistency emerges as the primary driver of susceptibility to external social influence. Both status-inconsistent groups display statistically significant increases in the probability of conforming to others' judgments. Working Class individuals with a college degree are $+4.3\%$ more likely to conform relative to the reference group ($\text{AME} = +0.043, p < 0.001$, overall conformity rate $18.6\%$), and middle-class individuals without a college are $+4.3\%$ more likely to conform ($\text{AME} = +0.043, p < 0.001$, conformity rate $18.6\%$). In stark contrast, high-status consistent individuals are significantly less likely to conform ($\text{AME} = -0.037, p < 0.001$, conformity rate $10.7\%$).
+
+Finally, regarding oppositional reactance (Panel C), the results show that non-college-educated working-class individuals (the omitted reference category) are \textit{more} likely to react \textit{against} others' tastes than respondents in any other quadrant. All three comparison groups are significantly less likely to move away from others' judgments compared to non-college working-class people: Working Class respondents with a college degree are $-2.4\%$ less likely to react ($\text{AME} = -0.024, p = 0.02$), Middle Class individuals without a college degree are $-2.2\%$ less likely to react ($\text{AME} = -0.022, p = 0.03$), and Middle Class college graduates are $-4.4\%$ less likely to react ($\text{AME} = -0.044, p < 0.001$).\footnote{To confirm that these behavioral dynamics are driven specifically by status-laden social cues rather than by generic feedback about others' opinions, we re-estimated the multinomial model excluding the two Taste-Only conditions ($N = 1,649$). As displayed in Appendix Figure \ref{fig:sens_multinom}, the results are substantively identical: status consistency continues to anchor evaluative inertia (Middle Class with College: $+7.1\%, p < 0.001$), status inconsistency heightens conformity (Working Class with College: $+5.4\%, p < 0.001$; Middle Class without College: $+5.0\%, p < 0.001$), and oppositional reactance remains concentrated among non-college working-class people (Middle Class with College: $-3.2\%, p = 0.002$; the Working Class with College contrast attenuates to $-1.2\%$ and is no longer individually significant, $p = 0.28$).}
+
+\section{Discussion}
+
+\subsection{Summary of Key Results}
+This study examined whether exposure to others' aesthetic evaluations causally shifts individual taste judgments---and, if so, for whom and under what conditions. Because respondents re-evaluated the same artwork with and without intervening feedback, a difference-in-differences design combined with inverse probability weighting allowed us to estimate treatment effects net of the natural drift that repeated exposure produces on its own---a benchmark that observational and simple pre/post designs lack. Table \ref{tbl:hypotheses_summary} summarizes our focal hypotheses, their theoretical expectations, and the empirical results. Four findings stand out.
+
+
+\begin{table}[ht!]
+\centering
+\footnotesize
+\caption{Summary of Hypotheses, Theoretical Expectations, and Empirical Verdicts}
+\label{tbl:hypotheses_summary}
+\setlength{\tabcolsep}{4.0pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.0cm}@{}}
+\toprule
+\textbf{Hypothesis / Mechanism} & \textbf{Theoretical Expectation} & \textbf{Empirical Verdict} \\
+\midrule
+\textit{Hypothesis 1: Mere Exposure Effect} & Upward drift in aesthetic evaluation across repeated trials in the absence of external social cues & Supported ($p < 0.01$) \\
+\addlinespace[3pt]
+\textit{Hypothesis 2a: Generalized Influence (Positive Evaluations)} & Endorsements from generalized others facilitate and enhance baseline exposure drift & Not Supported ($p \ge 0.10$) \\
+\addlinespace[3pt]
+\textit{Hypothesis 2b: Generalized Influence (Negative Evaluations)} & Disapproval from generalized others suppresses and blocks baseline exposure drift & Supported ($p < 0.05$) \\
+\addlinespace[3pt]
+\textit{Hypothesis 3: Same-Status Alignment} & Individuals align judgments with aggregate evaluations of others sharing their status (ingroup conformity) & Not Supported (no positive alignment) \\
+\addlinespace[3pt]
+\textit{Hypothesis 4: Cultural Goodwill} & Lower-status individuals align judgments with higher-status others (upward cultural deference) & Not Supported ($p \ge 0.20$) \\
+\addlinespace[3pt]
+\textit{Hypothesis 5: Status-Based Distancing} & Individuals distance judgments from outgroup evaluations (outgroup taste abandonment) & Supported ($p < 0.01$) \\
+\addlinespace[3pt]
+\textit{Hypothesis 6: Status Consistency} & Consistent status profiles exhibit higher stability (``staying'') than inconsistent profiles; status inconsistency heightens conformity & Supported ($p < 0.01$) \\
+\bottomrule
+\end{tabularx}
+\begin{minipage}{\linewidth}
+\vspace{3pt}
+\footnotesize
+\textit{Note:} Empirical verdicts are based on Difference-in-Differences and multinomial logistic regression models estimated on the primary analytic sample (Age $\ge 25$, $N = 1,981$). Status-subgroup models and behavioral specifications incorporate Inverse Probability Weighting (IPW) on strictly exogenous baseline covariates: age, gender, race/ethnicity, and parental education. Full regression tables and coefficients are provided in the text and Appendix Tables \ref{tbl:did_edu_4tiers}, \ref{tbl:did_status_quadrants}, and \ref{tbl:appendix_did_compare}.
+\end{minipage}
+\end{table}
+
+
+First, we confirm that repeated aesthetic evaluation produces an intrinsic positive exposure drift in the complete absence of external social cues (\textit{Hypothesis 1}). When individuals re-evaluate an artwork, familiarity alone autonomously boosts appreciation. This finding is methodologically and theoretically consequential, because aesthetic engagement is inherently dynamic, observational, and simple pre/post studies that fail to benchmark against an unexposed control baseline risk misattributing natural familiarization to positive social influence \citep{cutting2003gustave}.
+
+Second, testing generalized social cues reveals strong evidence of a pronounced \textit{valence asymmetry} in cultural influence, reflecting the operation of a general negativity bias in aesthetic judgment \citep{rozin2001negativity-01e, baumeister2001bad-19b}. While positive endorsements fail to generate an evaluative gain significantly above baseline exposure drift (rejecting \textit{Hypothesis 2a}), negative consensus completely halts and overrides this default positive drift, exerting a downward suppressing effect (supporting \textit{Hypothesis 2b}). Social consensus thus operates asymmetrically, with positive feedback providing largely redundant validation for an already familiar object, and negative feedback serving as a more salient, attention-grabbing signal, prompting evaluative revision to align with the more negative judgment.
+
+Third, our status-stratified models show that aesthetic boundaries are maintained not via positive emulation, but via defensive, reactive boundary policing by high-status individuals \citep{goldberg2016what-4e3}. We find empirical support for neither imitation within one's own stratum (\textit{Hypothesis 3}) nor aspirational deference toward elite taste (\textit{Hypothesis 4}) once baseline drift is accounted for; lower-educated individuals remain entirely indifferent to both same-status and elite endorsements. Instead, the primary status-driven dynamic is status-based distancing (\textit{Hypothesis 5}), with highly educated people ---specifically those with postgraduate credentials---devaluing an artwork when they learn that working-class others appreciated it. Symbolic distinction operates not by proactively cultivating same-status solidarities, but by revising taste judgments downward in the face of lower-status approval.
+
+Finally, discrete modeling of the three behavioral stances provides evidence that aesthetic assurance is anchored in status (in)consistency dynamics (\textit{Hypothesis 6}). Resistance to social influence (``staying'') is not exclusive to high-status actors; both high-consistent and low-consistent individuals display high levels of evaluative inertia. In contrast, status-inconsistent individuals---those whose educational attainment and subjective class identification diverge---experience cross-pressures \citep{davis1963structural-90b} that translate into evaluative fluidity and heightened susceptibility to conformity.
+
+\subsection{Limitations and Suggestions for Future Work}
+Several limitations of the present study suggest fruitful avenues for future research at the intersection of cultural sociology, experimental methods, and stratification.
+
+First, regarding stimulus selection and aesthetic ambiguity, our experiment relied on a single cultural object: James McNeill Whistler's \textit{Nocturne: Blue and Gold -- Old Battersea Bridge}. We deliberately selected this painting because its liminal position between representational landscape and early modernist abstraction---a tension that famously provoked the 1878 Whistler--Ruskin libel trial---provides high baseline evaluative variance and interpretive plasticity. However, cultural goods vary widely in their formal codification, institutional legitimacy, and interpretive openness. In highly institutionalized cultural genres characterized by established canons (such as classical music or canonical literature), prior socialization and cultural authority may insulate judgments from social influence. Conversely, in emergent, commercial, or avant-garde fields lacking codified standards, social cues and status signaling may exert even more decisive influence \citep{childress2012cultural-0cc, wohl2015community-2d2}. Future research can deploy multi-stimulus factorial designs across diverse cultural domains---including figurative versus abstract visual art, popular versus art-house film, and commercial versus independent music---to systematically identify how aesthetic ambiguity moderates susceptibility to social influence.
+
+Second, regarding the nature of the social influence cue, our design examined unidirectional exposure to aggregate descriptive feedback regarding prior respondents' opinions. This feature was methodologically essential for cleanly identifying causal directionality: by providing fixed, exogenous consensus, the design eliminates the classical reflection problem that besets observational network studies \citep{centola2011experimental-93e, aral2009distinguishing-3c0, shalizi2011homophily-aab}. Nevertheless, in everyday life, cultural influence operates via dynamic, multidirectional interaction within evolving social networks, where individuals simultaneously influence and are influenced by others, cultural arbiters, and algorithmic recommendation engines. In networked environments, structural features such as network density, clustering, and tie strength may amplify informational cascades or foster localized pockets of subcultural resistance \citep{mark2003culture-ed5, lewis2018conversion-9be}. Integrating survey-experimental control into interactive online laboratory platforms represents a promising frontier for capturing how collective aesthetic consensus and symbolic boundaries co-evolve in real time.
+
+Third, regarding the identification of status dynamics, while information about alters' tastes and credentials was strictly randomized, respondents' own structural positions (educational attainment and subjective social class) were observational. We addressed potential confounding by implementing Inverse Probability Weighting calibrated to strictly exogenous pre-treatment demographic characteristics (age, gender, race/ethnicity, and parental education), ensuring conditional exchangeability without conditioning on post-treatment socioeconomic outcomes \citep{ brand2013causal}. Nonetheless, observational status categories could correlate with various unmeasured psychological dispositions, such as cognitive reflection styles or generalized tendencies toward non-conformity. Future experimental work can complement the present findings by coupling informational treatments with situational status induction---for example, experimentally manipulating temporary status hierarchies or priming situational status security to determine whether the evaluative fluidity observed among status-inconsistent actors can be causally activated in situ \citep{correll2007getting}.
+
+\subsection{Implications}
+
+For decades, Pierre Bourdieu's \textit{Distinction} \citep{bourdieu1984} has served as the baseline paradigm for the sociology of taste, positing a dual vertical dynamic, with dominant classes cultivating exclusive aesthetic dispositions to mark status distinction, and dominated classes presumably exhibiting ``cultural goodwill''---an aspirational deference toward legitimate culture that reinforces their subordination to established cultural hierarchies \citep{jæger2024from-a4b}. Our experimental findings make us rethink some core aspects of this model. First, we find no empirical evidence of upward cultural goodwill, with lower-educated and working-class respondents remaining indifferent to high-status consensus, exhibiting neither upward deference nor aspirational emulation, even though previous work shows that in terms of \textit{knowledge} cultural hierarchies seem to be consensually shared across status lines \citep{jæger2023what-0c6}. 
+
+Second, our results show that status distinction operates not as within-class affiliative coordination, but mainly as elite \textit{reactive defense}. Highly educated individuals, specifically those with postgraduate credentials, devalue cultural goods once informed that working-class others appreciate them. This status-based distancing shows that high-status individuals are induced to engage in symbolic boundary work whereby aesthetic evaluation becomes partially contingent on who else consumes it \citep{simmel1957, berger2008}. 
+
+Third, across social and cognitive domains, negative events and information consistently exhibit greater potency, cognitive salience, and behavioral impact than positive counter\-parts---a dynamic famously encapsulated in the principle that ``bad is stronger than good'' \citep{baumeister2001bad-19b, rozin2001negativity-01e}. In the context of aesthetic evaluation, repeated exposure to an artwork produces perceptual fluency, which generates an unreflective, intuitive appreciation (the mere exposure effect) \citep{zajonc1968attitudinal, reber1998effects-efe, cutting2003gustave}. Positive endorsements from others simply reinforce this default trajectory, providing redundant confirmation that yields no significant extra evaluative boost beyond familiarization. 
+
+In contrast, finding that others dislike an artwork interrupts fluency and triggers a reassessment. Negative signals thus function as an authoritative alarm, alerting individuals that admiring the object entails social and symbolic risks---such as signaling poor taste, aesthetic incompetence, or affiliation with an outgroup---and exerting an asymmetric influence on aesthetic appreciation. This cognitive asymmetry \citep{cerulo2010mining-1c1} helps explain why symbolic boundaries and status distinctions are far more reliably organized around shared \textit{distastes} than around shared positive preferences \citep{bourdieu1984, bryson1996, lizardo2016cultural-aaa}.
+
+Finally, our findings offer support for the long-standing theory of status crystallization as a mechanism for susceptibility to aesthetic influence \citep{lenski1954status, hope1975models}, showing that evaluative stability (the propensity to ``stay'' and maintain initial aesthetic judgments) is more directly governed by \textit{consistency} among markers rather than the vertical differentiation between them. Consistent working-class individuals without a college degree show evaluative inertia levels similar to consistent middle-class college graduates. Occupying concordant objective and subjective positions seems to provide an aesthetic anchor that shields actors from social persuasion. Conversely, status-inconsistent individuals---college graduates who identify as working-class, or middle-class identifiers without college credentials---experience cross-pressures and status ambiguity that lead to more pliable aesthetic opinions \citep{davis1963structural-90b, correll2003expectations}. Without an unambiguous reference group, their aesthetic convictions are inherently fragile, making them far more susceptible to external influence and conformity.
+
+Taken together, these results offer suggestive but far from final answers to the question we began with.  Others' evaluations causally shape our aesthetic judgments, but not symmetrically and not indiscriminately. Taste judgments are moved less by what others like than by what they dislike, remain largely immune to high-status persuasion, and are held most firmly by actors whose objective and subjective status positions reinforce one another. Aesthetic judgment, on this account, is less a settled property of individuals than an ongoing relational phenomenon---continuously calibrated, defended, and revised in response to information about the tastes of others.
+
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\newpage
+\appendix
+\renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{A.\arabic{figure}}
+\setcounter{figure}{0}
+
+\section{Statistical Power and Minimum Detectable Effect (MDE) Analysis}
+\label{sec:appendix_power_mde}
+
+To rigorously evaluate the study's statistical precision and empirical detection boundaries, we conducted a formal ex-post Minimum Detectable Effect (MDE) analysis \citep{bloom1995minimum}. Methodological scholarship has established that retrospective or ``post-hoc'' power calculations based on observed effect sizes and sample estimates are fundamentally flawed and uninformative, functioning merely as a tautological transformation of the observed $p$-value \citep{gelman2014beyond, hoenig2001abuse}. By contrast, an ex-post MDE analysis answers a principled design question: given the achieved cell sample sizes and the empirical variance structure of the repeated-measures data, what is the smallest true population effect size that the research design was adequately powered (at 80\% or 90\% power, two-tailed $\alpha = 0.05$) to detect?
+
+In a repeated-measures Difference-in-Differences (DiD) framework where each respondent $i$ provides an initial pre-treatment aesthetic rating ($Y_{i1}$) and a post-treatment evaluation ($Y_{i2}$) on a 7-point Likert scale, the standard error of the change score $\Delta Y_i = Y_{i2} - Y_{i1}$ depends directly on the test-retest correlation $\rho$ between trials:
+\begin{equation}
+\sigma_{\Delta} = \sqrt{\sigma_1^2 + \sigma_2^2 - 2 \rho \sigma_1 \sigma_2}
+\end{equation}
+When the test-retest correlation is high, within-subject differencing cancels out stable individual evaluative variance, yielding a change-score standard deviation substantially smaller than the cross-sectional baseline standard deviation ($\sigma_{\Delta} \ll \sigma_1$). In our primary analytic sample, aesthetic judgments are highly stable across repeated trials ($r = 0.8993$, with $\sigma_1 = 1.504$ and $\sigma_2 = 1.554$), yielding a change-score standard deviation of $\sigma_{\Delta} = 0.688$. This within-subject autocorrelation reduces the standard error of treatment comparisons by more than 50\% relative to an independent post-test design without pre-treatment baselines.
+
+For a two-sample Difference-in-Differences comparison between a treatment condition of size $N_T$ and the unexposed Control Condition of size $N_C$, the standard error is:
+\begin{equation}
+SE_{\text{DiD}} = \sigma_{\Delta} \sqrt{\frac{1}{N_T} + \frac{1}{N_C}}
+\end{equation}
+The Minimum Detectable Effect at significance level $\alpha$ (two-tailed) and statistical power $1 - \beta$ is calculated as:
+\begin{equation}
+\text{MDE}_{\text{raw}} = (z_{1 - \alpha/2} + z_{1 - \beta}) \times SE_{\text{DiD}}
+\end{equation}
+where $z_{0.975} = 1.960$ for $\alpha = 0.05$, $z_{0.80} = 0.842$ for 80\% power (multiplier $= 2.802$), and $z_{0.90} = 1.282$ for 90\% power (multiplier $= 3.242$). To facilitate comparison across studies, effect sizes are expressed both in raw 7-point Likert scale units ($\text{MDE}_{\text{raw}}$) and as standardized effect sizes relative to baseline variance, Cohen's $d = \text{MDE}_{\text{raw}} / \sigma_1$ \citep{cohen1988statistical}.
+
+Table \ref{tbl:mde_analysis} presents the complete MDE calculations across all experimental conditions, and Figure \ref{fig:mde_curves} visualizes the theoretical precision curves alongside the empirical thresholds achieved in this study.
+
+\input{tables/table_mde_summary.tex}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figures/Figure_MDE_Power_Curves.png}
+    \caption{Minimum Detectable Effect (MDE) Power Analysis. Panel A displays theoretical MDE curves (Cohen's $d$) at 80\% power ($\alpha = 0.05$) across cell sample sizes, illustrating the precision advantage of repeated-measures DiD across varying levels of test-retest autocorrelation ($r$). Panel B displays the empirical MDE thresholds achieved in this study across within-subject drift, pooled DiD models, and status-differentiated subgroup comparisons.}
+    \label{fig:mde_curves}
+\end{figure}
+
+The MDE analysis yields three primary methodological takeaways. First, regarding repeated-measures exposure drift (Panel A of Table \ref{tbl:mde_analysis}), the primary analytic sample ($N = 1,981$) possessed extraordinary statistical power, capable of detecting shifts as minute as Cohen's $d \ge 0.029$ (0.043 scale points). Crucially, even within the unexposed Control Condition ($N_C = 157$), the design was powered at 80\% to detect a drift of $d \ge 0.102$ (0.154 scale points). This high baseline precision enabled us to reliably identify the empirical $+0.140$ exposure drift in the Control Condition ($t = 3.43, p < 0.001$), confirming that the upward drift was not an artifact of random noise.
+
+Second, for the pooled Difference-in-Differences models compared against the unexposed Control Condition (Panel B of Table \ref{tbl:mde_analysis}), the design possessed 80\% power to detect small treatment effects: $d \ge 0.117$ (0.176 points) for pooled high-status conditions (mean $N_T \approx 505$ per arm), $d \ge 0.130$ (0.196 points) for single-status cue conditions (mean $N_T \approx 254$ per arm), and $d \ge 0.146$ (0.220 points) for taste-only conditions (mean $N_T = 150$ per arm). All three pooled thresholds fall comfortably below Cohen's standard threshold for a ``small'' effect size ($d = 0.20$). This confirms that the pooled models were well-equipped to detect subtle social influence cues.
+
+Third, within the disaggregated status-consistency quadrants (Panel C of Table \ref{tbl:mde_analysis}), cell sizes are necessarily smaller, resulting in wider detection envelopes. In the two larger, status-consistent quadrants—Working Class without College ($N_C = 55$) and Middle Class with College ($N_C = 50$)—the median MDE thresholds were $d = 0.223$ (0.335 scale points), providing adequate power for small-to-moderate effects. In contrast, in the smaller, status-inconsistent quadrants—Middle Class without College ($N_C = 31$) and Working Class with College ($N_C = 21$)—the median MDE thresholds increased to $d = 0.286$ (0.429 points) and $d = 0.354$ (0.532 points). Consequently, statistically significant shifts in these cells emerged only when behavioral adjustments were pronounced, such as the $-0.327$ negative divergence ($p = 0.013$) observed among college-educated working-class respondents exposed to High-Status Dislike cues. Methodologically, this indicates that non-significant coefficients in the smallest status cells should be interpreted as reflecting greater estimation uncertainty rather than definitive evidence of null effects.
+
+A final design note concerns the consolidation of the High-Status condition used throughout the analyses. Formal linear hypothesis tests on Trial 1-to-Trial 2 change scores confirm that responses to the Economic Specialist and Cultural Specialist arms are statistically indistinguishable for positive cues ($F = 0.35, p = 0.55$ in the pooled sample; $F = 1.11, p = 0.29$ among college graduates) and for negative cues ($F = 0.07, p = 0.80$ in the pooled sample; $F = 0.06, p = 0.80$ among college graduates). Retaining the distinction would expand the crossed status-by-condition design from 24 to 36 cells, with treatment cells as small as $N = 15$ and control cells as small as $N = 21$, pushing the Minimum Detectable Effect in the smallest cells to approximately Cohen's $d = 0.43$. The pooled High-Status arms contain approximately $N = 505$ respondents per arm in the primary sample and $N = 575$ in the full sample.
+
+\section{Survey Vignettes and Treatment Prompts}
+\label{sec:appendix_vignettes}
+Below we transcribe the verbatim wording, instructions, question stems, and response options of the survey instrument administered in the 2012 study, based on the original Qualtrics protocol.
+
+\subsection*{1. Baseline Measurement (Trial 1)}
+Respondents were presented with the high-resolution image of James McNeill Whistler's \textit{Nocturne: Blue and Gold -- Old Battersea Bridge} (1872) accompanied by the following verbatim introductory instrucuestion prompt:
+\begin{quote}
+\textbf{Screen Text / Instruction:} \\
+\textit{``Please look at this painting for a few seconds.''} \\[4pt]
+\textbf{Question Prompt:} \\
+\textit{``Give us your first impression of this painting -- how much do you like it?''}
+\end{quote}
+Responses were recorded using the following 8 single-choice options:
+\begin{itemize}
+    \item 1 = I like it very much
+    \item 2 = I like it
+    \item 3 = I like it just a little
+    \item 4 = I neither like it nor dislike it
+    \item 5 = I dislike it just a little
+    \item 6 = I dislike it
+    \item 7 = I dislike it very much
+    \item 8 = I can't see the image
+\end{itemize}
+Items were reverse-coded during data processing (1 = ``dislike very much'', 4 = ``neither like nor dislike'', 7 = ``like very much'') so that higher numerical values indicate greater aesthetic affinity.
+
+\subsection*{2. Experimental Treatment Vignettes}
+Following their initial evaluation, respondents in the experimental conditions were exposed to feedback regarding the evaluations of others. Notably, the prompt did \textit{not} describe the evaluating group relative to the participant; instead, it presented absolute descriptive characteristics of the alter group, letting social proximity or distance emerge relationally from the participant's own social location.
+
+\paragraph{A. Status-Differentiated Conditions (Class \& Taste):}
+Respondents assigned to conditions crossing status and valence read:
+\begin{quote}
+\textit{``Thank you for your response. Our survey so far indicates that the group of people most likely to say that they [LIKE / DISLIKE] the painting you saw have completed\dots''}
+\end{quote}
+where the alter characteristics varied by experimental condition:
+\begin{itemize}
+    \item \textbf{Low-Status Others (LCC):} \textit{``\dots high school but did not go to college, and work in a food service job.''}
+    \item \textbf{High-Status Economic Specialists (ES):} \textit{``\dots a Bachelor's degree in Business but no additional degrees, and work at a financial investment firm.''}
+    \item \textbf{High-Status Cultural Specialists (CS):} \textit{``\dots several advanced degrees including a PhD, and work at a college or university.''}
+\end{itemize}
+
+Immediately following the vignette, respondents answered a subjective similarity probe:
+\begin{quote}
+\textit{``Given only what you know about this group's education, occupation, and opinion about the painting, how similar do you think you are to the people in this group?''}
+\end{quote}
+with response options: \textit{Very similar}, \textit{Somewhat similar}, \textit{Just a little similar}, \textit{Not very similar}, or \textit{Not at all similar}.
+
+\paragraph{B. Undifferentiated Taste-Only Conditions (Control 2):}
+Respondents in the Taste-Only conditions were told:
+\begin{quote}
+\textit{``Thank you for your response. Other people who have taken this survey recently have said that they [LIKE / DISLIKE] the painting you saw.''} \\[4pt]
+\textit{``Given only what you know about these people's opinion about the painting, how similar do you think you are to them?''}
+\end{quote}
+with the identical 5-point similarity response options.
+
+\paragraph{C. Unexposed Control Condition (No Alter):}
+Respondents assigned to the pure Control Condition received no feedback screen, evaluation valence, or information about others whatsoever, proceeding directly from Trial 1 to the intervening survey block.
+
+\subsection*{3. Alter Attribution Probe (Survey Page 6, Treatment Respondents Only)}
+Immediately after the similarity question, respondents in the status-differentiated conditions completed an attribution check:
+\begin{quote}
+\textit{``In the last question, when you thought about how similar you are to the people in this group, which factor was most influential?''}
+\end{quote}
+with response options:
+\begin{itemize}
+    \item Their education and/or occupation
+    \item Their opinion about the painting
+    \item A combination of both
+\end{itemize}
+
+\subsection*{4. Intervening Survey Battery (Cognitive Buffer, Survey Pages 7--15)}
+Between Trial 1 and Trial 2, all respondents completed substantive survey modules lasting 15 to 20 minutes, comprising full educational history (highest degree attained and college major field), intergenerational educational capital (parental bachelor's degree attainment), employment status, detailed 22-category Standard Occupational Classification (SOC), annual personal pre-tax income (23 income brackets), subjective social class self-identification (Lower class, Working class, Middle class, Upper class), and an extensive musical taste battery assessing liking, listening frequency, favorite genre, and perceived audience demographic stereotypes across 20 distinct musical genres.
+
+\subsection*{5. Post-Treatment Measurement (Trial 2, Survey Page 16)}
+Following the intervening modules, respondents were re-shown the identical artwork and asked:
+\begin{quote}
+\textbf{Screen Text / Instruction:} \\
+\textit{``Please look at this painting for a few seconds again.''} \\[4pt]
+\textbf{Question Prompt:} \\
+\textit{``Give us your final impression of this painting -- how much do you like it?''}
+\end{quote}
+recorded using the identical 8 single-choice options (from 1 = ``I like it very much'' to 7 = ``I dislike it very much'', plus ``I can't see the image''), reverse-coded on the same 1--7 scale.
+
+\section{Full Regression Tables for Moderated DiD Models}
+\label{sec:appendix_regression_tables}
+Tables \ref{tbl:did_edu_4tiers} and \ref{tbl:did_status_quadrants} report the full set of Difference-in-Differences regression coefficients, standard errors, and sample sizes for the moderated models in the primary analytic sample (Age $\ge 25$, $N = 1,981$), corresponding to the four-group education analysis (Figure \ref{fig:did_edu_4tiers} in Section \ref{sec:edu_models}) and the status consistency matrix.
+
+\input{tables/table_did_edu_4tiers.tex}
+
+\input{tables/table_did_status_quadrants.tex}
+
+Table \ref{tbl:did_edu_class_primary} and Figure \ref{fig:did_edu_class_separate} report a complementary specification for the primary analytic sample (Age $\ge 25$, $N = 1{,}981$) in which educational attainment and subjective social class are each entered \textit{alone} (rather than crossed into the four-tier or four-quadrant typologies used in the main text). Panel A of Table \ref{tbl:did_edu_class_primary} moderates the Difference-in-Differences treatment contrasts by a simple binary indicator of educational attainment (No College Degree vs.\ College Degree or Higher), and Panel B moderates the same contrasts by subjective social class identification alone (Working Class vs.\ Middle Class). Consistent with the four-tier educational disaggregation reported in Section \ref{sec:edu_models}, college-educated respondents in the primary sample show significant negative suppression under Generalized Dislike ($\text{DiD} = -0.368, p < 0.01$) and High-Status Dislike ($\text{DiD} = -0.299, p < 0.01$), while respondents without a college degree show no significant response to any treatment condition. Subjective social class identification alone yields a comparatively diffuse pattern: Working Class respondents show a significant negative shift only under Generalized Dislike ($\text{DiD} = -0.260, p = 0.01$), while Middle Class respondents show scattered, weaker suppression under High-Status Dislike ($\text{DiD} = -0.214, p = 0.02$) and Low-Status Like ($\text{DiD} = -0.199, p = 0.05$). This confirms that educational attainment, rather than subjective class identification, is the more decisive single-axis moderator of social influence, which motivated our decision to foreground the four-tier educational model (Figure \ref{fig:did_edu_4tiers}) in the main text and to reserve subjective class for its structural role in the status consistency typology (Section \ref{sec:behavioral_models}).
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Figure_DiD_Edu_Class_Separate.png}
+    \caption{Difference-in-Differences Treatment Effects Moderated Separately by Educational Attainment Alone (Panel A) and Subjective Social Class Alone (Panel B), Primary Sample (Age $\ge 25$, $N = 1{,}981$, Targeted Binary IPW). Horizontal bars indicate point estimates with 95\% confidence intervals relative to the unexposed Control Condition within each group (dashed line at zero). Colors denote statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$). Full regression estimates are reported in Table \ref{tbl:did_edu_class_primary}.}
+    \label{fig:did_edu_class_separate}
+\end{figure}
+
+\input{tables/table_did_edu_class_primary.tex}
+
+As a supplementary check on the internal homogeneity of the intermediate educational tier, we compared discrete behavioral choices within the Two-Year Associate Degree or Some College group. Terminal Associate degree holders ($N = 196$) and non-degreed college attenders ($N = 459$) exhibit statistically indistinguishable behavioral distributions, with nearly identical stay rates ($70.4\%$ vs.\ $73.0\%$; $\chi^2 = 0.34, p = 0.56$). The evaluative inertia of this intermediate tier is therefore not an artifact of pooling terminal degree holders with non-degreed attenders.
+
+\section{Comparison of Unweighted and IPW-Weighted DiD Models}
+\label{sec:appendix_ipw_compare}
+Table \ref{tbl:appendix_did_compare} reports the side-by-side comparison between the primary unweighted DiD model and the IPW-weighted model balancing baseline age, gender, race/ethnicity, and parental education across the primary analytic sample (Age $\ge 25$). Both specifications produce similar point estimates and identical substantive conclusions regarding valence asymmetry and exposure drift suppression; the one visible difference is that the marginal Low-Status Like contrast ($p < 0.10$ unweighted) attenuates toward zero once observations are IPW-weighted.
+
+\input{tables/table_did_pooled_compare.tex}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.88\textwidth]{figures/Figure_DiD_Pooled.png}
+    \caption{Difference-in-Differences Treatment Effects in the Primary Sample (Age $\ge 25$, Unweighted Linear Mixed Model). Horizontal bars denote point estimates with 95\% confidence intervals relative to the unexposed Control Condition (dashed line at zero). Colors indicate statistical significance: red ($p < 0.05$), orange ($p < 0.10$), and grey ($p \ge 0.10$).}
+    \label{fig:did_pooled}
+\end{figure}
+
+\section{Sensitivity Analysis: Behavioral Choices Excluding Taste-Only Conditions}
+\label{sec:appendix_sens_multinom}
+To verify that the discrete behavioral patterns documented in the main text (Figure \ref{fig:multinom}) are specifically generated by status-differentiated social influence rather than by undifferentiated taste-consensus cues, we conducted a sensitivity analysis by excluding respondents assigned to the two Taste-Only conditions ($N = 300$ in the primary sample). The resulting analytic sample ($N = 1,649$) restricts behavioral classification to respondents exposed to feedback that combines evaluation valence and others' occupational/educational status, alongside unexposed control stayers.
+
+Figure \ref{fig:sens_multinom} displays the Average Marginal Effects from this sensitivity specification, compared against Working Class respondents without a college degree. As shown in the figure, all substantive patterns persist with exceptional stability: status-consistent college-educated respondents exhibit elevated evaluative stability ($\text{AME} = +0.071, p < 0.001$), status-inconsistent respondents exhibit heightened conformity ($\text{AME} = +0.054, p < 0.001$ for Working Class with College; $\text{AME} = +0.050, p < 0.001$ for Middle Class without College), and oppositional reactance remains concentrated among non-college working-class respondents ($\text{AME} = -0.032, p = 0.002$ for Middle Class with College; the Working Class with College contrast attenuates to $-0.012, p = 0.28$). Notably, under this status-restricted specification, the lower evaluative stability of status-inconsistent non-college respondents emerges as statistically significant ($\text{AME} = -0.031, p = 0.04$), reinforcing our core finding that status crystallization anchors aesthetic judgments against external social influence.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Figure11_Sens_MultinomialBehavior.png}
+    \caption{Sensitivity Analysis: Average Marginal Effects on Behavioral Choices (Stay, Conform, React) Across Status-Consistency Groups, Excluding Taste-Only Conditions (Age $\ge 25$ Sample, $N = 1,649$). Horizontal bars indicate differences in choice probability relative to Working Class respondents without a college degree, with 95\% confidence intervals. Colors indicate statistical significance: red ($p < 0.05$) and grey ($p \ge 0.10$).}
+    \label{fig:sens_multinom}
+\end{figure}
+
+\section{Robustness Check: Alternative Definition of Social Class}
+\label{sec:appendix_class_robustness}
+Restricting the subjective class definition strictly to respondents self-identifying as ``working class'' or ``middle class'' (excluding lower and upper class extremes) produces identical conclusions: status-consistent groups maintain the highest stay rates (Middle/College: 80.1\%; Working/No College: 75.3\%) and status-inconsistent groups maintain the highest conformity rates (Middle/No College: 18.2\%; Working/College: 16.7\%).
+
+\section{Robustness Check: Unrestricted Full Sample (N = 2,253) Estimates}
+\label{sec:appendix_full_sample}
+In this appendix, we report the complete estimation results obtained when including the entire survey population without age restrictions ($N = 2,253$ respondents providing complete pre- and post-treatment evaluations, of whom $2,252$ are complete on all baseline covariates used by the models, including the 18--24 cohort; $4,504$ repeated observations across trials). As demonstrated below, all substantive conclusions, directional signs, and empirical hypothesis verdicts are completely invariant to the inclusion of younger respondents who may not yet have completed college.
+
+Table \ref{tbl:full_sample_descriptives} reproduces the demographic distribution of the full unrestricted sample ($N = 2,275$). Tables \ref{tbl:did_edu_class_full} and \ref{tbl:did_status_quadrants_full} report the full sample estimates for the stepwise models (moderated separately by education and subjective class) and the four-quadrant status consistency matrix, respectively.
+
+\begin{table}[ht!]
+\centering
+\small
+\caption{Demographic Characteristics of Full Unrestricted Sample ($N = 2,275$)}
+\label{tbl:full_sample_descriptives}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
+\toprule
+Demographic Variable & Sample $N$ & Sample \% & U.S. Pop \% & Treatment & Control & Taste Only \\
+\midrule
+\textbf{Gender} & & & & & & \\
+\quad Women & 1,184 & 52.0\% & 51.5\% & 51.7\% & 52.2\% & 53.9\% \\
+\quad Men & 1,090 & 47.9\% & 48.5\% & 48.3\% & 47.8\% & 46.1\% \\
+\addlinespace[3pt]
+\textbf{Race / Ethnicity} & & & & & & \\
+\quad White & 1,463 & 64.3\% & 65.1\% & 64.7\% & 63.2\% & 63.1\% \\
+\quad Hispanic / Latino & 365 & 16.0\% & 15.8\% & 16.2\% & 14.8\% & 15.9\% \\
+\quad Black / African American & 279 & 12.3\% & 12.3\% & 12.1\% & 13.7\% & 12.1\% \\
+\quad Asian / Pacific Islander & 103 & 4.5\% & 4.5\% & 4.4\% & 5.5\% & 4.6\% \\
+\quad Other / Multiracial & 64 & 2.8\% & 2.3\% & 2.5\% & 2.7\% & 4.3\% \\
+\addlinespace[3pt]
+\textbf{Age Group} & & & & & & \\
+\quad 18--24 & 272 & 12.0\% & 13.1\% & 11.9\% & 11.0\% & 12.7\% \\
+\quad 25--34 & 410 & 18.0\% & 17.5\% & 18.2\% & 16.5\% & 17.9\% \\
+\quad 35--44 & 402 & 17.7\% & 17.5\% & 17.9\% & 13.7\% & 18.7\% \\
+\quad 45--54 & 441 & 19.4\% & 19.2\% & 19.4\% & 20.9\% & 18.4\% \\
+\quad 55--64 & 372 & 16.4\% & 15.6\% & 16.5\% & 15.4\% & 16.1\% \\
+\quad 65+ & 377 & 16.6\% & 17.2\% & 16.0\% & 22.5\% & 16.1\% \\
+\addlinespace[3pt]
+\textbf{Geographic Region} & & & & & & \\
+\quad Northeast & 417 & 18.3\% & 17.9\% & 18.8\% & 16.5\% & 17.0\% \\
+\quad South & 816 & 35.9\% & 37.2\% & 36.6\% & 39.6\% & 30.5\% \\
+\quad Midwest & 505 & 22.2\% & 21.6\% & 21.3\% & 26.4\% & 24.8\% \\
+\quad West & 536 & 23.6\% & 23.3\% & 23.4\% & 17.6\% & 27.7\% \\
+\addlinespace[3pt]
+\textbf{Education (Oversampled)} & & & & & & \\
+\quad Less than High School & 89 & 3.9\% & 13.3\% & 3.8\% & 3.3\% & 4.6\% \\
+\quad High School Diploma & 474 & 20.8\% & 30.4\% & 20.3\% & 23.6\% & 21.9\% \\
+\quad Some College / AA & 791 & 34.8\% & 28.5\% & 36.0\% & 31.3\% & 30.5\% \\
+\quad Bachelor's Degree & 625 & 27.5\% & 18.1\% & 27.3\% & 27.5\% & 28.5\% \\
+\quad Graduate / Professional & 296 & 13.0\% & 9.6\% & 12.6\% & 14.3\% & 14.4\% \\
+\midrule
+\textbf{Total $N$} & \textbf{2,275} & \textbf{100.0\%} & & \textbf{1,746} & \textbf{182} & \textbf{347} \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+\textit{Note:} U.S. population benchmarks are drawn from the 2010/2012 U.S. Census Bureau Current Population Survey (CPS). One respondent in the full sample did not report gender.
+\end{minipage}
+\end{table}
+
+\input{tables/table_did_edu_class_separate.tex}
+
+\input{tables/table_did_status_quadrants_full.tex}
+
+\end{document}

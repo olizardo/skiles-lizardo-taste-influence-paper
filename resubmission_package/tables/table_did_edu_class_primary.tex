@@ -1,0 +1,30 @@
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences Estimates Moderated Separately by Education and Subjective Class (Primary Sample, Age $\ge 25$, $N = 1{,}981$)}
+\label{tbl:did_edu_class_primary}
+\setlength{\tabcolsep}{2.0pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{\textbf{Panel A: Education Alone}} & \multicolumn{2}{c}{\textbf{Panel B: Subjective Class Alone}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Treatment Condition} & No College & College Degree & Working Class & Middle Class \\
+\midrule
+Generalized Like & +0.194 (0.119) & -0.116 (0.107) & +0.045 (0.111) & +0.078 (0.114) \\
+High-Status Like & +0.096 (0.089) & -0.119 (0.089) & +0.068 (0.085) & -0.016 (0.091) \\
+Low-Status Like & -0.043 (0.100) & -0.154 (0.101) & -0.051 (0.096) & -0.199$^{*}$ (0.101) \\
+Generalized Dislike & -0.009 (0.110) & -0.368$^{**}$ (0.112) & -0.260$^{*}$ (0.106) & -0.167 (0.113) \\
+High-Status Dislike & -0.108 (0.089) & -0.299$^{**}$ (0.091) & -0.139 (0.086) & -0.214$^{*}$ (0.092) \\
+Low-Status Dislike & +0.120 (0.100) & -0.203$^{*}$ (0.097) & +0.023 (0.097) & -0.117 (0.100) \\
+\midrule
+Control Condition Drift & +0.042 (0.078) & +0.263$^{***}$ (0.078) & +0.132$^{\dagger}$ (0.073) & +0.172$^{*}$ (0.080) \\
+Sample Size ($N$) & 1,123 & 858 & 923 & 1,058 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses. \newline
+\textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each demographic subpopulation, estimated via targeted binary Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education, for the primary analytic sample (Age $\ge 25$). Panel A estimates moderation by educational attainment alone (No College Degree vs.\ Bachelor's Degree or Higher). Panel B estimates moderation by subjective social class identification alone (Working Class vs.\ Middle Class). See Figure \ref{fig:did_edu_class_separate} for the corresponding visualization and Appendix Table \ref{tbl:did_edu_class_full} for the identical specification on the full unrestricted sample.
+\end{minipage}
+\end{table}

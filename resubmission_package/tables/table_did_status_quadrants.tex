@@ -1,0 +1,30 @@
+\begin{table}[ht!]
+\centering
+\small
+\caption{Difference-in-Differences Treatment Effects Across Status Consistency Quadrants (Age $\ge 25$ Sample, IPW-Weighted)}
+\label{tbl:did_status_quadrants}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{\textbf{Working Class Identification}} & \multicolumn{2}{c}{\textbf{Middle Class Identification}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+\textbf{Treatment Condition} & No College & College Degree & No College & College Degree \\
+\midrule
+Generalized Like & +0.173 (0.164) & -0.146 (0.156) & +0.309$^{\dagger}$ (0.184) & -0.110 (0.157) \\
+High-Status Like & +0.089 (0.117) & -0.022 (0.133) & +0.128 (0.136) & -0.156 (0.128) \\
+Low-Status Like & -0.103 (0.136) & +0.011 (0.147) & -0.096 (0.151) & -0.318$^{*}$ (0.148) \\
+Generalized Dislike & -0.189 (0.146) & -0.423$^{*}$ (0.168) & +0.072 (0.177) & -0.360$^{*}$ (0.159) \\
+High-Status Dislike & -0.057 (0.119) & -0.327$^{*}$ (0.132) & -0.223$^{\dagger}$ (0.136) & -0.251$^{\dagger}$ (0.132) \\
+Low-Status Dislike & +0.175 (0.142) & -0.146 (0.145) & -0.024 (0.151) & -0.241$^{\dagger}$ (0.139) \\
+\midrule
+Control Exposure Drift & +0.022 (0.101) & +0.290$^{*}$ (0.116) & +0.085 (0.122) & +0.261$^{*}$ (0.113) \\
+Analytic Sample ($N$) & 680 & 243 & 443 & 615 \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{4pt}
+\footnotesize
+$^{\dagger}p < 0.10, ^{*}p < 0.05, ^{**}p < 0.01, ^{***}p < 0.001$. Standard errors in parentheses. \newline
+\textit{Note:} Estimates represent Difference-in-Differences treatment contrasts relative to the unexposed Control Condition within each status consistency quadrant for the primary sample (Age $\ge 25$, $N = 1{,}981$), estimated using generalized multinomial Inverse Probability Weighting (IPW) balancing baseline age, gender, race/ethnicity, and parental education.
+\end{minipage}
+\end{table}
