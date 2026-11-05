@@ -8,6 +8,7 @@ This repository contains the data-analysis pipeline that generates the numerical
 
 ```
 R/
+  00_get_data.R            Downloads the public SSI-2012 data file if no local copy exists
   01_dataproc.R            Cleans the raw SSI-2012 file and builds analysis variables
   02_samples.R             Sample sizes, shares, and design parameters (tables/sample_sizes.csv)
   03_models_did.R          Difference-in-differences mixed models (Sections 3.1-3.2)
@@ -34,13 +35,11 @@ renv::restore()
 
 ## Data
 
-The analysis uses the 2012 Survey of Social Influence (SSI-2012) experimental data. The cleaned Stata file (`ssi2012_cleaned.dta`) is not included in this repository. Point the pipeline to your local copy with the `SSI_DATA_PATH` environment variable, for example in `~/.Renviron`:
+The analysis uses the 2012 Survey of Social Influence (SSI-2012) experimental data, publicly released by the authors at https://olizardo.github.io/SSI-2012/ under CC BY 4.0. The data are not stored in this repository. `R/run_all.R` downloads the cleaned Stata file (`ssi2012_cleaned.dta`) into `data/` on first run via `get_ssi_data()` in `R/00_get_data.R`. To fetch it manually, run `source("R/00_get_data.R"); get_ssi_data()`. The `data/` directory is git-ignored.
 
-```
-SSI_DATA_PATH=/path/to/SSI-2012/data/clean/ssi2012_cleaned.dta
-```
+To use a different copy, set `SSI_DATA_PATH` (for example in `~/.Renviron`) to its location. The pipeline checks that path first.
 
-If the variable is unset, the pipeline looks for `data/ssi2012_cleaned.dta` inside the repository. The data directory is git-ignored.
+The released file has 2,275 records. The local working copy used during analysis carried one extra blank row, so the raw row count reported in `tables/sample_sizes.csv` is 2,275 when run on the release. All analytic sample sizes match the paper.
 
 ## Running the pipeline
 

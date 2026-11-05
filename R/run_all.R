@@ -23,6 +23,10 @@
 
 t0 <- Sys.time()
 
+# Download the SSI-2012 data from the public release if no local copy exists
+source("R/00_get_data.R", echo = FALSE)
+get_ssi_data()
+
 steps <- c(
   "R/02_samples.R",
   "R/03_models_did.R",
