@@ -21,12 +21,15 @@ suppressPackageStartupMessages({
 })
 
 # ------------------------------------------------------------------------------
-# Candidate locations of the raw data (first existing path is used)
+# Location of the raw data. The file is not redistributed with this repository;
+# set SSI_DATA_PATH to its location (see README.md). The default expects a local
+# copy at data/ssi2012_cleaned.dta.
 # ------------------------------------------------------------------------------
-.raw_data_candidates <- c(
-  "/home/omarlizardo/projects/CULTURE/cultural-consensus-musical-genres/SSI-2012/data/clean/ssi2012_cleaned.dta",
-  "/home/omarlizardo/ACADEMIC AND COURSE MATERIALS/SSI-2012/data/clean/ssi2012_cleaned.dta"
-)
+.raw_data_candidates <- unique(c(
+  Sys.getenv("SSI_DATA_PATH", unset = NA),
+  file.path("data", "ssi2012_cleaned.dta")
+))
+.raw_data_candidates <- .raw_data_candidates[!is.na(.raw_data_candidates) & nzchar(.raw_data_candidates)]
 
 resolve_data_path <- function(data_path = NULL) {
   if (!is.null(data_path)) {
